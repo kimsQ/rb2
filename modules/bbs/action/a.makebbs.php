@@ -13,6 +13,13 @@ $writecode = trim($writecode);
 $puthead = $inc_head_list.$inc_head_view.$inc_head_write;
 $putfoot = $inc_foot_list.$inc_foot_view.$inc_foot_write;
 
+if ($send_mod=='ajax') {
+	$_HS = getDbData($table['s_site'],"id='".$r."'",'uid');
+	$site = $_HS['uid'];
+	$result=array();
+	$result['error']=false;
+}
+
 if (!$name) getLink('','','게시판이름을 입력해 주세요.','');
 if (!$id) getLink('','','아이디를 입력해 주세요.','');
 
@@ -81,7 +88,15 @@ if ($bid)
 }
 else {
 
-	if(getDbRows($table[$m.'list'],"id='".$id."'")) getLink('','','이미 같은 아이디의 게시판이 존재합니다.','');
+	if (getDbRows($table[$m.'list'],"id='".$id."'")) {
+		if ($send_mod=='ajax') {
+			$result['error']='id_exists';
+			echo json_encode($result);
+			exit;
+		} else {
+			getLink('','','이미 같은 아이디의 게시판이 존재합니다.','');
+		}
+	}
 
 	$imgset = array('head','foot');
 
@@ -156,8 +171,13 @@ if ($bid) {
 	setrawcookie('result_bbs_main', rawurlencode($name.' 게시판 등록정보가 변경 되었습니다.|success'));  // 처리여부 cookie 저장
 	getLink('reload','parent.','','');
 } else {
-	setrawcookie('result_bbs_main', rawurlencode($name.' 게시판이 생성 되었습니다.|success'));  // 처리여부 cookie 저장
-	getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=main_detail&uid='.$lastbbs,'parent.','','');
+	if ($send_mod=='ajax') {
+		echo json_encode($result);
+		exit;
+	} else {
+		setrawcookie('result_bbs_main', rawurlencode($name.' 게시판이 생성 되었습니다.|success'));  // 처리여부 cookie 저장
+		getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=main_detail&uid='.$lastbbs,'parent.','','');
+	}
 }
 
 ?>

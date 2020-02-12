@@ -259,8 +259,73 @@ include $g['dir_layout'].'_var/_var.config.php';
   </div>
 </section>
 
+<section class="page right" id="page-widget-makelist">
+  <header class="bar bar-nav bar-light bg-white px-0">
+    <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
+    <button class="btn btn-link btn-nav pull-right px-4" data-act="submit">
+      <span class="not-loading">
+        만들기
+      </span>
+      <span class="is-loading">
+        <div class="spinner-border spinner-border-sm text-primary" role="status">
+          <span class="sr-only">생성중...</span>
+        </div>
+      </span>
+    </button>
+    <h1 class="title title-left" data-history="back">
+      새 리스트
+    </h1>
+  </header>
+  <main class="content bg-white">
+
+    <div class="form-list floating">
+      <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
+        <label class="w-100">리스트 명</label>
+        <input type="text" placeholder="리스트 명" name="name">
+        <div class="invalid-tooltip"></div>
+      </div>
+    </div>
+
+  </main>
+</section>
+
+<section class="page right" id="page-widget-makebbs">
+  <header class="bar bar-nav bar-light bg-white px-0">
+    <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
+    <button class="btn btn-link btn-nav pull-right px-4" data-act="submit">
+      <span class="not-loading">
+        만들기
+      </span>
+      <span class="is-loading">
+        <div class="spinner-border spinner-border-sm text-primary" role="status">
+          <span class="sr-only">생성중...</span>
+        </div>
+      </span>
+    </button>
+    <h1 class="title title-left" data-history="back">
+      새 게시판
+    </h1>
+  </header>
+  <main class="content bg-white">
+    <form class="">
+      <div class="form-list floating">
+        <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
+          <label class="w-100">게시판 아이디 <span class="ml-1">(영문 또는 숫자만)</span></label>
+          <input type="text" placeholder="게시판 아이디" name="id">
+          <div class="invalid-tooltip"></div>
+        </div>
+        <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
+          <label class="w-100">게시판 이름</label>
+          <input type="text" placeholder="게시판 이름" name="name">
+          <div class="invalid-tooltip"></div>
+        </div>
+      </div>
+    </form>
+  </main>
+</section>
+
 <!-- 레이아웃 위젯탐색기 -->
-<div id="modal-widget-selector" class="modal fast">
+<section id="modal-widget-selector" class="modal fast">
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
     <h1 class="title title-left" data-history="back">위젯 찾아보기</h1>
@@ -296,9 +361,9 @@ include $g['dir_layout'].'_var/_var.config.php';
       <img src="" alt="" data-role="thumb" class="img-fluid d-none">
     </div>
   </div>
-</div>
+</section>
 
-<div id="sheet-layoutreset-confirm" class="sheet" style="top: 70vh;">
+<section id="sheet-layoutreset-confirm" class="sheet" style="top: 70vh;">
   <header class="bar bar-nav bar-inverse bg-primary">
     <h1 class="title title-left px-3">초기화 전 유의사항</h1>
   </header>
@@ -315,6 +380,6 @@ include $g['dir_layout'].'_var/_var.config.php';
       <p>모바일 메인 페이지를 초기 상태로 되돌립니다.</p>
     </div>
   </main>
-</div>
+</section>
 
 <script src="<?php echo $g['url_layout']?>/_js/settings.js<?php echo $g['wcache']?>"></script>

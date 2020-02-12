@@ -90,7 +90,16 @@ if ($uid) {
   if (!$id) getLink('reload','parent.','아이디를 입력해 주세요.','');
 
   if(getDbRows($table[$m.'list'],"id='".$id."'")) getLink('reload','parent.','이미 같은 아이디의 리스트가 존재합니다.','');
-  if(getDbRows($table[$m.'list'],"name='".$name."' and mbruid=".$mbruid)) getLink('reload','parent.','이미 같은 이름의 리스트가 존재합니다.','');
+
+  if(getDbRows($table[$m.'list'],"name='".$name."' and mbruid=".$mbruid)) {
+    if ($send_mod == 'ajax') {
+      $result['error'] = 'name_exists';
+      echo json_encode($result);
+      exit;
+    } else {
+      getLink('reload','parent.','이미 같은 이름의 리스트가 존재합니다.','');
+    }
+  }
 
   $display = $display?$display:1;
   $maxgid = getDbCnt($table[$m.'list'],'max(gid)','');
@@ -113,6 +122,7 @@ if ($uid) {
     $result=array();
     $result['error'] = false;
     $result['uid'] = $LASTUID;
+    $result['id'] = $_R['id'];
     $result['icon'] = $g['displaySet']['icon'][$_R['display']];
     $result['label'] = $g['displaySet']['label'][$_R['display']];
     echo json_encode($result);

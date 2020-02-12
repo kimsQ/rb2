@@ -114,7 +114,8 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	      }
 
 	      if ($_v[1]=='postlist') {
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required>
+					$html .= '<div class="input-group">';
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required size="1">
 	                    <option value="">선택하세요.</option>
 	                    <option value="" disabled>----------------------------------</option>';
 	        $_sk=explode(',',$_v[3]);
@@ -126,6 +127,8 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	                    </option>';
 	                  }
 	        $html .= '</select>';
+					$html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-secondary" type="button" data-toggle="tooltip" title="리스트 추가" data-act="make" data-mod="postlist">+</button></div>';
+					$html .= '</div>';
 	      }
 
 	      if ($_v[1]=='postcat') {
@@ -137,7 +140,8 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	      }
 
 	      if ($_v[1]=='bbs') {
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required>
+					$html .= '<div class="input-group">';
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required size="1">
 	                    <option value="">선택하세요</option>
 	                    <option value="" disabled>----------------------------------</option>';
 	        $BBSLIST = getDbArray($table['bbslist'],'','*','gid','asc',0,1);
@@ -147,6 +151,8 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	                    </option>';
 	                  }
 	        $html .= '</select>';
+				  $html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-secondary" type="button" data-toggle="tooltip" title="게시판 추가"  data-act="make" data-mod="bbs">+</button></div>';
+					$html .= '</div>';
 	      }
 
 	      if ($_v[1]=='date') {

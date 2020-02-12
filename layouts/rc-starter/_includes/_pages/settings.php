@@ -246,43 +246,48 @@ include $g['dir_layout'].'_var/_var.config.php';
   </div>
 </section>
 
-<!-- 레이아웃 위젯탐색기 -->
-<div id="modal-widget-selector" class="modal fast">
+<section class="page right" id="page-widget-makebbs">
   <header class="bar bar-nav bar-light bg-white px-0">
-    <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-    <h1 class="title title-left" data-history="back">위젯 찾아보기</h1>
-  </header>
-  <div class="bar bar-standard bar-header-secondary bar-light bg-white px-0">
-    <select class="form-control custom-select border-0" name="widget_selector" data-area="">
-      <option value="">선택하세요.</option>
-      <?php include $g['dir_layout'].'_var/_var.config.php'; ?>
-      <?php $_i=1;foreach($d['layout']['widget'] as $_key => $_val):$__i=sprintf('%02d',$_i)?>
-      <optgroup label="<?php echo $_val[0]?>">
-        <?php foreach($_val[1] as $_v):?>
-        <option value="<?php echo $_key ?>/<?php echo $_v[0]?>"><?php echo $_v[1]?></option>
-        <?php endforeach?>
-      </optgroup>
-      <?php $_i++;endforeach?>
-    </select>
-  </div>
-  <nav class="bar bar-tab bar-dark bg-primary d-none">
-    <button class="btn btn-primary btn-block" role="button" data-act="apply">
-      다음
-    </button>
-  </nav>
-  <div class="content">
-    <div class="content-padded">
-      <div data-role="readme"></div>
-      <div data-role="none">
-        <div class="d-flex justify-content-center align-items-center bg-light"  style="height:370px">
-          <div class="text-muted">
-            <p>위젯을 선택해주세요.</p>
-          </div>
+    <a class="icon material-icons pull-left px-3" role="button" data-history="back">arrow_back</a>
+    <button class="btn btn-link btn-nav pull-right px-4" data-act="save" data-mod="edit">
+      <span class="not-loading">
+        생성
+      </span>
+      <span class="is-loading">
+        <div class="spinner-border spinner-border-sm text-primary" role="status">
+          <span class="sr-only">생성중...</span>
         </div>
-      </div>
-      <img src="" alt="" data-role="thumb" class="img-fluid d-none">
-    </div>
+      </span>
+    </button>
+    <h1 class="title title-left" data-history="back">새 게시판</h1>
+  </header>
+  <div class="content">
+    <p class="content-padded">
+      게시판 생성 입력항목
+    </p>
   </div>
-</div>
+</section>
 
-<script src="<?php echo $g['url_layout']?>/_js/layoutSettings.js<?php echo $g['wcache']?>"></script>
+<section class="page right" id="page-widget-makepostlist">
+  <header class="bar bar-nav bar-light bg-white px-0">
+    <a class="icon material-icons pull-left px-3" role="button" data-history="back">arrow_back</a>
+    <button class="btn btn-link btn-nav pull-right px-4" data-act="save" data-mod="edit">
+      <span class="not-loading">
+        생성
+      </span>
+      <span class="is-loading">
+        <div class="spinner-border spinner-border-sm text-primary" role="status">
+          <span class="sr-only">생성중...</span>
+        </div>
+      </span>
+    </button>
+    <h1 class="title title-left" data-history="back">새 리스트</h1>
+  </header>
+  <div class="content">
+    <p class="content-padded">
+      리스트 생성 입력항목
+    </p>
+  </div>
+</section>
+
+<script src="<?php echo $g['url_layout']?>/_js/settings.js<?php echo $g['wcache']?>"></script>
