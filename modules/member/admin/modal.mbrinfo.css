@@ -1,7 +1,0 @@
-.nav-tabs .nav-link {
-  padding: .8rem 1rem;
-}
-.nav-tabs .nav-link.active {
-  border-top: 2px solid red;
-}
-.datepicker {z-index: 1151 !important;}
