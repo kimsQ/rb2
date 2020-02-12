@@ -1,0 +1,8 @@
+<IfModule mod_headers.c>
+    Header set Content-Disposition attachment
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+<FilesMatch ".(cgi|CGI|pl|PL|php|PHP|htm|HTM|html|HTML)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>

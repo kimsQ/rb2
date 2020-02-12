@@ -1,0 +1,71 @@
+<li class="media border-bottom mb-3" data-role="comment-item" data-uid="{$comment_uid}" data-page="{$comment_page}" data-totalPage="{$total_page}" data-type="comment" data-hidden="{$comment_getHidden}" data-notice="{$comment_getNoitce}">
+  <div data-role="comment-origin-content-{$comment_uid}" class="d-none">{$comment_content}</div>
+  <img class="mr-3 border rounded-circle" src="{$comment_user_pic}" alt="아바타" width="50">
+  <div class="media-body">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <span>
+        <span data-role="comment-hidden" class="badge"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+        <strong class="mr-2">{$comment_user_name}</strong>
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <time data-role="comment-time-wrapper-{$comment_uid}">{$comment_regis_time}</time>
+        <small class="ml-1 {$comment_getNew}"></small><!-- 24시간이내 new 출력 -->
+      </span>
+      <span>
+        {$btn_showHideMenu} <!-- 메뉴 출력/숨기 버튼 btn_showHideMenu.html : 권한이 있는 경우(로그인,작성자,관리자) 에만 노출됨 -->
+      </span>
+    </div><!-- /.d-flex -->
+    <div class="markdown-body">
+      <article class="mb-0" data-role="comment-content-editable-{$comment_uid}">{$comment_content}</article>
+    </div>
+    {$btn_editMod} <!-- 수정 모드시 취소/완료 버튼 btn_ediMod.html -->
+
+    <div class="mb-2">
+      <button class="btn btn-link btn-sm add-comment px-0 muted-link" data-role="toggle-oneline-input" data-parent="{$comment_uid}">
+        <i class="fa fa-comment-o fa-lg fa-fw" aria-hidden="true"></i>
+        의견달기
+      </button>
+      <button class="btn btn-link btn-sm muted-link js-like pr-0 {$comment_getIsLiked}"
+        data-kcact="like"
+        data-type="comment"
+        data-entry="{$comment_uid}"
+        data-effect="animated bounceIn delay-1"
+        data-role="comment-isLiked-{$comment_uid}">
+        <i class="fa fa-thumbs-o-up fa-lg fa-fw" aria-hidden="true"></i>
+        좋아요
+      </button>
+      <a href="#modal_reaction" class="badge badge-light"
+        data-toggle="modal"
+        data-type="comment"
+        data-count="{$comment_like_total}"
+        data-entry="{$comment_uid}"
+        data-role="comment-likeTotal-{$comment_uid}" title="좋아요한 사람">
+        {$comment_like_total}
+      </a>
+    </div>
+
+    <section>
+      <div class="my-2" data-role="oneline-input-wrapper-{$comment_uid}"> <!-- 한줄의견 등록폼 -->
+        <form class="input-group">
+          <input type="text" class="form-control" data-role="oneline-input-{$comment_uid}"><!-- 주의 : comment_uid 가 들어가야 함 -->
+          <div class="input-group-append">
+            <button class="btn btn-light" type="submit"
+              title="의견추가"
+              data-kcact="regis"
+              data-type="oneline"
+              data-parent="{$comment_uid}"
+              data-effect="animated fadeInUp"
+              data-grant="{$grant_uid}">
+              <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form><!-- /.input-group -->
+      </div>
+
+      <ul class="list-group my-2" data-role="oneline-container-{$comment_uid}">
+        {$oneline_rows} <!-- 한줄의견 리스트 -->
+      </ul>
+    </section>
+
+
+  </div>
+</li>

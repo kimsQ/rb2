@@ -1,0 +1,5 @@
+GOOGLE,http://www.google.com/search?q=
+YAHOO,http://kr.search.yahoo.com/search?p=
+NAVER,http://search.naver.com/search.naver?query=
+NATE,http://search.nate.com/search/all.html?q=
+DAUM,http://search.daum.net/search?q=

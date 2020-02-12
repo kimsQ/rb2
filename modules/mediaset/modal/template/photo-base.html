@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>미디어삽입 미리보기 -kimsQ Rb 2.0</title>
+
+		<style type="text/css">
+		.hide {display:none;}
+		.container {padding-top:15px;margin-bottom:15px;}
+		.preview-box {float:left;width:100px;height:70px;margin:0 11px 20px 0;border:#dfdfdf solid 5px;cursor:pointer;}
+		.preview-box div {text-align:center;font-size:12px;font-weight:bold;color:#666;padding-top:20px;}
+		.preview-box div span {display:block;font-size:11px;font-weight:normal;font-family:dotum;padding-top:5px;color:#888;}
+		.active {border:#428BCA solid 5px;}
+		</style>
+
+		<script>
+		var select_tpl = '__tpl__1000';
+		function tplcheck(num,obj)
+		{
+			select_tpl = '__tpl__' + num;
+
+			var rbody = document.getElementById('rb-body');
+			var x = rbody.children[0];
+			var n = rbody.children[0].children.length;
+			var i;
+
+			for (i = 0; i < n; i++)
+			{
+				if (x.children[i].className != 'hide')
+				{
+					x.children[i].style.border = '#dfdfdf solid 5px';
+				}
+			}
+
+			obj.style.border = '#428BCA solid 5px';
+		}
+		</script>
+	</head>
+
+
+
+	<body id="rb-body">
+
+		<div class="container">
+
+
+			<!-- 전체사진-->
+			<div class="preview-box" onclick="tplcheck('all',this);">
+				<div>전체사진<span>일열출력</span></div>
+			</div>
+			<div id="__tpl__all" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A]<img alt="[ALT]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1&image=[SRC]">[/A]</div>
+					</div>
+					<div class="rb-caption">[CAPTION]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 1장(1000)-->
+			<div class="preview-box active" onclick="tplcheck('1000',this);">
+				<div>1장</div>
+			</div>
+			<div id="__tpl__1000" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1&image=[SRC-0]">[/A-0]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 2장(2000)-->
+			<div class="preview-box" onclick="tplcheck('2000',this);">
+				<div>2장<span>(상1/하1)</span></div>
+			</div>
+			<div id="__tpl__2000" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.3&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-12">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.3&image=[SRC-1]">[/A-1]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 2장(0101)-->
+			<div class="preview-box" onclick="tplcheck('1010',this);">
+				<div>2장<span>(좌1/우1)</span></div>
+			</div>
+			<div id="__tpl__1010" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-6">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1.3&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-6">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1.3&image=[SRC-1]">[/A-1]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- 3장(0201)-->
+			<div class="preview-box" onclick="tplcheck('0201',this);">
+				<div>3장<span>(좌1/우2)</span></div>
+			</div>
+			<div id="__tpl__0201" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-8">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1.2&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="col-sm-12">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.85&image=[SRC-1]">[/A-1]</div>
+								<div class="col-sm-12">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.85&image=[SRC-2]">[/A-2]</div>
+							</div>
+						</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- 3장(1020)-->
+			<div class="preview-box" onclick="tplcheck('1020',this);">
+				<div>3장<span>(상1/하2)</span></div>
+			</div>
+			<div id="__tpl__1020" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2.5:1&image=[SRC-0]">[/A-0]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-6">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-2]">[/A-2]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- 4장(1030)-->
+			<div class="preview-box" onclick="tplcheck('1030',this);">
+				<div>4장<span>(상1/하3)</span></div>
+			</div>
+			<div id="__tpl__1030" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2.5:1&image=[SRC-0]">[/A-0]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-5">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-5">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-5">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-3]">[/A-3]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+			<!-- 4장(0301)-->
+			<div class="preview-box" onclick="tplcheck('0301',this);">
+				<div>4장<span>(좌1/우3)</span></div>
+			</div>
+			<div id="__tpl__0301" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-10">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:1.3&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-12">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-1]">[/A-1]</div>
+								<div class="col-sm-12">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-2]">[/A-2]</div>
+								<div class="col-sm-12">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-3]">[/A-3]</div>
+							</div>
+						</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 4장(1111)-->
+			<div class="preview-box" onclick="tplcheck('1111',this);">
+				<div>4장<span>(좌2/우2)</span></div>
+			</div>
+			<div id="__tpl__1111" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-6">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-6">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-1]">[/A-1]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-6">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-3]">[/A-3]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 4장(121)-->
+			<div class="preview-box" onclick="tplcheck('121',this);">
+				<div>4장<span>(상1/중2/하1)</span></div>
+			</div>
+			<div id="__tpl__121" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2.5:1&image=[SRC-0]">[/A-0]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-6">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2:1&image=[SRC-2]">[/A-2]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=2.5:1&image=[SRC-3]">[/A-3]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 5장(23)-->
+			<div class="preview-box" onclick="tplcheck('23',this);">
+				<div>5장<span>(상2/하3)</span></div>
+			</div>
+			<div id="__tpl__23" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-6">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-6">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-1]">[/A-1]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-5">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1.5:1&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-5">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1.5:1&image=[SRC-3]">[/A-3]</div>
+						<div class="col-sm-5">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1.5:1&image=[SRC-4]">[/A-4]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+			<!-- 5장(0302)-->
+			<div class="preview-box" onclick="tplcheck('0302',this);">
+				<div>5장<span>(좌2/우3)</span></div>
+			</div>
+			<div id="__tpl__0302" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="row">
+								<div class="col-sm-12">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.75&image=[SRC-0]">[/A-0]</div>
+								<div class="col-sm-12">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.76&image=[SRC-1]">[/A-1]</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="row">
+								<div class="col-sm-12">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-2]">[/A-2]</div>
+								<div class="col-sm-12">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-3]">[/A-3]</div>
+								<div class="col-sm-12">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.5&image=[SRC-4]">[/A-4]</div>
+							</div>
+						</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- 6장(3030)-->
+			<div class="preview-box" onclick="tplcheck('3030',this);">
+				<div>6장<span>(상3/하3)</span></div>
+			</div>
+			<div id="__tpl__3030" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-5">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-5">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-5">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-2]">[/A-2]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-5">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-3]">[/A-3]</div>
+						<div class="col-sm-5">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-4]">[/A-4]</div>
+						<div class="col-sm-5">[A-5]<img alt="[ALT-5]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-5]">[/A-5]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- 8장(4040)-->
+			<div class="preview-box" onclick="tplcheck('4040',this);">
+				<div>8장<span>(상4/하4)</span></div>
+			</div>
+			<div id="__tpl__4040" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-4">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-4">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-4">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-4">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-3]">[/A-3]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-4]">[/A-4]</div>
+						<div class="col-sm-4">[A-5]<img alt="[ALT-5]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-5]">[/A-5]</div>
+						<div class="col-sm-4">[A-6]<img alt="[ALT-6]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-6]">[/A-6]</div>
+						<div class="col-sm-4">[A-7]<img alt="[ALT-7]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-7]">[/A-7]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- 10장(5050)-->
+			<div class="preview-box" onclick="tplcheck('5050',this);">
+				<div>10장<span>(상5/하5)</span></div>
+			</div>
+			<div id="__tpl__5050" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-3">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-3">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-3">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-3">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-3]">[/A-3]</div>
+						<div class="col-sm-3">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-4]">[/A-4]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3">[A-5]<img alt="[ALT-5]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-5]">[/A-5]</div>
+						<div class="col-sm-3">[A-6]<img alt="[ALT-6]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-6]">[/A-6]</div>
+						<div class="col-sm-3">[A-7]<img alt="[ALT-7]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-7]">[/A-7]</div>
+						<div class="col-sm-3">[A-8]<img alt="[ALT-8]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-8]">[/A-8]</div>
+						<div class="col-sm-3">[A-9]<img alt="[ALT-9]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-9]">[/A-9]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+			<!-- 12장(6060)-->
+			<div class="preview-box" onclick="tplcheck('6060',this);">
+				<div>12장<span>(상6/하6)</span></div>
+			</div>
+			<div id="__tpl__6060" class="hide">
+				<div class="rb-insert-media">
+					<div class="row">
+						<div class="col-sm-2">[A-0]<img alt="[ALT-0]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-0]">[/A-0]</div>
+						<div class="col-sm-2">[A-1]<img alt="[ALT-1]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-1]">[/A-1]</div>
+						<div class="col-sm-2">[A-2]<img alt="[ALT-2]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-2]">[/A-2]</div>
+						<div class="col-sm-2">[A-3]<img alt="[ALT-3]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-3]">[/A-3]</div>
+						<div class="col-sm-2">[A-4]<img alt="[ALT-4]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-4]">[/A-4]</div>
+						<div class="col-sm-2">[A-5]<img alt="[ALT-5]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-5]">[/A-5]</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">[A-6]<img alt="[ALT-6]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-6]">[/A-6]</div>
+						<div class="col-sm-2">[A-7]<img alt="[ALT-7]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-7]">[/A-7]</div>
+						<div class="col-sm-2">[A-8]<img alt="[ALT-8]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-8]">[/A-8]</div>
+						<div class="col-sm-2">[A-9]<img alt="[ALT-9]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-9]">[/A-9]</div>
+						<div class="col-sm-2">[A-10]<img alt="[ALT-10]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-10]">[/A-10]</div>
+						<div class="col-sm-2">[A-11]<img alt="[ALT-11]" class="img-responsive" src="[ROOTURL]/_core/opensrc/thumb/image.php?width=800&height=&cropratio=1:0.8&image=[SRC-11]">[/A-11]</div>
+					</div>
+					<div class="rb-caption">[CAPTION-0]</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+		</div>
+	</body>
+</html>
+
+

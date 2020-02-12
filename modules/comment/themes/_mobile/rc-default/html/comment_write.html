@@ -1,0 +1,19 @@
+<!-- 참조사항
+   1. 등록폼에 등록자 아바타가 필요한 경우 : <img src="{$login_user_pic}">
+   2. data-*="*" 필수
+-->
+<button type="button" class="btn btn-secondary btn-block text-xs-left border-0 px-2 my-0" data-toggle="commentWrite" data-type="comment" data-act="regis" data-parent="{$comment_parent}" data-uid="{$uid}">
+  <div class="media w-100 align-items-center">
+    <img class="media-object pull-left img-circle mr-3" src="{$login_user_pic}" alt="{$login_user_nic}" style="width:2.25rem;height:2.25rem">
+    <div class="media-body text-muted">
+      공개 댓글 추가...
+    </div>
+  </div>
+</button>
+
+<div data-role="comment-input-wrapper" class="d-none">
+  <div data-role="comment-input"></div>
+  <button type="submit"  data-kcact="regis" data-type="comment" data-parent="{$comment_parent}" data-effect="animated fadeIn">
+    등록
+  </button>
+</div>

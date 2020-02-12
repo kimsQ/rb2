@@ -1,0 +1,30 @@
+<!-- 참조사항
+   1. 등록폼에 등록자 아바타가 필요한 경우 : <img src="{$login_user_pic}">
+   2. data-*="*" 필수
+-->
+<div class="card shadow-sm mb-4" data-role="comment-input-wrapper">
+
+  <div class="card-header py-0 pr-0">
+      <div class="d-flex justify-content-between align-items-center">
+      <span class="text-muted">{$login_user_nic}</span>
+      <div class="toolbar-container"></div>
+    </div><!-- /.d-flex -->
+  </div>
+
+  <section>
+    <div data-role="editor">
+  		<div data-role="comment-input" class="border-0"></div>
+  	</div>
+  </section>
+
+  <div class="card-footer bg-white p-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class=""></div>
+      <button type="button" class="btn btn btn-link cmt-post ml-1 align-self-end"
+        data-kcact="regis"
+        data-type="comment"
+        data-effect="animated fadeInUp"
+        data-parent="{$comment_parent}">등록</button>
+    </div><!-- /.d-flex -->
+  </div>
+</div>

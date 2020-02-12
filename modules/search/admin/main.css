@@ -1,0 +1,375 @@
+#search-body .panel-body {
+   padding: 0 10px 15px;
+   border-top: 1px dotted #c0c0c0
+}
+
+#search-body .panel-body.rb-panel-form {
+    border-top: none;
+}
+
+#search-body .panel-body.rb-panel-form select {
+    background-color: #f5f5f5
+}
+#search-body .rb-eye-close {
+	color: #c0c0c0;
+}
+#search-body .rb-top-btnbox {
+	position: relative;
+	top:-10px;
+}
+
+#accordion > .card .card-body {
+  height: calc(100vh - 11rem);
+  overflow: auto;
+}
+/**
+ * Nestable
+ */
+
+.dd {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 20px
+}
+
+.dd-list {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    line-height: 20px
+}
+
+.dd-handle {
+    display: block;
+    height: 35px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+
+.dd-handle:hover { color: #2ea8e5; background: #fff; }
+
+
+.dd-placeholder,
+.dd-empty {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                      -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                         -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                              linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999
+}
+
+.dd-dragel > .dd-item .dd-handle { margin-top: 0 }
+
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+            box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1)
+}
+
+/**
+ * Nestable Extras
+ */
+
+
+#nestable-menu { padding: 0; margin: 0; }
+
+#nestable-output,
+
+@media only screen and (min-width: 700px) {
+
+    .dd { float: left; width: 100%; }
+    .dd + .dd { margin-left: 2%; }
+
+}
+
+.dd-hover > .dd-handle { background: #2ea8e5 !important; }
+
+/**
+ * Nestable Draggable Handles
+ */
+
+.dd3-content {
+    display: block;
+    height: 35px;
+    margin: 5px 0;
+    line-height: 20px;
+    padding: 6px 10px 4px 40px;
+    color: #333;
+    border: 1px solid #ddd;
+    background: #eee;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+#collapseOne .dd-item .dd3-content a {
+  display: block;
+  text-decoration: none;
+}
+.dd3-content:hover {
+  background: #f5f5f5
+}
+.dd3-content small {
+  color: #999
+}
+.dd-item.rb-active .dd3-content {
+  background-color: #428bca;
+  border-color: #357ebd;
+  color: #fff
+}
+.dd-item.rb-active .dd3-content a,
+.dd-item.rb-active .dd3-content small {
+    color: #fff
+}
+
+.dd-dragel > .dd3-item > .dd3-content { margin: 0; }
+
+.dd3-item > button { margin-left: 30px; }
+
+.dd3-handle {
+	position: absolute;
+	margin: 0;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+	width: 30px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+    border: 1px solid #ddd;
+    background: #ddd;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: move
+}
+
+.dd-checkbox {
+	line-height: 28px;
+	position: absolute;
+	margin: 0;
+	right: 0;
+	top: 0;
+	width: 30px;
+    padding: 5px 20px 10px 5px
+
+}
+
+.dd3-handle:before {
+    font-family: 'FontAwesome';
+    content: '\f047';
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    text-align: center;
+    text-indent: 0;
+    color: #888;
+    font-size: 18px;
+    font-weight: normal
+}
+
+.dd3-handle:hover {
+    background: #ddd
+}
+
+.dd3-handle-none:before {
+    font-family: 'FontAwesome';
+    content: '';
+	cursor: none;
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    text-align: center;
+    text-indent: 0;
+    color: #888;
+    font-size: 18px;
+    font-weight: normal
+}
+
+.dd3-handle-none:hover {
+    background: #ddd;
+	cursor:pointer;
+}
+
+.panel-footer ul.list-inline {
+    margin-bottom: 0
+}
+
+
+#search-body .rb-none {
+    line-height: 400px;
+    text-align: center;
+    color: #999
+}
+
+
+#search-body .rb-main .page-header {
+    margin-top: 35px
+}
+
+#search-body .rb-main .page-header:first-child {
+    margin-top: 0
+}
+
+
+#search-body .rb-main .checkbox-inline.rb-no-indent,
+#search-body .rb-main .checkbox-inline.rb-no-indent+.checkbox-inline.rb-no-indent {
+  margin-left: 0;
+  margin-right: 15px;
+}
+#search-body .rb-main .checkbox.inline.no_indent:last-child {
+  margin-right: 0px;
+}
+
+
+#search-body .rb-files {
+    padding: 2px;
+    background: #eee;
+    border-radius: 3px;
+    margin-top: 35px;
+}
+
+#search-body .rb-codeview {
+    border-radius: 3px;
+    border: 1px solid #c9c9c9;
+    -webkit-box-shadow: inset 1px 1px 0px 0px rgba(222, 2222, 222, 0.1), 1px 1px 0px 0px rgba(255, 255, 255, 1);
+    box-shadow: inset 1px 1px 0px 0px rgba(222, 222, 222, 0.1), 1px 1px 0px 0px rgba(255, 255, 255, 1);
+}
+
+#search-body .rb-codeview-header,
+#search-body .rb-codeview-footer {
+    font: 12px "Helvetica Neue", Helvetica, arial, freesans, clean, sans-serif;
+    text-shadow: 1px 1px rgba(255,255,255,0.8);
+    overflow: hidden;
+    color: #999;
+}
+
+#search-body .rb-codeview-header .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 30px
+}
+
+#search-body .rb-codeview-header .btn {
+    line-height: 20px;
+    margin-top: 4px;
+    border-radius: 3px
+}
+
+#search-body .rb-codeview-header {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+    text-shadow: 0 1px 0 #fff;
+    border-bottom: 1px solid #d8d8d8;
+    background-color: #eaeaea;
+    background-image: -moz-linear-gradient(#fafafa, #eaeaea);
+    background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+    background-image: linear-gradient(#fafafa, #eaeaea);
+    background-repeat: repeat-x;
+}
+
+#search-body .rb-codeview-body {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+#search-body .rb-codeview-body textarea {
+    overflow: auto;
+    border: none;
+    padding: 15px;
+    line-height: 150%;
+    background: #000000;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 0
+}
+
+#search-body .rb-codeview-footer {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background-color: #e8e8e8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#e8e8e8));
+    background-image: -webkit-linear-gradient(#fafafa, #e8e8e8);
+    background-image: linear-gradient(#fafafa, #e8e8e8);
+    background-repeat: repeat-x;
+}
+
+#search-body .rb-codeview-footer ul {
+    margin-bottom: 0
+}
+
+#search-body .rb-codeview-footer li:first-child,
+#search-body .rb-codeview-footer li:last-child {
+    border-left: 0;
+    box-shadow: inset 0 0 0 transparent;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#search-body .rb-codeview-footer li {
+    display: inline-block;
+    color: #555555;
+    padding-left: 9px;
+    margin-left: 5px;
+    border-left: 1px solid #c1c1c1;
+    box-shadow: inset 1px 0 0 #fff;
+    font-size: 12px;
+}
+
+#search-body .rb-submit {
+    margin: 15px 0
+}
+
+@media (max-width: 767px) {
+	.rb-guide {
+		padding-left: 20px;
+	}
+}

@@ -1,0 +1,27 @@
+<li class="media mb-3" data-role="item" data-uid="{$uid}">
+  <a class="w-100"
+    data-toggle="profile"
+    data-target="#modal-member-profile"
+    data-mbruid="{$mbruid}"
+    data-title="{$nic}"
+    data-url="{$profile_url}">
+
+    <div class="pull-left text-xs-center" style="width:100px">
+      <img class="border img-circle" src="{$avatar}" alt="" style="width: 65px">
+    </div>
+
+    <div class="media-body">
+      <h5 class="h6 my-1 font-weight-light line-clamp-3">
+        {$nic}
+      </h5>
+      <div class="mb-1  f13 text-muted">
+        구독자 {$num_follower}명 <br>
+        동영상 {$num_post}개
+
+      </div>
+    </div>
+  </a>
+  <span class="badge badge-default badge-inverted">
+    <a href="#popup-post-postMore" data-toggle="popup" data-uid="{$post_uid}" class="icon material-icons text-muted f18">more_vert</a>
+  </span>
+</li>

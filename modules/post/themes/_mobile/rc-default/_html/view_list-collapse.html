@@ -1,0 +1,19 @@
+<button class="d-flex justify-content-between align-items-center bg-black w-100 collapsed shadow-sm text-xs-left"
+  data-role="list"
+  data-toggle="collapse" data-target="#listCollapse"
+  aria-expanded="false" aria-controls="listCollapse">
+  <h3 class="f16 text-white content-padded">
+    {$list_name}<br>
+    <small class="text-muted">동영상 {$list_num}개  <span class="ml-1">• {$list_mbrnic}</span></small>
+  </h3>
+  <div class="pr-3">
+    <i class="fa fa-caret-up fa-lg text-muted" aria-hidden="true"></i>
+  </div>
+</button><!-- /.d-flex -->
+<div class="collapse" id="listCollapse">
+  <div class="shadow" style="overflow:auto;background-color: #111">
+    <ul class="table-view table-view-sm border-0 table-view-inverse mt-2 mb-4">
+      {$listPost}
+    </ul>
+  </div>
+</div><!-- /.collapse -->

@@ -1,0 +1,133 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+#기본사이트
+RewriteRule ^(admin)/?$ ./index.php?m=$1&pickmodule=site&panel=Y [L]
+RewriteRule ^(logout)/?$ ./index.php?a=logout [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(p)/([a-zA-Z0-9_\-]+)/?$ ./index.php?mod=$2&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(c)/([a-zA-Z0-9_\-\/]+)/?$ ./index.php?c=$2&%1 [L]
+RewriteRule ^([0-9]+)/?$ ./index.php?m=bbs&uid=$1 [L]
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(post)/?$ ./index.php?m=post&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(post)/([0-9_]+)/?$ ./index.php?m=post&mod=view&cid=$2&%1 [L]
+RewriteRule ^(post)/(write)/?$ ./index.php?m=post&mod=write [L]
+RewriteRule ^(post)/(write)/([0-9_]+)/?$ ./index.php?m=post&mod=write&cid=$3 [L]
+RewriteRule ^(post)/(category)/?$ ./index.php?m=post&mod=category [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(post)/(category)/([a-zA-Z0-9_\-]+)/?$ ./index.php?m=post&cat=$3&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(post)/(search)/?$ ./index.php?m=post&mod=keyword&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(list)/?$ ./index.php?m=post&mod=list&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(list)/([a-zA-Z0-9_\-]+)/?$ ./index.php?m=post&mod=list_view&listid=$2&%1 [L]
+
+RewriteRule ^(b)/?$ ./index.php?m=bbs [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/?$ ./index.php?m=bbs&bid=$2 [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/?$ ./index.php?m=bbs&bid=$2&uid=$3 [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/write/?$ ./index.php?m=bbs&bid=$2&mod=write [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?m=bbs&bid=$2&uid=$3&s=$4 [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/?$ ./index.php?m=bbs&bid=$2&uid=$3&CMT=$4#CMT [L]
+RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?m=bbs&bid=$2&uid=$3&CMT=$4&s=$5#CMT [L]
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(dashboard)/?$ ./index.php?mod=dashboard&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(settings)/?$ ./index.php?mod=settings&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(noti)/?$ ./index.php?mod=noti&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(saved)/?$ ./index.php?mod=saved&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(search)/?$ ./index.php?m=search&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(feed)/?$ ./index.php?mod=feed&%1 [L]
+
+#사이트코드 확장
+RewriteRule ^([a-zA-Z0-9_\-]+)/?$ ./index.php?r=$1 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(admin)/?$ ./index.php?r=$1&m=$2&mdule=$2 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(p)/([a-zA-Z0-9_\-]+)/?$ ./index.php?r=$1&mod=$3&%1 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(c)/([a-zA-Z0-9_\-\/]+)/?$ ./index.php?r=$1&c=$3&%1 [L]
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/?$ ./index.php?r=$1&m=post&%1 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/(category)/?$ ./index.php?r=$1&m=post&mod=category [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/(category)/([a-zA-Z0-9_\-]+)/?$ ./index.php?r=$1&m=post&cat=$4&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/([0-9_]+)/?$ ./index.php?r=$1&m=post&mod=view&cid=$3&%1 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/(write)/?$ ./index.php?r=$1&m=post&mod=write [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/(search)/?$ ./index.php?m=post&mod=keyword&%1 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/write/?$ ./index.php?r=$1&m=post&mod=write [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(post)/(write)/([0-9_]+)/?$ ./index.php?r=$1&m=post&mod=write&cid=$4 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(list)/?$ ./index.php?r=$1&m=post&mod=list [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(list)/([a-zA-Z0-9_\-]+)/?$ ./index.php?r=$1&m=post&mod=list_view&listid=$3 [L]
+
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/?$ ./index.php?r=$1&m=bbs [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/?$ ./index.php?r=$1&m=bbs&bid=$3 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/write/?$ ./index.php?r=$1&m=bbs&bid=$3&mod=write [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4&s=$5 [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4&CMT=$5#CMT [L]
+RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4&CMT=$5&s=$6#CMT [L]
+
+#외부연결 콜백
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(oauth)/([a-zA-Z]+)/?$ ./index.php?r=$1&m=connect&a=connect&connectReturn=$3&%1 [L]
+
+#회원 본인인증
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(auth)/([a-zA-Z]+)/?$ ./index.php?r=$1&m=member&front=$3&%1 [L]
+
+#다운로드
+RewriteRule ^([a-zA-Z0-9_\-]+)/(download)/([a-zA-Z]+)/?$ ./index.php?r=$1&m=mediaset&a=download&uid=$3 [L]
+
+#프로필
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(@)([a-z-A-Z-0-9_]+)/?$ ./index.php?mod=profile&mbrid=$2&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(@)([a-z-A-Z-0-9_]+)/([a-z-A-Z-0-9_]+)/?$ ./index.php?mod=profile&mbrid=$2&page=$3&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(@)([a-z-A-Z-0-9_]+)/(post)/([0-9_]+)/?$ ./index.php?m=post&mod=view&mbrid=$2&cid=$4&%1 [L]
+RewriteRule ^(@)([a-z-A-Z-0-9_]+)/(list)/([a-z-A-Z-0-9_]+)/?$ ./index.php?m=post&mod=list_view&mbrid=$2&listid=$4 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(@)([a-z-A-Z-0-9_]+)/?$ ./index.php?r=$1&mod=profile&mbrid=$3&%1 [L]
+
+#검색
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(search)/?$ ./index.php?r=$1&m=search&%1 [L]
+
+#timthumb
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(thumb)/(.*)x(.*)/u/(.*) ./_core/opensrc/timthumb/thumb.php?src=http://$4&h=$3&w=$2&s=1 [NC,L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(thumb-ssl)/(.*)x(.*)/u/(.*) ./_core/opensrc/timthumb/thumb.php?src=https://$4&h=$3&w=$2&s=1 [NC,L]
+
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_([0-9]+)x([0-9]+)\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$6&w=$4&h=$5&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_s\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=75&h=75&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_q\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=150&h=150&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_t\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=100&h=67&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_m\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=240&h=160&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_n\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=320&h=213&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_z\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=640&h=427&s=1 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_c\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=800&h=534 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_b\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=1024&h=683 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_h\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=1600&h=1068 [NC,L]
+RewriteRule ^(files)/([a-zA-Z0-9_\-]+)/(.*)_k\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/$2/$3.$4&w=2048&h=1367 [NC,L]
+RewriteRule ^(files)/(noimage)_([0-9]+)x([0-9]+)\.(png)$ ./_core/opensrc/timthumb/thumb.php?src=./_core/images/noimage.png&w=$3&h=$4&s=1 [NC,L]
+RewriteRule ^(_core)/(images)/(touch)/(.*)-([0-9]+)x([0-9]+)\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./_core/images/touch/$4.$7&w=$5&h=$6&s=1 [NC,L]
+RewriteRule ^(_var)/(site)/([a-zA-Z0-9_\-]+)/(.*)-([0-9]+)x([0-9]+)\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./_var/site/$3/$4.$7&w=$5&h=$6&s=1 [NC,L]
+
+#avatar
+RewriteRule ^(avatar)/(.*)_([0-9]+)x([0-9]+)\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/avatar/$2.$5&w=$3&h=$4&s=1 [NC,L]
+
+#cover
+RewriteRule ^(cover)/(.*)_([0-9]+)x([0-9]+)\.(jpg|jpeg|png|gif)$ ./_core/opensrc/timthumb/thumb.php?src=./files/cover/$2.$5&w=$3&h=$4&s=1 [NC,L]

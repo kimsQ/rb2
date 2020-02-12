@@ -1,0 +1,148 @@
+#rb-body .nav-tabs {
+	display: none;
+}
+#rb-dashboard .alert {
+	border-radius: 3px;
+}
+#rb-dashboard .row {
+	margin-right: -7px;
+	margin-left:  -7px
+}
+#rb-dashboard .col-xs-1,
+#rb-dashboard .col-sm-1,
+#rb-dashboard .col-md-1,
+#rb-dashboard .col-lg-1,
+#rb-dashboard .col-xs-2,
+#rb-dashboard .col-sm-2,
+#rb-dashboard .col-md-2,
+#rb-dashboard .col-lg-2,
+#rb-dashboard .col-xs-3,
+#rb-dashboard .col-sm-3,
+#rb-dashboard .col-md-3,
+#rb-dashboard .col-lg-3,
+#rb-dashboard .col-xs-4,
+#rb-dashboard .col-sm-4,
+#rb-dashboard .col-md-4,
+#rb-dashboard .col-lg-4,
+#rb-dashboard .col-xs-5,
+#rb-dashboard .col-sm-5,
+#rb-dashboard .col-md-5,
+#rb-dashboard .col-lg-5,
+#rb-dashboard .col-xs-6,
+#rb-dashboard .col-sm-6,
+#rb-dashboard .col-md-6,
+#rb-dashboard .col-lg-6,
+#rb-dashboard .col-xs-7,
+#rb-dashboard .col-sm-7,
+#rb-dashboard .col-md-7,
+#rb-dashboard .col-lg-7,
+#rb-dashboard .col-xs-8,
+#rb-dashboard .col-sm-8,
+#rb-dashboard .col-md-8,
+#rb-dashboard .col-lg-8,
+#rb-dashboard .col-xs-9,
+#rb-dashboard .col-sm-9,
+#rb-dashboard .col-md-9,
+#rb-dashboard .col-lg-9,
+#rb-dashboard .col-xs-10,
+#rb-dashboard .col-sm-10,
+#rb-dashboard .col-md-10,
+#rb-dashboard .col-lg-10,
+#rb-dashboard .col-xs-11,
+#rb-dashboard .col-sm-11,
+#rb-dashboard .col-md-11,
+#rb-dashboard .col-lg-11,
+#rb-dashboard .col-xs-12,
+#rb-dashboard .col-sm-12,
+#rb-dashboard .col-md-12,
+#rb-dashboard .col-lg-12 {
+    padding-left : 7px;
+    padding-right: 7px;
+}
+#rb-dashboard .collapse {
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+@media (max-width: 768px)
+{
+	#rb-dashboard .collapse {
+		max-height: 10000px;
+	}
+}
+#rb-dashboard .panel-heading {
+	position: relative;
+	cursor: move;
+}
+#rb-dashboard .panel-heading .rb-collapse {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	left: auto;
+	cursor: pointer;
+	color: #AAAAAA;
+	text-decoration: none;
+}
+#rb-dashboard .panel-heading a i {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	font-style: normal;
+	font-size: 10px;
+}
+#rb-dashboard .panel-heading a i:first-child
+{
+	font-size: 12px;
+}
+#rb-dashboard .panel-heading a i:hover {
+	border: #dfdfdf solid 1px;
+	border-radius: 1px;
+	background-color: #fff;
+	color: #777;
+}
+#rb-dashboard .panel {
+	font-size: 13px;
+	border-radius: 3px;
+}
+#rb-dashboard .rb-bottom-none {
+	border-bottom: 0;
+}
+#rb-dashboard .panel-footer {
+	padding: 0;
+}
+#rb-dashboard .panel-footer.rb-more a {
+	display: block;
+	text-align: center;
+	color: #999;
+	padding: 7px 0 7px 0;
+}
+#rb-dashboard .panel-footer.rb-more a:hover {
+	text-decoration: none;
+	color: #444
+}
+#rb-dashboard .rb-guide-wrapper {
+	display: table;
+	width: 100%;
+	text-align: center;
+}
+
+#rb-dashboard .rb-guide-wrapper-inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#rb-dashboard .rb-guide-wrapper-inner .container {
+	margin: 20px 0 50px 0;
+	line-height: 1.8
+}
+
+#rb-dashboard .rb-guide-wrapper-inner h1 .fa {
+	margin-bottom: 15px
+}
+
+#rb-dashboard .rb-guide-wrapper-inner h1 .fa.text-muted {
+	color: #B4B3B3
+}
+#rb-dashboard .rb-guide-wrapper-inner h3 {
+	font-family: 'verdana';
+}

@@ -1,0 +1,17 @@
+<a href="{$referer}" class="list-group-item list-group-item-action {$check_read}">
+  <div class="d-flex w-100">
+    <div class="mr-3">
+      <img class="rounded-circle" src="{$avatar}" style="width:52px">
+    </div>
+    <div class="w-100">
+      <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-2">{$title}</h6>
+        <small><time class="small" data-plugin="timeago" datetime="{$datetime}"></time></small>
+      </div>
+      <p class="f13 text-muted mb-1">{$message}</p>
+      <i class="{$icon} {$check_from}"></i>
+      <small class="align-top ml-2">{$from}</small>
+    </div>
+  </div>
+
+</a>

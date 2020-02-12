@@ -1,0 +1,43 @@
+<li class="list-group-item media align-items-center serial"
+  data-role="item"
+  data-subject="{$subject}"
+  data-featured_img="{$featured_img}">
+  <div class="pr-3 text-muted counter"></div>
+  <a href="{$link}" class="position-relative mr-3" target="_blank">
+    <img class="border" src="{$featured_img}" alt="" style="width:100px">
+    <time class="badge badge-dark rounded-0 position-absolute" style="right:1px;bottom:1px">{$time}</time>
+  </a>
+  <div class="media-body">
+    <h5 class="f14 my-1 line-clamp-2">
+      <a href="{$edit_link}" class="font-weight-light muted-link">
+        {$subject}
+      </a>
+    </h5>
+    <div class="mb-1">
+      <ul class="list-inline d-inline-block f12 text-muted">
+        <li class="list-inline-item">조회 {$hit}</li>
+        <li class="list-inline-item">
+          <a href="#modal-post-opinion" data-toggle="modal" data-backdrop="static" data-uid="{$uid}" data-opinion="like" class="text-reset">
+            좋아요 {$likes}
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#modal-post-opinion" data-toggle="modal" data-backdrop="static" data-uid="{$uid}" data-opinion="dislike" class="text-reset">
+            싫어요 {$dislikes}
+          </a>
+        </li>
+        <li class="list-inline-item">댓글 {$comment}</li>
+        <li class="list-inline-item">
+          <time data-plugin="timeago" datetime="{$d_modify}"></time>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ml-3 align-self-center form-inline">
+    <span class="text-muted mr-1 f14 rounded-0 px-2 align-middle">{$num}</span>
+    <button type="button" class="btn btn-white btn-sm" data-target="#modal-post-analytics" data-toggle="modal" data-backdrop="static" data-uid="{$uid}">
+      <i class="fa fa-bar-chart" aria-hidden="true"></i>
+    </button>
+  </div>
+</li>

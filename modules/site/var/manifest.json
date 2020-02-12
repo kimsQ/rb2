@@ -1,0 +1,36 @@
+{
+  "name": "킴스큐",
+  "short_name": "킴스큐",
+  "icons": [
+      {
+          "src": "/_core/images/touch/homescreen-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+      },
+      {
+          "src": "/_core/images/touch/homescreen-128x128.png",
+          "sizes": "128x128",
+          "type": "image/png"
+      },
+      {
+          "src": "/_core/images/touch/homescreen-144x144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+      },
+      {
+          "src": "/_core/images/touch/homescreen-168x168.png",
+          "sizes": "168x168",
+          "type": "image/png"
+      },
+      {
+          "src": "/_core/images/touch/homescreen-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#221E1F",
+  "theme_color": "#221E1F",
+  "gcm_sender_id": "103953800507"
+}

@@ -1,0 +1,84 @@
+#group-list {
+	padding-left: 0px;
+	list-style: none;
+}
+#group-list .group-box {
+	position: relative;
+	float: left;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	cursor: move;
+	background-color: transparent;
+	border: 1px dashed #777;
+}
+
+.card .card-body .group-box .badge {
+	position: absolute;
+	top: 21px;
+	left: 24px;
+	background-color: #F9F2F4;
+	color: #D55E4E;
+	border-radius: 7px
+}
+.card .card-body .group-box .delbtn {
+	position: absolute;
+	top: 24px;
+	right: 28px;
+	background-color: transparent;
+	font-size: 11px
+}
+.card .card-body .group-box .name .form-control {
+	width: 85px;
+	font-size: 11px;
+	margin-left: 0;
+	margin-top: 20px;
+	border-radius: 4px
+}
+.card .card-body .group-box .delbtn a {
+	color: #999
+}
+.card .card-body .group-box .delbtn a:hover {
+	color: #fff
+}
+.card .card-body .group-box .fa-square {
+	font-size: 100px;
+}
+.card .card-body .group-box .fa-users {
+	position: absolute;
+	top: 12px;
+	left: 3px;
+	color: #fff
+}
+
+.level {
+	padding: 0 !important;
+	font-family: 'Open Sans', sans-serif;
+}
+.level table {
+	border-top: 0
+}
+.level .table > thead > tr > th {
+	vertical-align: middle;
+	font-weight: normal;
+	border-bottom: 0;
+	font-size: 13px;
+	color: #777
+}
+.level table th  ,
+.level table td {
+	text-align: center
+}
+.level table td .form-control {
+	font-size: 12px
+}
+.level .table > tbody > tr > td > .label {
+	font-size: 120%;
+	margin-top: 4px;
+	display: inline-block;
+	background-color: #444
+}
+.level .table > tbody > tr > td > .form-control-static {
+	padding-top: 7px;
+}
+.kiere-ul {padding-left:10px;line-height: 160%;margin-bottom: 0}
+.tooltip { z-index: 20000;position: absolute;display:inline-block;min-width: 40px }

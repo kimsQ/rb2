@@ -1,0 +1,15 @@
+<div class="ad_section bg-black position-relative mb-3" style="background-image: url({$cover});">
+  <div class="text-xs-center text-white position-relative p-2">
+    <strong class="h4 d-block">{$name}</strong>
+    <div class="mb-1"><small>{$review}</small></div>
+  </div>
+  <a href="#modal-member-profile" data-toggle="modal" data-mbruid="{$mbruid}" data-title="{$nic}" class="position-absolute" style="bottom:-32px;left:50%;margin-left:-32px">
+    <img src="{$avatar}" width="64" height="64" alt="" class="rounded-circle shadow">
+  </a>
+
+</div>
+
+<span class="text-muted f14 content-padded">포스트 {$num}개 </span>
+<ul class="table-view table-view-sm mt-0 border-top-0 border-bottom-0">
+  {$row}
+</ul>

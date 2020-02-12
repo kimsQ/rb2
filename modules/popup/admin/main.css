@@ -1,0 +1,3 @@
+.sidebar [data-role="list"] {
+  overflow-y: auto
+}

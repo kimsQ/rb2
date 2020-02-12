@@ -1,0 +1,182 @@
+/*!
+ * kimsQ Rb Installer
+ * Version: 1.0
+ * Homepage: http://www.kimsq.com
+ * Repository: https://github.com/kimsQ/rb-installer
+ * Copyright 2014 redblock inc
+ * Licensed under LGPL
+ * Based on Bootstrap v3.2.0
+*/
+
+
+#rb-body-install {
+	background-color: #eee !important;
+	color: #444;
+	padding-top: 70px;
+	font-family: "Open Sans", '돋움', dotum, sans-serif;
+}
+#rb-body-install .rb-logo {
+	margin-bottom: 30px;
+	font-size: 50px
+}
+
+#rb-body-install .container {
+	max-width: 780px;
+}
+
+#rb-body-install .form-control {
+	border-radius: 2px;
+}
+
+
+#rb-body-install .panel {
+	margin: 0 auto 15px;
+	background-color: #fbfbfb;
+	border: 1px solid #AAA;
+	border-bottom: 1px solid #888;
+	border-radius: 3px;
+	color: #444;
+	box-shadow: 0px 2px 2px #AAA;
+}
+
+/* rb-ready */
+
+#rb-body-install  .rb-ready {
+	max-width: 780px;
+}
+
+#rb-body-install .rb-ready .rb-symbol {
+	font-size: 130px
+}
+
+#rb-body-install .rb-ready .panel-body {
+	padding-top: 40px;
+	padding-bottom: 40px
+}
+
+
+/*rb-installer*/
+
+#rb-body-install .page-header {
+	margin: 0 0 15px;
+}
+
+#rb-body-install .page-header h3 {
+	margin-top: 5px;
+}
+
+#step-1-body .form-group {
+	margin-right: 0;
+	margin-left: 0;
+}
+#rb-body-install .rb-step-body .tab-panel {
+	padding: 20px 0;
+}
+
+#rb-body-install .step-body .well {
+	padding: 15px;
+	font-size: 12px;
+	line-height: 150%;
+	color: #666;
+	margin-bottom: 0;
+}
+
+#rb-body-install .rb-step-body .help-block {
+	font-size: 12px;
+}
+
+#rb-body-install .rb-input-row {
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+#rb-body-install .rb-input-row [class*="col-"] {
+    position: relative;
+    min-height: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#rb-body-install .side-steps {
+	padding: 20px 15px 15px 15px;
+}
+#rb-body-install .side-steps div {
+	margin-top: 5px;
+	padding-bottom: 15px;
+	color: #999;
+	border-bottom: #dfdfdf solid 1px;
+}
+#rb-body-install .side-steps div i {
+	position: relative;
+	top: 5px;
+	width: 25px;
+	text-align: center;
+	margin-right: 10px;
+}
+#rb-body-install .side-steps .rb-active {
+	color: #0475BE;
+	font-weight: bold;
+}
+#rb-body-install .rb-active1 {
+	background: #dfdfdf;
+	border-radius: 5px;
+}
+
+#rb-body-install .well small {
+	color: #333;
+	font-size: 12px;
+}
+#rb-body-install textarea {
+	margin-top: 10px;
+	padding: 15px;
+	font-size: 12px;
+}
+
+/*반응형 설정*/
+
+@media (max-width: 768px) {
+
+	#rb-body-install ,
+	#rb-body-install .container {
+		padding: 0;
+		background-color: #fff !important
+	}
+
+	#rb-body-install .panel {
+		box-shadow : none;
+		border: none;
+		border-radius: none;
+		background-color: inherit;
+	}
+
+	#rb-body-install .panel-body {
+		padding-top: 20px;
+		padding-bottom: 20px
+	}
+
+	#rb-body-install .panel-footer {
+		background-color: transparent;
+	}
+}
+
+@media (min-width: 768px) {
+	#rb-body-install .container {
+		width: 100%
+	}
+	#rb-body-install .panel-body {
+		padding: 0;
+	}
+	#rb-body-install .row {
+		 margin-right: 0; 
+		 margin-left: 0; 
+	}
+	#rb-body-install .rb-step-nav {
+		padding: 15px
+	}
+	#rb-body-install .rb-step-body {
+		border-left: 1px solid #ddd;
+		padding: 15px
+	}
+}
+
+

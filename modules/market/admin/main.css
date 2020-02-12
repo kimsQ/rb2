@@ -1,0 +1,63 @@
+#front_menu {}
+#front_menu .pricetab {padding:0;margin:5px 0 20px 0;height:30px;border-bottom:#B8B8B8 solid 1px;list-style-type:none;}
+#front_menu .pricetab li {cursor:pointer;position:relative;top:-1px;float:left;text-align:center;padding:0 10px 0 10px;height:29px;margin-right:2px;background:#EBEBEB;font-weight:bold;color:#8F8F8F;border-top:#EBEBEB solid 1px;border-left:#EBEBEB solid 1px;border-right:#EBEBEB solid 1px;border-bottom:#EBEBEB solid 1px;}
+#front_menu .pricetab li span {position:relative;top:10px;}
+#front_menu .pricetab .on {position:relative;top:0;height:30px;color:#3C599B;background:#ffffff;border-top:#B8B8B8 solid 1px;border-left:#B8B8B8 solid 1px;border-right:#B8B8B8 solid 1px;border-bottom:#ffffff solid 1px;}
+#front_menu .pricetab .more {float:right;background:#fff;border:0;}
+#front_menu .pricetab .more span {position:relative;top:1px;color:#0000C0;}
+#front_menu .pricetab .more span label {position:relative;top:-2px;}
+#front_menu .title {padding:0 0 17px 0;margin:0;border-bottom:#dfdfdf dotted 1px;height:28px;}
+#front_menu .title .xl {float:left;}
+#front_menu .title .xl h2 {font-family:"malgun gothic",dotum;font-size:20px;padding:0 0 18px 0;margin:0;}
+#front_menu .title .xl ul {margin:0;padding:13px 0 0 0;}
+#front_menu .title .xl li {float:left;list-style-type:none;margin:0 5px 0 0;}
+#front_menu .title .xl li .selected {font-weight:bold;}
+#front_menu .title .xl li a span {font-size:11px;font-family:arial;font-weight:normal;color:#999;padding:0 0 0 2px;}
+#front_menu .title .xr {float:right;padding:7px 0 0 0;}
+#front_menu .title .xr .sort {cursor:pointer;padding:0 0 0 8px;color:#666;}
+#front_menu .title .xr .sort:hover {color:#222;}
+#front_menu .title .xr .sort img {position:relative;top:-2px;}
+#front_menu .title .xr .viewtype {cursor:pointer;padding:0 0 0 2px;}
+#front_menu .title .xr .viewtype:hover {color:#222;}
+#front_menu .title .xr .viewtype img {position:relative;top:3px;}
+#front_colum {margin:15px 0 0 0;}
+#front_colum table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#front_colum table td {padding:25px 0 25px 0;border-bottom:#dfdfdf solid 1px;}
+#front_colum ._t1 {width:115px;vertical-align:top;}
+#front_colum ._t1 .pic {width:102px;height:103px;position:relative;top:-10px;z-index:0;}
+#front_colum ._t1 .pic img {width:102px;height:103px;}
+#front_colum ._t1 .pic .mask {width:102px;height:103px;background:url("http://www.kimsq.com/_core/images/mask/mask100.png") no-repeat scroll 0 0 transparent;display:block;position:absolute;top:0;left:0;z-index:1;}
+#front_colum ._t2 {padding-right:30px;}
+#front_colum ._t2 .name {font-size:15px;font-weight:bold;font-family:"malgun gothic",dotum;position:relative;top:-15px;padding:0;margin:0;}
+#front_colum ._t2 .name a {color:#3489E0;}
+#front_colum ._t2 .review {font-size:11px;font-family:dotum;color:#777;line-height:140%;}
+#front_colum ._t2 .xinfo {font-size:11px;font-family:dotum;color:#999;padding:10px 0 0 0;}
+#front_colum ._t2 .xinfo .split {font-size:11px;font-family:dotum;color:#dfdfdf;padding:0 3px 0 3px;}
+#front_colum ._t2 .price {font-weight:bold;color:#FF4040;font-family:arial;padding:7px 0 0 0;}
+#front_colum ._t2 .price s {color:#999;}
+#front_colum ._t2 .price .date {font-weight:normal;font-size:11px;font-family:dotum;color:#999;}
+#front_colum ._t3 {width:66px;vertical-align:top;text-align:right;padding-right:10px;}
+#front_colum ._t3 .star {margin-right:4px;margin-bottom:10px;}
+#front_colum ._t3 a {display:block;width:60px;height:15px;padding:5px 3px 2px 3px;margin-top:7px;text-align:center;background:#035BBD;font-size:11px;font-family:dotum;color:#ffffff;border-radius:4px 4px 4px 4px;}
+#front_colum ._t3 .install {background:#3E803E;}
+#front_colum ._t3 .buy {background:#BB0C03;}
+#front_colum .pagebox01 {text-align:center;padding:30px 0 30px 0;}
+#front_list {margin:0;}
+#front_list table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#front_list table caption {display:none;}
+#front_list thead th {height:28px;border-top:#D2D2D2 solid 1px;border-bottom:#D2D2D2 solid 1px;background:url('http://www.kimsq.com/_core/images/_public/bg_list_tt.jpg');font-size:11px;font-family:dotum;font-weight:normal;color:#787878;}
+#front_list thead .side1 {border-left:#D2D2D2 solid 1px;}
+#front_list thead .side2 {border-right:#D2D2D2 solid 1px;}
+#front_list tbody td {text-align:center;color:#888888;font-family:dotum;font-size:11px;border-bottom:#E6E6E6 solid 1px;letter-spacing:-1px;}
+#front_list .sbj {text-align:left;padding:5px 0 3px 10px;letter-spacing:-1px;}
+#front_list .sbj a {font-size:12px;font-family:gulim;color:#222222;text-decoration:none;line-height:150%;}
+#front_list .sbj a:hover {text-decoration:underline;}
+#front_list .sbj .new {color:#ff0000;}
+#front_list .sbj .qna {color:#ff0000;padding:0 0 0 2px;}
+#front_list .sbj .comment {color:#0000ff;padding:0 0 0 2px;}
+#front_list .price {color:#FF4040;}
+#front_list .sbj1 {padding:10px 0 10px 0;font-size:12px;font-family:dotum;color:#999;}
+#front_list .pagebox01 {text-align:center;padding:20px 0 20px 0;}
+.searchform {padding:20px 0 30px 0;text-align:center;}
+.searchform select {font-size:11px;font-family:dotum;height:20px;vertical-align:bottom;padding:2px;}
+.noconfig {padding:200px 0 0 0;text-align:center;border:#dfdfdf solid 5px;width:720px;height:200px;font-size:13px;}

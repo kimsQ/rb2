@@ -1,0 +1,37 @@
+#front_menu {}
+#front_menu .title {padding:0 0 17px 0;margin:0;border-bottom:#dfdfdf dotted 1px;height:28px;}
+#front_menu .title .xl {float:left;}
+#front_menu .title .xl h2 {font-family:"malgun gothic",dotum;font-size:20px;padding:0 0 18px 0;margin:0;}
+#front_menu .title .xr {float:right;padding:17px 0 0 0;}
+#front_menu .title .xr .sort {cursor:pointer;padding:0 0 0 8px;color:#666;}
+#front_menu .title .xr .sort:hover {color:#222;}
+#front_menu .title .xr .sort img {position:relative;top:-2px;left:2px;}
+#front_menu .title .xr .viewtype {cursor:pointer;padding:0 0 0 2px;}
+#front_menu .title .xr .viewtype:hover {color:#222;}
+#front_menu .title .xr .viewtype img {position:relative;top:3px;left:2px;}
+#front_colum {margin:15px 0 0 0;}
+#front_colum table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#front_colum table td {padding:25px 0 25px 0;border-bottom:#dfdfdf solid 1px;}
+#front_colum ._t1 {width:115px;vertical-align:top;}
+#front_colum ._t1 .pic {width:102px;height:103px;position:relative;z-index:0;}
+#front_colum ._t1 .pic img {width:102px;height:103px;}
+#front_colum ._t1 .pic .mask {width:102px;height:103px;background:url("http://www.kimsq.com/_core/images/mask/mask100.png") no-repeat scroll 0 0 transparent;display:block;position:absolute;top:0;left:0;z-index:1;}
+#front_colum ._t2 .info {margin-left:10px;}
+#front_colum ._t2 .info .star {text-align:right;}
+#front_colum ._t2 .info .name {font-size:15px;font-weight:bold;font-family:"malgun gothic",dotum;position:relative;top:-15px;padding:0;margin:0;}
+#front_colum ._t2 .info .name a {color:#3489E0;}
+#front_colum ._t2 .info .review {font-size:11px;font-family:dotum;color:#777;line-height:140%;}
+#front_colum ._t2 .info .xinfo {font-size:11px;font-family:dotum;color:#999;padding:10px 0 20px 0;}
+#front_colum ._t2 .info .xinfo .split {font-size:11px;font-family:dotum;color:#c0c0c0;padding:0 5px 0 5px;}
+#front_colum ._t2 .goods {text-align:center;border-top:#dfdfdf dotted 1px;}
+#front_colum ._t2 .goods .gbox {float:left;margin:20px 20px 0 10px;}
+#front_colum ._t2 .goods .gbox .spic {width:62px;height:63px;position:relative;z-index:0;}
+#front_colum ._t2 .goods .gbox .spic img {width:62px;height:63px;}
+#front_colum ._t2 .goods .gbox .spic .mask {width:62px;height:63px;background:url("http://www.kimsq.com/_core/images/mask/mask60.png") no-repeat scroll 0 0 transparent;display:block;position:absolute;top:0;left:0;z-index:1;}
+#front_colum ._t2 .goods .gbox .name {display:block;width:62px;height:24px;text-align:center;overflow:hidden;padding-top:8px;font-size:11px;font-family:dotum;letter-spacing:-1px;}
+#front_colum ._t2 .goods .gbox .price {display:block;width:62px;height:12px;text-align:center;overflow:hidden;padding-top:5px;font-size:11px;font-family:dotum;letter-spacing:-1px;color:#FF2D1D;}
+#front_colum .pagebox01 {text-align:center;padding:20px 0 20px 0;}
+#front_colum .none {padding:30px 0 30px 0;text-align:center;color:#999;font-size:12px;font-family:dotum;border-bottom:#efefef solid 1px;}
+.searchform {padding:0 0 30px 0;text-align:center;}
+.searchform select {font-size:11px;font-family:dotum;height:20px;vertical-align:bottom;padding:2px;}
+.noconfig {padding:200px 0 0 0;text-align:center;border:#dfdfdf solid 5px;width:720px;height:200px;font-size:13px;}

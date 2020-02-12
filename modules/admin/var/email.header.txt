@@ -1,0 +1,18 @@
+<table border="0" cellpadding="0" cellspacing="0" align="center" style="width:100%;background:#efeff0">
+  <tbody>
+    <tr>
+      <td align="center">
+        <div style="max-width:600px;margin:0 auto">
+          <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;background-color:#efeff0;text-align:left">
+            <tbody>
+              <tr>
+                <td style="padding:30px;background:#4A5960;font-size: 23px;line-height: 22px;font-family: Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing: -1px;color: #fff;">
+                  {SITE} 계정
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;background-color:#fff;text-align:left;color:#2c2e37;padding:30px;">
+                    <tbody>
+                      <tr>
+                        <td style="padding:30px;">

@@ -1,0 +1,21 @@
+#orderlist {padding:0 0 30px 0;}
+#orderlist .info {height:28px;}
+#orderlist .info .article {float:left;font-size:11px;font-family:gothic,dotum;color:#c0c0c0;padding:5px 0 0 5px;}
+#orderlist .info .category {float:right;}
+#orderlist table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#orderlist table caption {display:none;}
+#orderlist thead th {height:28px;border-top:#D2D2D2 solid 1px;border-bottom:#D2D2D2 solid 1px;background:url('http://www.kimsq.com/_core/images/_public/bg_list_tt.jpg');font-size:11px;font-family:dotum;font-weight:normal;color:#787878;}
+#orderlist thead .side1 {border-left:#D2D2D2 solid 1px;}
+#orderlist thead .side2 {border-right:#D2D2D2 solid 1px;}
+#orderlist tbody td {text-align:center;color:#888888;font-family:dotum;font-size:11px;border-bottom:#E6E6E6 solid 1px;letter-spacing:-1px;}
+#orderlist .sbj {text-align:left;padding:5px 0 3px 10px;letter-spacing:-1px;}
+#orderlist .sbj a {font-size:12px;font-family:gulim;color:#222222;text-decoration:none;line-height:150%;}
+#orderlist .sbj a:hover {text-decoration:underline;}
+#orderlist .sbj .new {color:#ff0000;font-size:10px;}
+#orderlist .price {color:#ff0000;font-size:12px;}
+#orderlist .paytype {color:#0000ff;font-size:12px;}
+#orderlist .brand a {font-size:12px;font-family:gulim;color:#222222;text-decoration:none;line-height:150%;}
+#orderlist .sbj1 {padding:5px 0 3px 10px;font-size:12px;font-family:gothic,gulim;color:#222222;line-height:150%;border-bottom:#dfdfdf solid 1px;}
+#orderlist .sbj1 span {display:block;width:720px;text-align:center;}
+#orderlist .pagebox01 {width:720px;text-align:center;padding:15px 0 0 0;}
+#orderlist .none {display:none;}

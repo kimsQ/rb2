@@ -1,0 +1,116 @@
+#rb-search-body .container {
+  max-width: 1100px !important;
+}
+
+#rb-search-body .logo {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  font-size: 1.8rem;
+  line-height: inherit;
+  white-space: nowrap;
+  color: rgba(0,0,0,.8);
+}
+#rb-search-body .logo:hover {
+  text-decoration: none;
+}
+
+
+[data-role="searchform"] .input-group {
+  border: 1px solid #007bff;
+}
+
+[data-role="searchform"] .form-control {
+  font-weight: 600;
+  color: #000
+}
+
+[data-role="searchform"] .form-control:focus {
+  outline: 0;
+  box-shadow: none
+}
+
+[data-role="lnb"] {
+  padding: 0 1rem
+}
+
+[data-role="lnb"] .nav-item {
+  position: relative;
+}
+
+[data-role="lnb"] .nav-item .nav-link {
+  padding: .7rem 1rem;
+  color: #333;
+  font-size: 1.05rem;
+  letter-spacing: -.5px;
+}
+[data-role="lnb"] .nav-item:first-child .nav-link {
+  padding-left: 0
+}
+
+[data-role="lnb"] .nav-item.active .nav-link {
+  color: #007bff
+}
+
+[data-role="lnb"] .nav-item.active::after {
+  position: absolute;
+  bottom:-1px;
+  left: 1rem;
+  right:1rem;
+  top: auto;
+  height: 2px;
+  background-color: #007bff;
+  content: ''
+}
+[data-role="lnb"] .nav-item:first-child.active::after {
+  left: 0;
+}
+
+[data-role="section-list"] [data-role="section-item"] {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 0.0625rem solid #dee2e6
+}
+
+[data-role="section-list"] [data-role="section-item"]:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none
+}
+
+[data-role="section-item"] .media-body h5 a {
+  font-size: 14px;
+  color: #1a0dab;
+  text-decoration: underline;
+}
+[data-role="section-item"] .media-body h5 a:visited {
+  color: #8c0198;
+}
+
+[data-role="section-item"] .media-body {
+  font-size: 12px;
+  color: #333;
+}
+
+[data-role="section-item"] .media-body time {
+  font-size: 12px;
+  color: #777;
+}
+
+
+.footer_comm .link_info {
+  font-size: 12px;
+  color: #777;
+}
+.footer_comm .txt_bar {
+  font-size: 12px;
+  padding: 0 4px;
+  color: #ededed;
+}
+
+.mark, mark {
+  padding: 0;
+  background-color: transparent;
+  font-weight: bold;
+  color: inherit;
+}

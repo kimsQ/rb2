@@ -1,0 +1,44 @@
+<li class="table-view-cell" id="item-{$uid}" data-plugin="markjs">
+
+  <span class="badge badge-default badge-outline text-xs-center rounded">
+    <strong data-role="total_comment">{$comment}</strong><br>
+    <small>댓글</small>
+  </span>
+
+  <a data-title="{$bname}"
+    data-toggle="page"
+    data-target="#page-bbs-view"
+    data-start="#page-bbs-list"
+    data-subject="{$subject}"
+    data-cat="{$category}"
+    data-url="/{$r}/b/{$bid}/{$uid}"
+    data-avatar="{$avatar}"
+    data-mbruid="{$mbruid}"
+    data-name="{$name}"
+    data-hit="{$hit}"
+    data-comment="{$comment}"
+    data-likes="{$likes}"
+    data-dregis="{$d_regis}"
+    data-bid="{$bid}" data-uid="{$uid}" role="button">
+    <img class="media-object pull-left bg-faded border img-circle" src="{$avatar}" width="42" data-role="avatar">
+
+
+
+    <div class="media-body">
+      <span class="line-clamp-2">
+        <span class="rb-new mr-1 {$new}"></span>
+        <span class="badge badge-default badge-inverted {$hidden}"><i class="fa fa-lock fa-lg"></i></span>
+        <span data-role="subject">{$subject}</span>
+      </span>
+      <p>
+        <small>{$name}</small>
+        <small class="ml-1">조회 {$hit}</small>
+        <small class="ml-1">추천 {$likes}</small>
+        <time class="small ml-1" {$timeago} datetime="{$d_regis_c}">{$d_regis}</time>
+        <small class="ml-1">{$category}</small>
+        <small class="{$notice}">공지</small>
+        <span class="badge badge-default badge-inverted">{$bbs}</span>
+      </p>
+    </div>
+  </a>
+</li>

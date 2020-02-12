@@ -1,0 +1,27 @@
+<li class="table-view-cell border-bottom-0" data-role="item" data-uid="{$uid}">
+
+  <div class="media" data-toggle="page" data-target="#page-post-listview" class="ml-1" data-start="" data-url="/list/{$id}" data-id="{$id}" data-title="{$name}">
+
+    <div class="media-left">
+      <div class="embed-responsive embed-responsive-16by9 bg-faded">
+        <img class="media-object " src="{$featured_16by9}" class="img-fluid" alt="" style="width:160px">
+        <span class="list_mask">
+          <span class="txt">{$num}<i class="fa fa-list-ul d-block" aria-hidden="true"></i></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="media-body">
+      <div class="line-clamp-3">{$name}</div>
+      <p>포스트 {$num}개</p>
+      <ul class="list-inline f13 text-muted mt-1 mb-0">
+        <li class="list-inline-item">{$nic}</li>
+        <li class="list-inline-item"><time data-plugin="timeago" datetime="{$d_modify}"></time></li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="badge badge-default badge-inverted">
+    <a href="#popup-post-admin" data-toggle="popup" data-uid="{$uid}" class="icon material-icons text-muted">more_vert</a>
+  </span>
+</li>

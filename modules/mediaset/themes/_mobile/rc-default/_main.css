@@ -1,0 +1,8 @@
+.rb-attach .table-view {
+  border: none
+}
+
+.rb-attach .table-view-cell {
+  padding-left: 1rem;
+  padding-right: 1rem
+}

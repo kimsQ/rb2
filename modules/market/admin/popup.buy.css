@@ -1,0 +1,16 @@
+.tt {font-weight:bold;font-family:"malgun gothic",dotum;color:#333333;border-bottom:#dfdfdf dotted 1px;padding:10px 0 10px 10px;margin:0 0 20px 0;}
+.tt img {position:relative;top:6px;}
+#orderbox {}
+#orderbox .box {padding:10px 0 50px 0;}
+#orderbox .box table {}
+#orderbox .box td {}
+#orderbox .box .td1 {width:80px;padding:5px 0 5px 10px;font-family:dotum;font-size:12px;color:#666;}
+#orderbox .box .td2 {padding:7px 0 7px 0;}
+#orderbox .box .td2 span {font-family:arial;font-size:11px;color:#ff0000;}
+#orderbox .box .td2 s {font-family:arial;font-size:11px;color:#999;}
+#orderbox .box .noline td {border-top:#ffffff solid 1px;}
+#orderbox .box .buybox {padding:20px 0 20px 90px;}
+#orderbox .box .buybox div {padding:0 0 20px 0;}
+#orderbox .box .price1 {color:#000000;}
+#orderbox .box .price2 {color:#ff0000;}
+#orderbox .box .halin {color:#FF4040;}

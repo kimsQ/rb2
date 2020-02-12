@@ -1,0 +1,11 @@
+.table-view-cell p {
+  font-size: .875rem;
+  color: #818a91;
+  line-height: 1.3;
+  max-height: 2.1rem;
+  overflow: hidden;
+}
+
+.table-view-cell .badge {
+  font-weight: normal;
+}

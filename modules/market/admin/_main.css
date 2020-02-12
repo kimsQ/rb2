@@ -1,0 +1,16 @@
+.svc_free {
+  background-color: #ffc107;
+  color: #222
+}
+.svc_standard {
+  background-color: #007bff;
+  color: #fff
+}
+.svc_economy{
+  background-color: #28a745;
+  color: #fff
+}
+.svc_premium {
+  background-color: #563d7c;
+  color: #fff
+}

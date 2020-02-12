@@ -1,0 +1,21 @@
+#friendlist {padding:0 0 30px 0;}
+#friendlist .info {height:28px;}
+#friendlist .info .article {float:left;padding:7px 0 0 0;}
+#friendlist .info .article a {font-family:gothic,gulim;font-size:12px;}
+#friendlist .info .article span {font-size:11px;font-family:dotum;color:#c0c0c0;padding:0 5px 0 5px;}
+#friendlist .info .article .num {color:#666;padding:0 0 0 3px;}
+#friendlist .info .category {float:right;}
+#friendlist table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#friendlist table caption {display:none;}
+#friendlist thead th {height:28px;border-top:#D2D2D2 solid 1px;border-bottom:#D2D2D2 solid 1px;background:url('../../../../../../_core/image/_public/bg_list_tt.jpg');font-size:11px;font-family:dotum;font-weight:normal;color:#787878;}
+#friendlist thead .side1 {border-left:#D2D2D2 solid 1px;}
+#friendlist thead .side2 {border-right:#D2D2D2 solid 1px;}
+#friendlist tbody td {text-align:center;color:#888888;font-family:arial;font-size:10px;border-bottom:#E6E6E6 solid 1px;letter-spacing:-1px;}
+#friendlist .cat {font-size:12px;font-family:gothic,gulim;color:#888;letter-spacing:-1px;}
+#friendlist .sbj {padding:5px 0 3px 10px;letter-spacing:-1px;}
+#friendlist .sbj a {font-size:12px;font-family:gulim;color:#222222;text-decoration:none;line-height:150%;}
+#friendlist .sbj a:hover {text-decoration:underline;}
+#friendlist .sbj .new {color:#ff0000;}
+#friendlist .sbj1 {padding:5px 0 3px 10px;font-size:12px;font-family:gothic,gulim;color:#222222;line-height:150%;}
+#friendlist .pagebox01 {text-align:center;padding:15px 0 0 0;}
+#friendlist .none {display:none;}

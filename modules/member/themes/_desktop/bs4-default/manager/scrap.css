@@ -1,0 +1,18 @@
+#scraplist {padding:0 0 30px 0;}
+#scraplist .info {height:28px;}
+#scraplist .info .article {float:left;font-size:11px;font-family:gothic,dotum;color:#c0c0c0;padding:5px 0 0 5px;}
+#scraplist .info .category {float:right;}
+#scraplist table {width:100%;border-spacing:0px;border-collapse:collapse;}
+#scraplist table caption {display:none;}
+#scraplist thead th {height:28px;border-top:#D2D2D2 solid 1px;border-bottom:#D2D2D2 solid 1px;background:url('../../../../../../_core/image/_public/bg_list_tt.jpg');font-size:11px;font-family:dotum;font-weight:normal;color:#787878;}
+#scraplist thead .side1 {border-left:#D2D2D2 solid 1px;}
+#scraplist thead .side2 {border-right:#D2D2D2 solid 1px;}
+#scraplist tbody td {text-align:center;color:#888888;font-family:arial;font-size:10px;border-bottom:#E6E6E6 solid 1px;letter-spacing:-1px;}
+#scraplist .cat {font-size:12px;font-family:gothic,gulim;color:#888;letter-spacing:-1px;}
+#scraplist .sbj {text-align:left;padding:5px 0 3px 10px;letter-spacing:-1px;}
+#scraplist .sbj a {font-size:12px;font-family:gulim;color:#222222;text-decoration:none;line-height:150%;}
+#scraplist .sbj a:hover {text-decoration:underline;}
+#scraplist .sbj .new {color:#ff0000;}
+#scraplist .sbj1 {text-align:left;padding:5px 0 3px 10px;font-size:12px;font-family:gothic,gulim;color:#222222;line-height:150%;}
+#scraplist .pagebox01 {text-align:center;padding:15px 0 0 0;}
+#scraplist .none {display:none;}

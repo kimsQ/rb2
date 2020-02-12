@@ -1,0 +1,77 @@
+<li class="table-view-cell bg-white animated fadeIn pl-0" data-id="{$uid}" data-role="attach-item">
+  <div class="media">
+    <div class="pull-left media-object">
+      <img src="{$thumbnail}" alt="" style="width: 42px;height: 42px">
+    </div>
+    <div class="media-body text-muted f14 w-75">
+      <div class="line-clamp-2">
+        <span class="badge badge-pill mr-1 {$is_featured}" data-role="attachList-label-featured" data-id="{$uid}">대표</span>
+        <span class="badge badge-pill mr-1 {$is_hidden}" data-role="attachList-label-hidden-{$uid}">숨김</span>
+        {$name}
+      </div>
+      <div class="meta">
+        <span class="badge badge-inverted">{$provider}</span>
+        <span class="badge badge-inverted" data-role="attachList-list-time-562">{$time}</span>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" name="attachfiles[]" value="[{$uid}]">
+  <button type="button" class="btn btn-link"
+    data-act="sheet"
+    data-mod="link"
+    data-target="#sheet-attach-moreAct"
+    data-id="{$uid}" data-showhide="{$showhide}"
+    data-insert="{$insert_text}"
+    data-title="{$name}">
+    <span class="fa fa-caret-down fa-lg text-muted"></span>
+  </button>
+
+  <ul class="hidden dropdown-menu dropdown-menu-right" role="menu">
+    <li>
+      <a class="dropdown-item" href="#"
+        data-link-act="featured-img"
+        data-type="{$type}"
+        data-id="{$uid}">
+        대표이미지 설정
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+        href="#"
+        data-toggle="modal"
+        data-target="#modal-attach-{$type_modal}-meta"
+        data-filename="{$file_name}"
+        data-fileext="{$fileext}"
+        data-caption="{$caption}"
+        data-src="{$thumb_modal}"
+        data-origin="{$img_origin}"
+        data-link-act="edit"
+        data-id="{$uid}"
+        data-type="{$type}"
+        data-role="attachList-menu-edit-{$uid}">
+        정보수정
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+        href="#"
+        data-link-act="showhide"
+        data-role="attachList-menu-showhide-{$uid}"
+        data-id="{$uid}" data-content="{$hidden_code}">
+        {$hidden_str}
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item"
+        href="#"
+        data-link-act="delete"
+        data-id="{$uid}"
+        data-role="attachList-menu-delete-{$uid}"
+        data-featured=""
+        data-type="{$type}">
+        삭제
+      </a>
+    </li>
+  </ul>
+</li>

@@ -1,0 +1,21 @@
+<div class="media mb-2" data-role="oneline-item" data-uid="{$oneline_uid}" data-type="oneline" data-hidden="{$oneline_getHidden}">
+    <img class="mr-3 border rounded-circle" src="{$oneline_user_pic}" alt="아바타" style="width:1.5rem;height:1.5rem">
+    <div class="media-body">
+      <div id="OLN-{$oneline_uid}"></div>
+      <!-- <a data-kcact="like" data-type="oneline" data-entry="{$oneline_uid}">좋아요(<span data-role="oneline-likeTotal-{$oneline_uid}">{$oneline_like_total}</span>)</a> -->
+
+      <div class="media-heading h6 d-flex align-items-center">
+        <span class="badge badge-default badge-inverted">{$oneline_user_name}</span>
+        <time class="pl-1 badge badge-default badge-inverted" data-role="oneline-time-wrapper-{$oneline_uid}" datetime="{$oneline_regis_ago}" data-plugin="timeago">
+          {$oneline_regis_time}
+        </time>
+        <small class="ml-1 {$oneline_getNew}"></small><!-- 24시간이내 new 출력 -->
+      </div>
+
+      <div class="mr-1">
+        <article data-role="oneline-content-editable-{$oneline_uid}">
+          <div class="text-xs-center text-muted bg-faded p-3 my-2 mr-2 small"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> 비밀글</div>
+        </article>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<!-- 공통 사항 data-* ="*" 과 {$*} 는 수정 금지 -->
+<header class="d-flex justify-content-start" data-role="header-container">
+   {$comment_header} <!-- 댓글 header : comment_header.html  -->
+</header>
+<div class="rb-comments-write" data-role="commentWrite-container"> <!-- 댓글 입렵부 : comment_write.html -->
+  {$comment_write}
+</div>
+<main  data-role="comment-main">
+  <nav class="d-flex">
+    <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons" role="group">
+      <label class="btn btn-light active" data-kcact="changeSort" data-sort="uid" data-orderby="asc">
+        <input type="radio" name="changeSort" id="sort_uid_asc" autocomplete="off" checked> 최신순
+      </label>
+      <label class="btn btn-light" data-kcact="changeSort" data-sort="uid" data-orderby="desc">
+        <input type="radio" name="changeSort" id="sort_uid_desc" autocomplete="off"> 과거순
+      </label>
+      <label class="btn btn-light" data-kcact="changeSort" data-sort="likes" data-orderby="desc">
+        <input type="radio" name="changeSort" id="sort_likes_desc" autocomplete="off"> 추천순
+      </label>
+    </div>
+    <button type="button" class="btn btn-light btn-sm d-print-none ml-auto" role="button" data-kcact="reload" data-toggle="tooltip" title="새로고침">
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+    </button>
+  </nav>
+  <hr>
+  <ul class="list-unstyled" data-role="comment-container"> <!-- 댓글 출력부 : comment_row.html -->
+    {$comment_rows}
+  </ul>
+  <div data-role="btnMore-container"> <!-- 더보기 버튼 -->
+    <a class="btn btn-block btn-light" data-role="trigger-getMoreComment">더보기</a>
+  </div>
+</main>
+
+<div class="d-none animated fadeIn" data-role="comment-none">
+  <div class="d-flex justify-content-center align-items-center" style="height: 30vh;">
+    <div class="text-muted text-center">
+      <div class="display-2 mb-3">
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+      </div>
+      <button type="button" class="btn btn-link text-muted js-comment-focus">첫번째 댓글을 남겨주세요.</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_reaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="fa fa-thumbs-o-up fa-lg fa-fw" aria-hidden="true"></i> 공감한 사람 <span class="badge badge-light js-count">9</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="media w-100">
+              <img class="mr-3 border rounded-circle" src="/_core/opensrc/timthumb/thumb.php?src=https://kimsq.com/_var/avatar/180.break93.png&amp;w=38&amp;h=38" alt="아바타" width="38">
+              <div class="media-body">
+                <strong>벽돌공장</strong>
+                <p class="text-muted small mt-1 mb-0">
+                  엑스퍼트
+                </p>
+              </div>
+            </div>
+            <span class="badge badge-light badge-pill">36분 전</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="media w-100">
+              <img class="mr-3 border rounded-circle" src="/_core/opensrc/timthumb/thumb.php?src=https://kimsq.com/_var/avatar/180.break93.png&amp;w=38&amp;h=38" alt="아바타" width="38">
+              <div class="media-body">
+                <strong>벽돌공장</strong>
+                <p class="text-muted small mt-1 mb-0">
+                  엑스퍼트
+                </p>
+              </div>
+            </div>
+            <span class="badge badge-light badge-pill">36분 전</span>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-block" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+jQuery(function($) {
+
+   $('[data-toggle="tooltip"]').tooltip()
+
+   $(".js-modal-window").click(function() {
+ 		modalSetting('modal_window',$(this).attr("data-href"));
+ 	});
+
+  $('.add-comment').click(function() {
+   var uid = $(this).data('parent')
+   var textarea = $('[data-role="oneline-input-'+uid+'"]')
+   setTimeout(function(){ textarea.focus(); }, 200); // 한줄의견 추가시에 textarea focus 처리하기
+  });
+
+  $('.js-comment-focus').click(function() {
+    $('#meta-description-content').focus()
+  });
+
+});
+
+</script>

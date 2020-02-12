@@ -1,0 +1,5 @@
+# X-XSS-Protection
+<IfModule mod_headers.c>
+    Header set Content-Disposition attachment
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

@@ -1,0 +1,67 @@
+<article class="rb-article content-padded">
+  <div data-role="article-body">
+    {$article}
+  </div>
+</article>
+
+<div class="tag content-padded mt-4" data-role="tags">
+  {$tag}
+</div>
+
+<div class="text-xs-center mb-4">
+  <button type="button" class="btn btn-outline-secondary btn-lg"
+    data-send="ajax"
+    data-toggle="opinion"
+    data-uid="{$uid}"
+    data-opinion="like"
+    data-effect="heartbeat"
+    data-role="btn_post_like">
+    <i class="fa fa fa-heart-o fa-fw fa-lg" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="btn btn-outline-secondary btn-lg"
+    data-send="ajax"
+    data-toggle="opinion"
+    data-uid="{$uid}"
+    data-opinion="dislike"
+    data-effect="heartbeat"
+    data-role="btn_post_dislike">
+    <i class="fa fa-thumbs-o-down fa-fw fa-lg" aria-hidden="true"></i>
+    <span data-role='dislikes_{$uid}' class="badge badge-inverted">{$dislikes}</span>
+  </button>
+</div>
+
+<div data-role="attach">
+
+  <!-- 비디오 -->
+  <div class="mb-3 hidden" data-role="attach-video">
+  </div>
+
+  <!-- 오디오 -->
+  <ul class="table-view table-view-full bg-white mb-3 hidden" data-role="attach-audio">
+  </ul>
+
+  <!-- 이미지 -->
+  <div class="card-group mb-3 hidden" data-role="attach-photo">
+  </div>
+
+  <!-- 기타파일 -->
+  <ul class="table-view table-view-full bg-white mb-3 hidden" data-role="attach-file">
+  </ul>
+</div>
+
+<ul class="table-view mb-0">
+  <li class="table-view-cell">
+    <a href="#page-bbs-opinion"
+      data-toggle="page"
+      data-start="#page-bbs-view"
+      data-bid="{$bid}"
+      data-opinion="like"
+      data-uid="{$uid}"
+      data-subject="{$subject}"
+      data-cat="{$category}"
+      class="navigate-right">
+      <span class="badge badge-default badge-inverted" data-role='likes_{$uid}'>{$likes}</span>
+      좋아요한 사람
+    </a>
+  </li>
+</ul>

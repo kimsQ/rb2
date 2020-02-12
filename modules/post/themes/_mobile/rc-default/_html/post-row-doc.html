@@ -1,0 +1,93 @@
+<div class="card card-full border-bottom rounded-0 bg-white" data-role="item" data-uid="{$uid}" data-saved="{$is_post_saved}">
+	<header class="px-3 pt-3 d-flex justify-content-between">
+		<div class="media"
+			data-toggle="profile"
+		 	data-target="#modal-member-profile"
+		 	data-mbruid="{$mbruid}"
+		 	data-title="{$nic}"
+		 	data-url="{$profile_url}">
+			<span class="media-left">
+				<img class="media-object img-circle" data-role="avatar" src="{$avatar}" alt="" style="width:40px">
+			</span>
+			<div class="media-body">
+				<div class="f15 line-clamp-2" style="line-height: 1.2">{$nic}</div>
+				<ul class="list-inline f13 text-muted mt-1 mb-0">
+					<li class="list-inline-item"><time data-plugin="timeago" datetime="{$d_modify}"></time></li>
+				</ul>
+			</div>
+		</div><!-- /.media -->
+
+		<div class="px-1">
+			<a href="#popup-post-postMore"
+				data-toggle="popup"
+				data-role="more"
+				data-uid="{$uid}" class="icon material-icons text-muted f18">
+				more_vert
+			</a>
+		</div>
+	</header><!-- /.d-flex -->
+
+	<div class="card-block px-3 py-2"
+		data-toggle="page"
+		data-target="#page-post-view"
+		data-format="{$format}"
+		data-start="{$start}"
+		data-uid="{$uid}"
+		data-featured="{$featured_1by1}"
+		data-provider="{$provider}"
+		data-videoId="{$videoId}"
+		data-title="{$subject}"
+		data-url="{$post_url}">
+		<p>{$subject} <span class="f14 text-muted mt-2 {$has_content}">자세히 보기</span></p>
+		<div class="position-relative embed-responsive embed-responsive-1by1 bg-faded {$has_featured}">
+			<img class="card-img-top img-fluid rounded-0" src="{$featured_1by1}" alt="" data-role="featured">
+			<span class="position-absolute icon-tag text-white {$has_goodslink}" style="left:10px;bottom:10px" data-role="goodslink">
+				<i class="material-icons f18">redeem</i>
+			</span>
+			<time class="badge badge-default bg-black rounded-0 position-absolute f14" style="right:1px;bottom:1px" data-role="time">{$time}</time>
+		</div>
+	</div>
+	<footer class="d-flex justify-content-between px-3 mb-3">
+		<div class="">
+			<button type="button"
+				class="btn btn-link muted-link px-1 text-decoration-none {$is_post_liked}"
+				data-toggle="view_opinion"
+	      data-title="동영상이 마음에 드시나요?"
+	      data-subtext="로그인하여 의견을 알려주세요."
+	      data-send="_ajax"
+	      data-uid="{$uid}"
+	      data-opinion="like"
+				data-role="btn_post_like_{$uid}">
+        <i class="material-icons align-text-bottom f20 align-middle">thumb_up</i>
+        <span class="ml-1 f13" data-role="likes_{$uid}">{$likes}</span>
+      </button>
+			<button type="button" class="btn btn-link muted-link px-1 text-decoration-none ml-2 {$is_post_disliked}"
+				data-toggle="view_opinion"
+	      data-target="#popup-login-guide"
+	      data-title="동영상이 마음에 안 드시나요?"
+	      data-subtext="로그인하여 의견을 알려주세요."
+	      data-send="_ajax"
+	      data-uid="{$uid}"
+	      data-opinion="dislike"
+				data-role="btn_post_dislike_{$uid}">
+				<i class="material-icons align-text-bottom f20 align-middle">thumb_down</i>
+				<span class="ml-1 f13" data-role="dislikes_{$uid}">{$dislikes}</span>
+			</button>
+		</div>
+		<div class="">
+			<button type="button" class="btn btn-link text-muted px-1 text-decoration-none"
+				data-toggle="modal"
+				data-target="#modal-post-view"
+				data-format="{$format}"
+				data-start="{$start}"
+				data-uid="{$uid}"
+				data-featured="{$featured_16by9}"
+				data-provider="{$provider}"
+				data-videoId="{$videoId}"
+				data-url="{$post_url}">
+	      <i class="material-icons align-text-bottom f20 align-middle">comment</i>
+	      <span class="ml-1 f13" data-role="comment_{$uid}">{$comment}{$oneline}</span>
+	    </button>
+		</div>
+	</footer>
+</div>

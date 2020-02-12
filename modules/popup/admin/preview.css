@@ -1,0 +1,4 @@
+html {height:100%;width:100%;overflow-x:hidden;}
+#popupbody {position:absolute;height:100%;}
+#popclose {position:absolute;z-index:99;position:fixed;width:100%;bottom:0pt;height:25px;background:#343434;text-align:center;color:#ffffff;}
+#popclose img {position:relative;top:3px;left:50px;}

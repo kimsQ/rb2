@@ -1,0 +1,55 @@
+.form-signin {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.form-signin .logo {
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  color: #333;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 15px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+}
+.form-signin label {
+  display: block;
+  margin-bottom: 7px;
+}
+.form-signin .label-link {
+  float: right;
+  font-size: 12px;
+  line-height: 24px
+}
+
+.form-signin .rb-complete {
+  display: none
+}
+.form-signin.has-sent .rb-default {
+  display: none
+}
+.form-signin.has-sent .rb-complete {
+  display: block
+}

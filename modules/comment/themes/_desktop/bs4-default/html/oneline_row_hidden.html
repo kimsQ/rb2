@@ -1,0 +1,29 @@
+<li class="list-group-item flex-column align-items-start p-0 border-left-0 rounded-0 list-group-item-light" data-role="oneline-item" id="OLN-{$oneline_uid}" data-uid="{$oneline_uid}" data-type="oneline" data-hidden="{$oneline_getHidden}">
+  <span></span>
+  <blockquote class="py-2">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <span>
+        <cite>{$oneline_user_name}</cite>
+        <time class="small text-muted ml-2" data-role="oneline-time-wrapper-{$oneline_uid}">
+          {$oneline_regis_time}
+        </time>
+        <small class="ml-1 {$oneline_getNew}"></small><!-- 24시간이내 new 출력 -->
+      </span>
+      <span>
+        {$btn_showHideMenu} <!-- 메뉴 출력/숨기 버튼 btn_showHideMenu.html : 권한이 있는 경우(로그인,작성자,관리자) 에만 노출됨 -->
+        <a class="text-reset" data-role="anchor-link" href="#OLN-{$oneline_uid}">
+          <i class="fa fa-hashtag" aria-hidden="true"></i>
+        </a>
+      </span>
+    </div>
+
+    <article class="mb-0" data-role="oneline-origin-content-{$oneline_uid}">
+      <div class="text-center text-muted border p-4 my-2"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> 비밀글</div>
+    </article>
+
+    <div data-role="{$entry_type}-modify-btn-wrapper-{$uid}" class="toolbar-container" data-item="oneline"></div>
+    <article class="mb-0 bg-white" data-role="oneline-content-editable-{$oneline_uid}" style="display:none" >{$oneline_content}</article>
+    {$btn_editMod}
+    <button class="btn btn-sm btn-link text-reset" data-kcact="like" data-type="oneline" data-entry="{$oneline_uid}">좋아요 <span class="badge badge-light" data-role="oneline-likeTotal-{$oneline_uid}">{$oneline_like_total}</span></button>
+  </blockquote>
+</li>

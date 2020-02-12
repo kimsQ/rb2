@@ -1,0 +1,35 @@
+<li class="table-view-cell table-view-cell-full border-bottom-0">
+  <a data-toggle="view"
+      data-uid="{$newpost_uid}"
+      data-featured="{$newpost_featured_16by9}"
+      data-provider="{$newpost_provider}"
+      data-videoId="{$newpost_videoId}"
+      data-format="{$newpost_format}"
+  		data-title="{$subject}"
+      data-url="/post/{$newpost_cid}">
+    <div class="pull-left mr-2  {$newpost_has_featured}">
+      <div class="embed-responsive embed-responsive-16by9 bg-faded">
+        <img class="media-object border" src="{$newpost_featured_16by9_sm}" alt="" style="width: 160px">
+        <time class="badge badge-default rounded-0 position-absolute" style="top:auto;left:auto;right:1px;bottom:1px">{$newpost_time}</time>
+      </div>
+    </div>
+
+    <div class="media-body">
+      <h5 class="h6 my-1 font-weight-light line-clamp-3">
+        {$newpost_subject}
+      </h5>
+      <div class="mb-1">
+        <ul class="list-inline d-inline-block f13 text-muted">
+          <li class="list-inline-item">조회수 {$newpost_hit}회 </li>
+          <li class="list-inline-item">
+            <time data-plugin="timeago" datetime="{$newpost_d_modify}"></time>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </a>
+  <span class="badge badge-default badge-inverted">
+    <a href="#popup-post-postMore" data-toggle="popup" data-uid="{$newpost_uid}" class="icon material-icons text-muted f18">more_vert</a>
+  </span>
+</li>

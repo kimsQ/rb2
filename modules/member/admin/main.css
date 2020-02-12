@@ -1,0 +1,29 @@
+/* 첨부파일 : input-file*/
+.btn-file {
+ position: relative;
+ overflow: hidden;
+}
+.btn-file input[type=file] {
+ position: absolute;
+ top: 0;
+ right: 0;
+ min-width: 100%;
+ min-height: 100%;
+ font-size: 100px;
+ text-align: right;
+ filter: alpha(opacity=0);
+ opacity: 0;
+ background: red;
+ cursor: inherit;
+ display: block;
+}
+input.form-control[readonly] {
+ color: #777
+}
+.datepicker {z-index: 1151 !important;}
+
+.sidebar .card.phone {
+  border-width: 5px;
+  border-color: rgb(52, 59, 67);
+  border-radius: 15px;
+}
