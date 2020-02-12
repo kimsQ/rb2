@@ -157,7 +157,7 @@ if ($url) {
 								<?php for($i = 0; $i < $_rb2listlength; $i++):?>
 								<?php $_list=trim($_rb2list[$i]);if(!$_list)continue?>
 								<?php $var1=explode(',',$_list)?>
-								<option value="<?php echo $var1[1]?>" <?php echo ($url==$var1[1])?'selected':'' ?> data-folder="rb-<?php echo $var1[2]?>">
+								<option value="<?php echo $var1[1]?>" <?php echo ($url==$var1[1])?'selected':'' ?> data-folder="rb2-<?php echo $var1[2]?>">
 									<?php echo $var1[0]?>
 								</option>
 								<?php endfor?>
