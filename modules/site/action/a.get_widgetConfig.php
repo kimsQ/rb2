@@ -80,7 +80,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	      }
 
 	      if ($_v[1]=='select') {
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required>';
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select">';
 	        $_sk=explode(',',$_v[3]);
 	        foreach ($_sk as $_sa) {
 	          $_sa1=explode('=',$_sa);
@@ -115,7 +115,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 
 	      if ($_v[1]=='postlist') {
 					$html .= '<div class="input-group">';
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required size="1">
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" size="1">
 	                    <option value="">선택하세요.</option>
 	                    <option value="" disabled>----------------------------------</option>';
 	        $_sk=explode(',',$_v[3]);
@@ -132,7 +132,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	      }
 
 	      if ($_v[1]=='postcat') {
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required>
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select">
 	                    <option value="">선택하세요.</option>
 	                    <option value="" disabled>----------------------------------</option>';
 					$html .=	 getCategoryShowSelect($table['postcategory'],0,0,0,0,0,$_wdgvar[$_v[0]]);
@@ -141,7 +141,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 
 	      if ($_v[1]=='bbs') {
 					$html .= '<div class="input-group">';
-	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" required size="1">
+	        $html .= '<select name="'.$_v[0].'" class="form-control custom-select" size="1">
 	                    <option value="">선택하세요</option>
 	                    <option value="" disabled>----------------------------------</option>';
 	        $BBSLIST = getDbArray($table['bbslist'],'','*','gid','asc',0,1);

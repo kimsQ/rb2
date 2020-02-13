@@ -294,3 +294,56 @@ if ($m=='bbs') {
     </div>
   </div>
 </div>
+
+<!-- 메인화면 꾸미기 게시판생성 -->
+<div class="modal" tabindex="-1" role="dialog" id="modal-widget-makebbs">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">새 게시판</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label>게시판 아이디</label>
+          <input type="text" class="form-control" name="id">
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="form-group">
+          <label>게시판 이름</label>
+          <input type="text" class="form-control" name="name">
+          <div class="invalid-feedback"></div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" data-act="submit">만들기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 메인화면 꾸미기 리스트 생성 -->
+<div class="modal" tabindex="-1" role="dialog" id="modal-widget-makelist">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">새 리스트</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label>리스트 이름</label>
+          <input type="text" class="form-control" name="name">
+          <div class="invalid-feedback"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" data-act="submit">만들기</button>
+      </div>
+    </div>
+  </div>
+</div>

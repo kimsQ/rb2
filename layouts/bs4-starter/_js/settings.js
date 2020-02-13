@@ -137,6 +137,20 @@ $('[name="settingMain"] [data-act="submit"]').click(function(){
 
 $( document ).ready(function() {
 
+  //순서변경
+  $('[data-plugin="nestable"]').nestable({
+    group: 1,
+    maxDepth: 1
+  });
+
+  $('#modal-widget-selector').on('show.bs.modal', function (event) {
+    var modal = $(this)
+    var button = $(event.relatedTarget);
+    var area = button.attr('data-area');
+    resetPage();
+    setTimeout(function(){ modal.find('[name="widget_selector"]').attr('data-area',area).trigger('focus'); }, 100);
+  })
+
   $('#modal-widget-selector').find('[name="widget_selector"]').change(function(){
     var modal = $('#modal-widget-selector');
     var path =  $(this).val();
@@ -206,6 +220,19 @@ $( document ).ready(function() {
     }
 
   });
+
+  $('#modal-widget-selector').on('hidden.bs.modal', function (event) {
+    var modal = $(this)
+    var button = modal.find('[data-act="submit"]');
+    var selector =  modal.find('[name="widget_selector"]');
+    button.removeAttr('data-path').removeAttr('data-id').removeAttr('data-area').removeAttr('data-name');
+    selector.removeAttr('data-area');
+    modal.find('[name="widget_selector"]').prop('selectedIndex',0);
+    modal.find('[data-role="readme"]').html('');
+    modal.find('[data-role="thumb"]').attr('src','')
+
+    $('[data-role="addWidget"]').removeClass('active');
+  })
 
   $('[data-role="widgetConfig"]').on('click','[data-act="save"]',function() {
     var name = $('[data-role="widgetConfig"]').attr('data-name');
@@ -321,31 +348,106 @@ $( document ).ready(function() {
     resetPage();
   });
 
-  //순서변경
-  $('[data-plugin="nestable"]').nestable({
-    group: 1,
-    maxDepth: 1
-  });
-
-  $('#modal-widget-selector').on('show.bs.modal', function (event) {
-    var modal = $(this)
-    var button = $(event.relatedTarget);
-    var area = button.attr('data-area');
-    resetPage();
-    setTimeout(function(){ modal.find('[name="widget_selector"]').attr('data-area',area).trigger('focus'); }, 100);
+  $(document).on('click','[data-role="widgetConfig"] [data-act="make"]',function() {
+    var button = $(this);
+    var mod = button.attr('data-mod')
+    if (mod=='bbs') modal = $('#modal-widget-makebbs');
+    if (mod=='postlist') modal = $('#modal-widget-makelist');
+    if (!mod) return false;
+    modal.modal('show');
   })
 
-  $('#modal-widget-selector').on('hidden.bs.modal', function (event) {
+  $('#modal-widget-makebbs').on('shown.bs.modal', function (event) {
     var modal = $(this)
-    var button = modal.find('[data-act="submit"]');
-    var selector =  modal.find('[name="widget_selector"]');
-    button.removeAttr('data-path').removeAttr('data-id').removeAttr('data-area').removeAttr('data-name');
-    selector.removeAttr('data-area');
-    modal.find('[name="widget_selector"]').prop('selectedIndex',0);
-    modal.find('[data-role="readme"]').html('');
-    modal.find('[data-role="thumb"]').attr('src','')
+    modal.find('[name="id"]').trigger('focus')
 
-    $('[data-role="addWidget"]').removeClass('active');
+  })
+
+  $('#modal-widget-makelist').on('shown.bs.modal', function (event) {
+    var modal = $(this)
+    modal.find('[name="name"]').trigger('focus')
+  })
+
+  $('#modal-widget-makebbs').on('hidden.bs.modal', function (event) {
+    var modal = $(this)
+    modal.find('input').val('');
+
+  })
+
+  $('#modal-widget-makelist').on('hidden.bs.modal', function (event) {
+    var modal = $(this)
+    modal.find('input').val('');
+  })
+
+  $('#modal-widget-makebbs').find('input').keyup(function() {
+    $(this).removeClass('is-invalid');
+    $('#modal-widget-makebbs').find('.invalid-feedback').text('')
+  });
+
+  $('#modal-widget-makelist').find('input').keyup(function() {
+    $(this).removeClass('is-invalid');
+    $('#modal-widget-makelist').find('.invalid-feedback').text('')
+  });
+
+
+  $('#modal-widget-makebbs').on('click','[data-act="submit"]',function() {
+    var modal = $('#modal-widget-makebbs');
+    var button = $(this);
+    var id = modal.find('[name="id"]').val();
+    var name = modal.find('[name="name"]').val();
+    if (!id) {
+      modal.find('[name="id"]').focus().addClass('is-invalid');
+      modal.find('[name="id"]').nextAll('.invalid-feedback').text('게시판 아이디를 입력해주세요.')
+      return false
+    }
+
+    //아이디 유용성 체크
+    if (!chkIdValue(id)) {
+      modal.find('[name="id"]').focus().addClass('is-invalid');
+      modal.find('[name="id"]').nextAll('.invalid-feedback').text('영문 또는 숫자를 사용해주세요.')
+      return false
+    }
+
+    if (!name) {
+      modal.find('[name="name"]').focus().addClass('is-invalid');
+      modal.find('[name="name"]').nextAll('.invalid-feedback').text('게시판 이름을 입력해주세요.')
+      return false
+    }
+
+    button.attr('disabled',true);
+    setTimeout(function(){
+
+      $.post(rooturl+'/?r='+raccount+'&m=bbs&a=makebbs',{
+        id : id,
+        name : name,
+        send_mod : 'ajax'
+       },function(response,status){
+          if(status=='success'){
+            var result = $.parseJSON(response);
+            var error=result.error;
+
+            if (error=='id_exists') {
+              modal.find('[name="id"]').focus().addClass('is-invalid');
+              modal.find('[name="id"]').nextAll('.invalid-feedback').text('이미 같은 아이디의 게시판이 존재합니다.');
+              button.attr('disabled',false);
+              return false
+            }
+
+            modal.modal('hide');
+
+            $('[data-role="widgetConfig"]').find('[name="bid"]').append('<option value="'+id+'" data-name="'+name+'" data-link="/b/'+id+'">ㆍ '+name+'('+id+')</option>');
+            $('[data-role="widgetConfig"]').find('[name="bid"]').val(id).attr('selected','selected');
+            $('[data-role="widgetConfig"]').find('[name="title"]').val(name);
+            $('[data-role="widgetConfig"]').find('[name="link"]').val('/b/'+id);
+
+          } else {
+            button.attr('disabled',false);
+            alert('다시 시도해 주세요.')
+            return false
+          }
+        });
+
+    }, 500);
   })
 
 });
