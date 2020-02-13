@@ -49,8 +49,10 @@ var is_pwa = navigator.share === undefined?1:'';
 <!-- js-cookie : https://github.com/js-cookie/js-cookie -->
 <?php getImport('js-cookie','js.cookie.min','2.2.1','js')?>
 
+<?php if (!$g['mobile'] && $_SESSION['pcmode'] == 'Y'): ?>
 <!-- bootstrap-notify : https://github.com/mouse0270/bootstrap-notify  -->
 <?php getImport('bootstrap-notify','bootstrap-notify.min','3.1.3','js')?>
+<?php endif; ?>
 
 <link href="<?php echo $g['s']?>/_core/css/sys.css<?php echo $g['wcache']?>" rel="stylesheet">
 <script src="<?php echo $g['s']?>/_core/js/sys.js<?php echo $g['wcache']?>"></script>

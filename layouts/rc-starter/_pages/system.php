@@ -1,3 +1,7 @@
+<script type="text/javascript">
+  putCookieAlert('system_update_result');
+</script>
+
 <?php
 checkAdmin(0);
 include $g['path_module'].'admin/var/var.version.php';

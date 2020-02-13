@@ -1,8 +1,6 @@
 var page_software_loglist = $('#page-software-loglist');
 var page_software_logview = $('#page-software-logview');
 
-putCookieAlert('system_update_result');
-
 $('.markdown-body').markdown();
 
 $('#sheet-update-confirm [data-act="submit"]').click(function(){
