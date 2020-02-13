@@ -3,7 +3,8 @@ checkAdmin(0);
 include $g['path_module'].'admin/var/var.version.php';
 include $g['path_core'].'function/rss.func.php';
 $lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt',10));
-$_current_version = str_replace('.','',$d['admin']['version']);
+$current_version = $_SESSION['current_version']?$_SESSION['current_version']:$d['admin']['version'];
+$_current_version = str_replace('.','',$current_version);
 $_lastest_version = str_replace('.','',$lastest_version);
 $git_version = shell_exec('git --version');
 if ($_lastest_version-$_current_version > 0) $try_update = true;
@@ -12,7 +13,7 @@ else $try_update = false;
 $LASTUID = getDbCnt($table['s_gitlog'],'max(uid)','');
 $R = getUidData($table['s_gitlog'],$LASTUID);
 $d_last = $LASTUID?getDateFormat($R['d_regis'],'Y.m.d H:i'):'';
-
+$_SESSION['current_version'] = ''; 
 ?>
 
 <link href="<?php echo $g['s']?>/_core/css/github-markdown.css" rel="stylesheet">
@@ -30,12 +31,14 @@ $d_last = $LASTUID?getDateFormat($R['d_regis'],'Y.m.d H:i'):'';
   		<input type="hidden" name="m" value="admin">
   		<input type="hidden" name="a" value="update">
   		<input type="hidden" name="remote" value="https://github.com/kimsQ/rb.git">
-  		<input type="hidden" name="current_version" value="<?php echo $d['admin']['version']?>">
+  		<input type="hidden" name="current_version" value="<?php echo $current_version?>">
   		<input type="hidden" name="lastest_version" value="<?php echo $lastest_version?>">
 
       <div class="text-xs-center">
         <i class="h1 kf kf-bi-01"></i>
-        <strong class="d-block mt-2">현재 버전 <?php echo $d['admin']['version']?></strong>
+        <strong class="d-block mt-2">
+          현재 버전 <?php echo $current_version?>
+        </strong>
 
         <?php if ($try_update): ?>
         <small class="d-block text-muted">최신 버전 <?php echo $lastest_version ?></small>

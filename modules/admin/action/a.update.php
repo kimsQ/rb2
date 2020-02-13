@@ -19,6 +19,7 @@ if(strpos($output, 'Already up-to-date.') !== false) {
   getDbInsert($table['s_gitlog'],'mbruid,remote,command,version,output,d_regis',"'$mbruid','$remote','$command','$version','$output','$d_regis'");
   $msg = '업데이트가 완료 되었습니다.|default';
 }
+$_SESSION['current_version'] = $lastest_version;
 setrawcookie('system_update_result', rawurlencode($msg));  // 알림처리를 위한 로그인 상태 cookie 저장
 getLink('reload','parent.','','');
 ?>
