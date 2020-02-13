@@ -77,7 +77,7 @@ function DirDelete($t_dir) {
 	@rmdir($t_dir);
 }
 
-$_rb2list = getUrlData('https://kimsq.github.io/rb2/releases.txt',10);
+$_rb2list = getUrlData('https://kimsq.github.io/rb/releases.v2.txt',10);
 $_rb2list = explode("\n",$_rb2list);
 $_rb2listlength = count($_rb2list)-1;
 
