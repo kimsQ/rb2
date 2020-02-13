@@ -11,6 +11,7 @@ _var/php.version.txt
 _var/project.key.txt
 _var/table.info.php
 _var/site/*
+_var/bbs/*
 _var/update/*
 modules/shop/*
 _tmp/widget/*
