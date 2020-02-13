@@ -1,7 +1,6 @@
 <?php
 include $g['path_core'].'function/rss.func.php';
-
-$lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt',10));
+$lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt'.$g['wcache'],10));
 $current_version = $_SESSION['current_version']?$_SESSION['current_version']:$d['admin']['version'];
 $_current_version = str_replace('.','',$current_version);
 $_lastest_version = str_replace('.','',$lastest_version);

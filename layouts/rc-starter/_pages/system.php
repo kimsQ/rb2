@@ -2,7 +2,7 @@
 checkAdmin(0);
 include $g['path_module'].'admin/var/var.version.php';
 include $g['path_core'].'function/rss.func.php';
-$lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt',10));
+$lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt'.$g['wcache'],10));
 $current_version = $_SESSION['current_version']?$_SESSION['current_version']:$d['admin']['version'];
 $_current_version = str_replace('.','',$current_version);
 $_lastest_version = str_replace('.','',$lastest_version);
@@ -13,7 +13,7 @@ else $try_update = false;
 $LASTUID = getDbCnt($table['s_gitlog'],'max(uid)','');
 $R = getUidData($table['s_gitlog'],$LASTUID);
 $d_last = $LASTUID?getDateFormat($R['d_regis'],'Y.m.d H:i'):'';
-$_SESSION['current_version'] = ''; 
+$_SESSION['current_version'] = '';
 ?>
 
 <link href="<?php echo $g['s']?>/_core/css/github-markdown.css" rel="stylesheet">
