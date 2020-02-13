@@ -7,7 +7,7 @@ $R = getUidData($table[$m.'list'],$uid);
 if (!$R['uid']) getLink('','','존재하지 않는 게시판입니다.','');
 
 include_once $g['path_module'].'mediaset/var/var.php';
-include_once $g['path_var'].'bbs/var.'.$B['id'].'.php';
+include_once $g['path_var'].'bbs/var.'.$R['id'].'.php';
 include_once $g['path_module'].'mediaset/var/var.php';
 include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
 
