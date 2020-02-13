@@ -121,7 +121,7 @@ include $g['dir_layout'].'_var/_var.config.php';
                 <?php endif?>
 
                 <?php if($_v[1]=='input'):?>
-                <input type="text" class="form-control" name="layout_<?php echo $_key?>_<?php echo $_v[0]?>" value="<?php echo stripslashes($d['layout'][$_key.'_'.$_v[0]])?>">
+                <input type="text" class="form-control" name="layout_<?php echo $_key?>_<?php echo $_v[0]?>" value="<?php echo stripslashes($d['layout'][$_key.'_'.$_v[0]])?>" autocomplete="off">
                 <?php endif?>
 
                 <?php if($_v[1]=='color'):?>
