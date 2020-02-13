@@ -281,7 +281,7 @@ include $g['dir_layout'].'_var/_var.config.php';
     <div class="form-list floating">
       <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
         <label class="w-100">리스트 명</label>
-        <input type="text" placeholder="리스트 명" name="name">
+        <input type="text" placeholder="리스트 명" name="name" autocomplete="off">
         <div class="invalid-tooltip"></div>
       </div>
     </div>
@@ -311,12 +311,12 @@ include $g['dir_layout'].'_var/_var.config.php';
       <div class="form-list floating">
         <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
           <label class="w-100">게시판 아이디 <span class="ml-1">(영문 또는 숫자만)</span></label>
-          <input type="text" placeholder="게시판 아이디" name="id">
+          <input type="text" placeholder="게시판 아이디" name="id" autocomplete="off">
           <div class="invalid-tooltip"></div>
         </div>
         <div class="input-row position-relative" style="padding: 6px 0 5px 16px;">
           <label class="w-100">게시판 이름</label>
-          <input type="text" placeholder="게시판 이름" name="name">
+          <input type="text" placeholder="게시판 이름" name="name" autocomplete="off">
           <div class="invalid-tooltip"></div>
         </div>
       </div>

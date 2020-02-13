@@ -306,13 +306,13 @@ if ($m=='bbs') {
 
         <div class="form-group">
           <label>게시판 아이디</label>
-          <input type="text" class="form-control" name="id">
+          <input type="text" class="form-control" name="id" autocomplete="off">
           <div class="invalid-feedback"></div>
         </div>
 
         <div class="form-group">
           <label>게시판 이름</label>
-          <input type="text" class="form-control" name="name">
+          <input type="text" class="form-control" name="name" autocomplete="off">
           <div class="invalid-feedback"></div>
         </div>
 
@@ -336,7 +336,7 @@ if ($m=='bbs') {
 
         <div class="form-group">
           <label>리스트 이름</label>
-          <input type="text" class="form-control" name="name">
+          <input type="text" class="form-control" name="name" autocomplete="off">
           <div class="invalid-feedback"></div>
         </div>
       </div>

@@ -26,7 +26,7 @@ function setWidgetConfig(id,name,path,wdgvar,area) {
         }, 100);
 
         //게시판 선택시
-        $('[data-role="widgetConfig"]').find('[name="bbsid"]').change(function(){
+        $('[data-role="widgetConfig"]').find('[name="bid"]').change(function(){
           var name = $(this).find('option:selected').attr('data-name');
           var link = $(this).find('option:selected').attr('data-link');
           var id = $(this).find('option:selected').val();
@@ -360,35 +360,19 @@ $( document ).ready(function() {
   $('#modal-widget-makebbs').on('shown.bs.modal', function (event) {
     var modal = $(this)
     modal.find('[name="id"]').trigger('focus')
-
-  })
-
-  $('#modal-widget-makelist').on('shown.bs.modal', function (event) {
-    var modal = $(this)
-    modal.find('[name="name"]').trigger('focus')
   })
 
   $('#modal-widget-makebbs').on('hidden.bs.modal', function (event) {
     var modal = $(this)
-    modal.find('input').val('');
-
-  })
-
-  $('#modal-widget-makelist').on('hidden.bs.modal', function (event) {
-    var modal = $(this)
-    modal.find('input').val('');
+    modal.find('input').val('').removeClass('is-invalid');
+    modal.find('[data-act="submit"]').attr('disabled',false);
+    modal.find('.invalid-tooltip').text('')
   })
 
   $('#modal-widget-makebbs').find('input').keyup(function() {
     $(this).removeClass('is-invalid');
     $('#modal-widget-makebbs').find('.invalid-feedback').text('')
   });
-
-  $('#modal-widget-makelist').find('input').keyup(function() {
-    $(this).removeClass('is-invalid');
-    $('#modal-widget-makelist').find('.invalid-feedback').text('')
-  });
-
 
   $('#modal-widget-makebbs').on('click','[data-act="submit"]',function() {
     var modal = $('#modal-widget-makebbs');
@@ -439,6 +423,68 @@ $( document ).ready(function() {
             $('[data-role="widgetConfig"]').find('[name="bid"]').val(id).attr('selected','selected');
             $('[data-role="widgetConfig"]').find('[name="title"]').val(name);
             $('[data-role="widgetConfig"]').find('[name="link"]').val('/b/'+id);
+
+          } else {
+            button.attr('disabled',false);
+            alert('다시 시도해 주세요.')
+            return false
+          }
+        });
+
+    }, 500);
+  })
+
+  $('#modal-widget-makelist').on('shown.bs.modal', function (event) {
+    var modal = $(this)
+    modal.find('[name="name"]').trigger('focus')
+  })
+
+  $('#modal-widget-makelist').on('hidden.bs.modal', function (event) {
+    var modal = $(this)
+    modal.find('input').val('').removeClass('is-invalid');
+    modal.find('[data-act="submit"]').attr('disabled',false);
+    modal.find('.invalid-tooltip').text('')
+  })
+
+  $('#modal-widget-makelist').find('input').keyup(function() {
+    $(this).removeClass('is-invalid');
+    $('#modal-widget-makelist').find('.invalid-feedback').text('')
+  });
+
+  $('#modal-widget-makelist').on('click','[data-act="submit"]',function() {
+    var modal = $('#modal-widget-makelist');
+    var button = $(this);
+    var name = modal.find('[name="name"]').val();
+
+    if (!name) {
+      modal.find('[name="name"]').focus().addClass('is-invalid');
+      modal.find('[name="name"]').nextAll('.invalid-feedback').text('리스트명을 입력해주세요.')
+      return false
+    }
+
+    button.attr('disabled',true);
+    setTimeout(function(){
+
+      $.post(rooturl+'/?r='+raccount+'&m=post&a=regis_list',{
+        display : 3,
+        name : name,
+        send_mod : 'ajax'
+       },function(response,status){
+          if(status=='success'){
+            var result = $.parseJSON(response);
+            var error=result.error;
+            var id=result.id;
+
+            if (error=='name_exists') {
+              modal.find('[name="name"]').focus().addClass('is-invalid');
+              modal.find('[name="name"]').nextAll('.invalid-feedback').text('이미 같은 이름의 리스트가 존재합니다.');
+              button.attr('disabled',false);
+              return false
+            }
+
+            modal.modal('hide');
+            $('[data-role="widgetConfig"]').find('[name="listid"]').append('<option value="'+id+'">ㆍ '+name+'</option>');
+            $('[data-role="widgetConfig"]').find('[name="listid"]').val(id).attr('selected','selected');
 
           } else {
             button.attr('disabled',false);
