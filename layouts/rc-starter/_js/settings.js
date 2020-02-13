@@ -258,6 +258,7 @@ page_widget_makebbs.on('click','[data-act="submit"]',function() {
     $.post(rooturl+'/?r='+raccount+'&m=bbs&a=makebbs',{
       id : id,
       name : name,
+      m_layout : 'rc-starter/blank-drawer.php',
       send_mod : 'ajax'
      },function(response,status){
         if(status=='success'){
