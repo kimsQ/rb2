@@ -28,12 +28,6 @@
 <!-- markjs js : https://github.com/julmot/mark.js -->
 <?php getImport('markjs','jquery.mark.min','8.11.1','js')?>
 
-<!-- jQuery UI : https://jqueryui.com/-->
-<?php getImport('jquery-ui','jquery-ui.sortable,min','1.12.1','js')?>
-
-<!-- jquery-ui-touch-punch : https://github.com/furf/jquery-ui-touch-punch/ -->
-<?php getImport('jquery-ui-touch-punch','jquery.ui.touch-punch.min','0.2.3','js')?>
-
 <!-- 댓글출력시 필요 -->
 <?php if ($mod!='write'): ?>
 <?php getImport('ckeditor5','decoupled-document/build/ckeditor','16.0.0','js');  ?>

@@ -66,6 +66,12 @@
 <!-- color-thief : https://github.com/lokesh/color-thief  -->
 <?php getImport('color-thief','color-thief.min','2.3.0','js') ?>
 
+<!-- jQuery UI : https://jqueryui.com/-->
+<?php getImport('jquery-ui','jquery-ui.sortable,min','1.12.1','js')?>
+
+<!-- jquery-ui-touch-punch : https://github.com/furf/jquery-ui-touch-punch/ -->
+<?php getImport('jquery-ui-touch-punch','jquery.ui.touch-punch.min','0.2.3','js')?>
+
 <!-- 사이트 헤드 코드 -->
 <?php echo $_HS['headercode']?>
 

@@ -155,6 +155,8 @@ function pullToRefresh(page){
 
 }
 
+$('[data-plugin="timeago"]').timeago();  // 상대시간 플러그인 초기화
+
 $(document).ready(function() {
 
   overScrollEffect(page_main);
@@ -212,8 +214,6 @@ $(document).ready(function() {
   }
 
   putCookieAlert('site_common_result') // 로그인/로그아웃 알림 메시지 출력
-
-	$('[data-plugin="timeago"]').timeago();  // 상대시간 플러그인 초기화
 
   $(document).on('tap','[data-toggle="changeModal"]', function (e) {
     var $this   = $(this)
