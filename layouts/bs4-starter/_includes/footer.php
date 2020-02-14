@@ -32,4 +32,10 @@
 
 		</ul>
 	</div>
+
+	<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
+	<div class="text-center text-muted small">
+		powered by <a href="https://kimsq.com" target="_blank" class="text-reset ml-1"><i class="kf kf-bi-01 text-reset"></i></a>
+	</div>
+
 </footer>

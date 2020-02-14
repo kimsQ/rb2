@@ -12,4 +12,6 @@
 
   <p>© <?php echo $d['layout']['company_name']?$d['layout']['company_name']:'company' ?> <?php echo $date['year']?></p>
 
+  <!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
+  <a href="https://kimsq.com" target="_blank" class="text-reset"><i class="kf kf-bi-01 text-reset"></i></a>
 </footer>
