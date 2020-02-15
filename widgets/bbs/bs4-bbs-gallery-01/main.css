@@ -1,7 +1,0 @@
-[data-role="bbs-list"] .card:focus {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .5);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .5);
-}
