@@ -1142,21 +1142,22 @@ body.refreshing .refresher.shrink {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.rb-photogrid .rank-icon {
+.rank-icon {
   position: absolute;
   top: 0;
   left: 0;
   font-weight: bold;
   background-color: #555;
   color: white;
+  line-height: 1.2;
   z-index: 99
 }
 
-.rb-photogrid .rank-icon.active {
+.rank-icon.active {
   background-color: #35C5F0;
 }
 
-.rb-photogrid .rank-icon span {
+.rank-icon span {
   display: block;
   padding-top: 3px;
   font-size: 12px;

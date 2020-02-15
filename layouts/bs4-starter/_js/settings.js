@@ -244,7 +244,7 @@ $( document ).ready(function() {
 
     $(this).attr('disabled', true);
 
-    if (!title) title = name;
+    if (!title) title = $('[data-role="widgetConfig"] [name="title"]').attr('placeholder');
 
     $(document).find('[data-role="widgetPage"] .card').removeClass('animated fadeInUp')
 

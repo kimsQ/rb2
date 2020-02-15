@@ -149,15 +149,16 @@ page_widget_view.on('click','[data-act="save"]',function() {
 
   $(this).attr('disabled', true);
 
-  if (!title) title = name;
+  if (!title) title = $(document).find('#page-widget-view [data-role="widgetConfig"] [name="title"]').attr('placeholder');
 
-  // $(document).find('[data-role="widgetPage"] .card').removeClass('animated bounceIn delay-3')
+  $(document).find('[data-role="widgetPage"] .card').removeClass('animated bounceIn delay-3')
 
   var widget_var = id+'^'+title+'^'+path+'^';
 
   $('#page-widget-view [data-role="widgetConfig"] [name]').each(function(index){
     var _name =  $(this).attr('name');
     var _var =  $(this).val()?$(this).val():'';
+    if (_name=='title' && !_var ) _var =  $(this).attr('placeholder');
     widget_var += _name+'='+_var+',';
   });
 
@@ -177,7 +178,7 @@ page_widget_view.on('click','[data-act="save"]',function() {
     } else {
 
       $(document).find('#'+id+' [name="widget_members[]"]').val('['+widget_var+']');
-      // $(document).find('#'+id+'').addClass('animated bounceIn');
+      $(document).find('#'+id+'').addClass('animated bounceIn');
       $(document).find('#'+id+' [data-role="title"]').text(title);
       $(document).find('#page-widget-list [data-role="widgetPage"] [data-role="item"]').removeClass('active shadow-sm')
       page_widget_list.find('[data-act="submit"]').click();

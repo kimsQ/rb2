@@ -388,7 +388,7 @@ function getWidgetListEdit($str)
 		$html = '<ol class="list-unstyled mb-0">';
 		foreach ($widgets['data'] as $widget) {
 			$wdg_arr = explode('^',$widget);
-			$html .= '<li class="card bg-white round-0 position-relative text-muted text-xs-center" data-name="'.$wdg_arr[1].'" data-path="'.$wdg_arr[2].'" id="'.$wdg_arr[0].'" data-role="item">
+			$html .= '<li class="card bg-white round-0 position-relative text-muted text-xs-center shadow-sm" data-name="'.$wdg_arr[1].'" data-path="'.$wdg_arr[2].'" id="'.$wdg_arr[0].'" data-role="item">
 									<a data-act="remove" title="삭제" role="button" class="position-absolute btn btn-link text-muted border-0" style="right:.5rem;top:50%;margin-top: -.92rem;"><i class="fa fa-times" aria-hidden="true"></i></a>
 									<div data-act="move" class="position-absolute btn btn-link text-muted border-0" style="left:.5rem;top:50%;margin-top: -.92rem;"><i class="fa fa-arrows" aria-hidden="true"></i></div>
 									<input type="hidden" name="widget_members[]" value="['.$widget.']">
