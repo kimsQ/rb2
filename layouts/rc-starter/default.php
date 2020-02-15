@@ -37,7 +37,7 @@
 			</div>
 			<?php endif; ?>
 
-			<main role="main" class="content" data-snap-ignore="true">
+			<main role="main" class="content bg-faded" data-snap-ignore="true">
 
 				<article class="animated fadeIn delay-1 " style="min-height:250px" role="article">
 					<?php include __KIMS_CONTENT__ ?>

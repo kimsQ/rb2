@@ -176,7 +176,7 @@ include $g['dir_layout'].'_var/_var.config.php';
       <ul class="table-view table-view-full bg-white<?php echo $d['layout']['main_type']=='widget'?'':' d-none' ?>">
         <li class="table-view-cell" data-toggle="page" data-target="#page-widget-list" data-start="#page-layout-settings">
           <a class="navigate-right">
-            메인 꾸미기
+            <strong>메인 꾸미기</strong>
           </a>
         </li>
       </ul>
@@ -203,7 +203,7 @@ include $g['dir_layout'].'_var/_var.config.php';
     </h1>
   </header>
 
-  <nav class="bar bar-tab bg-white">
+  <nav class="bar bar-tab bg-white shadow-sm">
     <a class="tab-item text-reset" role="button"
       data-toggle="sheet"
       href="#sheet-layoutreset-confirm"
@@ -218,7 +218,7 @@ include $g['dir_layout'].'_var/_var.config.php';
     </a>
   </nav>
 
-  <main class="content bg-white">
+  <main class="content bg-faded">
 
     <form name="layoutMainPage" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>"  class="" role="form">
       <input type="hidden" name="r" value="<?php echo $r?>">
@@ -227,10 +227,7 @@ include $g['dir_layout'].'_var/_var.config.php';
       <input type="hidden" name="page" value="main">
       <input type="hidden" name="area" value="main_widgets">
       <input type="hidden" name="main_widgets" value="">
-
-      <div data-role="widgetPage" data-plugin="sortable" data-area="main">
-      </div>
-
+      <div data-role="widgetPage" data-plugin="sortable" data-area="main" class="ml-4"></div>
     </form>
 
   </main>
@@ -348,19 +345,19 @@ include $g['dir_layout'].'_var/_var.config.php';
       다음
     </button>
   </nav>
-  <div class="content">
-    <div class="content-padded">
-      <div data-role="readme"></div>
-      <div data-role="none">
-        <div class="d-flex justify-content-center align-items-center bg-light"  style="height:370px">
-          <div class="text-muted">
-            <p>위젯을 선택해주세요.</p>
-          </div>
+  <main class="content bg-faded">
+    <blockquote class="content-padded py-3 blockquote text-muted" data-role="readme"></blockquote>
+    <div data-role="none">
+      <div class="d-flex justify-content-center align-items-center bg-light" style="height:370px">
+        <div class="text-muted">
+          <p>위젯을 선택해주세요.</p>
         </div>
       </div>
-      <img src="" alt="" data-role="thumb" class="img-fluid d-none">
     </div>
-  </div>
+    <div class="card mt-2 p-2 shadow-sm d-none" data-role="thumb">
+      <img src="" alt=""  class="img-fluid" style="filter: grayscale(100%);">
+    </div>
+  </main>
 </section>
 
 <section id="sheet-layoutreset-confirm" class="sheet" style="top: 70vh;">

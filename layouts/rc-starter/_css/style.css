@@ -210,14 +210,6 @@ figure.media.ck-placeholder:before {
   outline: 0
 }
 
-
-
-/* 새글표시 */
-
-.widget a {
-  letter-spacing:-0.0625rem
-}
-
 /*통합검색*/
 #modal-search .bar-nav {
   height: 3.75rem;
@@ -444,8 +436,16 @@ button[data-toggle="collapse"]:active {
   background-color: #f4f4f4
 }
 
+/* widget */
+
 .widget {
-  line-height: 1.2
+  line-height: 1.2;
+  margin-top: 0.5rem;
+  border-top: 0.0625rem solid rgba(0, 0, 0, 0.045);
+  background-color: #fff
+}
+.widget a {
+  letter-spacing:-0.0625rem
 }
 .widget header {
   display: -webkit-box !important;
@@ -461,21 +461,41 @@ button[data-toggle="collapse"]:active {
   justify-content: space-between !importa
   background-color: #fff;
   border-bottom: 0;
-  padding: .7rem 0rem .5rem
+  padding: .7rem 0.9375rem .5rem
 }
 .widget header h3 {
   margin-bottom: 0;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1em;
   line-height: 1.29;
   white-space: nowrap;
   text-overflow: ellipsis;
   letter-spacing: -1px;
 }
+.widget header a {
+  color: #818a91;
+  font-size: 0.8125rem
+}
+
 .widget .card p a, .widget .card span, .widget .card strong {
   color: #888;
   font-size: .85rem;
 }
+.widget ul {
+  margin-bottom: 0
+}
+
+.widget .row {
+  margin-right: -4.5px;
+  margin-left: -4.5px;
+}
+
+.widget .row > .col,
+.widget .row> [class*="col-"] {
+  padding-right: 4.5px;
+  padding-left: 4.5px;
+}
+
 
 /* 프로필 수정 */
 .cover-wrapper,
@@ -1068,6 +1088,31 @@ body.refreshing .refresher.shrink {
   color: #444
 }
 
+
+/* rb-jumbotron  */
+
+.rb-jumbotron .swiper-pagination-fraction.badge {
+  text-align: center;
+  padding-right: 15px;
+  color: #fff;
+  width: 43px;
+  right: 10px;
+  left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* rb-photomask */
+.rb-photomask::before {
+  position: absolute;
+  content: ' ';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
 /* rb-photogrid */
 .rb-photogrid .gutter-half {
   margin-right: -3.5px;
@@ -1076,7 +1121,7 @@ body.refreshing .refresher.shrink {
 
 .rb-photogrid .gutter-half > .col,
 .rb-photogrid .gutter-half > [class*="col-"] {
-  padding-top: 3.5px;
+  padding-top: 1.9px;
   padding-right: 3.5px;
   padding-left: 3.5px;
   box-sizing: border-box;

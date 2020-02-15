@@ -79,22 +79,27 @@ $d['layout']['widget'] = array (
 	'post' => array(
 		'포스트',
 		array(
-			array('rc-list-view-card','특정 리스트'),
-			array('rc-list-req-banner','기간별 추천 포스트'),
-			array('rc-list-req-list','최근 포스트'),
-			array('rc-list-req-swipe','최근 리스트'),
-			array('rc-post-cat-collapse','특정 리스트'),
-			array('rc-post-new-col6','특정 카테고리'),
-			array('rc-post-req-card','특정 키워드'),
-			array('rc-post-req-swipe','특정 키워드'),
+			array('rc-default/post/all/list-default','최근 포스트 리스트형'),
+			array('rc-default/post/all/gallery-default','최근 포스트 갤러리형'),
+			array('rc-default/post/all/gallery-grid','최근 포스트 포토 그리드형'),
+			array('rc-default/post/all/medialist-default','최근 포스트 미디어 리스트형'),
+			array('rc-default/post/all/swipe-default','최근 포스트 스와이프 기본형'),
+			array('rc-default/post/all/swipe-jumbotron','최근 포스트 스와이프 점보트론'),
+			array('rc-default/post/all/swipe-slidesPerView','최근 포스트 스와이프 복수표시형'),
+			array('rc-default/list/view-card','특정 리스트'),
+			array('rc-default/list/req-banner','기간별 추천 포스트'),
+			array('rc-default/list/req-swipe','최근 리스트'),
+			array('rc-default/post/cat-collapse','특정 리스트'),
+			array('rc-default/post/req-card','특정 키워드'),
+			array('rc-default/post/req-swipe','특정 키워드'),
 		),
 	),
 
 	'bbs' => array(
 		'게시판',
 		array(
-			array('rc-bbs-list-01','게시판 리스트형-01'),
-			array('rc-bbs-media-01','게시판 미디어-01'),
+			array('rc-default/list','리스트형'),
+			array('rc-default/media','미디어'),
 		),
 	),
 

@@ -4,8 +4,7 @@ function setWidgetConfig(id,name,path,wdgvar,area) {
   page_widget_view.find('[data-role="form"]').html('');
 
   page_widget_view.page({
-    start: '#page-widget-list',
-    title : name
+    start: '#page-widget-list'
   });
 
   if (!wdgvar) var mod = 'add';
@@ -23,6 +22,7 @@ function setWidgetConfig(id,name,path,wdgvar,area) {
         if(status=='success'){
           var result = $.parseJSON(response);
           var page=result.page;
+          var widget_name=result.widget_name;
           var widget=result.widget;
           if (!page) {
             history.back()
@@ -33,6 +33,7 @@ function setWidgetConfig(id,name,path,wdgvar,area) {
           page_widget_view.attr('data-id',id);
           page_widget_view.attr('data-name',name);
           page_widget_view.attr('data-path',path);
+          page_widget_view.find('[data-role="title"]').text(widget_name);
           page_widget_view.find('[data-role="form"]').html(page);
 
         } else {
@@ -200,6 +201,44 @@ page_widget_view.on('click','[data-act="make"]',function() {
   if (!mod) return false;
   target.page({ start: '#page-widget-view' });
 })
+
+
+page_widget_view.on('click','[data-act="code"]',function() {
+  var name = page_widget_view.attr('data-name');
+  var title = page_widget_view.find('[name="title"]').val();
+  var path = page_widget_view.attr('data-path');
+
+  if (!title) title = name;
+
+  var widget_var = '';
+
+  page_widget_view.find('[data-role="widgetConfig"] [name]').each(function(index){
+    var _name =  $(this).attr('name');
+    var _var =  $(this).val()?$(this).val():'';
+    widget_var += "'"+_name+"'=>'"+_var+"',";
+  });
+
+  var code = "<?php getWidget('"+path+"',array("+widget_var+")) ?>";
+
+  $('#widgetCode').val(code);
+
+  var clipboard = new ClipboardJS('.js-clipboard');
+
+  clipboard.off().on('success', function (e) {
+    $(e.trigger)
+      $.notify({message: '클립보드 복사완료!'},{type: 'default'});
+    e.clearSelection()
+  })
+
+  clipboard.on('error', function (e) {
+    var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+    var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
+
+    $(e.trigger)
+      .attr('title', fallbackMsg)
+      .attr('title', 'Copy to clipboard')
+  })
+});
 
 //게시판 선택시
 $(document).on('change','[data-role="widgetConfig"] [name="bid"]',function(){
@@ -409,7 +448,8 @@ modal_widget_selector.find('[name="widget_selector"]').change(function(){
   else $('#modal-widget-selector').find('.bar-tab').addClass('d-none');
 
   modal.find('[data-role="none"]').removeClass('d-none');
-  modal.find('[data-role="thumb"]').attr('src','').addClass('d-none');
+  modal.find('[data-role="thumb"]').addClass('d-none').removeClass('animated fadeIn');;
+  modal.find('[data-role="thumb"] img').attr('src','');
   modal.find('[data-role="readme"]').html('');
 
   button.attr('data-path',path);
@@ -425,13 +465,15 @@ modal_widget_selector.find('[name="widget_selector"]').change(function(){
         var readme=result.readme;
         var thumb=result.thumb;
 
+        modal.find('[data-role="readme"]').html(readme).removeClass('d-none');
+
         if (!thumb) {
           modal.find('[data-role="none"]').removeClass('d-none');
           modal.find('[data-role="thumb"]').addClass('d-none');
         } else {
           modal.find('[data-role="none"]').addClass('d-none');
-          modal.find('[data-role="thumb"]').attr('src',thumb).removeClass('d-none');
-          modal.find('[data-role="readme"]').html(readme);
+          modal.find('[data-role="thumb"]').removeClass('d-none').addClass('animated fadeIn');
+          modal.find('[data-role="thumb"] img').attr('src',thumb);
         }
 
       } else {
