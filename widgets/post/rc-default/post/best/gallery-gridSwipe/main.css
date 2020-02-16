@@ -1,0 +1,14 @@
+.widget .js-swipe-grid .swiper-button-prev:after ,
+.widget .js-swipe-grid .swiper-button-next:after {
+  font-size: 16px
+}
+.swiper-pagination-fraction {
+  color: #818a91;
+  font-size: 15px
+}
+.widget .swiper-pagination-fraction .swiper-pagination-total {
+  color: #373a3c
+}
+.widget .swiper-pagination-fraction .swiper-pagination-current {
+  color: #0275d8;
+}

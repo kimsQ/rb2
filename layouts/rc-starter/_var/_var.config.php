@@ -90,6 +90,7 @@ $d['layout']['widget'] = array (
 			array('rc-default/post/all/swipe-multi','최근 포스트 스와이프 멀티'),
 
 			array('rc-default/post/best/list-default','인기 포스트 리스트'),
+			array('rc-default/post/best/list-highlight','인기 포스트 리스트 강조'),
 			array('rc-default/post/best/medialist-default','인기 포스트 미디어 리스트'),
 			array('rc-default/post/best/gallery-default','인기 포스트 갤러리'),
 			array('rc-default/post/best/gallery-grid','인기 포스트 그리드'),
