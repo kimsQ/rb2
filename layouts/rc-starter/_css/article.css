@@ -6,8 +6,14 @@
 }
 
 .rb-article p {
-  font-size: 17px;
+  font-family: AppleSDGothicNeo,'Malgun Gothic','맑은 고딕',sans-serif;
+  font-size: 1.0625rem;
   letter-spacing: -1px;
+  line-height: 1.6875rem;
+  letter-spacing: -0.04em;
+  word-break: break-all;
+  word-wrap: break-word;
+
 }
 
 .rb-article a {
@@ -348,7 +354,9 @@
 .rb-article table,
 .rb-article pre {
   margin-top: 0;
-  margin-bottom: .3rem;
+  margin-bottom: 1.6875rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 .rb-article hr {
@@ -396,7 +404,7 @@
 .rb-article blockquote {
   padding: 0 15px;
   color: #333;
-  border-left: 4px solid #ddd;
+  border-left: 2px solid #ddd;
 }
 
 .rb-article blockquote>:first-child {
@@ -675,22 +683,17 @@
 
 /*추가함*/
 
-.rb-article .rb-media {
-    margin: 0;
-    margin-bottom: 2em;
+.rb-article figure.image {
+  margin: 0;
+  margin-bottom: 1.4375rem;
 }
 
-.rb-article .rb-media figcaption {
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 14px;
-    color: #777;
-    line-height: 1.6;
-}
-
-.rb-article .rb-media figcaption:before {
-    padding-right: 7px;
-    content: '▲';
-    font-size: 14px;
+.rb-article figure.image figcaption {
+  padding: 0.5rem 1.25rem 0.25rem;
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  letter-spacing: -0.07em;
+  color: #828282;
+  caption-side: bottom;
 }

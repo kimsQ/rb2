@@ -167,6 +167,7 @@ if ($is_post_saved) $result['is_post_saved'] = 1;
 $markup_file = $markup_file?$markup_file:'view_doc_content';
 $skin=new skin($markup_file);
 $result['error'] = false;
+$result['review']= stripslashes($R['review']);
 $result['article']=$skin->make();
 $result['theme'] = $theme;
 

@@ -168,6 +168,15 @@ body.disabled .content{
  * ----------------------------------------------------------------------------
  */
 
+.rb-subject {
+  padding: 0.5625rem 0 0.625rem;
+  font-weight: normal;
+  font-size: 1.5625rem;
+  line-height: 2rem;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
  /* ckeditor content */
 .ck-content p {
   color: #333;
@@ -499,15 +508,15 @@ button[data-toggle="collapse"]:active {
   padding-left: 4.5px;
 }
 
-.widget .swiper-pagination-fraction .swiper-pagination-fraction {
+.widget .js-swipe-grid .swiper-pagination-fraction .swiper-pagination-fraction {
   color: #818a91;
   font-size: 0.9375rem
 }
-.widget .swiper-pagination-fraction .swiper-pagination-total {
+.widget .js-swipe-grid .swiper-pagination-fraction .swiper-pagination-total {
   color: #222;
   padding-left: 0.25rem;
 }
-.widget .swiper-pagination-fraction .swiper-pagination-current {
+.widget .js-swipe-grid .swiper-pagination-fraction .swiper-pagination-current {
   color: #0275d8;
   padding-right: 0.25rem;
   font-weight: 600

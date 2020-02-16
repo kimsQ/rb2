@@ -150,6 +150,7 @@ function getPostView(settings) {
           var nic=result.nic;
           var isperm=result.isperm;
           var article=result.article;
+          var review=result.review;
           var linkurl=result.linkurl;
           var listCollapse=result.listCollapse;
           var is_post_liked=result.is_post_liked;
@@ -179,6 +180,8 @@ function getPostView(settings) {
           wrapper.find('[data-role="subject"]').text(subject);
           wrapper.find('[data-role="nic"]').text(nic);
           wrapper.find('.miniplayer-control [data-toggle="play"]').removeClass('d-none');
+
+          wrapper.find('[data-role="review"]').removeClass('d-none');
 
           if (provider!='YouTube') {
             Iframely('oembed[url]') // oembed 미디어 변환
@@ -290,6 +293,9 @@ function getPostView(settings) {
 
           if (dis_like) wrapper.find('[data-role="opinion"]').hide();
           if (dis_listadd) wrapper.find('[data-role="listadd"]').hide();
+
+          if (review) wrapper.find('[data-role="review"]').removeClass('d-none');
+          else wrapper.find('[data-role="review"]').addClass('d-none');
 
           if (!dis_comment) {
 
