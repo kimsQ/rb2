@@ -360,6 +360,9 @@ figure.media {
   height: 100%;
   background: rgba(0,0,0,.8);
 }
+.list_mask.list_mask_light {
+  background: rgba(0,0,0,.9);
+}
 .list_mask .txt {
   position: absolute;
   top: 50%;
@@ -494,6 +497,49 @@ button[data-toggle="collapse"]:active {
 .widget .row> [class*="col-"] {
   padding-right: 4.5px;
   padding-left: 4.5px;
+}
+
+.widget .swiper-pagination-fraction .swiper-pagination-fraction {
+  color: #818a91;
+  font-size: 0.9375rem
+}
+.widget .swiper-pagination-fraction .swiper-pagination-total {
+  color: #222;
+  padding-left: 0.25rem;
+}
+.widget .swiper-pagination-fraction .swiper-pagination-current {
+  color: #0275d8;
+  padding-right: 0.25rem;
+  font-weight: 600
+}
+.widget .js-swipe-grid .swiper-button-prev,
+.widget .js-swipe-grid .swiper-button-next {
+  top : 0.875rem;
+  height: inherit;
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 0.0625rem solid transparent;
+  padding: 0.3375rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.125rem;
+  color: #373a3c;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.widget .js-swipe-grid .swiper-button-prev {
+  left: 30%;
+}
+.widget .js-swipe-grid .swiper-button-next {
+  right: 30%;
+}
+.widget .js-swipe-grid .swiper-button-prev:after ,
+.widget .js-swipe-grid .swiper-button-next:after {
+  font-size: 0.75rem
 }
 
 
@@ -1141,7 +1187,9 @@ body.refreshing .refresher.shrink {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.25);
 }
-
+.rb-photogrid [class*="col-"] a.mask_light::before {
+  background-color: rgba(0, 0, 0, 0.15);
+}
 .rank-icon {
   position: absolute;
   top: 0;
@@ -1300,7 +1348,6 @@ body.refreshing .refresher.shrink {
   word-wrap: break-word;
   color: #555
 }
-
 
 /* ad_section */
 .ad_section {
