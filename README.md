@@ -6,6 +6,7 @@
 
 - PHP 7 이상
 - MySQL 5.5 이상 또는 mariadb-10.0.x 이상
+- https 
 
 ### 웹서버 설정
 - CGI 사용안함
