@@ -128,6 +128,10 @@ $_SESSION['current_version'] = '';
   </header>
   <div class="content text-xs-left bg-white">
     <table class="table f14 bg-white border-bottom mb-1" style="margin-top:-1px">
+      <colgroup>
+        <col width="25%">
+        <col>
+      </colgroup>
       <tbody>
         <tr>
           <th scope="row" class="text-xs-center">버전</th>

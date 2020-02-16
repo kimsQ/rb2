@@ -75,8 +75,12 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	        $html .= '<label class="text-muted f12 mb-1">'.$_v[2].'</label>';
 	      }
 
+				if ($_v[1]=='hidden') {
+	        $html .= '<input type="hidden" name="'.$_v[0].'" value="'.$_v[3].'">';
+	      }
+
 	      if ($_v[1]=='input') {
-	        $html .= '<input type="text" class="form-control" name="'.$_v[0].'" value="'.stripslashes($_wdgvar[$_v[0]]).'" placeholder="'.$_v[3].'">';
+	        $html .= '<input type="text" class="form-control" name="'.$_v[0].'" value="'.stripslashes($_wdgvar[$_v[0]]).'" placeholder="'.$_v[3].'" autocomplete="off">';
 	      }
 
 	      if ($_v[1]=='select') {
@@ -203,17 +207,18 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 
 			$html .= '<div class="collapse" id="widgetMore">
 
-									<img src="/widgets/'.$widget.'/thumb.png" class="img-fluid my-3">
-									<p class="text-muted f13">'.$readme.'</p>
 
-									<dl class="row f12 text-muted mt-5 mb-0">
-										<dt class="col-3">위젯명</dt>
-										<dd class="col-9 pl-0">'.$_val[0].'</dd>
-										<dt class="col-3">경로</dt>
-										<dd class="col-9 pl-0">/widgets/'.$widget.'</dd>
+									<blockquote class="blockquote py-3 text-muted">'.$readme.'</blockquote>
+									<div class="card mt-2 p-2 shadow-sm"><img src="/widgets/'.$widget.'/thumb.png" class="img-fluid" style="filter: grayscale(100%);"></div>
+
+									<dl class="row f12 text-muted mt-5 mb-0 mx-1">
+										<dt class="col-3 col-xs-3">위젯명</dt>
+										<dd class="col-9 col-xs-9 pl-0">'.$_val[0].'</dd>
+										<dt class="col-3 col-xs-3">경로</dt>
+										<dd class="col-9 col-xs-9 pl-0">/widgets/'.$widget.'</dd>
 									</dl>
 
-									<div class="form-group mb-0"><label class="text-muted f12 mb-1 font-weight-bold">삽입코드</label><div class="input-group input-group-sm">
+									<div class="form-group mb-0 mx-1"><label class="text-muted f12 mb-1 font-weight-bold">삽입코드</label><div class="input-group input-group-sm">
 								  <input type="text" class="form-control rounded-0 text-muted" id="widgetCode" readonly>
 								  <div class="input-group-append">
 								    <button class="btn btn-white js-clipboard text-muted rounded-0" data-act="code" type="button" data-toggle="tooltip" title="" data-clipboard-target="#widgetCode">추출</button>
@@ -241,6 +246,7 @@ $result=array();
 $result['error'] = false;
 
 $result['widget'] = $widget;
+$result['widget_name'] = $_val[0];
 $result['page'] = $html;
 
 echo json_encode($result);

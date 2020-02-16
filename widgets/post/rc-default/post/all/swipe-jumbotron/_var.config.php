@@ -6,6 +6,7 @@ $d['widget']['dom'] = array(
 	'new-swipe' => array(
 		'최근 포스트 스와이프 점보트론',  //위젯명
 		array(
+			array('title','hidden','타이틀','최근 포스트 스와이프 점보트론'),
 			array('vtype','select','보기타입','모달형=modal,페이지형=page','modal'),
 			array('autoplay','select','자동실행','사용함=true,사용안함=false','false'),
 			array('mask','select','이미지 마스크','사용함=show,사용안함=hide','hide'),
