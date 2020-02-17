@@ -52,7 +52,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = $_R;
         data-videoid="<?php echo getFeaturedimgMeta($_R,'name'); ?>"
         data-title="<?php echo $_R['subject'] ?>">
         <span class="line-clamp-1">
-          <?php if(getNew($_R['d_regis'],24)):?>
+          <?php if(getNew($_R['d_regis'],$wdgvar['newtime'])):?>
           <small class="rb-new mr-1" aria-hidden="true"></small>
           <?php endif?>
           <?php echo getStrCut(stripslashes($_R['subject']),100,'..') ?>
