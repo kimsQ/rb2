@@ -2,7 +2,7 @@
   <a href="#drawer-left" data-toggle="drawer" class="icon icon-bars pull-left p-x-1" role="button"></a>
 
   <?php if($d['layout']['header_noti']=='true'):?>
-  <a class="icon pull-right p-r-1 pl-1" role="button" data-toggle="drawer" href="#drawer-right" data-direction="right" data-showType="expand" data-history="true">
+  <a class="icon pull-right p-r-1 pl-1" role="button" data-toggle="page" href="#page-noti-list" data-start="#page-main" data-url="<?php echo RW('mod=noti')?>">
     <span class="material-icons ">notifications_none</span>
     <span class="badge badge-pill badge-danger noti-status" data-role="noti-status"><?php echo $my['num_notice']==0?'':$my['num_notice']?></span>
   </a>

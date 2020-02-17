@@ -227,7 +227,7 @@ include $g['dir_layout'].'_var/_var.config.php';
       <input type="hidden" name="page" value="main">
       <input type="hidden" name="area" value="main_widgets">
       <input type="hidden" name="main_widgets" value="">
-      <div data-role="widgetPage" data-plugin="sortable" data-area="main" class="ml-4"></div>
+      <div data-role="widgetPage" data-plugin="sortable" data-area="main" class="mx-4"></div>
     </form>
 
   </main>
@@ -341,9 +341,9 @@ include $g['dir_layout'].'_var/_var.config.php';
     </select>
   </div>
   <nav class="bar bar-tab bar-dark bg-primary d-none">
-    <button class="btn btn-primary btn-block" role="button" data-act="apply">
+    <a class="tab-item" role="button" data-act="apply">
       다음
-    </button>
+    </a>
   </nav>
   <main class="content bg-faded">
     <blockquote class="content-padded py-3 blockquote text-muted" data-role="readme"></blockquote>
