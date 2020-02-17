@@ -25,9 +25,15 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
     <div class="row">
       <?php $i=0;foreach($RCD as $_R):$i++;?>
       <div class="col-xs-6 mb-3">
-        <div class="" data-target="#page-post-view"
+        <div class=""
+          <?php if ($wdgvar['vtype']=='modal'): ?>
+          data-toggle="modal"
+          data-target="#modal-post-view"
+          <?php else: ?>
           data-toggle="page"
+          data-target="#page-post-view"
           data-start="#page-main"
+          <?php endif; ?>
           data-url="/post/<?php echo $_R['cid'] ?>"
           data-featured="<?php echo getPreviewResize(getUpImageSrc($_R),'640x360') ?>"
           data-format="<?php echo $_R['format']==2?'video':'doc' ?>"

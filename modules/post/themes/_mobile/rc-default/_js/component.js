@@ -188,8 +188,7 @@ page_post_category_view.on('show.rc.page', function(event) {
 
   var button = $(event.relatedTarget)
   var intial_index = button.data('index')
-  var category_parent = button.data('parent')
-  var category = button.data('category')
+  var category_parent = button.data('parent')?button.data('parent'):0;
 
   // 초기화
   page.find('.bar-standard').removeClass('d-none')
@@ -210,10 +209,10 @@ page_post_category_view.on('show.rc.page', function(event) {
 
      if (!num) page.find('.bar-standard').addClass('d-none')
 
-     page.find('.content').loader({
-      text:       "불러오는중...",
-      position:   "overlay",
-    });
+    //  page.find('.content').loader({
+    //   text:       "불러오는중...",
+    //   position:   "overlay",
+    // });
 
     var item = page.find('.bar-standard .nav-link')
 
@@ -259,19 +258,19 @@ page_post_category_view.on('show.rc.page', function(event) {
           console.log('swiper 초기화 완료');
           var intial_slide = page.find('.content .swiper-slide:eq('+intial_index+')')
 
-          $.post(rooturl+'/?r='+raccount+'&m=shop&a=get_goodsList',{
-               cat : category,
-               markup_file : 'category_cols'
-            },function(response){
-
-             var result = $.parseJSON(response);
-             var list=result.list;
-
-             setTimeout(function(){
-               page.find('.content').loader("hide");
-               intial_slide.html(list);
-             }, 100);
-          });
+          // $.post(rooturl+'/?r='+raccount+'&m=shop&a=get_goodsList',{
+          //      cat : category,
+          //      markup_file : 'category_cols'
+          //   },function(response){
+          //
+          //    var result = $.parseJSON(response);
+          //    var list=result.list;
+          //
+          //    setTimeout(function(){
+          //      page.find('.content').loader("hide");
+          //      intial_slide.html(list);
+          //    }, 100);
+          // });
         },
       },
     });

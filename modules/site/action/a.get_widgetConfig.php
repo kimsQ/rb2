@@ -18,7 +18,7 @@ function getCategoryShowSelect($table,$j,$parent,$depth,$uid,$hidden,$cat) {
 	$CD=getDbSelect($table,'depth='.($depth+1).' and parent='.$parent.($hidden ? ' and hidden=0':'').' order by gid asc','*');
 	while($C=db_fetch_array($CD)){
 		$j++;
-		$html .= '<option class="selectcat'.$C['depth'].'" value="'.$C['uid'].'"'.($C['uid']==$cat?' selected="selected"':'').'>';
+		$html .= '<option class="selectcat'.$C['depth'].'" value="'.$C['uid'].'" data-category="'.$C['name'].'" '.($C['uid']==$cat?' selected="selected"':'').'>';
 		if(!$depth) $html .= 'ㆍ';
 		for($i=1;$i<$C['depth'];$i++) $html .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		if ($C['depth'] > 1) $html .= 'ㄴ';

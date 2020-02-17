@@ -79,24 +79,32 @@ $d['layout']['widget'] = array (
 	'post' => array(
 		'포스트',
 		array(
-			array('rc-default/post/all/list-default','최근 포스트 리스트 기본'),
-			array('rc-default/post/all/list-highlight','최근 포스트 리스트 강조'),
-			array('rc-default/post/all/gallery-default','최근 포스트 갤러리'),
-			array('rc-default/post/all/gallery-grid','최근 포스트 그리드'),
-			array('rc-default/post/all/gallery-gridSwipe','최근 포스트 그리드 스와이프'),
-			array('rc-default/post/all/medialist-default','최근 포스트 미디어 리스트'),
-			array('rc-default/post/all/swipe-default','최근 포스트 스와이프 기본'),
-			array('rc-default/post/all/swipe-jumbotron','최근 포스트 스와이프 점보트론'),
-			array('rc-default/post/all/swipe-multi','최근 포스트 스와이프 멀티'),
+			array('rc-default/post/all/list-default','최근 리스트 기본'),
+			array('rc-default/post/all/list-highlight','최근 리스트 강조'),
+			array('rc-default/post/all/gallery-default','최근 갤러리'),
+			array('rc-default/post/all/gallery-grid','최근 그리드'),
+			array('rc-default/post/all/gallery-gridSwipe','최근 그리드 스와이프'),
+			array('rc-default/post/all/medialist-default','최근 미디어 리스트'),
+			array('rc-default/post/all/swipe-default','최근 스와이프 기본'),
+			array('rc-default/post/all/swipe-jumbotron','최근 스와이프 점보트론'),
+			array('rc-default/post/all/swipe-multi','최근 스와이프 멀티'),
 
-			array('rc-default/post/best/list-default','인기 포스트 리스트'),
-			array('rc-default/post/best/list-highlight','인기 포스트 리스트 강조'),
-			array('rc-default/post/best/medialist-default','인기 포스트 미디어 리스트'),
-			array('rc-default/post/best/gallery-default','인기 포스트 갤러리'),
-			array('rc-default/post/best/gallery-grid','인기 포스트 그리드'),
-			array('rc-default/post/best/gallery-gridSwipe','인기 포스트 그리드 스와이프'),
-			array('rc-default/post/best/swipe-default','인기 포스트 스와이프 기본'),
-			array('rc-default/post/best/swipe-multi','인기 포스트 스와이프 멀티'),
+			array('rc-default/post/best/list-default','인기 리스트'),
+			array('rc-default/post/best/list-highlight','인기 리스트 강조'),
+			array('rc-default/post/best/medialist-default','인기 미디어 리스트'),
+			array('rc-default/post/best/gallery-default','인기 갤러리'),
+			array('rc-default/post/best/gallery-grid','인기 그리드'),
+			array('rc-default/post/best/gallery-gridSwipe','인기 그리드 스와이프'),
+			array('rc-default/post/best/swipe-default','인기 스와이프 기본'),
+			array('rc-default/post/best/swipe-multi','인기 스와이프 멀티'),
+
+			array('rc-default/post/tag/list-default','태그 리스트'),
+
+			array('rc-default/post/cat/list-default','카테고리 리스트'),
+
+			array('rc-default/list/view/list-default','리스트뷰 리스트 기본'),
+			array('rc-default/list/view/list-highlight','리스트뷰 리스트 강조'),
+			array('rc-default/list/view/gallery-default','리스트뷰 갤러리'),
 
 			// array('rc-default/list/view-card','특정 리스트'),
 			// array('rc-default/list/req-banner','기간별 추천 포스트'),
@@ -107,6 +115,7 @@ $d['layout']['widget'] = array (
 		),
 	),
 
+
 	'bbs' => array(
 		'게시판',
 		array(
@@ -115,10 +124,17 @@ $d['layout']['widget'] = array (
 		),
 	),
 
-	'profile' => array(
-		'채널',
+	// 'profile' => array(
+	// 	'채널',
+	// 	array(
+	// 		array('bs4-best-card','기간별 추천채널')
+	// 	),
+	// ),
+
+	'search' => array(
+		'검색',
 		array(
-			array('bs4-best-card','기간별 추천채널')
+			array('rc-default/tag/ranking-top10','기간별 주요 키워드')
 		),
 	),
 );

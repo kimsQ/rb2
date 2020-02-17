@@ -1,28 +1,24 @@
 <?php
-$query = 'site='.$s;
-if ($my['uid']) $query .= ' and display>3';
-else $query .= ' and display=5';
+$LIST=getDbData($table['postlist'],"id='".$wdgvar['listid']."'",'*');
 
-$_WHERE1= $query.' and date >= '.date("Ymd", strtotime($wdgvar['term'])).' and '.$wdgvar['sort'].'>0';
-
-if ($wdgvar['sort']=='hit') $_WHERE2= 'data,sum(hit) as hit';
-if ($wdgvar['sort']=='likes') $_WHERE2= 'data,sum(likes) as likes';
-if ($wdgvar['sort']=='comment') $_WHERE2= 'data,sum(comment) as comment';
-
-$orderby = 'desc';
-$active_ranking = (int)$wdgvar['ranking']+1;
-
-$_RCD	= getDbSelect($table['postday'],$_WHERE1.' group by data order by '.$wdgvar['sort'].' '.$orderby.' limit 0,'.$wdgvar['limit'],$_WHERE2);
-
-while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$R['data'],'*');
+$_postque = 'site='.$s.' and list="'.$LIST['uid'].'"';
+$_RCD=getDbArray($table['postlist_index'],$_postque,'*','gid','asc',$wdgvar['limit'],1);
+while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$_R['data'],'*');
 ?>
 
 <section class="widget border-bottom<?php echo $wdgvar['margin_top']=='true'?'':' mt-0 border-top-0' ?>">
 
   <?php if ($wdgvar['show_header']=='show'): ?>
   <header>
-    <h3><?php echo $wdgvar['title'] ?></h3>
-    <small class="ml-2 text-muted f13"><?php echo $wdgvar['subtitle']?></small>
+    <h3><?php echo $LIST['name'] ?></h3>
+    <a href="#page-post-listview"
+      data-toggle="page"
+      data-start="#page-main"
+      data-id="<?php echo $wdgvar['listid'] ?>"
+      data-title="<?php echo $LIST['name'] ?>"
+      data-url="<?php echo getListLink($LIST,0) ?>">
+      더보기
+    </a>
   </header>
   <?php endif; ?>
 
@@ -47,7 +43,6 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
           data-uid="<?php echo $_R['uid'] ?>"
           data-title="<?php echo $_R['subject'] ?>">
           <div class="position-relative">
-            <span class="rank-icon <?php echo $wdgvar['ranking']!='false' && $i<$active_ranking?' active':'' ?>"><span><?php echo $i ?></span></span>
             <img src="<?php echo getPreviewResize(getUpImageSrc($_R),'350x196') ?>" class="img-fluid" alt="">
             <?php if ($_R['format']==2): ?>
             <?php if ($wdgvar['duration']=='show'): ?>
@@ -67,7 +62,7 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
           </div>
         </div>
       </div>
-    <?php endforeach?>
+      <?php endforeach?>
     </div><!-- /.row -->
   </main>
 

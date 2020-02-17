@@ -141,7 +141,8 @@ page_widget_list.on('hidden.rc.page', function (event) {
 
 page_widget_view.on('click','[data-act="save"]',function() {
   var name = $(document).find('#page-widget-view').attr('data-name');
-  var title = $(document).find('#page-widget-view [data-role="widgetConfig"] [name="title"]').val();
+  var _title = $(document).find('#page-widget-view [data-role="widgetConfig"] [name="title"]').val();
+  var title_placeholder = $(document).find('#page-widget-view [data-role="widgetConfig"] [name="title"]').attr('placeholder');
   var path = $(document).find('#page-widget-view').attr('data-path');
   var id = $(document).find('#page-widget-view').attr('data-id');
   var mod = $(this).attr('data-mod');
@@ -149,7 +150,8 @@ page_widget_view.on('click','[data-act="save"]',function() {
 
   $(this).attr('disabled', true);
 
-  if (!title) title = $(document).find('#page-widget-view [data-role="widgetConfig"] [name="title"]').attr('placeholder');
+  var title = _title?_title:title_placeholder;
+  if (!title) title = name;
 
   $(document).find('[data-role="widgetPage"] .card').removeClass('animated bounceIn delay-3')
 
@@ -180,6 +182,7 @@ page_widget_view.on('click','[data-act="save"]',function() {
       $(document).find('#'+id+' [name="widget_members[]"]').val('['+widget_var+']');
       $(document).find('#'+id+'').addClass('animated bounceIn');
       $(document).find('#'+id+' [data-role="title"]').text(title);
+      $(document).find('#'+id+' [data-act="edit"]').text(title);
       $(document).find('#page-widget-list [data-role="widgetPage"] [data-role="item"]').removeClass('active shadow-sm')
       page_widget_list.find('[data-act="submit"]').click();
     }
@@ -252,6 +255,16 @@ $(document).on('change','[data-role="widgetConfig"] [name="bid"]',function(){
   } else {
     page_widget_view.find('[data-role="widgetConfig"]').find('[name="title"]').val('');
     page_widget_view.find('[data-role="widgetConfig"]').find('[name="link"]').val('');
+  }
+});
+
+//포스트 카테고리 선택시
+$(document).on('change','[data-role="widgetConfig"] [name="cat"]',function(){
+  var category = $(this).find('option:selected').attr('data-category');
+  if (category) {
+    page_widget_view.find('[data-role="widgetConfig"]').find('[name="title"]').val(category);
+  } else {
+    page_widget_view.find('[data-role="widgetConfig"]').find('[name="title"]').val('');
   }
 });
 
