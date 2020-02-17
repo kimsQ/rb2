@@ -21,6 +21,9 @@
 <?php getImport('linkifyjs','linkify.min','2.1.8','js')?>
 <?php getImport('linkifyjs','linkify-string.min','2.1.8','js')?>
 
+<!-- bootstrap-notify : https://github.com/mouse0270/bootstrap-notify -->
+<?php getImport('bootstrap-notify','bootstrap-notify.min','3.1.3','js')?>
+
 <!-- 댓글출력시 필요 -->
 <?php if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9'): ?>
   <?php if ($mod!='write'): ?>

@@ -189,7 +189,6 @@ function getPostView(settings) {
             setTimeout(function(){
               wrapper.find('.bar-media [data-role="featured"]').addClass('d-none')
               wrapper.find('.embed-responsive').removeClass('d-none');
-              wrapper.find('.modia-loader').loader('hide');
               wrapper.find('.miniplayer-control [data-toggle="play"]').addClass('d-none');
             }, 500);
           }
