@@ -3,8 +3,8 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'tag-list' => array(
-		'태그검색 포스트 리스트 기본형',  //위젯명
+	'tag-highlight' => array(
+		'태그검색 포스트 리스트 강조형',  //위젯명
 		array(
 			array('tag','input','태그',''),
 			array('title','input','타이틀',''),
@@ -13,6 +13,7 @@ $d['widget']['dom'] = array(
 			array('where','select','검색범위','태그=tag,태그/제목=subject|tag,태그/제목/리뷰=subject|tag|review','tag'),
 			array('sort','select','정렬순서','등록순=gid,조회순=hit,좋아요순=likes,댓글순=comment','gid'),
 			array('vtype','select','보기타입','모달형=modal,페이지형=page','modal'),
+			array('highlight','select','강조 항목수','1개=1,2개=2,3개=3,4개=4,5개=5','1'),
 			array('limit','select','출력수','3개=3,4개=4,5개=5,6개=6,7개=7,8개=8,9개=9,10개=10,11개=11,12개=12','4'),
 		),
 	),

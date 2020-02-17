@@ -99,6 +99,7 @@ $d['layout']['widget'] = array (
 			array('rc-default/post/best/swipe-multi','인기 스와이프 멀티'),
 
 			array('rc-default/post/tag/list-default','태그 리스트'),
+			array('rc-default/post/tag/list-highlight','태그 리스트 강조'),
 
 			array('rc-default/post/cat/list-default','카테고리 리스트'),
 
