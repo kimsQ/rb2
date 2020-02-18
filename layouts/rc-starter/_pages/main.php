@@ -1,8 +1,8 @@
 <?php
 if ($my['uid'] && $d['layout']['main_dashboard']=='true') getLink('/dashboard','','','');
 
-if ($d['layout']['main_type']=='postFeed') {
-  getWidget('post/rc-post-all-scroll',array('wrapper'=>'[data-role="postFeed"].widget','start'=>'#page-main','recnum'=>5));
+if ($d['layout']['main_type']=='postAllFeed') {
+  getWidget('post/rc-default/post/all/feed-card',array('wrapper'=>'[data-role="postFeed"].widget','start'=>'#page-main','recnum'=>5));
 } else {
 
   $g['layoutPageVForSite'] = $g['path_var'].'site/'.$r.'/layout.'.$layout.'.main.php';   // 레이아웃 메인페이지 웨젯설정

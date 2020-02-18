@@ -17,7 +17,7 @@
   <?php if ($my['uid']): ?>
   <a class="tab-item active bg-primary<?php echo $m=='bbs'?' d-none':'' ?>" role="button"
     data-open="newPost"
-    data-start="<?php echo $d['layout']['main_type']=='postFeed'?'#page-main':'#page-post-allpost' ?>"
+    data-start="<?php echo $d['layout']['main_type']=='postAllFeed'?'#page-main':'#page-post-allpost' ?>"
     data-url="/post/write">
     새 포스트
   </a>
@@ -47,7 +47,7 @@
 
     <?php getWidget('menu/rc-drawer-menu',array('smenu'=>'0','limit'=>'2','link'=>'link','collid'=>'drawer-menu','accordion'=>'1','collapse'=>'1',))?>
 
-    <?php if ($d['layout']['main_type']!='postFeed'): ?>
+    <?php if ($d['layout']['main_type']!='postAllFeed'): ?>
     <li class="table-view-cell table-view-divider small">포스트</li>
     <li class="table-view-cell">
       <a data-toggle="goMypage" data-target="#page-post-allpost" data-start="#page-main" data-title="최신 포스트"  data-url="/post">

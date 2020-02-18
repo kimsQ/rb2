@@ -32,7 +32,7 @@ $d['layout']['dom'] = array(
 		'메인',
 		'',
 		array(
-			array('type','select','타입','최신 포스트 피드=postFeed,직접 꾸미기=widget'),
+			array('type','select','타입','최신 포스트 피드=postAllFeed,직접 꾸미기=widget'),
 		),
 	),
 

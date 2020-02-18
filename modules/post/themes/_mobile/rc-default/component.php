@@ -31,7 +31,7 @@
 -->
 
 <!-- 페이지 : 전체포스트 -->
-<div class="page right" id="page-post-allpost" data-role="postAll">
+<div class="page right" id="page-post-allpost" data-role="postFeed">
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left px-3" role="button" data-history="back">arrow_back</a>
     <?php if ($my['uid']): ?>
