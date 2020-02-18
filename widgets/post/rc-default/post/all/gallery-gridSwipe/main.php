@@ -24,7 +24,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
 
   <main class="content-padded js-swipe-grid pb-4 <?php echo $wdgvar['show_header']=='show'?'mt-0 pt-0':' pt-3' ?>">
 
-    <div class="swiper-container<?php echo $wdgvar['swipe']=='true'?'':' swiper-no-swiping' ?>">  
+    <div class="swiper-container<?php echo $wdgvar['swipe']=='true'?'':' swiper-no-swiping' ?>">
       <div class="swiper-wrapper" style="padding-bottom: 10px;">
 
         <div class="swiper-slide">
@@ -68,7 +68,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
                 </div>
               </div>
             </div>
-            <?php if( !($i%$numPerSlide) && ($wdgvar['limit'] > $numPerSlide) ):?></div></div><div class="swiper-slide"><div class="row gutter-half"><?php endif?>
+            <?php if( !($i%$numPerSlide) && ($wdgvar['limit'] > $i) ):?></div></div><div class="swiper-slide"><div class="row gutter-half"><?php endif?>
             <?php endforeach?>
           </div><!-- /.row -->
         </div><!-- /.swiper-slide -->
