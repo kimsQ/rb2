@@ -89,12 +89,12 @@
 
     </div><!-- /.clearfix -->
     <hr class="mt-0">
-    <div class="content-padded" data-role="post">
+    <div class="content-padded px-2" data-role="post">
       <span data-role="cat" data-act="category" class="badge badge-primary badge-inverted"></span>
-      <h3 data-role="subject" class="rb-article-title"></h3>
+      <h3 data-role="subject" class="rb-subject"></h3>
     </div>
-    <div data-role="article" data-plugin="photoswipe">
-      <div class="p-4 text-xs-center">다시 시도해주세요.</div>
+    <div data-role="article">
+      <div class="text-xs-center">다시 시도해주세요.</div>
     </div>
 
     <!-- 댓글출력 -->
