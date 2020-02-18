@@ -309,7 +309,7 @@ foreach ($layoutset as $_val) {
 		$_layout = explode('/', $m_layout);
 		$layout_header_search = "true";
 		$layout_header_noti = "true";
-		$layout_main_type = 'postFeed';
+		$layout_main_type = 'postAllFeed';
 	} else {
 		$_layout = explode('/', $layout);
 		$layout_header_search = "true";
