@@ -9,6 +9,9 @@
 <!-- 알림 -->
 <?php include_once $g['path_module'].'member/themes/'.$d['member']['theme_mobile'].'/noti/component.php';  ?>
 
+<!-- 검색 -->
+<?php include_once $g['path_module'].'search/themes/_mobile/rc-default/component.php';  ?>
+
 <!-- 설정 -->
 <?php include_once $g['path_module'].'member/themes/'.$d['member']['theme_mobile'].'/settings/component.php';  ?>
 
@@ -35,38 +38,6 @@
     <div data-role="main" class="content-padded"></div>
   </main>
 </div>
-
-<!-- 통합검색 -->
-<div id="modal-search" class="modal fast">
-	<header class="bar bar-nav bg-white p-2">
-	  <form class="input-group input-group-lg border border-primary" action="<?php echo $g['s']?>/" id="modal-search-form">
-			<input type="hidden" name="r" value="<?php echo $r?>">
-	    <input type="hidden" name="m" value="search">
-	    <input type="search" name="keyword" class="form-control bg-white" placeholder="검색어 입력" id="search-input" required autocomplete="off">
-			<span class="input-group-btn hidden" data-role="keyword-reset" >
-	      <button class="btn btn-link pr-2" type="button" data-act="keyword-reset" tabindex="-1">
-	        <i class="fa fa-times-circle" aria-hidden="true"></i>
-	      </button>
-	    </span>
-			<span class="input-group-btn">
-			  <button class="btn btn-link text-primary" type="submit" id="modal-search-submit">
-					<i class="fa fa-search" aria-hidden="true"></i>
-				</button>
-			</span>
-	  </form>
-	</header>
-	<nav class="bar bar-tab bar-light bg-faded bg-white">
-	  <a class="tab-item" role="button" data-history="back">
-	    취소
-	  </a>
-	</nav>
-
-	<main class="content bg-faded">
-		<div class="content-padded">
-
-		</div>
-	</main>
-</div><!-- /.modal -->
 
 <!-- 로그아웃-->
 <div id="popup-logout" class="popup zoom">

@@ -220,47 +220,23 @@ figure.media.ck-placeholder:before {
 }
 
 /*통합검색*/
-#modal-search .bar-nav {
-  height: 3.75rem;
-}
-#modal-search .bar-nav ~ .content {
-  padding-top: 3.75rem;
-}
-#modal-search .input-group .form-control {
-  border: none
-}
-#modal-search .bar-nav .input-group {
- top: 0;
-}
-#modal-search .input-group > .input-group-btn > .btn {
- padding: 0.6rem 0.7rem;
- color: #ccc
- }
-
- /*상품검색*/
-[data-role="search"] .bar-nav {
-  height: 2.6rem;
-}
-[data-role="search"] .bar-nav ~ .content {
-  padding-top: 2.6rem;
-}
 [data-role="search"] .input-group .form-control {
-  border: none
+  border: none;
+  border-radius: 0;
+}
+[data-role="search"] .input-group > .input-group-btn > .btn {
+  color: #ccc
 }
 [data-role="search"] .bar-nav .input-group {
   top: 0;
   left: 0;
   right: 0;
-  width: 80%
-}
-[data-role="search"] .input-group > .input-group-btn > .btn {
-  padding: 0.6rem 0.7rem;
-  color: #ccc
+  width: 87%
 }
 
 /*검색어 추천*/
 .autocomplete-suggestions {
-  top: 4.0625rem !important;
+  top: 2.7rem !important;
   overflow-y: auto;
   left:0 !important;
   padding-left: 0;
@@ -269,7 +245,7 @@ figure.media.ck-placeholder:before {
   list-style: none;
   width: 100% !important;
   background-color: transparent;
-  background-color: #fff
+  background-color: #fff;
 }
 .autocomplete-suggestion {
   position: relative;

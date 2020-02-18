@@ -37,6 +37,8 @@ function getSearchResult(settings) {
         wrapper.find('[data-role="keyword-reset"]').removeClass("hidden");
         wrapper.find('[data-plugin="timeago"]').timeago();
 
+        $('[data-role="search"]').find('[name="keyword"]').blur();
+
         //무한 스크롤
         wrapper.closest('.content').infinitescroll({
           dataSource: function(helpers, callback){
@@ -83,12 +85,12 @@ function getSearchResult(settings) {
 modal_search.on('shown.rc.modal', function () {
   var modal = $(this);
   setTimeout(function() {
-    modal_search.find('#search-input').val('').focus();
+    modal_search.find('[name="keyword"]').val('').focus();
   }, 100);
 
   $('#modal-post-view').find('[data-act="pauseVideo"]').click();  //유튜브 미니플레이어 재생정지
 
-  modal_search.find('#search-input').autocomplete({
+  modal_search.find('[name="keyword"]').autocomplete({
     lookup: function (query, done) {
 
        $.getJSON(rooturl+"/?m=tag&a=searchtag", {q: query}, function(res){
@@ -107,8 +109,9 @@ modal_search.on('shown.rc.modal', function () {
        });
    },
       onSelect: function (suggestion) {
-        if (modal_search.find('#search-input').val().length >= 1) {
+        if (modal_search.find('[name="keyword"]').val().length >= 1) {
           modal_search.find('form').submit();
+          console.log('검색')
         }
       }
   });
@@ -136,7 +139,7 @@ modal_search.find('form').submit( function(e){
 });
 
 // 검색버튼과 검색어 초기화 버튼 동적 출력
-modal_search.find('#search-input').on('keyup', function(event) {
+modal_search.find('[name="keyword"]').on('keyup', function(event) {
   var modal = modal_search
   modal.find('[data-role="keyword-reset"]').addClass("hidden"); // 검색어 초기화 버튼 숨김
   modal.find("#drawer-search-footer").addClass('hidden') //검색풋터(검색버튼 포함) 숨김
@@ -149,20 +152,21 @@ modal_search.find('#search-input').on('keyup', function(event) {
 // 검색어 입력필드 초기화
 $(document).on('tap click','[data-act="keyword-reset"]',function(){
   var modal = modal_search
-  modal.find("#search-input").val('').autocomplete('clear'); // 입력필드 초기화
+  modal.find('[name="keyword"]').val('').autocomplete('clear'); // 입력필드 초기화
   setTimeout(function(){
-    modal.find("#search-input").focus(); // 입력필드 포커싱
+    modal.find('[name="keyword"]').focus(); // 입력필드 포커싱
     modal.find('[data-role="keyword-reset"]').addClass("hidden"); // 검색어 초기화 버튼 숨김
     modal.find('[data-role="none"]').addClass('d-none');
+    modal.find('[data-role="list-post"]').empty();
   }, 10);
 });
 
 // 검색모달이 닫혔을때
 modal_search.on('hidden.rc.modal', function () {
   var modal = $(this)
-  modal.find('#search-input').autocomplete('clear');
+  modal.find('[name="keyword"]').autocomplete('clear');
   $('.autocomplete-suggestions').remove();
-  modal.find("#search-input").val('');
+  modal.find('[name="keyword"]').val('');
   modal.find('[data-role="list-post"]').html('');
   modal.find('[data-role="keyword-reset"]').addClass("hidden"); // 검색어 초기화 버튼 숨김'
 })
