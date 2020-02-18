@@ -92,7 +92,7 @@ $(function() {
           sort: noti_sort,
           orderby: noti_orderby,
           recnum: noti_recnum,
-          callMod: 'unread'
+          callMod: ''
         },function(response){
          var result = $.parseJSON(response);
          var num=result.num;
