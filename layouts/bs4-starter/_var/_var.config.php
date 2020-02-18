@@ -70,8 +70,6 @@ $d['layout']['dom'] = array (
 			array('fax','input','팩스',''),
 		),
 	),
-
-
 );
 
 $d['layout']['widget'] = array (
@@ -79,32 +77,24 @@ $d['layout']['widget'] = array (
 	'post' => array(
 		'포스트',
 		array(
-			array('bs4-post-best-card','기간별 추천 포스트'),
-			array('bs4-post-new-card','최근 포스트'),
-			array('bs4-list-new-card','최근 리스트'),
-			array('bs4-list-view-card','특정 리스트'),
-			array('bs4-post-cat-card','특정 카테고리'),
-			array('bs4-post-tag-card','특정 키워드'),
+			array('post/bs4-default/post/best/card-default','기간별 추천 포스트'),
+			array('post/bs4-default/post/new/card-default','최근 포스트'),
+			array('post/bs4-default/post/tag/card-default','특정 키워드'),
+			array('post/bs4-default/post/cat/card-default','특정 카테고리'),
+			array('post/bs4-default/list/new/card-default','최근 리스트'),
+			array('post/bs4-default/list/view/card-default','특정 리스트'),
 		),
 	),
 
 	'bbs' => array(
 		'게시판',
 		array(
-			array('bs4-bbs-list-01','게시판 리스트형-01'),
-			array('bs4-bbs-card-01','게시판 카드형-01'),
-			array('bs4-bbs-gallery-01','게시판 갤러리형-01'),
+			array('bs4-default/list','게시판 리스트형-01'),
+			array('bs4-default/card','게시판 카드형-01'),
+			array('bs4-default/gallery','게시판 갤러리형-01'),
 		),
 	),
-	//
-	// 'shop' => array(
-	// 	'스토어',
-	// 	array(
-	// 		array('bs4-best-card','생성된 재생목록'),
-	// 	),
-	// ),
 
-	/* 도움말 */
 	'profile' => array(
 		'채널',
 		array(

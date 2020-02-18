@@ -22,14 +22,7 @@ include $g['dir_layout'].'_var/_var.config.php';
       <input type="hidden" name="main_widget_right" value="">
 
       <div data-role="widgetPage" data-area="top">
-
-        <div class="card text-muted mb-3" data-role="item" data-name="추천 포스트" data-path="post/bs4-list-view-card" id="main-top">
-          <input type="hidden" name="widget_members[]" value="<?php echo $d['layout']['main_widget_top'] ?>">
-          <div class="card-body text-center">
-            <a href="#" class="text-reset" data-role="title" data-act="edit">추천 포스트</a>
-          </div>
-        </div>
-
+        <?php echo getWidgetListEdit($d['layout']['main_widget_top']) ?>
       </div>
 
       <div class="row gutter-half">
