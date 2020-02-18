@@ -175,7 +175,10 @@ page_widget_view.on('click','[data-act="save"]',function() {
                 '<button type="button" class="btn btn-link btn-lg text-reset" data-act="edit">'+title+'</button>'+
                 '</li>';
 
-      $(document).find('#page-widget-list [data-role="widgetPage"][data-area="'+area+'"] ol').append(box);
+      setTimeout(function(){
+        $(document).find('#page-widget-list [data-role="widgetPage"][data-area="'+area+'"] ol').append(box);
+        $('#page-widget-list .content').scrollTop(10000);
+      }, 300);
 
     } else {
 
