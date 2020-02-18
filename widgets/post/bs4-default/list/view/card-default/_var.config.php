@@ -8,7 +8,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'bs4-list-view-card' => array(
+	'card-default' => array(
 		'특정 리스트',  //위젯명
 		array(
 			array('listid','postlist','내 리스트',''),

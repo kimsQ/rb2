@@ -8,7 +8,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'bs4-post-best-card' => array(
+	'card-default' => array(
 		'기간별 추천 포스트',  //위젯명
 		array(
 			array('title','input','타이틀',''),

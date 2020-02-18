@@ -8,7 +8,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'bs4-post-tag-card' => array(
+	'card-default' => array(
 		'특정 카테고리',  //위젯명
 		array(
 			array('tag','input','태그',''),

@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-swipe' => array(
+	'swipe-default' => array(
 		'최근 포스트 스와이프 기본형',
 		array(
 			array('title','input','타이틀','최근 포스트'),

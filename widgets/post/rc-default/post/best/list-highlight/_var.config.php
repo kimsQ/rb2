@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-list' => array(
+	'list-highlight' => array(
 		'인기 포스트 리스트 강조형',  //위젯명
 		array(
 			array('title','input','타이틀','인기 포스트'),

@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-gallery' => array(
+	'gallery-default' => array(
 		'최근 포스트 갤러리형',  //위젯명
 		array(
 			array('title','input','타이틀','최근 포스트'),

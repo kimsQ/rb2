@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-medialist' => array(
+	'medialist-default' => array(
 		'인기 포스트 미디어 리스트형',
 		array(
 			array('title','input','타이틀','인기 포스트'),

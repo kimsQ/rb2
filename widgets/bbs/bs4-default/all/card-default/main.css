@@ -1,0 +1,13 @@
+.widget-bbs-card-01 .card-title {
+  line-height: 1.4;
+  overflow: hidden;
+  min-height: 3rem;
+  max-height: 3rem;
+}
+.widget-bbs-card-01 .card-text {
+  line-height: 1.4;
+  font-weight: 400;
+  overflow: hidden;
+  min-height: 3.5rem;
+  max-height: 3.5rem;
+}

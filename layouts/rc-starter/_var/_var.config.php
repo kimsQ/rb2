@@ -120,8 +120,8 @@ $d['layout']['widget'] = array (
 	'bbs' => array(
 		'게시판',
 		array(
-			array('rc-default/list','리스트형'),
-			array('rc-default/media','미디어'),
+			array('rc-default/all/list-default','최근 리스트 기본'),
+			array('rc-default/all/medialist-default','최근 미디어 기본'),
 		),
 	),
 

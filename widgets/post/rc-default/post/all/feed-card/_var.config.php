@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'bs4-list-new-card' => array(
+	'feed-card' => array(
 		'최근 리스트',  //위젯명
 		array(
 			array('title','input','타이틀','최근 리스트'),

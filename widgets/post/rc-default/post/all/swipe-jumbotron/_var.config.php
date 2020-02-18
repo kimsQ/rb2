@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-swipe' => array(
+	'swipe-jumbotron' => array(
 		'최근 포스트 스와이프 점보트론',  //위젯명
 		array(
 			array('title','hidden','타이틀','최근 포스트 스와이프 점보트론'),

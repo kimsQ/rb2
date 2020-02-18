@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-list' => array(
+	'list-default' => array(
 		'포스트 카테고리 리스트 기본형',  //위젯명
 		array(
 			array('cat','postcat','카테고리',''),

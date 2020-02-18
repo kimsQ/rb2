@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-list' => array(
+	'list-default' => array(
 		'최근 포스트 리스트 기본형',  //위젯명
 		array(
 			array('title','input','타이틀','최근 포스트'),

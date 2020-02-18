@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'tag-list' => array(
+	'list-default' => array(
 		'태그검색 포스트 리스트 기본형',  //위젯명
 		array(
 			array('tag','input','태그',''),

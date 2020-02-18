@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-gallery' => array(
+	'gallery-grid' => array(
 		'기간별 인기 포스트 갤러리형',  //위젯명
 		array(
 			array('title','input','타이틀','인기 포스트'),

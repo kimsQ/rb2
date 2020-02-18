@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 $d['widget']['dom'] = array(
 
-	'new-swipe' => array(
+	'swipe-default' => array(
 		'인기 포스트 스와이프 기본형',  //위젯명
 		array(
 			array('title','input','타이틀','인기 포스트'),
