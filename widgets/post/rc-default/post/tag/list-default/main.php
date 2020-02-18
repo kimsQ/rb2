@@ -19,7 +19,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = $_R;
   <?php if ($wdgvar['show_header']=='show'): ?>
   <header>
     <h3>
-      <?php echo $wdgvar['title']?$wdgvar['title']:'<span class="badge badge-info badge-outline mr-1">키워드</span> '.$wdgvar['tag'] ?>
+      <?php echo $wdgvar['title']?$wdgvar['title']:'<span class="badge badge-info badge-outline align-bottom mr-1">키워드</span> '.$wdgvar['tag'] ?>
     </h3>
     <a href="#page-post-keyword"
       data-toggle="page"
