@@ -73,7 +73,7 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
                 </div>
               </div>
             </div>
-            <?php if( !($i%$numPerSlide) && ($wdgvar['limit'] > $numPerSlide) ):?></div></div><div class="swiper-slide"><div class="row gutter-half"><?php endif?>
+            <?php if( !($i%$numPerSlide) && ($wdgvar['limit'] > $i) ):?></div></div><div class="swiper-slide"><div class="row gutter-half"><?php endif?>
             <?php endforeach?>
           </div><!-- /.row -->
         </div><!-- /.swiper-slide -->
