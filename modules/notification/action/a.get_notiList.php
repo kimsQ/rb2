@@ -57,7 +57,7 @@ while($R = db_fetch_array($RCD)){
 if(!$NUM) {
   // 모바일/데스크탑 분기
   if ($g['mobile'] && $_SESSION['pcmode'] != 'Y') {
-    $html.='<li class="p-5 text-xs-center text-muted d-flex align-items-center justify-content-center bg-faded" style="height: calc(100vh - 10.5rem);">새 알림이 없습니다.</li>';
+    $html.='<li class="p-5 text-xs-center text-muted d-flex align-items-center justify-content-center" style="height: calc(100vh - 10.5rem);">새 알림이 없습니다.</li>';
   } else {
     $html.='<span class="list-group-item text-center p-5 small text-muted">새 알림이 없습니다.</span>';
   }

@@ -259,40 +259,6 @@ $(document).ready(function() {
     drawer_right.drawer('hide')
 	});
 
-  //내알림 드로어(사이드메뉴영역)가 열렸을때
-  drawer_right.on('show.rc.drawer', function () {
-    if (memberid) {
-      var drawer_right_content = drawer_right.find('.content')
-      $.get(rooturl+'/?r='+raccount+'&m=notification&a=get_notiList',{
-          sort: noti_sort,
-          orderby: noti_orderby,
-          recnum: noti_recnum,
-          callMod: 'unread'
-        },function(response){
-         var result = $.parseJSON(response);
-         var num=result.num;
-         var tpg=result.tpg;
-         var content=result.content;
-
-         drawer_right.find('[data-role="noti-list"]').html(content);
-         drawer_right.find('[data-plugin="timeago"]').timeago();
-  			 bar.find('[data-role="noti-status"]').text(num);
-         drawer_right.find('[data-role="noti-status"]').text(num);
-         drawer_right.find('[data-role="noti-list"]').attr('data-totalPage',tpg);
-         moreNOTI(drawer_right_content,tpg)
-      });
-    }
-
-  })
-
-  //내알림 드로어(사이드메뉴영역)가 닫혔을때
-  drawer_right.on('hidden.rc.drawer', function () {
-    if (memberid) {
-      drawer_right.find('.content').infinitescroll('destroy') //무한스크롤 리셋
-      drawer_right.append('<div class="content bg-faded"><ul class="table-view table-view-full my-0 bg-white" data-role="noti-list"></ul></div>');
-    }
-  })
-
 	//검색 모달이 열렸을때
 	$('#modal-search').on('shown.rc.modal', function () {
 		setTimeout(function() {
