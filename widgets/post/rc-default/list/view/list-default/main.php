@@ -12,7 +12,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.
   <?php if ($wdgvar['show_header']=='show'): ?>
   <header>
     <h3>
-      <span class="badge badge-info badge-outline align-bottom mr-1">이슈</span>
+      <span class="badge badge-info badge-outline align-bottom mr-1"><?php echo $wdgvar['title_badge'] ?></span>
       <?php echo $LIST['name'] ?>
     </h3>
     <a href="#page-post-listview"

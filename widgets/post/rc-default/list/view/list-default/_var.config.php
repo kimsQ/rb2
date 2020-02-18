@@ -7,6 +7,7 @@ $d['widget']['dom'] = array(
 		'리스트뷰 리스트 기본',  //위젯명
 		array(
 			array('listid','postlist','내 리스트',''),
+			array('title_badge','input','타이틀 라벨','이슈'),
 			array('show_header','select','헤더출력','출력=show,숨김=hide','show'),
 			array('margin_top','select','상단여백','적용=true,미적용=false','true'),
 			array('vtype','select','보기타입','모달형=modal,페이지형=page','modal'),

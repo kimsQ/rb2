@@ -10,7 +10,7 @@ if ($d['layout']['main_type']=='postAllFeed') {
 }
 ?>
 
-<?php if (!$d['layout']['main_widgets']): ?>
+<?php if (!$d['layout']['main_widgets'] && $my['admin']): ?>
 <div class="alert alert-danger text-xs-center border-0 rounded-0" role="alert">
   <a data-href="<?php echo $g['s'].'/?r='.$r.'&amp;layoutPage=settings&prelayout=rc-starter/blank' ?>" class="alert-link">
     <u>메인 꾸미기가 필요합니다.</u>
