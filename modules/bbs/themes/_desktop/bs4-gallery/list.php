@@ -19,11 +19,6 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
   <header class="d-flex justify-content-between align-items-center my-4">
     <span class="text-muted">
       <small>총게시물 : <strong><?php echo number_format($NUM+count($NCD))?></strong> 건  (<?php echo $p?>/<?php echo $TPG?> page) </small>
-      <?php if($d['bbs']['rss']):?>
-      <a href="<?php echo $g['bbs_rss'] ?>" target="_blank" class="ml-2 muted-link">
-        <i class="fa fa-rss-square" aria-hidden="true"></i> RSS
-      </a>
-      <?php endif?>
     </span>
 
 
@@ -243,25 +238,15 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
 
 <?php include $g['dir_module_skin'].'_footer.php'?>
 
-<!-- 댓글 출력관련  -->
-<link href="<?php echo $g['url_root']?>/modules/comment/themes/_desktop/bs4-modal/css/style.css<?php echo $g['wcache']?>" rel="stylesheet">
-
-<!-- 포토모달(댓글포함) 오픈 -->
-<script src="<?php echo $g['url_module_skin'] ?>/js/openGallery.js<?php echo $g['wcache']?>" ></script>
-
 <script>
-$(function () {
 
-  //검색어가 있을 경우 검색어 input focus
-  <?php if ($keyword): ?>
-  $('[name="keyword"]').focus()
-  <?php endif; ?>
+//검색어가 있을 경우 검색어 input focus
+<?php if ($keyword): ?>
+$('[name="keyword"]').focus()
+<?php endif; ?>
 
-  <?php if (!$c): ?>
-  document.title = '<?php echo $B['name']?> · <?php echo $g['browtitle']?>'  // 브라우저 타이틀 재설정
-  <?php endif; ?>
-
-})
-
+<?php if (!$c): ?>
+document.title = '<?php echo $B['name']?> · <?php echo $g['browtitle']?>'  // 브라우저 타이틀 재설정
+<?php endif; ?>
 
 </script>

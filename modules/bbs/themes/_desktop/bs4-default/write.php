@@ -86,7 +86,7 @@ else {
 
 		    <div class="form-group">
 					<label for="">제목</label>
-          <input type="text" name="subject" placeholder="제목을 입력해 주세요." value="<?php echo $R['subject']?>" id="" class="form-control form-control-lg" autofocus>
+          <input type="text" name="subject" placeholder="제목을 입력해 주세요." value="<?php echo $R['subject']?>" id="" class="form-control form-control-lg" autofocus autocomplete="off">
         </div>
 
         <div class="mb-3">

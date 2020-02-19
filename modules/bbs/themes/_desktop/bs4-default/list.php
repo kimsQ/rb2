@@ -5,11 +5,6 @@
   <header class="d-flex justify-content-between align-items-center my-4">
     <span class="text-muted">
       <small>총게시물 : <strong><?php echo number_format($NUM+count($NCD))?></strong> 건  (<?php echo $p?>/<?php echo $TPG?> page) </small>
-      <?php if($d['bbs']['rss']):?>
-      <a href="<?php echo $g['bbs_rss'] ?>" target="_blank" class="ml-2 muted-link">
-        <i class="fa fa-rss-square" aria-hidden="true"></i> RSS
-      </a>
-      <?php endif?>
     </span>
 
     <form class="form-inline" name="bbssearchf" action="<?php echo $g['s']?>/">
