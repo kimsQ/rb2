@@ -384,7 +384,7 @@
 					</div><!-- /.card-body -->
 				</div><!-- /.card -->
 
-				<div class="card rounded-0 mb-0">
+				<div class="card rounded-0 mb-0 d-none">
 					<div class="card-header">
 						상품연결
 					</div>

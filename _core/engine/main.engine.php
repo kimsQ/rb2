@@ -194,10 +194,18 @@ $g['postVarForSite'] = $g['path_var'].'site/'.$r.'/post.var.php';
 include_once file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['path_module'].'post/var/var.php';
 
 $d['post']['writeperm'] = true;
+$d['post']['categoryperm'] = true;
+$d['post']['goodsperm'] = true;
 
 if (!$my['admin']) {
 	if ($d['post']['perm_l_write'] > $my['level'] || strpos('_'.$d['post']['perm_g_write'],'['.$my['mygroup'].']') || !$my['uid']) {
 	  $d['post']['writeperm'] = false;
+	}
+	if ($d['post']['perm_l_category'] > $my['level'] || strpos('_'.$d['post']['perm_g_category'],'['.$my['mygroup'].']') || !$my['uid']) {
+		$d['post']['categoryperm'] = false;
+	}
+	if ($d['post']['perm_l_goods'] > $my['level'] || strpos('_'.$d['post']['perm_g_goods'],'['.$my['mygroup'].']') || !$my['uid']) {
+		$d['post']['goodsperm'] = false;
 	}
 }
 

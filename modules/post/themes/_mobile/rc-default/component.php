@@ -660,7 +660,7 @@
               태그
             </a>
           </li>
-          <?php if (getDbRows($table['postcategory'],'site='.$s.' and reject=0 and hidden=0')): ?>
+          <?php if (getDbRows($table['postcategory'],'site='.$s.' and reject=0 and hidden=0') && $d['post']['categoryperm'] ): ?>
           <li class="table-view-cell">
             <a class="navigate-right" href="#page-post-edit-category" data-start="#page-post-edit-main" data-toggle="page">
               카테고리 설정
@@ -672,12 +672,14 @@
               고급설정
             </a>
           </li>
-          <li class="table-view-cell">
+          <?php if ($d['post']['goodsperm']): ?>
+          <li class="table-view-cell d-none">
             <a class="navigate-right" href="#page-post-edit-goodslist" data-start="#page-post-edit-main" data-toggle="page">
               <span class="badge badge-default badge-inverted" data-role="goodsNum"></span>
               상품연결
             </a>
           </li>
+          <?php endif; ?>
         </ul>
 
       </form><!-- /.content-padded -->

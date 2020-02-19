@@ -118,8 +118,15 @@ function setPostWrite(settings) {
         },function(response,status){
            if(status=='success'){
              var result = $.parseJSON(response);
-             var category_tree=result.category_tree;
-             page_post_edit_category.find('[data-role="box"]').html(category_tree);
+             var error=result.error;
+
+             if (!error) {
+               var category_tree=result.category_tree;
+               page_post_edit_category.find('[data-role="box"]').html(category_tree);
+             } else {
+               page_post_edit_category.find('[data-role="box"]').html('<div class="text-xs-center p-3 text-muted">지정 권한이 없습니다.</div>');
+             }
+
            } else {
              alert(status);
            }

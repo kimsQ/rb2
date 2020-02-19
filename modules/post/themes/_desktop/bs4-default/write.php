@@ -54,7 +54,7 @@
           <a class="nav-link<?php echo !$cid?' disabled':'' ?>" id="profile-tab" data-toggle="tab" href="#link" role="tab" aria-controls="link" aria-selected="false">링크</a>
         </li>
         <?php if ($d['post']['goodsperm']): ?>
-        <li class="nav-item">
+        <li class="nav-item d-none">
           <a class="nav-link<?php echo !$cid?' disabled':'' ?>" id="contact-tab" data-toggle="tab" href="#goods" role="tab" aria-controls="goods" aria-selected="false">상품</a>
         </li>
         <?php endif; ?>
