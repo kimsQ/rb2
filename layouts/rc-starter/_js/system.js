@@ -7,7 +7,7 @@ $('#sheet-update-confirm [data-act="submit"]').click(function(){
   history.back();
   setTimeout(function(){
     $('.content').loader({ position: 'overlay',text: '잠시만 기다리세요...' });
-  }, 250);
+  }, 300);
   setTimeout(function(){
     $('[name="updateForm"]').submit();
   }, 1000);
