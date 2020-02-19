@@ -511,13 +511,14 @@ modal_widget_selector.find('[data-act="apply"]').click(function(){
   var wdgvar = '';
   var modal = $('#modal-widget-selector');
 
-  if (!path) {
-    modal.find('[name="widget_selector"]').focus();
-    return false;
-  }
-
   history.back();
 
+  if (!path) {
+    modal.find('[name="widget_selector"]').focus();
+    console.log('path 정보가 없습니다.')
+    $.notify({message: '다시 시도해 주세요.'},{type: 'default'});
+    return false;
+  }
   setTimeout(function(){
     $('#page-widget-view [data-role="form"]').html('');
     $('#page-widget-list [data-role="item"]').removeClass('active shadow-sm')
