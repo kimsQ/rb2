@@ -1,9 +1,9 @@
 /**
  * --------------------------------------------------------------------------
- * kimsQ Rb v2.2 데스크탑 기본형 게시판 테마 스크립트 (bs4-default): _main.js
+ * kimsQ Rb v2.4.5 데스크탑 기본형 게시판 테마 스크립트 (bs4-default): _main.js
  * Homepage: http://www.kimsq.com
  * Licensed under RBL
- * Copyright 2018 redblock inc
+ * Copyright 2020 redblock inc
  * --------------------------------------------------------------------------
  */
 

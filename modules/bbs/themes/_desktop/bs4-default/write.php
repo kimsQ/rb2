@@ -1,9 +1,9 @@
 <?php
-if (!$_SESSION['upsescode'])
-{
+if (!$_SESSION['upsescode']) {
   $_SESSION['upsescode'] = str_replace('.','',$g['time_start']);
 }
 $sescode = $_SESSION['upsescode'];
+
 if($R['uid']){
     $u_arr = getArrayString($R['upload']);
     $_tmp=array();
@@ -89,8 +89,25 @@ else {
           <input type="text" name="subject" placeholder="제목을 입력해 주세요." value="<?php echo $R['subject']?>" id="" class="form-control form-control-lg" autofocus>
         </div>
 
+        <div class="mb-3">
+          <script>
+          var attach_file_saveDir = '<?php echo $g['path_file']?>bbs/';// 파일 업로드 폴더
+          var attach_module_theme = '<?php echo $d['bbs']['a_skin']?$d['bbs']['a_skin']: ($d['theme']['upload_theme']?$d['theme']['upload_theme']:$d['bbs']['attach_main']); ?>';// attach 모듈 테마
+
+          </script>
+          <?php
+            $__SRC__ = htmlspecialchars($R['content']);
+
+            if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9') {
+              include $g['path_plugin'].'ckeditor5/import.classic.php';
+            } else {
+              include $g['path_plugin'].'ckeditor/import.desktop.php';
+            }
+          ?>
+        </div>
+
         <div class="form-group">
-					<label class="sr-only"></label>
+          <label class="sr-only"></label>
           <?php if($my['admin']):?>
           <div class="custom-control custom-checkbox custom-control-inline">
             <input type="checkbox" class="custom-control-input" id="notice" name="notice" value="1"<?php if($R['notice']):?> checked="checked"<?php endif?>>
@@ -108,29 +125,12 @@ else {
           <?php endif?>
         </div>
 
-        <div class="mb-3">
-          <script>
-          var attach_file_saveDir = '<?php echo $g['path_file']?>bbs/';// 파일 업로드 폴더
-          var attach_module_theme = '<?php echo $d['bbs']['a_skin']?$d['bbs']['a_skin']: ($d['theme']['upload_theme']?$d['theme']['upload_theme']:$d['bbs']['attach_main']); ?>';// attach 모듈 테마  
-          </script>
-          <?php
-            $__SRC__ = htmlspecialchars($R['content']);
-
-            if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9') {
-              include $g['path_plugin'].'ckeditor5/import.classic.php';
-            } else {
-              include $g['path_plugin'].'ckeditor/import.desktop.php';
-            }
-          ?>
-        </div>
-
         <!-- 첨부파일 업로드 -->
         <?php if($d['theme']['show_upload']&&$d['theme']['perm_upload']<=$my['level']):?>
         <?php if ($d['bbs']['attach']): ?>
         <?php include $g['dir_module_skin'].'_uploader.php'?>
         <?php endif; ?>
         <?php endif?>
-
 
   		   <?php if($d['theme']['show_wtag']):?>
   			 <div class="form-group mt-4">
@@ -171,7 +171,6 @@ else {
 <?php include $g['dir_module_skin'].'_footer.php'?>
 
 <script type="text/javascript">
-
 
 // 글 등록 함수
 var submitFlag = false;
@@ -215,20 +214,12 @@ function writeCheck(f) {
 	}
 
   var editorData = editor.getData();
-
-  if (editorData == '')
-  {
-    alert('내용을 입력해 주세요.       ');
-    editor.editing.view.focus();
-    return false;
-  } else {
-    $('[name="content"]').val(editorData)
-  }
+  $('[name="content"]').val(editorData)
 
   // 대표이미지가 없을 경우, 첫번째 업로드 사진을 지정함
   var featured_img_input = $('input[name="featured_img"]'); // 대표이미지 input
   var featured_img_uid = $(featured_img_input).val();
-  if(!featured_img_uid){ // 대표이미지로 지정된 값이 없는 경우
+  if(featured_img_uid ==''){ // 대표이미지로 지정된 값이 없는 경우
     var first_attach_img_li = $('.rb-attach-photo li:first'); // 첫번째 첨부된 이미지 리스트 li
     var first_attach_img_uid = $(first_attach_img_li).data('id');
     featured_img_input.val(first_attach_img_uid);

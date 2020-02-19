@@ -1,9 +1,9 @@
 @charset "utf-8";
 
 /*!
- * kimsQ Rb v2.4 데스크탑 기본형 게시판 테마 스타일 (bs4-default)
+ * kimsQ Rb v2.4.5 데스크탑 기본형 게시판 테마 스타일 (bs4-default)
  * Homepage: http://www.kimsq.com
- * Copyright 2018 redblock inc
+ * Copyright 2020 redblock inc
  * Licensed under RBL
  * Based on Bootstrap v4
 */
@@ -117,28 +117,6 @@
  * ----------------------------------------------------------------------------
  */
 
-
-/* 모달 */
-.modal [data-role="article"]{
-  min-height: calc(100vh - 8.5rem);
-}
-.modal [data-role="comment-main"] .timeline-vscroll {
-  max-height: calc(100vh - 15rem) !important
-}
-.modal .article-body {
-  height: calc(100vh - 15rem);
-  overflow:auto
-}
-
-
-/* 모달-댓글영역 */
-.modal [data-role="comment-none"] > div {
-  height: calc(100vh - 13.6rem) !important;
-}
-.modal [data-role="comment-main"] nav {
-  height: 63px;
-  background-color: #fff
-}
 
 
 /**

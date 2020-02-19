@@ -21,6 +21,7 @@
 	 $attach_down_num = count ($down_files);
 ?>
 
+
 	<div class="attach-section clearfix my-5">
 
 		<?php if($attach_photo_num>0):?>
@@ -29,7 +30,7 @@
 				<?php foreach($img_files as $_u):?>
 
 				<?php
-					$img_origin=$_u['src'];
+					$img_origin=$_u['host'].'/'.$_u['folder'].'/'.$_u['tmpname'];
 					$thumb_list=getPreviewResize($img_origin,'180x120'); // 미리보기 사이즈 조정 (이미지 업로드시 썸네일을 만들 필요 없다.)
 					$thumb_modal=getPreviewResize($img_origin,'c'); // 정보수정 모달용  사이즈 조정 (이미지 업로드시 썸네일을 만들 필요 없다.)
 				?>

@@ -2,7 +2,7 @@
 
 <section class="rb-bbs-list">
 
-  <header class="d-flex justify-content-between align-items-end my-4">
+  <header class="d-flex justify-content-between align-items-center my-4">
     <span class="text-muted">
       <small>총게시물 : <strong><?php echo number_format($NUM+count($NCD))?></strong> 건  (<?php echo $p?>/<?php echo $TPG?> page) </small>
       <?php if($d['bbs']['rss']):?>
@@ -108,14 +108,7 @@
             <span class="badge badge-secondary"><?php echo $R['category']?></span>
             <?php endif?>
 
-            <a class="muted-link" href="#modal-bbs-view"
-              data-toggle="modal"
-              data-title="게시물 보기"
-              data-subject="<?php echo $R['subject']?>"
-              data-cat="<?php echo $R['category']?>"
-              data-url="<?php echo $g['bbs_view'].$R['uid']?>"
-              data-bid="<?php echo $B['id']?>"
-              data-uid="<?php echo $R['uid'] ?>">
+            <a href="<?php echo $g['bbs_view'].$R['uid']?>" class="muted-link">
               <?php echo getStrCut($R['subject'],$d['bbs']['sbjcut'],'')?>
             </a>
 
@@ -181,15 +174,7 @@
             <span class="badge badge-light"><?php echo $R['category']?></span>
             <?php endif?>
 
-            <a class="muted-link" href="#modal-bbs-view"
-              data-toggle="modal"
-              data-title="게시물 보기"
-              data-subject="<?php echo $R['subject']?>"
-              data-backdrop="static"
-              data-cat="<?php echo $R['category']?>"
-              data-url="<?php echo $g['bbs_view'].$R['uid']?>"
-              data-bid="<?php echo $B['id']?>"
-              data-uid="<?php echo $R['uid'] ?>">
+            <a href="<?php echo $g['bbs_view'].$R['uid']?>" class="muted-link">
               <?php echo getStrCut($R['subject'],$d['bbs']['sbjcut'],'')?>
             </a>
 
@@ -265,32 +250,9 @@
 
 <?php include $g['dir_module_skin'].'_footer.php'?>
 
-<!-- 모달 댓글 출력관련  -->
-<link href="<?php echo $g['url_root']?>/modules/comment/themes/_desktop/bs4-modal/css/style.css<?php echo $g['wcache']?>" rel="stylesheet">
-<script src="<?php echo $g['url_module_skin'] ?>/js/getPostData.js<?php echo $g['wcache']?>" ></script>
-
 <script>
-
-//댓글 첨부파일 처리관련
-var attach_file_saveDir = '<?php echo $g['path_file']?>comment/';
-var attach_module_theme = '<?php echo $d['theme']['upload_theme'] ?>';
-
-$(function () {
-
-  //검색어가 있을 경우 검색어 input focus
-  <?php if ($keyword): ?>
-  $('[name="keyword"]').focus()
-  <?php endif; ?>
-
-  putCookieAlert('bbs_action_result') // 실행결과 알림 메시지 출력
-
-  var modal_settings={
-    mid  : '#modal-bbs-view', // 모달아이디
-    ctheme  : '_desktop/bs4-modal', //모달 댓글테마
-  }
-
-  getPostData(modal_settings); // 모달 출력관련
-
-
-})
+//검색어가 있을 경우 검색어 input focus
+<?php if ($keyword): ?>
+$('[name="keyword"]').focus()
+<?php endif; ?>
 </script>

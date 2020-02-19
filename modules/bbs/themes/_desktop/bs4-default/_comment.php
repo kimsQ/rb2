@@ -54,7 +54,6 @@ $(function () {
 
   var commentting_container = $('#commentting-container');
 
-
   var get_Rb_Comment = function(p_module,p_table,p_uid,theme){
     commentting_container.Rb_comment({
        moduleName : 'comment', // 댓글 모듈명 지정 (수정금지)
@@ -66,7 +65,7 @@ $(function () {
        commentPlaceHolder : '댓글을 입력해 주세요..',
        noMoreCommentMsg : '댓글 없음 ',
        commentLength : 500, // 댓글 입력 글자 수 제한
-       toolbar : ['heading','strikethrough','imageUpload','link','bulletedList', 'numberedList', 'blockQuote','|','alignment:left','alignment:center','|','Highlight','Code','insertTable'] // 툴바 항목
+       toolbar : ['imageUpload','bold','link'] // 툴바 항목
     });
   }
 

@@ -1,13 +1,3 @@
-<!-- 동영상,유튜브,오디오 player : http://www.mediaelementjs.com/ -->
-<?php getImport('mediaelement','mediaelement-and-player.min','4.2.8','js') ?>
-<?php getImport('mediaelement','lang/ko','4.2.8','js') ?>
-<?php getImport('mediaelement','mediaelementplayer','4.2.8','css') ?>
-
-<!-- 사진전용모달 : photoswipe http://photoswipe.com/documentation/getting-started.html -->
-<?php getImport('photoswipe','photoswipe','4.1.1','css') ?>
-<?php getImport('photoswipe','default-skin/default-skin','4.1.1','css') ?>
-<?php getImport('photoswipe','photoswipe.min','4.1.1','js') ?>
-<?php getImport('photoswipe','photoswipe-ui-default.min','4.1.1','js') ?>
 
 <?php
 	 $img_files = array();
@@ -438,9 +428,6 @@ $(function () {
 
 	// execute above function
 	initPhotoSwipeFromDOM('.post-gallery');
-
-
-  $('.mejs-player').mediaelementplayer(); // 동영상, 오디오 플레이어 초기화 http://www.mediaelementjs.com/
 
 	$('.post-gallery figure a').click(function(){
 		$(this).closest('figure').attr('tabindex','-1').focus();

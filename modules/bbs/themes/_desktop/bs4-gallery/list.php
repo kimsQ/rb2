@@ -146,15 +146,7 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
       <div class="<?php echo $col_xl.$col_lg.$col_md.$col_sm.$col_xs ?>">
         <div class="card" id="item-<?php echo $R['uid']?>">
 
-          <div class="position-relative"
-            data-toggle="openGallery"
-            data-category="<?php echo $R['category']?>"
-            data-subject="<?php echo $R['subject']?>"
-            data-cat="<?php echo $R['category']?>"
-            data-url="<?php echo $g['bbs_view'].$R['uid']?>"
-            data-bid="<?php echo $B['id']?>"
-            data-uid="<?php echo $R['uid'] ?>" role="button">
-
+          <a class="position-relative" href="<?php echo $g['bbs_view'].$R['uid']?>">
             <img src="<?php echo getPreviewResize(getUpImageSrc($R),'640x360') ?>" alt="" class="card-img-top">
             <div class="card-img-overlay opacity-0">
               <div class="d-flex flex-column w-100 h-100">
@@ -193,15 +185,12 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
                 <?php endif; ?>
               </div>
             </div>
+          </a><!-- /.position-relative -->
 
-          </div><!-- /.position-relative -->
-
-          <div class="card-body text-center">
-
+          <div class="card-body">
             <a class="muted-link" href="<?php echo $g['bbs_view'].$R['uid']?>">
-              <?php echo getStrCut($R['subject'],$d['bbs']['sbjcut'],'')?>
+              <?php echo getStrCut($R['subject'],100,'')?>
             </a>
-
           </div>
           <div class="card-footer d-flex justify-content-between align-items-center">
             <span class="text-muted">

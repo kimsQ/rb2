@@ -1,9 +1,9 @@
 @charset "utf-8";
 
 /*!
- * kimsQ Rb v2.4 데스크탑 갤러리 게시판 테마 스타일 (bs4-gallery)
+ * kimsQ Rb v2.4.5 데스크탑 갤러리 게시판 테마 스타일 (bs4-gallery)
  * Homepage: http://www.kimsq.com
- * Copyright 2018 redblock inc
+ * Copyright 2020 redblock inc
  * Licensed under RBL
  * Based on Bootstrap v4
 */
@@ -189,7 +189,9 @@
  * 4 - 쓰기 rb-bbs-write
  * ----------------------------------------------------------------------------
  */
-
+ .rb-bbs-write .ck-editor__editable_inline {
+   min-height: 250px;
+ }
 
 
 

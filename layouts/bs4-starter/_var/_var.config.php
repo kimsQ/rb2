@@ -90,7 +90,6 @@ $d['layout']['widget'] = array (
 		'게시판',
 		array(
 			array('bs4-default/all/list-default','최근 리스트 기본'),
-			array('bs4-default/all/card-default','최근 카드 기본'),
 			array('bs4-default/all/gallery-default','최근 갤러리 기본'),
 		),
 	),

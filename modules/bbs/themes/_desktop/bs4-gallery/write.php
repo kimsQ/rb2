@@ -94,7 +94,7 @@ else {
 
     		    <div class="form-group">
     					<label for="">제목</label>
-              <input type="text" name="subject" placeholder="제목을 입력해 주세요." value="<?php echo $R['subject']?>" id="" class="form-control form-control-lg" autofocus>
+              <input type="text" name="subject" placeholder="제목을 입력해 주세요." value="<?php echo $R['subject']?>" id="" class="form-control form-control-lg" autofocus autocomplete="off">
             </div>
 
             <div class="mb-3">
@@ -107,9 +107,9 @@ else {
                 $__SRC__ = htmlspecialchars($R['content']);
 
                 if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9') {
-                  include $g['path_plugin'].'ckeditor5/import.balloon-block.php';
+                  include $g['path_plugin'].'ckeditor5/import.classic.php';
                 } else {
-                  include $g['path_plugin'].'ckeditor/import.desktop.php';
+                  include $g['path_plugin'].'ckeditor/import.desktop.post.php';
                 }
               ?>
             </div>
@@ -239,7 +239,7 @@ function writeCheck(f) {
     $('input[name="upfiles"]').val(new_upfiles);
   }
 
-  if (f.upfiles.value == '') {
+  if ( !$('[name="upfiles"]').val() && !$('[name="notice"]').prop("checked") ) {
 		alert('사진파일을 첨부해 주세요.      ');
     $('[data-role="attach-handler-file"]').focus()
 		return false;
