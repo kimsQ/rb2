@@ -14,7 +14,7 @@ $d['widget']['dom'] = array(
 			array('bid','bbs','게시판 선택',''),
 			array('title','input','타이틀','전체 게시물'),
 			array('show_header','select','헤더출력','출력=show,숨김=hide','show'),
-			array('vtype','select','보기타입','모달형=modal,페이지형=page','modal'),
+			array('vtype','select','보기타입','모달형=modal,페이지형=page','page'),
 			array('limit','select','총 항목수','1개=1,2개=2,3개=3,4개=4,5개=5,6개=6,7개=7,8개=8,9개=9,10개=10,11개=11,12개=12','4'),
 			array('link','input','링크연결','')
 		),
