@@ -163,13 +163,18 @@ function savePost(f) {
         },function(response,status){
           if(status=='success'){
             var result = $.parseJSON(response);
-            var d_modify=result.d_modify;
-            form.find('[data-role="postsubmit"]').attr( 'disabled', false );
-            form.find('[data-role="d_modify"]').attr('data-original-title',d_modify);
-            form.find('[data-plugin="timeago"]').timeago("update", new Date());
-            form.find('[data-role="postsubmit"]').addClass('d-none');
-            form.find('[data-role="library"]').removeClass('d-none');
-            form.find('[data-role="share"]').removeClass('d-none');
+            var error=result.error;
+            if (!error) {
+              var d_modify=result.d_modify;
+              form.find('[data-role="postsubmit"]').attr( 'disabled', false );
+              form.find('[data-role="d_modify"]').attr('data-original-title',d_modify);
+              form.find('[data-plugin="timeago"]').timeago("update", new Date());
+              form.find('[data-role="postsubmit"]').addClass('d-none');
+              form.find('[data-role="library"]').removeClass('d-none');
+              form.find('[data-role="share"]').removeClass('d-none');
+            } else {
+              alert(error);
+            }
           } else {
             alert(status);
           }

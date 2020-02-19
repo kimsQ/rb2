@@ -466,30 +466,39 @@ function savePost(f) {
       },function(response,status){
         if(status=='success'){
           var result = $.parseJSON(response);
-          var d_modify=result.d_modify;
+          var error=result.error;
 
-          form.find('[data-role="postsubmit"]').attr( 'disabled', false );
-          history.back();
-          setTimeout(function(){
-            if (uid) {
-              $.notify({message: '저장 되었습니다.'},{type: 'default'});
-            } else {
-              if (display<4) {
-                console.log('여기'+start)
-                $('#page-post-mypost').page({ start: start, title : '내 포스트', url : 'dashboard?page=post' });
+          if (!error) {
+            var d_modify=result.d_modify;
+
+            form.find('[data-role="postsubmit"]').attr( 'disabled', false );
+            history.back();
+            setTimeout(function(){
+              if (uid) {
+                $.notify({message: '저장 되었습니다.'},{type: 'default'});
+              } else {
+                if (display<4) {
+                  $('#page-post-mypost').page({ start: start, title : '내 포스트', url : 'dashboard?page=post' });
+                }
               }
-            }
-            // 메인화면 목록 새로불러오기
-            getPostAll({
-              wrapper : $('[data-role="postFeed"] [data-role="list"]'),
-              start : start,
-              markup    : 'post-row',  // 테마 > _html > post-row-***.html
-              recnum    : 5,
-              sort      : 'gid',
-              none : $(start).find('[data-role="postFeed"] [data-role="none"]').html(),
-              paging : 'infinit'
-            })
-           }, 300);
+              // 메인화면 목록 새로불러오기
+              getPostAll({
+                wrapper : $('[data-role="postFeed"] [data-role="list"]'),
+                start : start,
+                markup    : 'post-row',  // 테마 > _html > post-row-***.html
+                recnum    : 5,
+                sort      : 'gid',
+                none : $(start).find('[data-role="postFeed"] [data-role="none"]').html(),
+                paging : 'infinit'
+              })
+             }, 300);
+          } else {
+            history.back();
+            setTimeout(function(){
+              $.notify({message: error},{type: 'danger'}); // 작성권한 없음
+              return false
+            }, 300);
+          }
 
         } else {
           alert(status);
@@ -512,26 +521,35 @@ function saveTwit(display,content) {
       },function(response,status){
         if(status=='success'){
           var result = $.parseJSON(response);
-          history.back(); // 작성모달 내리고
-          setTimeout(function(){
-            if (display==5) {
+          var error=result.error;
 
-              // 메인화면 목록 새로불러오기
-              getPostAll({
-                wrapper : $('[data-role="postFeed"] [data-role="list"]'),
-                start : start,
-                markup    : 'post-row',  // 테마 > _html > post-row-***.html
-                recnum    : 5,
-                sort      : 'gid',
-                none : '',
-                paging : 'infinit'
-              })
+          if (!error) {
+            history.back(); // 작성모달 내리고
+            setTimeout(function(){
+              if (display==5) {
 
-            } else {
-              $('#page-post-mypost').page({ start: start });
-            }
-           }, 300);
+                // 메인화면 목록 새로불러오기
+                getPostAll({
+                  wrapper : $('[data-role="postFeed"] [data-role="list"]'),
+                  start : start,
+                  markup    : 'post-row',  // 테마 > _html > post-row-***.html
+                  recnum    : 5,
+                  sort      : 'gid',
+                  none : '',
+                  paging : 'infinit'
+                })
 
+              } else {
+                $('#page-post-mypost').page({ start: start });
+              }
+             }, 300);
+          } else {
+            history.back();
+            setTimeout(function(){
+              $.notify({message: error},{type: 'danger'});  // 작성권한 없음
+              return false
+            }, 300);
+          }
         } else {
           alert(status);
         }
@@ -606,18 +624,28 @@ function savePostByLink(url,start) {
                     },function(response,status){
                       if(status=='success'){
                         var result = $.parseJSON(response);
-                        var uid=result.last_uid;
-                        var cid=result.last_cid;
+                        var error=result.error;
 
-                        history.back();
-                        modal_post_write.attr('data-uid',uid).attr('data-after','mypost').attr('data-start',start);
+                        if (!error) {
+                          var uid=result.last_uid;
+                          var cid=result.last_cid;
 
-                        setTimeout(function(){
-                          modal_post_write.modal({
-                            title : '포스트 수정',
-                            url : '/post/write/'+cid
-                          });
-                        }, 300);
+                          history.back();
+                          modal_post_write.attr('data-uid',uid).attr('data-after','mypost').attr('data-start',start);
+
+                          setTimeout(function(){
+                            modal_post_write.modal({
+                              title : '포스트 수정',
+                              url : '/post/write/'+cid
+                            });
+                          }, 300);
+                        } else {
+                          history.back();
+                          setTimeout(function(){
+                            $.notify({message: error},{type: 'danger'}); // 작성권한 없음
+                            return false
+                          }, 300);
+                        }
 
                       } else {
                         alert(status);
@@ -674,19 +702,26 @@ function savePostByLink(url,start) {
               },function(response,status){
                 if(status=='success'){
                   var result = $.parseJSON(response);
-                  var uid=result.last_uid;
-                  var cid=result.last_cid;
+                  var error=result.error;
 
-                  history.back();
-                  modal_post_write.attr('data-uid',uid).attr('data-after','mypost').attr('data-start',start);
-
-                  setTimeout(function(){
-                    modal_post_write.modal({
-                      title : '포스트 수정',
-                      url : '/post/write/'+cid
-                    });
-
-                  }, 300);
+                  if (!error) {
+                    var uid=result.last_uid;
+                    var cid=result.last_cid;
+                    history.back();
+                    modal_post_write.attr('data-uid',uid).attr('data-after','mypost').attr('data-start',start);
+                    setTimeout(function(){
+                      modal_post_write.modal({
+                        title : '포스트 수정',
+                        url : '/post/write/'+cid
+                      });
+                    }, 300);
+                  } else {
+                    history.back();
+                    setTimeout(function(){
+                      $.notify({message: error},{type: 'danger'}); // 작성권한 없음
+                      return false
+                    }, 300);
+                  }
 
                 } else {
                   alert(status);

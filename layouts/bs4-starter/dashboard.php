@@ -35,12 +35,15 @@ if (!$my['uid']) getLink('/','','','');
 
 			<div class="">
 
-				<?php if($d['layout']['header_login']=='true'):?>
 				<ul class="navbar-nav">
 				<?php if ($my['uid']): ?>
+
+					<?php if ($d['post']['writeperm']): ?>
 					<li class="nav-item">
 						<a class="nav-link text-primary" href="<?php echo RW('m=post&mod=write')?>">새 포스트</a>
 					</li>
+					<?php endif; ?>
+
 					<li class="nav-item dropdown js-tooltip mr-2" title="알림" id="navbarPopoverNoti">
 						<a class="nav-link notification-indicator" href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<span class="badge badge-danger noti-status" data-role="noti-status"><?php echo $my['num_notice']==0?'':$my['num_notice']?></span>
@@ -68,7 +71,7 @@ if (!$my['uid']) getLink('/','','','');
 					</li>
 					<li class="nav-item dropdown">
 					  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-role="tooltip" title="프로필보기 및 회원계정관리">
-							<?php echo $my['email'] ?>
+							<?php echo $my['email']?$my['email']:$my['phone'] ?>
 					  </a>
 					  <div class="dropdown-menu dropdown-menu-right">
 					    <h6 class="dropdown-header"><?php echo $my['nic'] ?> 님</h6>
@@ -96,10 +99,9 @@ if (!$my['uid']) getLink('/','','','');
 							로그인
 						</a>
 					</li>
-
 					<?php endif; ?>
 		    </ul>
-				<?php endif?>
+
 			</div>
 		</div><!-- /.container -->
 	</nav>

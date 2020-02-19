@@ -193,6 +193,14 @@ include_once file_exists($g['memberVarForSite']) ? $g['memberVarForSite'] : $g['
 $g['postVarForSite'] = $g['path_var'].'site/'.$r.'/post.var.php';
 include_once file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['path_module'].'post/var/var.php';
 
+$d['post']['writeperm'] = true;
+
+if (!$my['admin']) {
+	if ($d['post']['perm_l_write'] > $my['level'] || strpos('_'.$d['post']['perm_g_write'],'['.$my['mygroup'].']') || !$my['uid']) {
+	  $d['post']['writeperm'] = false;
+	}
+}
+
 //사이트별 게시판 공통설정 변수
 $g['bbsVarForSite'] = $g['path_var'].'site/'.$r.'/bbs.var.php';
 include_once file_exists($g['bbsVarForSite']) ? $g['bbsVarForSite'] : $g['path_module'].'bbs/var/var.php';

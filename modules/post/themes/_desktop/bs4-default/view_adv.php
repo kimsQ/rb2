@@ -126,6 +126,7 @@
 					 </button>
 					 <?php endif; ?>
 
+					 <?php if ($d['post']['writeperm']): ?>
 						<button type="button" class="btn btn btn-outline-primary"
 						 data-target="#modal-post-analytics"
 						 data-toggle="modal"
@@ -134,6 +135,8 @@
 						</button>
 
 						<a href="<?php echo RW('m=post&mod=write&cid='.$R['cid']) ?>" class="btn btn-primary">수정</a>
+						<?php endif; ?>
+
 					<?php endif?>
 			 </div>
 			 <div class="">

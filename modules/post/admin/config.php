@@ -12,9 +12,11 @@
 				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if(!$_SESSION['post_config_nav'] || $_SESSION['post_config_nav']=='basic'):?> active<?php endif?>" data-toggle="list" href="#basic" role="tab" onclick="sessionSetting('post_config_nav','basic','','');" aria-selected="false">
 					일반
 				</a>
-
 	      <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if($_SESSION['post_config_nav']=='theme'):?> active<?php endif?>" data-toggle="list" href="#theme" role="tab" onclick="sessionSetting('post_config_nav','theme','','');" aria-selected="true">
 					레이아웃/테마
+				</a>
+				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if($_SESSION['post_config_nav']=='perm'):?> active<?php endif?>" data-toggle="list" href="#perm" role="tab" onclick="sessionSetting('post_config_nav','perm','','');" aria-selected="true">
+					권한설정
 				</a>
 	    </div>
 		</div>
@@ -304,6 +306,122 @@
 				</div><!-- /.card -->
 
 			</div><!-- /.tab-pane -->
+
+			<div class="tab-pane <?php if($_SESSION['post_config_nav']=='perm'):?> show active<?php endif?>" id="perm">
+
+				<div class="card rounded-0 mb-0">
+					<div class="card-header">
+						포스트 작성
+					</div>
+					<div class="card-body">
+
+						<fieldset>
+							 <div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">허용등급</label>
+									<div class="col-lg-10 col-xl-9">
+										<select name="perm_l_write" class="form-control custom-select">
+											<option value="0">&nbsp;+ 전체허용</option>
+											<option value="0">--------------------------------</option>
+											<?php $_LEVEL=getDbArray($table['s_mbrlevel'],'','*','uid','asc',0,1)?>
+											<?php while($_L=db_fetch_array($_LEVEL)):?>
+											<option value="<?php echo $_L['uid']?>"<?php if($_L['uid']==$d['post']['perm_l_write']):?> selected="selected"<?php endif?>>ㆍ<?php echo $_L['name']?>(<?php echo number_format($_L['num'])?>) 이상</option>
+											<?php if($_L['gid'])break; endwhile?>
+										</select>
+									</div>
+							</div>
+							<div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">차단그룹</label>
+									<div class="col-lg-10 col-xl-9">
+										 <select name="perm_g_write" class="form-control custom-select" multiple size="5">
+											<option value=""<?php if(!$d['post']['perm_g_write']):?> selected="selected"<?php endif?>>ㆍ차단안함</option>
+											<?php $_SOSOK=getDbArray($table['s_mbrgroup'],'','*','gid','asc',0,1)?>
+											<?php while($_S=db_fetch_array($_SOSOK)):?>
+											<option value="<?php echo $_S['uid']?>"<?php if(strstr($d['post']['perm_g_write'],'['.$_S['uid'].']')):?> selected="selected"<?php endif?>>ㆍ<?php echo $_S['name']?>(<?php echo number_format($_S['num'])?>)</option>
+											<?php endwhile?>
+										</select>
+									</div>
+							 </div>
+						</fieldset>
+
+					</div><!-- /.card-body -->
+				</div><!-- /.card -->
+
+
+				<div class="card rounded-0 mb-0">
+					<div class="card-header">
+						카테고리 지정
+					</div>
+					<div class="card-body">
+
+						<fieldset>
+							 <div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">허용등급</label>
+									<div class="col-lg-10 col-xl-9">
+										<select name="perm_l_category" class="form-control custom-select">
+											<option value="0">&nbsp;+ 전체허용</option>
+											<option value="0">--------------------------------</option>
+											<?php $_LEVEL=getDbArray($table['s_mbrlevel'],'','*','uid','asc',0,1)?>
+											<?php while($_L=db_fetch_array($_LEVEL)):?>
+											<option value="<?php echo $_L['uid']?>"<?php if($_L['uid']==$d['post']['perm_l_category']):?> selected="selected"<?php endif?>>ㆍ<?php echo $_L['name']?>(<?php echo number_format($_L['num'])?>) 이상</option>
+											<?php if($_L['gid'])break; endwhile?>
+										</select>
+									</div>
+							</div>
+							<div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">차단그룹</label>
+									<div class="col-lg-10 col-xl-9">
+										 <select name="perm_g_category" class="form-control custom-select" multiple size="5">
+											<option value=""<?php if(!$d['post']['perm_g_category']):?> selected="selected"<?php endif?>>ㆍ차단안함</option>
+											<?php $_SOSOK=getDbArray($table['s_mbrgroup'],'','*','gid','asc',0,1)?>
+											<?php while($_S=db_fetch_array($_SOSOK)):?>
+											<option value="<?php echo $_S['uid']?>"<?php if(strstr($d['post']['perm_g_category'],'['.$_S['uid'].']')):?> selected="selected"<?php endif?>>ㆍ<?php echo $_S['name']?>(<?php echo number_format($_S['num'])?>)</option>
+											<?php endwhile?>
+										</select>
+									</div>
+							 </div>
+						</fieldset>
+
+					</div><!-- /.card-body -->
+				</div><!-- /.card -->
+
+				<div class="card rounded-0 mb-0">
+					<div class="card-header">
+						상품연결
+					</div>
+					<div class="card-body">
+
+						<fieldset>
+							 <div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">허용등급</label>
+									<div class="col-lg-10 col-xl-9">
+										<select name="perm_l_goods" class="form-control custom-select">
+											<option value="0">&nbsp;+ 전체허용</option>
+											<option value="0">--------------------------------</option>
+											<?php $_LEVEL=getDbArray($table['s_mbrlevel'],'','*','uid','asc',0,1)?>
+											<?php while($_L=db_fetch_array($_LEVEL)):?>
+											<option value="<?php echo $_L['uid']?>"<?php if($_L['uid']==$d['post']['perm_l_goods']):?> selected="selected"<?php endif?>>ㆍ<?php echo $_L['name']?>(<?php echo number_format($_L['num'])?>) 이상</option>
+											<?php if($_L['gid'])break; endwhile?>
+										</select>
+									</div>
+							</div>
+							<div class="form-group row">
+									<label class="col-lg-2 col-form-label text-lg-right">차단그룹</label>
+									<div class="col-lg-10 col-xl-9">
+										 <select name="perm_g_goods" class="form-control custom-select" multiple size="5">
+											<option value=""<?php if(!$d['post']['perm_g_goods']):?> selected="selected"<?php endif?>>ㆍ차단안함</option>
+											<?php $_SOSOK=getDbArray($table['s_mbrgroup'],'','*','gid','asc',0,1)?>
+											<?php while($_S=db_fetch_array($_SOSOK)):?>
+											<option value="<?php echo $_S['uid']?>"<?php if(strstr($d['post']['perm_g_goods'],'['.$_S['uid'].']')):?> selected="selected"<?php endif?>>ㆍ<?php echo $_S['name']?>(<?php echo number_format($_S['num'])?>)</option>
+											<?php endwhile?>
+										</select>
+									</div>
+							 </div>
+						</fieldset>
+
+					</div><!-- /.card-body -->
+				</div><!-- /.card -->
+
+			</div>
 
 			<div class="row">
 			   <div class="offset-md-2 col-md-10 col-xl-9">

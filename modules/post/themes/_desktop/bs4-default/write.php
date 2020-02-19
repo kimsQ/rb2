@@ -53,9 +53,11 @@
         <li class="nav-item">
           <a class="nav-link<?php echo !$cid?' disabled':'' ?>" id="profile-tab" data-toggle="tab" href="#link" role="tab" aria-controls="link" aria-selected="false">링크</a>
         </li>
+        <?php if ($d['post']['goodsperm']): ?>
         <li class="nav-item">
           <a class="nav-link<?php echo !$cid?' disabled':'' ?>" id="contact-tab" data-toggle="tab" href="#goods" role="tab" aria-controls="goods" aria-selected="false">상품</a>
         </li>
+        <?php endif; ?>
       </ul>
       <div class="tab-content p-3">
         <div class="tab-pane show active" id="basic" role="tabpanel" aria-labelledby="home-basic">
@@ -413,7 +415,7 @@
             </div>
           </ul>
 
-          <?php if (getDbRows($table[$m.'category'],'site='.$s.' and reject=0 and hidden=0')): ?>
+          <?php if (getDbRows($table[$m.'category'],'site='.$s.' and reject=0 and hidden=0') && $d['post']['categoryperm']): ?>
           <strong class="d-block small text-muted pb-2">카테고리</strong>
           <div class="card mb-2 border-0 border-top" style="margin-left: -1rem;margin-right: -1rem">
             <div class="card-body pt-2 pb-0">
@@ -463,6 +465,8 @@
           <?php getWidget('_default/attach',array('parent_module'=>'post','theme'=>'_desktop/bs4-default-link','attach_handler_photo'=>'[data-role="attach-handler-photo"]','parent_data'=>$R,'wysiwyg'=>'Y'));?>
 
         </div>
+
+        <?php if ($d['post']['goodsperm']): ?>
         <div class="tab-pane" id="goods" role="tabpanel" aria-labelledby="goods-tab">
 
           <div class="form-group">
@@ -478,6 +482,7 @@
           </div>
 
         </div><!-- /.tab-pane -->
+        <?php endif; ?>
 
       </div>
     </div>

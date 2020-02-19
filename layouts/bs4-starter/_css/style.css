@@ -144,11 +144,6 @@ body.rb-layout-docs {
   content: "";
 }
 
-.navbar .dropdown-menu::after {
-  border: 7px solid transparent;
-  border-bottom-color: #fff;
-}
-
 .notification-indicator {
   position: relative;
 }

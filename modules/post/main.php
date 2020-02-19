@@ -1,11 +1,9 @@
 <?php
 if(!defined('__KIMS__')) exit;
 
-$g['postVarForSite'] = $g['path_var'].'site/'.$r.'/'.$m.'.var.php';
-$svfile = file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['dir_module'].'var/var.php';
-include_once $svfile;
-
 $d['post']['isperm'] = true;
+$d['post']['categoryperm'] = true;
+$d['post']['goodsperm'] = true;
 
 include_once $g['dir_module'].'_main.php';
 
@@ -122,6 +120,22 @@ switch ($mod) {
   break;
 
   case 'write' :
+
+    if (!$d['post']['writeperm']) getLink('','','잘못된 접근입니다.','-1');
+
+    if ($d['post']['perm_l_category'] > $my['level'] || strpos('_'.$d['post']['perm_g_category'],'['.$my['mygroup'].']') || !$my['uid']) {
+      $d['post']['categoryperm'] = false;
+    }
+
+    if ($d['post']['perm_l_goods'] > $my['level'] || strpos('_'.$d['post']['perm_g_goods'],'['.$my['mygroup'].']') || !$my['uid']) {
+      $d['post']['goodsperm'] = false;
+    }
+
+    if ($my['admin']) {
+      $d['post']['categoryperm'] = true;
+      $d['post']['goodsperm'] = true;
+    }
+
     if ($cid &&!$_perm['post_owner']) getLink('','','접근권한이 없습니다.','-1'); // 수정권한 체크
     if (!$g['mobile']||$_SESSION['pcmode']=='Y') {
       $layoutArr = explode('/',$d['post']['layout']);

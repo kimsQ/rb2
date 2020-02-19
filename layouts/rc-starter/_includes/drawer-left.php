@@ -13,15 +13,19 @@
   <?php endif; ?>
 </header>
 
+<?php if ($d['post']['writeperm']): ?>
 <nav class="bar bar-tab bg-white">
-  <?php if ($my['uid']): ?>
   <a class="tab-item active bg-primary<?php echo $m=='bbs'?' d-none':'' ?>" role="button"
     data-open="newPost"
     data-start="<?php echo $d['layout']['main_type']=='postAllFeed'?'#page-main':'#page-post-allpost' ?>"
     data-url="/post/write">
     새 포스트
   </a>
-  <?php else: ?>
+</nav>
+<?php endif; ?>
+
+<?php if (!$my['uid']): ?>
+<nav class="bar bar-tab bg-white">
   <a class="tab-item" role="button" href="#modal-join" data-toggle="modal" data-url="">
     <span class="icon material-icons">account_circle</span>
     <span class="tab-label">회원가입</span>
@@ -30,8 +34,9 @@
     <span class="icon material-icons">input</span>
     <span class="tab-label">로그인</span>
   </a>
-  <?php endif; ?>
 </nav>
+<?php endif; ?>
+
 
 <div class="content bg-white">
 
@@ -61,6 +66,8 @@
 
     <?php if ($my['uid']): ?>
     <li class="table-view-cell table-view-divider small">내 보관함</li>
+
+    <?php if ($d['post']['writeperm']): ?>
     <li class="table-view-cell">
       <a data-toggle="goMypage" data-target="#page-post-mypost" data-start="#page-main" data-title="내 포스트"  data-url="<?php echo RW('mod=dashboard&page=post')?>">
         <span class="badge badge-default badge-inverted"><?php echo $my['num_post']?number_format($my['num_post']):'' ?></span>
@@ -69,6 +76,8 @@
         </div>
       </a>
     </li>
+    <?php endif; ?>
+
     <li class="table-view-cell">
       <a data-toggle="goMypage" data-target="#page-post-mylist" data-start="#page-main" data-title="내 리스트" data-url="<?php echo RW('mod=dashboard&page=list')?>">
         <span class="badge badge-default badge-inverted"><?php echo $my['num_list']?number_format($my['num_list']):'' ?></span>

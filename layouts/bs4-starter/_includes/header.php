@@ -71,10 +71,14 @@
 				  </a>
 				  <div class="dropdown-menu dropdown-menu-right">
 				    <h6 class="dropdown-header"><?php echo $my['nic'] ?> 님</h6>
+
+						<?php if ($d['post']['writeperm']): ?>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo RW('m=post&mod=write')?>">
 							새 포스트
 						</a>
+						<?php endif; ?>
+
 				    <div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo RW('mod=dashboard')?>">
 							대시보드

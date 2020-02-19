@@ -34,7 +34,7 @@
 <div class="page right" id="page-post-allpost" data-role="postFeed">
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left px-3" role="button" data-history="back">arrow_back</a>
-    <?php if ($my['uid']): ?>
+    <?php if ($d['post']['writeperm']): ?>
     <a role="button" data-toggle="popup" href="#popup-post-newPost" data-start="#page-post-allpost" data-title="새 포스트" class="icon material-icons px-3 pull-right">
       add_box
     </a>

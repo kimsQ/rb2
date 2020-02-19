@@ -10,6 +10,14 @@ $g['postVarForSite'] = $g['path_var'].'site/'.$r.'/'.$m.'.var.php';
 $svfile = file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['dir_module'].'var/var.php';
 include_once $svfile;
 
+$d['post']['writeperm'] = true;
+
+if (!$my['admin']) {
+	if ($d['post']['perm_l_write'] > $my['level'] || strpos('_'.$d['post']['perm_g_write'],'['.$my['mygroup'].']') || !$my['uid']) {
+	  $d['post']['writeperm'] = false;
+	}
+}
+
 if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
   $theme = $d['post']['skin_mobile'];
 } else {
@@ -31,7 +39,10 @@ $TMPL['cid'] = $R['cid'];
 
 $list='';
 $list = $post->getHtml('post-menu');
-$list .= $_perm['post_owner']?$post->getHtml('post-menu-owner'):'';
+
+if ($d['post']['writeperm']) {
+  $list .= $_perm['post_owner']?$post->getHtml('post-menu-owner'):'';
+}
 
 $result['subject'] = stripslashes($R['subject']);
 $result['featured'] = $g['url_host'].getPreviewResize(getUpImageSrc($R),'640x360');

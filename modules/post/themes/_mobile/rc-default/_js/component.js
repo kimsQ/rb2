@@ -955,18 +955,26 @@ popup_post_delConfirm.find('[data-act="submit"]').click(function(){
       send_mod : 'ajax'
       },function(response,status){
         if(status=='success'){
-          $(document).find('[data-role="item"][data-uid="'+uid+'"]').slideUp().addClass('none');
-          var num = $('[data-role="postFeed"] [data-role="list"]').find('[data-role="item"]:not(.none)').length
-          console.log(num)
-          if (!num) {
-            var html = $('[data-role="postFeed"] [data-role="none"]').html();
-            $('[data-role="postFeed"] [data-role="list"]').html(html)
-            $('[data-role="postFeed"] [data-role="list"] > div').addClass('animated fadeIn delay-1');
+          var result = $.parseJSON(response);
+          var error=result.error;
+
+          if (!error) {
+            $(document).find('[data-role="item"][data-uid="'+uid+'"]').slideUp().addClass('none');
+            var num = $('[data-role="postFeed"] [data-role="list"]').find('[data-role="item"]:not(.none)').length
+            if (!num) {
+              var html = $('[data-role="postFeed"] [data-role="none"]').html();
+              $('[data-role="postFeed"] [data-role="list"]').html(html)
+              $('[data-role="postFeed"] [data-role="list"] > div').addClass('animated fadeIn delay-1');
+            } else {
+              setTimeout(function(){
+                $.notify({message: '삭제 되었습니다.'},{type: 'default'});
+              }, 700);
+            }
           } else {
-            setTimeout(function(){
-              $.notify({message: '삭제 되었습니다.'},{type: 'default'});
-            }, 700);
+            $.notify({message: error},{type: 'danger'}); // 작성권한 없음
+            return false
           }
+
         } else {
           alert(status);
         }

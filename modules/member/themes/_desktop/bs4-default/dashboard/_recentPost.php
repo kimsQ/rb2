@@ -66,11 +66,15 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
 
   </div><!-- /.card-deck -->
   <?php else: ?>
+
   <div class="text-center text-muted small py-5 border">
+    <?php if ($d['post']['writeperm']): ?>
     <a href="<?php echo RW('m=post&mod=write')?>" class="btn btn-primary">
       포스트 작성하기
     </a>
+    <?php endif; ?>
   </div>
+
   <?php endif; ?>
 
 </section><!-- /.widget -->

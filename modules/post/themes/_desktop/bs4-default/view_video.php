@@ -180,6 +180,7 @@
 							</button>
 							<?php endif; ?>
 
+							 <?php if ($d['post']['writeperm']): ?>
 							 <button type="button" class="btn btn btn-outline-primary"
 							 	data-target="#modal-post-analytics"
 								data-toggle="modal"
@@ -187,6 +188,8 @@
 								 분석
 							 </button>
 		 					 <a href="<?php echo RW('m=post&mod=write&cid='.$R['cid']) ?>" class="btn btn-outline-primary">수정</a>
+							 <?php endif; ?>
+
 							 <?php endif?>
 
 							 <?php if($my['uid']!=$R['mbruid']):?>

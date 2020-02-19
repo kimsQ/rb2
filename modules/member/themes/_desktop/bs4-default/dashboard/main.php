@@ -2,9 +2,11 @@
   <div class="row">
     <div class="col-6">
 
+      <?php if ($d['post']['writeperm']): ?>
       <section>
         <?php include $g['dir_module_skin'].'_recentPost.php';?>
       </section>
+      <?php endif; ?>
 
       <section class="mt-4">
         <?php include $g['dir_module_skin'].'_recentList.php';?>
@@ -13,6 +15,7 @@
     </div>
     <div class="col-6">
 
+      <?php if ($d['post']['writeperm']): ?>
       <section>
         <header class="d-flex justify-content-between align-items-center py-2">
           <strong>포스트 현황</strong>
@@ -55,6 +58,7 @@
       <section class="mt-3">
         <?php include $g['dir_module_skin'].'_chart.php';?>
       </section>
+      <?php endif; ?>
 
       <section class="mt-3">
         <?php include $g['dir_module_skin'].'_best.php';?>

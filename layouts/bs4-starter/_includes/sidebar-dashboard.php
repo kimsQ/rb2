@@ -54,6 +54,8 @@ $levelname= getDbData($table['s_mbrlevel'],'uid='.$my['level'],'*');
       </li>
     </ul>
   </li>
+
+  <?php if ($d['post']['writeperm']): ?>
   <li class="nav-item<?php echo $page=='post'|| $page=='list' || $page=='list_view'?' active':'' ?>">
     <a class="nav-link d-flex justify-content-between align-items-center" href="<?php echo RW('mod=dashboard&page=post')?>">
       포스트 관리 <i class="fa fa-plus mr-4" aria-hidden="true"></i>
@@ -67,6 +69,12 @@ $levelname= getDbData($table['s_mbrlevel'],'uid='.$my['level'],'*');
       </li>
     </ul>
   </li>
+  <?php else: ?>
+  <li class="nav-item<?php echo $page=='list' || $page=='list_view'?' active':'' ?>">
+    <a class="nav-link" href="<?php echo RW('mod=dashboard&page=list')?>">리스트 관리</a>
+  </li>
+  <?php endif; ?>
+
   <li class="nav-item<?php echo $page=='noti'?' active':'' ?>">
     <a class="nav-link" href="<?php echo RW('mod=dashboard&page=noti')?>">알림내역</a>
   </li>

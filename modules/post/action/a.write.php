@@ -5,6 +5,20 @@ $g['postVarForSite'] = $g['path_var'].'site/'.$r.'/post.var.php';
 $_tmpvfile = file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['dir_module'].'var/var.php';
 include_once $_tmpvfile;
 
+if (!$my['admin']) {
+	if ($d['post']['perm_l_write'] > $my['level'] || strpos('_'.$d['post']['perm_g_write'],'['.$my['mygroup'].']') || !$my['uid']) {
+		$error_msg = '정상적인 접근이 아닙니다.';
+		if ($send_mod=='ajax') {
+			$result=array();
+		  $result['error'] = $error_msg;
+		  echo json_encode($result);
+			exit;
+		} else {
+			getLink('reload','parent.',$error_msg,'');
+		}
+	}
+}
+
 include_once $g['dir_module'].'lib/action.func.php';
 
 $mbruid		= $author ? $author : $my['uid'];

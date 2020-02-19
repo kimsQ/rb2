@@ -3,6 +3,8 @@ $g['postVarForSite'] = $g['path_var'].'site/'.$r.'/post.var.php';
 $svfile = file_exists($g['postVarForSite']) ? $g['postVarForSite'] : $g['path_module'].'post/var/var.php';
 include_once $svfile;
 
+if (!$d['post']['writeperm']) getLink('','','잘못된 접근입니다..','-1');
+
 $sort	= $sort ? $sort : 'gid';
 $orderby= $orderby ? $orderby : 'asc';
 $recnum	= $recnum && $recnum < 200 ? $recnum : 15;
@@ -69,7 +71,9 @@ switch ($sort) {
 				<i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>
 				프로필 이동
 			</a>
+			<?php if ($d['post']['writeperm']): ?>
 			<a href="<?php echo RW('m=post&mod=write')?>" class="btn btn-primary">새 포스트</a>
+			<?php endif; ?>
 		</div>
 	</div>
 
