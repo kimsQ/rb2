@@ -719,19 +719,11 @@ function getMetaImage($str)
 	if ($R['type'] == -1) return $R['src'];
 	return '';
 }
-//암호화(@ 2.0.0)
+//암호화(@ 2.4)
 function getCrypt($str,$salt)
 {
 	$salt = substr(base64_encode($salt.'salt'),0,22);
-	$ver0 = implode('',file($GLOBALS['g']['path_var'].'php.version.txt'));
-	$ver1 = explode('.',$ver0);
-	if ($ver1[0] > 5 || ($ver1[0] > 4 && $ver1[1] > 4))
 	if(function_exists('password_hash')) return password_hash($str,PASSWORD_BCRYPT,array('cost'=>10,'salt'=>$salt)).'$1';
-	if ($ver1[0] > 4 || ($ver1[0] > 3 && $ver1[1] > 1) || ($ver1[0] > 3 && $ver1[1] > 0 && $ver1[2] > 1))
-	{
-		if (in_array('sha512',hash_algos())) return hash('sha512',$str.$salt).'$2';
-		else if (in_array('sha256',hash_algos())) return hash('sha256',$str.$salt).'$3';
-	}
 	return md5(sha1(md5($str.$salt))).'$4';
 }
 //언언반환(@ 2.0.0)
