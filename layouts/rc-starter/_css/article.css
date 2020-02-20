@@ -346,6 +346,12 @@
   line-height: 1.1;
 }
 
+.rb-article h1,
+.rb-article h2,
+.rb-article h3,
+.rb-article h4,
+.rb-article h5,
+.rb-article h6,
 .rb-article p,
 .rb-article blockquote,
 .rb-article ul,

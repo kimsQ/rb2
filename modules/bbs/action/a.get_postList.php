@@ -44,7 +44,7 @@ $result['page']=$p;
 
 if ($NUM_NOTICE) {
   foreach ($NCD as $R) {
-    $TMPL['subject']=htmlspecialchars($R['subject']);
+    $TMPL['subject']=$R['subject'];
     $TMPL['uid']=$R['uid'];
     $TMPL['mbruid']=$R['mbruid'];
     $TMPL['name']=$R[$_HS['nametype']];
@@ -81,7 +81,7 @@ $html='';
 if ($NUM) {
   foreach ($RCD as $R) {
 
-    $TMPL['subject']=htmlspecialchars($R['subject']);
+    $TMPL['subject']=$R['subject'];
     $TMPL['uid']=$R['uid'];
     $TMPL['mbruid']=$R['mbruid'];
     $TMPL['name']= getStrCut($R[$_HS['nametype']],10,'..');

@@ -226,7 +226,7 @@ $TPG = getTotalPage($NUM,$recnum);
 							<td class="text-left">
 								<?php if($R['notice']):?><i class="fa fa-volume-up"></i><?php endif?>
 								<?php if($R['mobile']):?><i class="fa fa-mobile f-lg"></i><?php endif?>
-								<a href="<?php echo getPostLink($R)?>" target="_blank" class="muted-link"><?php echo getStrCut($R['subject'],50,'..')?></a>
+								<a href="<?php echo _getPostLink($R)?>" target="_blank" class="muted-link"><?php echo getStrCut($R['subject'],50,'..')?></a>
 								<?php if(strstr($R['content'],'.jpg')):?><i class="fa fa-picture-o"></i><?php endif?>
 								<?php if($R['upload']):?><i class="glyphicon glyphicon-floppy-disk"></i><?php endif?>
 								<?php if($R['hidden']):?><i class="fa fa-lock fa-lg"></i><?php endif?>

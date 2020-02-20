@@ -29,6 +29,7 @@ $id			= $my['id'];
 $name		= $my['uid'] ? $my['name'] : trim($name);
 $nic		= $my['uid'] ? $my['nic'] : $name;
 $category	= trim($category);
+$subject	= str_replace('"','“',$subject);
 $subject	= $my['admin'] ? trim($subject) : htmlspecialchars(trim($subject));
 $content	= trim($content);
 $html		= $html ? $html : 'HTML';

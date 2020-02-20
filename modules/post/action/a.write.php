@@ -23,7 +23,8 @@ include_once $g['dir_module'].'lib/action.func.php';
 
 $mbruid		= $author ? $author : $my['uid'];
 $tag		= trim($tag);
-$subject	= $subject?trim($subject):'(제목 없음)';
+$subject	= str_replace('"','“',$subject);
+$subject	= $subject?htmlspecialchars(trim($subject)):'(제목 없음)';
 $review		= trim($review);
 $content	= trim($content);
 $d_regis	= $date['totime']; // 최초 등록일
