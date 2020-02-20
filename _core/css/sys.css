@@ -2196,3 +2196,18 @@ nav[data-toggle="toc"] .nav .nav > li > a {
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.95);
 }
+
+/* RC checkbox tree */
+.rc-checkboxtree [data-toggle="collapse"] {
+  position: absolute;
+  right: 0
+}
+.rc-checkboxtree ul [data-toggle="collapse"] {
+  right: 3.125rem
+}
+.rc-checkboxtree ul ul [data-toggle="collapse"] {
+  right: 6.25rem
+}
+.rc-checkboxtree .collapsed .fa-minus:before {
+  content: "\f067";
+}

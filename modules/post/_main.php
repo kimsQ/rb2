@@ -114,63 +114,126 @@ function getCategoryShowSelect($table,$j,$parent,$depth,$uid,$hidden)
 }
 
 function getTreePostCategoryCheck($conf,$uid,$depth,$parent,$tmpcode) {
-	global $table;
+	global $table,$g;
 	$ctype = $conf['ctype']?$conf['ctype']:'uid';
 	$id = 'tree_'.filterstr(microtime());
-	$tree = '<div class="rb-tree"><ul id="'.$id.'">';
-	$CD=getDbSelect($conf['table'],($conf['site']?'site='.$conf['site'].' and ':'').'depth='.($depth+1).' and parent='.$parent.($conf['dispHidden']?' and hidden=0':'').($conf['mobile']?' and mobile=1':'').' order by gid asc','*');
 
-	$_i = 0;
-	while($C=db_fetch_array($CD))
-	{
+	if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
 
-		$tcheck= getDbRows($table['postcategory_index'],'data='.$uid.' and category='.$C['uid']);
+		if (!$parent) $tree = '<ul class="table-view table-view-full bg-white rc-checkboxtree" id="'.$id.'">';
+		$CD=getDbSelect($conf['table'],($conf['site']?'site='.$conf['site'].' and ':'').'depth='.($depth+1).' and parent='.$parent.($conf['dispHidden']?' and hidden=0':'').($conf['mobile']?' and mobile=1':'').' order by gid asc','*');
 
-		$tree.= '<li>';
-		if ($C['is_child'])
-		{
-			$tree.= '<a data-toggle="collapse" href="#'.$id.'-'.$_i.'-'.$C['uid'].'" class="rb-branch'.($conf['allOpen']?'':' collapsed').'"></a>';
-			if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
-			else $tree.= '<span class="form-group form-check mb-0">';
-			if($conf['dispCheckbox']) $tree.= '<input type="checkbox" form-check-input name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
-			if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
-			$tree.= '<label class="form-check-label" for="check'.$C['uid'].'">'.$C['name'].'</label>';
-			if($conf['dispNum']&&$C['num']) $tree.= ' <small>('.$C['num'].')</small>';
-			if($C['hidden']) $tree.='</span>';
-			$tree.='</u>';
-			if(!$conf['hideIcon'])
+		$_i = 0;
+		while($C=db_fetch_array($CD)) {
+
+			$tcheck= getDbRows($table['postcategory_index'],'data='.$uid.' and category='.$C['uid']);
+
+			$tree.= '<li class="table-view-cell">';
+			if ($C['is_child'])
 			{
-				if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
-				if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				$tree.= '<div class="position-relative">';
+				if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
+				else $tree.= '<label class="custom-control custom-checkbox">';
+				if($conf['dispCheckbox']) $tree.= '<input type="checkbox" class="custom-control-input" name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
+				if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
+				$tree.= '<span class="custom-control-indicator"></span><span class="custom-control-description" for="check'.$C['uid'].'">'.$C['name'];
+				if($conf['dispNum']&&$C['num']) $tree.= ' <small class="text-muted ml-1">('.$C['num'].')</small>';
+				$tree.='</span></label>';
+				if($C['hidden']) $tree.='</u>';
+				$tree.= '<button data-toggle="collapse" data-target="#'.$id.'-'.$_i.'-'.$C['uid'].'" data-parent="#'.$id.'" class="btn btn-link text-reset'.($conf['allOpen']?'':' collapsed').'"><i class="fa fa-minus" aria-hidden="true"></i></button>';
+				$tree.= '</div>';
+				if(!$conf['hideIcon'])
+				{
+					if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
+					if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				}
+
+				$tree.= '<ul class="table-view table-view-full collapse" id="'.$id.'-'.$_i.'-'.$C['uid'].'" class="collapse'.($conf['allOpen']?' in':'').'">';
+				$tree.= getTreePostCategoryCheck($conf,$uid,$C['depth'],$C['uid'],$rcode);
+				$tree.= '</ul>';
 			}
-
-			$tree.= '<ul id="'.$id.'-'.$_i.'-'.$C['uid'].'" class="collapse'.($conf['allOpen']?' show':'').'">';
-			$tree.= getTreePostCategoryCheck($conf,$uid,$C['depth'],$C['uid'],$rcode);
-			$tree.= '</ul>';
+			else {
+				$tree.= '<div class="position-relative">';
+				if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
+				else $tree.= '<label class="custom-control custom-checkbox">';
+				if($conf['dispCheckbox']) $tree.= '<input type="checkbox" class="custom-control-input" name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
+				if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
+				$tree.= '<span class="custom-control-indicator"></span><span class="custom-control-description" for="check'.$C['uid'].'">'.$C['name'];
+				if($conf['dispNum']&&$C['num']) $tree.= ' <small class="text-muted ml-1">('.$C['num'].')</small>';
+				if($C['hidden']) $tree.='</u>';
+				$tree.='</span></label>';
+				$tree.= '<a href="#.	" class="rb-leaf"></a>';
+				$tree.= '</div>';
+				if(!$conf['hideIcon'])
+				{
+					if($C['mobile']) $tree.= '<i class="fa fa-mobile fa-lg fa-fw" title="모바일" data-tooltip="tooltip"></i>&nbsp;';
+					if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
+					if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				}
+			}
+			$tree.= '</li>';
+			$_i++;
 		}
-		else {
-			$tree.= '<a href="#." class="rb-leaf"></a>';
-			if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
-			else $tree.= '<a class="form-group form-check mb-0">';
-			if($conf['dispCheckbox']) $tree.= '<input type="checkbox" class="form-check-input" name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
-			if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
-			$tree.= '<label class="form-check-label" for="check'.$C['uid'].'">'.$C['name'].'</label>';
-			if($conf['dispNum']&&$C['num']) $tree.= ' <small>('.$C['num'].')</small>';
-			if($C['hidden']) $tree.='</u>';
-			$tree.='</a>';
+		if (!$parent) $tree.= '</ul>';
 
+	} else {
 
-			if(!$conf['hideIcon'])
+		$tree = '<div class="rb-tree"><ul id="'.$id.'">';
+		$CD=getDbSelect($conf['table'],($conf['site']?'site='.$conf['site'].' and ':'').'depth='.($depth+1).' and parent='.$parent.($conf['dispHidden']?' and hidden=0':'').($conf['mobile']?' and mobile=1':'').' order by gid asc','*');
+
+		$_i = 0;
+		while($C=db_fetch_array($CD)) {
+
+			$tcheck= getDbRows($table['postcategory_index'],'data='.$uid.' and category='.$C['uid']);
+
+			$tree.= '<li>';
+			if ($C['is_child'])
 			{
-				if($C['mobile']) $tree.= '<i class="fa fa-mobile fa-lg fa-fw" title="모바일" data-tooltip="tooltip"></i>&nbsp;';
-				if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
-				if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				$tree.= '<a data-toggle="collapse" href="#'.$id.'-'.$_i.'-'.$C['uid'].'" class="rb-branch'.($conf['allOpen']?'':' collapsed').'"></a>';
+				if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
+				else $tree.= '<span class="form-group form-check mb-0">';
+				if($conf['dispCheckbox']) $tree.= '<input type="checkbox" form-check-input name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
+				if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
+				$tree.= '<label class="form-check-label" for="check'.$C['uid'].'">'.$C['name'].'</label>';
+				if($conf['dispNum']&&$C['num']) $tree.= ' <small>('.$C['num'].')</small>';
+				if($C['hidden']) $tree.='</span>';
+				$tree.='</u>';
+				if(!$conf['hideIcon'])
+				{
+					if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
+					if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				}
+
+				$tree.= '<ul id="'.$id.'-'.$_i.'-'.$C['uid'].'" class="collapse'.($conf['allOpen']?' show':'').'">';
+				$tree.= getTreePostCategoryCheck($conf,$uid,$C['depth'],$C['uid'],$rcode);
+				$tree.= '</ul>';
 			}
+			else {
+				$tree.= '<a href="#." class="rb-leaf"></a>';
+				if ($conf['userMenu']=='link') $tree.= '<span'.($code==$rcode?' class="rb-active"':'').'>';
+				else $tree.= '<a class="form-group form-check mb-0">';
+				if($conf['dispCheckbox']) $tree.= '<input type="checkbox" class="form-check-input" name="tree_members[]" id="check'.$C['uid'].'" value="'.$C['uid'].'" '.($tcheck?' checked':'').'>';
+				if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
+				$tree.= '<label class="form-check-label" for="check'.$C['uid'].'">'.$C['name'].'</label>';
+				if($conf['dispNum']&&$C['num']) $tree.= ' <small>('.$C['num'].')</small>';
+				if($C['hidden']) $tree.='</u>';
+				$tree.='</a>';
+
+
+				if(!$conf['hideIcon'])
+				{
+					if($C['mobile']) $tree.= '<i class="fa fa-mobile fa-lg fa-fw" title="모바일" data-tooltip="tooltip"></i>&nbsp;';
+					if($C['target']) $tree.= ' <i class="fa fa-window-restore fa-fw" title="새창" data-tooltip="tooltip"></i>';
+					if($C['reject']) $tree.= ' <i class="fa fa-lock fa-lg fa-fw" title="차단" data-tooltip="tooltip"></i>';
+				}
+			}
+			$tree.= '</li>';
+			$_i++;
 		}
-		$tree.= '</li>';
-		$_i++;
+		$tree.= '</ul></div>';
+
 	}
-	$tree.= '</ul></div>';
+
 	return $tree;
 }
 

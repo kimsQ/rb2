@@ -21,7 +21,7 @@ $tree='';
 
 if (getDbRows($table[$m.'category'],'site='.$s.' and reject=0 and hidden=0')) {
   include_once $g['dir_module'].'_main.php';
-  $_treeOptions=array('site'=>$s,'table'=>$table[$m.'category'],'dispNum'=>true,'dispHidden'=>false,'dispCheckbox'=>true,'allOpen'=>true);
+  $_treeOptions=array('site'=>$s,'table'=>$table[$m.'category'],'dispNum'=>true,'dispHidden'=>false,'dispCheckbox'=>true,'allOpen'=>false);
   $tree = getTreePostCategoryCheck($_treeOptions,$uid,0,0,'');
 }
 

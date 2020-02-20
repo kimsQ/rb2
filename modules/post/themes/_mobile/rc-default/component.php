@@ -765,7 +765,7 @@
     </header>
     <main class="content">
 
-      <div class="content-padded" data-role="box"></div>
+      <div data-role="box" style="margin-top:-1px"></div>
 
     </main>
   </section>
