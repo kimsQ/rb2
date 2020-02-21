@@ -766,6 +766,18 @@
   					회원계정
   				</a>
   			</li>
+        <li class="table-view-cell">
+          <a class="navigate-right"
+            data-toggle="page"
+            data-start="#page-settings-main"
+            data-url="/settings?page=account"
+            href="#page-settings-pw">
+            <?php if ($my['last_pw']): ?>
+            <span class="badge badge-default badge-inverted"><?php echo getRemainDate($my['last_pw'])?getRemainDate($my['last_pw']).' 일전 변경':''?></span>
+            <?php endif; ?>
+            비밀번호
+          </a>
+        </li>
   			<li class="table-view-cell">
   				<a class="navigate-right"
             data-toggle="page"
@@ -866,14 +878,6 @@
     <main class="content">
       <ul class="table-view bg-white m-t-0 animated fadeIn delay-1 border-top-0">
         <li class="table-view-cell">
-          <a class="navigate-right" data-toggle="page" data-start="#page-settings-account" href="#page-settings-pw">
-            <?php if ($my['last_pw']): ?>
-            <span class="badge badge-default badge-inverted"><?php echo -getRemainDate($my['last_pw'])?>일전 변경</span>
-            <?php endif; ?>
-            비밀번호 <?php echo $my['last_pw']?'변경':'등록' ?>
-          </a>
-        </li>
-        <li class="table-view-cell">
           <a class="navigate-right" data-toggle="page" data-start="#page-settings-account" href="#page-settings-id">
             <span class="badge badge-default badge-inverted"><?php echo $my['id'] ?></span>
             아이디 변경
@@ -900,8 +904,9 @@
           </div>
         </span>
       </button>
-
-  		<h1 class="title">비밀번호 <?php echo $my['only_sns']?'등록':'변경' ?></h1>
+  		<h1 class="title title-left" data-history="back">
+        비밀번호 <?php echo $my['only_sns']?'등록':'변경' ?>
+      </h1>
   	</header>
   	<div class="content">
 
