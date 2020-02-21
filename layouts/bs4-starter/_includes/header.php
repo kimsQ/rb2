@@ -120,7 +120,7 @@
 							<input type="hidden" name="form" value="">
 
 					    <div class="form-group position-relative">
-					      <label for="">이메일 또는 휴대폰 번호</label>
+					      <label for="">이메일<?php echo $d['member']['join_byPhone']?' 또는 휴대폰 번호':'' ?></label>
 					      <input type="text" class="form-control" name="id" placeholder="" tabindex="1" autocorrect="off" autocapitalize="off" required tabindex="1">
 								<div class="invalid-tooltip" data-role="idErrorBlock"></div>
 					    </div>

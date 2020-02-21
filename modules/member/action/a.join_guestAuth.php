@@ -5,6 +5,8 @@ $g['memberVarForSite'] = $g['path_var'].'site/'.$r.'/member.var.php';
 $_tmpvfile = file_exists($g['memberVarForSite']) ? $g['memberVarForSite'] : $g['path_module'].$module.'/var/var.php';
 include_once $_tmpvfile;
 
+$_SESSION['JOIN'] = array();
+
 // 인증코드 발송
 if ($act=='send_code') {
 
@@ -51,7 +53,7 @@ if ($act=='send_code') {
 		//본인확인 미설정시 가입화면으로 이동
 		if (!$d['member']['join_verify']) {
 			$_SESSION['JOIN']['email']	= $target; // 이메일 세션저장
-			setrawcookie('site_login_result', rawurlencode('가입정보를 입력해 주세요|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
+			setrawcookie('site_common_result', rawurlencode('가입정보를 입력해 주세요|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
 			getLink('reload','parent.','','');
 		}
 
@@ -143,7 +145,7 @@ if ($act=='send_code') {
 		//본인확인 미설정시 가입화면으로 이동
 		if (!$d['member']['join_verify']) {
 			$_SESSION['JOIN']['phone']	= $target; // 휴대폰 세션저장
-			setrawcookie('site_login_result', rawurlencode('가입정보를 입력해 주세요|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
+			setrawcookie('site_common_result', rawurlencode('가입정보를 입력해 주세요|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
 			getLink('reload','parent.','','');
 		}
 
@@ -290,7 +292,7 @@ if ($act=='confirm_code') {
 	}
 
 	getDbUpdate($table['s_guestauth'],'auth=1','code='.$R['code']);  // 인증완료상태 처리
-	setrawcookie('site_login_result', rawurlencode('인증번호가 확인 되었습니다.|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
+	setrawcookie('site_common_result', rawurlencode('인증번호가 확인 되었습니다.|success'));  // 알림처리를 위한 로그인 상태 cookie 저장
 	getLink('reload','parent.','','');
 }
 

@@ -195,7 +195,7 @@ if ($auth == 1)
 
 	$_SESSION['mbr_uid'] = $memberuid;
   $_SESSION['mbr_pw']  = getCrypt($pw1,$d_regis);
-	setrawcookie('site_login_result', rawurlencode($name.'님 로그인 되셨습니다.|default'));
+	setrawcookie('site_common_result', rawurlencode($name.'님 로그인 되셨습니다.|default'));
 	getLink($modal?'reload':RW(0),'parent.','축하합니다. 회원가입 승인되었습니다.','');
 }
 if ($auth == 2)

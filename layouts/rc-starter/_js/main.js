@@ -223,7 +223,7 @@ $(document).ready(function() {
     var $start = $($this.closest('.modal'))
     if ($this.is('a')) e.preventDefault()
     $start.modal('hide').removeClass('active')
-    setTimeout(function(){ $target.modal('show'); }, 300);
+    setTimeout(function(){ $target.modal('show'); }, 100);
 	});
 
 	//modal 로그인 - 실행

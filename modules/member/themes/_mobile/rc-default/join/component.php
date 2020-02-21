@@ -1,8 +1,8 @@
 <div id="modal-join" class="modal fast">
 
   <div class="page center" id="page-join-main">
-    <header class="bar bar-nav bar-light bg-faded">
-      <a class="icon icon-left-nav pull-left" role="button" data-history="back"></a>
+    <header class="bar bar-nav bar-light bg-faded px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
       <h1 class="title">
         회원가입
       </h1>
@@ -16,7 +16,7 @@
 
       <div class="buttons content-padded">
         <button type="button"class="btn btn-secondary  btn-login-phone btn-block" data-toggle="page" data-target="#page-join-form" data-start="#page-join-main">
-          휴대폰 번호 또는 이메일로 가입
+          이메일<?php echo $d['member']['join_byPhone']?' 또는 휴대폰 번호':'' ?>로  가입
         </button>
 
         <?php if ($d['member']['join_bySocial']): ?>
@@ -65,32 +65,41 @@
   </div><!-- /#page-main -->
 
   <div class="page right" id="page-join-form">
-    <header class="bar bar-nav bar-light bg-faded px-0">
-      <a class="icon icon-left-nav pull-left p-x-1" role="button" data-history="back"></a>
-      <button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-act="send_code" data-type="phone" data-device="mobile" tabindex="2">
-        다음
+    <header class="bar bar-nav bar-light bg-white px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
+      <button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-act="send_code" data-type="email" data-device="mobile" tabindex="2">
+        <span class="not-loading">다음</span>
+        <span class="is-loading">
+          <div class="spinner-border spinner-border-sm text-primary" role="status">
+            <span class="sr-only">처리중...</span>
+          </div>
+        </span>
       </button>
       <h1 class="title">회원가입</h1>
     </header>
+
+    <?php if ($d['member']['join_byPhone']): ?>
     <nav class="bar bar-tab bar-light bg-faded">
-      <a class="tab-item" role="button" data-type="email" data-role="change-input">
+      <a class="tab-item d-none" role="button" data-type="email" data-role="change-input">
         <small>또는 이메일 가입</small>
       </a>
-      <a class="tab-item d-none" role="button" data-type="phone" data-role="change-input">
+      <a class="tab-item" role="button" data-type="phone" data-role="change-input">
         <small>또는 휴대폰 번호로 가입</small>
       </a>
     </nav>
+    <?php endif; ?>
+
     <main class="content">
 
       <div class="content-padded" autocomplete="off">
 
         <div class="form-list floating px-3">
-          <div class="input-row position-relative" data-role="input-phone">
+          <div class="input-row position-relative d-none" data-role="input-phone">
             <label>휴대폰 번호(숫자만)</label>
             <input type="number" name="phone" placeholder="휴대폰 번호" data-role="phone" autocomplete="off" tabindex="1">
             <div class="invalid-tooltip" data-role="phoneErrorBlock"></div>
           </div>
-          <div class="input-row position-relative d-none" data-role="input-email">
+          <div class="input-row position-relative" data-role="input-email">
             <label>이메일 주소</label>
             <input type="email" name="email" placeholder="이메일 주소" data-role="email" autocomplete="off">
             <div class="invalid-tooltip" data-role="emailErrorBlock"></div>
@@ -103,8 +112,8 @@
   </div><!-- /#page-join -->
 
   <div class="page right" id="page-join-code">
-    <header class="bar bar-nav bar-light bg-faded px-0">
-      <a class="icon icon-left-nav pull-left p-x-1" role="button" data-history="back"></a>
+    <header class="bar bar-nav bar-light bg-white px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
       <button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-type="phone" data-act="confirm_code" data-device="mobile">
         확인
       </button>
@@ -144,8 +153,8 @@
 <div id="modal-join-site" class="modal zoom">
 
   <section class="page center" id="page-site-main">
-    <header class="bar bar-nav bar-light bg-faded">
-      <a class="icon icon-left-nav pull-left" role="button" data-history="back"></a>
+    <header class="bar bar-nav bar-light bg-white px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
       <button class="btn btn-link btn-nav pull-right p-x-1" data-role="showAgreement" disabled>
         다음
       </button>
@@ -219,10 +228,8 @@
   </section>
 
   <section class="page right" id="page-site-doc">
-    <header class="bar bar-nav bar-light bg-faded px-0">
-      <button class="btn btn-link btn-nav pull-left p-x-1" data-history="back">
-        <span class="icon icon-left-nav"></span>
-      </button>
+    <header class="bar bar-nav bar-light bg-white px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
       <h1 class="title">서비스 약관</h1>
     </header>
 
@@ -409,7 +416,7 @@
   })
 
   // 회원가입 실행
-  modal_join_site.on('tap click','.js-submit',function(){
+  modal_join_site.on('tap click','.js-submit:enabled',function(){
     $(this).attr("disabled",true).text('진행중...');
     setTimeout(function(){
       getIframeForAction(f);
@@ -541,14 +548,14 @@ $_SESSION['SL'] = ''; //세션 비우기
   </section>
 
   <section class="page right" id="page-social-doc">
-    <header class="bar bar-nav bar-light bg-faded px-0">
+    <header class="bar bar-nav bar-light bg-white px-0">
       <button class="btn btn-link btn-nav pull-left p-x-1" data-history="back">
         <span class="icon icon-left-nav"></span>
       </button>
       <h1 class="title">서비스 약관</h1>
     </header>
 
-    <div class="bar bar-standard bar-header-secondary bar-light bg-faded p-x-0">
+    <div class="bar bar-standard bar-header-secondary bar-light bg-white p-x-0">
 			<nav class="nav nav-inline">
 			  <a class="nav-link active" href="#page-social-policy" data-toggle="tab">이용약관</a>
 			  <a class="nav-link" href="#page-social-privacy" data-toggle="tab">개인정보취급방침</a>
@@ -701,7 +708,6 @@ modal_join_social.on('tap click','.js-submit',function(){
 });
 </script>
 
-
 <?php endif; ?>
 
 <!-- https://github.com/hilios/jQuery.countdown -->
@@ -733,6 +739,9 @@ $(function () {
     page_join_main.addClass('page center').removeClass('transition left')
   	page_join_form.addClass('page right').removeClass('transition center')
     page_join_code.addClass('page right').removeClass('transition center')
+    if ($('#drawer-left').length) {
+      setTimeout(function(){ $('#drawer-left').drawer('hide'); }, 1000); // 왼쪽 드로워 닫기
+    }
   })
 })
 
@@ -741,14 +750,14 @@ page_join_form.on('shown.rc.page', function () {
   //각종 상태 초기화
   page_join_form.find('input').removeClass('is-invalid is-valid') //에러항목 초기화
   page_join_form.find('.input-row').removeClass('active') //상태초기화
-  page_join_form.find('.bar-tab [data-type="email"]').removeClass('d-none')
-  page_join_form.find('.bar-tab [data-type="phone"]').addClass('d-none')
-  input_email.addClass('d-none')
-  input_phone.removeClass('d-none')
+  page_join_form.find('.bar-tab [data-type="phone"]').removeClass('d-none')
+  page_join_form.find('.bar-tab [data-type="email"]').addClass('d-none')
+  input_phone.addClass('d-none')
+  input_email.removeClass('d-none')
   input_phone.find('[name="phone"]').val('')
   input_email.find('[name="email"]').val('')
-  btn_send.attr('data-type','phone')
-  setTimeout(function(){input_phone.find('[name="phone"]').focus();}, 400);
+  btn_send.attr('data-type','email')
+  setTimeout(function(){input_email.find('[name="email"]').focus();}, 400);
 })
 
 //회원가입 시 입력항목 변경  (휴대폰-이메일 전환)
@@ -839,13 +848,8 @@ page_join_form.on('tap','[data-act="send_code"]',function(){
       return false;
     }
   }
-  setTimeout(function() { //가상키보드 내려가는 시간 확보
-    page_join_form.loader({ //로더 출력
-      text:       "진행중...",
-      position:   "overlay"
-    });
-  }, 300);
 
+  button.attr('disabled',true);
   var url = rooturl+'/?r='+raccount+'&m=member&a=join_guestAuth&act='+act+'&type='+type+'&target='+target+'&device='+device
 
   getIframeForAction();

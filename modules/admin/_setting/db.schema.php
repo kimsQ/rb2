@@ -246,7 +246,6 @@ uid			INT				PRIMARY KEY		NOT NULL AUTO_INCREMENT,
 site		INT				DEFAULT '0'		NOT NULL,
 id			VARCHAR(50)		DEFAULT ''		NOT NULL,
 pw			VARCHAR(250)	DEFAULT ''		NOT NULL,
-org		  TINYINT			DEFAULT '0'		NOT NULL,
 KEY site(site),
 KEY id(id)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
 db_query($_tmp, $DB_CONNECT);

@@ -22,12 +22,12 @@
 
 			<div class="content-padded text-xs-center">
 
-				<button type="button"class="btn btn-outline-primary btn-block" data-toggle="page" data-target="#page-login-form" data-start="#page-login-main" data-type="phone">
-					휴대폰 번호로 로그인
-				</button>
-				<span class="section-divider"><span>또는</span></span>
 				<button type="button"class="btn btn-secondary btn-block" data-toggle="page" data-target="#page-login-form" data-start="#page-login-main" data-type="email" >
 					이메일로 로그인
+				</button>
+				<span class="section-divider"><span>또는</span></span>
+				<button type="button"class="btn btn-outline-primary btn-block" data-toggle="page" data-target="#page-login-form" data-start="#page-login-main" data-type="phone">
+					휴대폰 번호로 로그인
 				</button>
 
 				<?php if ($d['member']['login_social']): ?>
@@ -75,8 +75,8 @@
 	</div><!-- /#page-main -->
 
 	<div class="page right" id="page-login-form">
-		<header class="bar bar-nav bar-light bg-faded p-x-0">
-			<a class="icon icon-left-nav pull-left p-x-1" role="button" data-history="back"></a>
+		<header class="bar bar-nav bar-light bg-white p-x-0">
+			<a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
 			<h1 class="title">로그인</h1>
 		</header>
 		<main class="content">
@@ -114,7 +114,7 @@
 				</div>
 			</form>
 			<p class="content-padded text-xs-center mt-3">
-				<a data-toggle="modal" href="#modal-pwReset" class="small muted-link" data-role="pwReset" data-type="phone">
+				<a data-toggle="changeModal" href="#modal-pwReset" class="small muted-link" data-role="pwReset" data-type="email">
 					비밀번호를 잊으셨나요? <strong>비밀번호 재설정</strong>
 				</a>
 			</p>
@@ -333,6 +333,9 @@ modal_login.on('show.rc.modal', function () {
 	// 액션페이지 초기화
   page_login_main.addClass('page center').removeClass('transition left')
 	page_login_form.addClass('page right').removeClass('transition center')
+	if ($('#drawer-left').length) {
+		setTimeout(function(){ $('#drawer-left').drawer('hide'); }, 1000); // 왼쪽 드로워 닫기
+	}
 })
 
 // 로그인폼 페이지가 열렸을때
@@ -399,18 +402,18 @@ page_login_form.find(".form-list.floating .input-row input").on('keyup', functio
 <div class="modal zoom" id="modal-pwReset">
 
 	<div class="page center" id="page-pw-main">
-		<header class="bar bar-nav bar-light bg-faded px-0">
-			<a class="icon icon-left-nav pull-left p-x-1" role="button" data-history="back"></a>
+		<header class="bar bar-nav bar-light bg-white px-0">
+			<a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
 			<button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-act="send_code" data-type="phone" data-device="mobile" tabindex="2">
 				다음
 			</button>
 	    <h1 class="title">비밀번호 재설정</h1>
 	  </header>
 		<nav class="bar bar-tab bar-light bg-faded">
-			<a class="tab-item" role="button" data-type="email" data-role="change-input">
+			<a class="tab-item d-none" role="button" data-type="email" data-role="change-input">
 				<small>또는 이메일로 받기</small>
 			</a>
-			<a class="tab-item d-none" role="button" data-type="phone" data-role="change-input">
+			<a class="tab-item" role="button" data-type="phone" data-role="change-input">
 				<small>또는 휴대폰으로 받기</small>
 			</a>
 		</nav>
@@ -418,12 +421,12 @@ page_login_form.find(".form-list.floating .input-row input").on('keyup', functio
 	    <div class="content-padded">
 
 				<div class="form-list floating px-3 mb-3">
-					<div class="input-row position-relative" data-role="input-phone">
+					<div class="input-row position-relative d-none" data-role="input-phone">
 						<label>휴대폰 번호(숫자만)</label>
 						<input type="number" name="phone" placeholder="휴대폰 번호" data-role="phone" autocomplete="off" tabindex="1">
 						<div class="invalid-tooltip" data-role="phoneErrorBlock"></div>
 					</div>
-					<div class="input-row position-relative d-none" data-role="input-email">
+					<div class="input-row position-relative" data-role="input-email">
 						<label>이메일 주소</label>
 						<input type="email" name="email" placeholder="이메일 주소" data-role="email" autocomplete="off">
 						<div class="invalid-tooltip" data-role="emailErrorBlock"></div>
@@ -625,7 +628,7 @@ $(function () {
 	// 비밀번호 초기화 모달이 열리기전에, 액션페이지 초기화
 	modal_pwReset.on('show.rc.modal', function (event) {
 		var button = $(event.relatedTarget)
-		var type = button.attr('data-type')
+		var type = button.attr('data-type')?button.attr('data-type'):'email';
 		var id = button.attr('data-id')
 		doPwChangeInput(type,id)
 	  page_pw_main.addClass('page center').removeClass('transition left')
