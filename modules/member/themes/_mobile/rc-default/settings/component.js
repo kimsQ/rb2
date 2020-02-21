@@ -5,6 +5,7 @@ var modal_settings_profile = $('#modal-settings-profile'); // 프로필 설정
 
 var page_settings_main =  $('#page-settings-main'); // 설정메인
 var page_settings_account =  $('#page-settings-account'); //회원계정
+var page_settings_pw = $('#page-settings-pw'); //비밀번호 변경
 var page_settings_email =  $('#page-settings-email'); //이메일 관리
 var page_settings_phone =  $('#page-settings-phone'); //휴대폰 관리
 var page_settings_noti =  $('#page-settings-noti'); //알림설정
@@ -48,13 +49,79 @@ function saveMemberInfo(mbruid,field) {
 
 } // saveMemberInfo
 
+function pwChangeCheck(obj,layer) {
+	var f = document.getElementById('pwChangeForm');
+	if (!obj.value)
+	{
+		obj.classList.remove('is-invalid');
+		layer.innerHTML = '';
+	}
+	else
+	{
+		if (obj.name == 'pw1') {
+			f.classList.remove('was-validated');
+
+			if (f.pw1.value.length < 6 || f.pw1.value.length > 16) {
+
+				f.check_pw1.value = '0';
+				f.classList.remove('was-validated');
+				obj.classList.add('is-invalid');
+				obj.classList.remove('is-valid');
+
+
+				layer.innerHTML = '영문/숫자 2개 이상 조합 6~16자로 입력';
+				obj.focus();
+				return false;
+			}
+			if (getTypeCheck(f.pw1.value,"abcdefghijklmnopqrstuvwxyz")) {
+				layer.innerHTML = '비밀번호가 영문만으로 입력되었습니다.\n영문/숫자 2개 이상의 조합으로 최소 6자이상 입력하셔야 합니다.';
+				obj.focus();
+				return false;
+			}
+			if (getTypeCheck(f.pw1.value,"1234567890")) {
+				layer.innerHTML = '비밀번호가 숫자만으로 입력되었습니다.\n영문/숫자 2개 이상의 조합으로 최소 6자이상 입력하셔야 합니다.';
+				obj.focus();
+				return false;
+			}
+			f.pw1.classList.add('is-valid');
+			f.pw1.classList.remove('is-invalid');
+			layer.innerHTML = '';
+			f.check_pw1.value = '1';
+		}
+
+		if (obj.name == 'pw2') {
+			f.classList.remove('was-validated');
+			obj.classList.add('is-invalid');
+			obj.classList.remove('is-valid');
+
+			if (f.pw1.value != f.pw2.value)
+			{
+				layer.innerHTML = '비밀번호가 일치하지 않습니다.';
+				f.classList.remove('was-validated');
+				obj.focus();
+				f.check_pw2.value = '0';
+				return false;
+			}
+
+			f.pw2.classList.add('is-valid');
+			f.pw2.classList.remove('is-invalid');
+			layer.innerHTML = '';
+
+		 f.check_pw2.value = '1';
+		}
+
+	}
+}
+
 modal_settings_general.on('show.rc.modal', function(event) {
   var button = $(event.relatedTarget);
   var modal = $(this);
   modal.attr('data-mbruid','');
   $('#modal-post-view').find('[data-act="pauseVideo"]').click();  //유튜브 비디오 일시정지
+  if ($('#drawer-left').length) {
+    setTimeout(function(){ $('#drawer-left').drawer('hide'); }, 1000); // 왼쪽 드로워 닫기
+  }
 })
-
 
 page_settings_main.on('show.rc.page', function(event) {
   var button = $(event.relatedTarget);
@@ -62,14 +129,49 @@ page_settings_main.on('show.rc.page', function(event) {
 
 })
 
-// 회원계정
-page_settings_account.on('show.rc.page', function(event) {
+// 비밀번호 변경
+page_settings_pw.on('show.rc.page', function(event) {
   var button = $(event.relatedTarget);
   var page = $(this);
-
-  console.log('계정관리')
-
+  page.find('[type="password"]').val('')
 })
+
+
+//비밀번호 유용성 체크
+page_settings_pw.find('input').keyup(function(){
+  var item = $(this).attr('data-role')
+  var item_pw_check = page_settings_pw.find('#page-settings-pw [name=check_pw]').val()
+  if (item =='pw1') {
+    element = document.querySelector('#page-settings-pw [name="pw1"]');
+    feedback = document.querySelector('#page-settings-pw [data-role="pw1CodeBlock"]');
+    pwChangeCheck(element,feedback)
+  }
+  if (item =='pw2') {
+    element = document.querySelector('#page-settings-pw [name="pw2"]');
+    feedback = document.querySelector('#page-settings-pw [data-role="pw2CodeBlock"]');
+    pwChangeCheck(element,feedback)
+  }
+});
+
+
+page_settings_pw.find('[data-act="changePW"]').click(function(){
+  var button = $(this)
+  var page = page_settings_pw;
+  var f = document.getElementById('pwChangeForm');
+  button.attr('disabled',true);
+
+  if (f.check_pw1.value == '0' || f.check_pw2.value == '0') {
+    button.attr('disabled',false);
+    return false;
+  }
+
+  page.find('.form-control').removeClass('is-invalid')  //에러이력 초기화
+
+  setTimeout(function(){
+    getIframeForAction(f);
+    f.submit();
+  }, 1000);
+});
 
 // 이메일 관리
 page_settings_email.on('show.rc.page', function(event) {

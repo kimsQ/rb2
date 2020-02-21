@@ -233,7 +233,7 @@
       <h1 class="title">서비스 약관</h1>
     </header>
 
-    <div class="bar bar-standard bar-header-secondary bar-light bg-faded p-x-0">
+    <div class="bar bar-standard bar-header-secondary bar-light bg-white p-x-0">
 			<nav class="nav nav-inline">
         <a class="nav-link active" href="#page-site-policy" data-toggle="tab">이용약관</a>
 			  <a class="nav-link" href="#page-site-privacy" data-toggle="tab">개인정보취급방침</a>

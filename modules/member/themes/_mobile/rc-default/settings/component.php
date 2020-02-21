@@ -756,25 +756,45 @@
         </li>
 
   			<li class="table-view-cell">
-  				<a class="navigate-right" data-toggle="page" href="#page-settings-account" data-start="#page-settings-main" data-title="회원계정">
+  				<a class="navigate-right"
+            data-toggle="page"
+            href="#page-settings-account"
+            data-start="#page-settings-main"
+            data-url="/settings?page=account"
+            data-title="회원계정">
   					<span class="badge badge-default badge-inverted"><?php echo $my['id'] ?></span>
   					회원계정
   				</a>
   			</li>
   			<li class="table-view-cell">
-  				<a class="navigate-right" data-toggle="page" href="#page-settings-email" data-start="#page-settings-main" data-title="이메일 관리">
+  				<a class="navigate-right"
+            data-toggle="page"
+            href="#page-settings-email"
+            data-start="#page-settings-main"
+            data-url="/settings?page=email"
+            data-title="이메일 관리">
   					<span class="badge badge-default badge-inverted"><?php echo $my['email']?$my['email']:'미등록' ?></span>
   					이메일
   				</a>
   			</li>
   			<li class="table-view-cell">
-  				<a class="navigate-right" data-toggle="page" href="#page-settings-phone" data-start="#page-settings-main" data-title="휴대폰 관리">
+  				<a class="navigate-right"
+            data-toggle="page"
+            href="#page-settings-phone"
+            data-start="#page-settings-main"
+            data-url="/settings?page=phone"
+            data-title="휴대폰 관리">
   					<span class="badge badge-default badge-inverted"><?php echo $my['phone']?$my['phone']:'미등록' ?></span>
   					휴대폰
   				</a>
   			</li>
   			<li class="table-view-cell">
-  				<a class="navigate-right" data-toggle="page" href="#page-settings-noti" data-start="#page-settings-main" data-title="알림설정">
+  				<a class="navigate-right"
+            data-toggle="page"
+            href="#page-settings-noti"
+            data-start="#page-settings-main"
+            data-url="/settings?page=noti"
+            data-title="알림설정">
   					<?php if ($nt_web==''): ?>
   					<span class="badge badge-primary badge-pill">ON</span>
   					<?php else: ?>
@@ -800,7 +820,12 @@
   			</li>
   			<?php endif; ?>
   			<li class="table-view-cell">
-  				<a class="navigate-right" data-toggle="page" href="#page-settings-shipping" data-start="#page-settings-main" data-title="배송지 관리">
+  				<a class="navigate-right"
+            data-toggle="page"
+            href="#page-settings-shipping"
+            data-start="#page-settings-main"
+            data-url="/settings?page=shipping"
+            data-title="배송지 관리">
   					<span class="badge badge-default badge-inverted">
   						<?php echo $my_shipping_num?number_format($my_shipping_num).' 곳':'미등록'?>
   					</span>
@@ -867,41 +892,49 @@
   <div class="page right" id="page-settings-pw" >
   	<header class="bar bar-nav bar-light bg-white px-0">
   		<a class="icon pull-left material-icons px-3" role="button" data-history="back">arrow_back</a>
+      <button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-act="changePW">
+        <span class="not-loading">변경</span>
+        <span class="is-loading">
+          <div class="spinner-border spinner-border-sm text-primary" role="status">
+            <span class="sr-only">처리중...</span>
+          </div>
+        </span>
+      </button>
+
   		<h1 class="title">비밀번호 <?php echo $my['only_sns']?'등록':'변경' ?></h1>
   	</header>
-  	<div class="bar bar-standard bar-footer bar-light bg-faded">
-  		<button type="button" class="btn btn-outline-primary btn-block">변경하기</button>
-  	</div>
-  	<div class="content bg-faded">
+  	<div class="content">
 
-  		<form name="procForm" class="content-padded" role="form" action="<?php echo $g['s']?>/" method="post" autocomplete="off">
+  		<form id="pwChangeForm" class="content-padded" role="form" action="<?php echo $g['s']?>/" method="post" autocomplete="off">
   				<input type="hidden" name="r" value="<?php echo $r?>">
-  				<input type="hidden" name="m" value="<?php echo $m?>">
-  				<input type="hidden" name="front" value="<?php echo $front?>">
+  				<input type="hidden" name="m" value="member">
   				<input type="hidden" name="a" value="pw_update">
+          <input type="hidden" name="check_pw1" value="0">
+          <input type="hidden" name="check_pw2" value="0">
 
-  				<div class="form-group">
+  				<div class="form-group position-relative">
   					<label>새 비밀번호</label>
-  					<input type="password" class="form-control" name="pw1" id="pw1" placeholder="8자이상 영문과 숫자만 사용할 수 있습니다.">
-  					<small class="form-text text-muted"></small>
+  					<input type="password" class="form-control" name="pw1" placeholder="8자이상 영문과 숫자만 사용할 수 있습니다." autocomplete="off" data-role="pw1">
+  					<div class="invalid-tooltip" data-role="pw1CodeBlock"></div>
   				</div>
 
-  				<div class="form-group">
+  				<div class="form-group position-relative">
   					<label>새 비밀번호 확인</label>
-  					<input type="password" class="form-control" name="pw2" id="pw2" placeholder="변경할 비밀번호를 한번 더 입력하세요">
-  					<small class="form-text text-muted"></small>
+  					<input type="password" class="form-control" name="pw2" placeholder="변경할 비밀번호를 한번 더 입력하세요" autocomplete="off" data-role="pw2">
+  					<div class="invalid-tooltip" data-role="pw2CodeBlock"></div>
   				</div>
-  		 </form>
 
-  		 <div class="content-padded">
-  			<?php if ($my['only_sns']): ?>
-  				<p class="text-muted">비밀번호를 등록하면 비밀번호를 통한 로그인이 가능합니다.</p>
-  			<?php else: ?>
-  			<p class="text-muted">현재 비밀번호는 <code><?php echo getDateFormat($my['last_pw'],'Y.m.d')?></code> 에 변경(등록)되었으며 <code>
-  			<?php echo -getRemainDate($my['last_pw'])?>일</code>이 경과되었습니다.
-  			비밀번호는 가급적 주기적으로 변경해 주세요.</p>
-  			<?php endif; ?>
-   		</div>
+          <div class="content-padded mt-3">
+           <?php if ($my['only_sns']): ?>
+             <p class="text-muted small">비밀번호를 등록하면 비밀번호를 통한 로그인이 가능합니다.</p>
+           <?php else: ?>
+           <p class="text-muted small">현재 비밀번호는 <code><?php echo getDateFormat($my['last_pw'],'Y.m.d')?></code> 에 변경(등록)되었으며 <code>
+           <?php echo -getRemainDate($my['last_pw'])?>일</code>이 경과되었습니다.
+           비밀번호는 가급적 주기적으로 변경해 주세요.</p>
+           <?php endif; ?>
+         </div>
+
+  		 </form>
 
   	</div>
   </div><!-- /.page -->
