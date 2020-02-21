@@ -445,8 +445,8 @@ page_login_form.find(".form-list.floating .input-row input").on('keyup', functio
 	</div><!-- /.page -->
 
 	<div class="page right" id="page-pw-code">
-		<header class="bar bar-nav bar-light bg-faded px-0">
-      <a class="icon icon-left-nav pull-left p-x-1" role="button" data-history="back"></a>
+		<header class="bar bar-nav bar-light bg-white px-0">
+      <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
       <button class="btn btn-link btn-nav pull-right p-l-1 p-r-2" data-type="phone" data-act="confirm_code" data-device="mobile" data-role="confirm_code">
         확인
       </button>
