@@ -12,7 +12,7 @@ $d['member']['login_cookie'] = "5";
 $d['member']['login_ssl'] = "";
 $d['member']['join_enable'] = "1";
 $d['member']['join_byEmail'] = "1";
-$d['member']['join_byPhone'] = "1";
+$d['member']['join_byPhone'] = "";
 $d['member']['join_bySocial'] = "";
 $d['member']['join_verify'] = "";
 $d['member']['join_out'] = "2";
@@ -80,10 +80,8 @@ $d['member']['form_settings_tel_required'] = "";
 $d['member']['form_settings_job_required'] = "";
 $d['member']['form_settings_marr_required'] = "";
 $d['member']['form_settings_add_required'] = "";
-
 $d['member']['settings_expire'] = "30"; //본인확인 만료시간(분)-개인정보수정시에 사용함
 $d['member']['settings_keyexpire'] = "30"; //본인확인 인증코드 만료시간(분)- 이메일,휴대폰 본인인증시 사용
-
 $d['member']['mytab_post'] = "";
 $d['member']['mytab_comment'] = "";
 $d['member']['mytab_oneline'] = "";
