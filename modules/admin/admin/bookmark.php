@@ -3,7 +3,7 @@
 
 		<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
 
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header rb-icon">
 					<i class="fa fa-star-o fa-lg fa-fw"></i> 북마크 관리
 				</div>

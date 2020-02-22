@@ -75,7 +75,7 @@ $xmin1	= substr($date['totime'],10,2);
 					<input type="hidden" name="module" value="<?php echo $module?>">
 					<input type="hidden" name="front" value="<?php echo $front?>">
 
-					<div class="card">
+					<div class="card border-0">
 						<div class="card-header p-0" role="tab">
 							<a class="d-block muted-link<?php if($_SESSION['member_main_collapse']!='search'):?> collapsed<?php endif?>" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="collapse_search" onclick="sessionSetting('member_main_collapse','search','','');">
 								검색
@@ -410,8 +410,8 @@ $xmin1	= substr($date['totime'],10,2);
 	<div class="col-sm-8 col-md-8 mr-sm-auto col-xl-9">
 
 		<?php if($NUM):?>
-		<div class="card rounded-0 ">
-			<div class="card-header d-flex justify-content-between align-items-center border-0">
+		<div class="card rounded-0 border-0">
+			<div class="card-header d-flex justify-content-between align-items-center border-0 page-body-header">
 				<span class="text-muted">
 					 총 <?php echo number_format($NUM)?>명
 				</span>

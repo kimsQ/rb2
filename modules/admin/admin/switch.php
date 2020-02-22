@@ -31,7 +31,7 @@ $SITEN = db_num_rows($SITES);
 <div class="container-fluid">
 	<div class="row" id="switch">
 		<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header">
 					<i class="fa fa-power-off fa-lg fa-fw"></i> 스위치 관리
 				</div>

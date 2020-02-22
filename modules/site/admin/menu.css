@@ -1,5 +1,5 @@
-#accordion > .card .card-body {
-  height: calc(100vh - 12.53rem);
+#accordion>.card .card-body {
+  height: calc(100vh - 12.8rem);
   overflow: auto;
 }
 
@@ -46,7 +46,7 @@
   margin: 5px 0;
   padding: 10px;
   text-decoration: none;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .125);
   background: #eee;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -60,7 +60,7 @@
   color: #2ea8e5;
 }
 
-.dd-item > button {
+.dd-item>button {
   display: block;
   position: relative;
   cursor: pointer;
@@ -104,7 +104,7 @@
   z-index: 9999;
 }
 
-.dd-dragel > .dd-item .dd-handle {
+.dd-dragel>.dd-item .dd-handle {
   margin-top: 0;
 }
 

@@ -23,11 +23,11 @@ include_once $_tmpvfile;
 
 	<div class="col-sm-3 col-md-3 col-xl-3 d-none d-sm-block sidebar">
 
-		<div class="card">
+		<div class="card border-0">
 			<div class="card-header">
 				메뉴
 			</div>
-			<div class="list-group" id="list-tab" role="tablist">
+			<div class="list-group list-group-flush" id="list-tab" role="tablist">
 				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if(!$_SESSION['member_config_nav'] || $_SESSION['member_config_nav']=='settings'):?> active<?php endif?>" data-toggle="list" href="#settings" role="tab" onclick="sessionSetting('member_config_nav','settings','','');">
 					기초환경 설정
 					<span class="badge badge-dark">공통</span>
@@ -72,8 +72,8 @@ include_once $_tmpvfile;
 			 <div class="tab-pane fade<?php if(!$_SESSION['member_config_nav'] || $_SESSION['member_config_nav']=='settings'):?> show active<?php endif?>" id="settings">
 
 				 <!-- 테마설정 -->
-				 <div class="card rounded-0 mb-0">
-					 <div class="card-header">
+				 <div class="card border-0 rounded-0 mb-0">
+					 <div class="card-header page-body-header">
 						 <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i> 테마 설정
 					 </div>
 					 <div class="card-body">
@@ -145,8 +145,8 @@ include_once $_tmpvfile;
 				 </div><!-- /.card -->
 
 				 <!-- 소속메뉴 설정 -->
-				 <div class="card rounded-0 mb-0">
-					 <div class="card-header">
+				 <div class="card rounded-0 mb-0 border-left-0">
+					 <div class="card-header page-body-header">
 						 <i class="fa fa-sitemap fa-lg fa-fw"></i> 소속메뉴 설정
 					 </div>
 					 <div class="card-body">
@@ -238,8 +238,8 @@ include_once $_tmpvfile;
 
 
 					<!-- 회원가입 설정 -->
-					<div class="card rounded-0 mb-0">
-						<div class="card-header">
+					<div class="card border-0 rounded-0 mb-0">
+						<div class="card-header page-body-header">
 							회원가입 설정
 						</div>
 						<div class="card-body">
@@ -559,13 +559,13 @@ include_once $_tmpvfile;
 
 				 <!-- 가입양식 관리 -->
 				<div class="tab-pane fade<?php if($_SESSION['member_config_nav']=='signup-form-config'):?> show active<?php endif?>" id="signup-form-config">
-					<div class="card rounded-0 mb-0">
-						<div class="card-header">
+					<div class="card border-0 rounded-0 mb-0">
+						<div class="card-header page-body-header">
 							가입양식 관리
 						</div>
 						<div class="card-body">
 
-							<div class="card">
+							<div class="card mb-3">
 								<div class="card-header">
 									<span class="badge badge-light">데스크탑</span> 회원가입 노출항목 및 옵션 <code>join</code>
 								</div>
@@ -702,8 +702,8 @@ include_once $_tmpvfile;
 			 <!-- 가입항목 추가 -->
 			 <div class="tab-pane fade<?php if($_SESSION['member_config_nav']=='signup-form-add'):?> show active<?php endif?>" id="signup-form-add">
 
-					<div class="card rounded-0 mb-0">
-						<div class="card-header">
+					<div class="card border-0 rounded-0 mb-0">
+						<div class="card-header page-body-header">
 							가입항목 추가
 						</div>
 						<div class="card-body">
@@ -874,8 +874,8 @@ include_once $_tmpvfile;
 				 <!-- 약관/안내메시지 -->
 				<div class="tab-pane fade<?php if($_SESSION['member_config_nav']=='terms'):?> show active<?php endif?>" id="terms">
 
-					<div class="card rounded-0 mb-0">
-						<div class="card-header">
+					<div class="card border-0 rounded-0 mb-0">
+						<div class="card-header page-body-header">
 							약관/안내 메시지
 						</div>
 						<div class="card-body">
@@ -928,13 +928,13 @@ include_once $_tmpvfile;
 			<!-- 로그인 설정 -->
 		 	<div class="tab-pane fade<?php if($_SESSION['member_config_nav']=='login-config'):?> show active<?php endif?>" id="login-config">
 
-				 <div class="card rounded-0 mb-0">
-					 <div class="card-header">
+				 <div class="card border-0 rounded-0 mb-0">
+					 <div class="card-header page-body-header">
 						 로그인 설정
 					 </div>
 					 <div class="card-body">
 
-						 <div class="card">
+						 <div class="card mb-3">
 							 <div class="card-header">
 								 기본 옵션
 							 </div>
@@ -1004,13 +1004,13 @@ include_once $_tmpvfile;
 			<!-- 개인정보관리 설정 -->
 		 	<div class="tab-pane fade<?php if($_SESSION['member_config_nav']=='settings-config'):?> show active<?php endif?>" id="settings-config">
 
-			 <div class="card rounded-0 mb-0">
-				 <div class="card-header">
+			 <div class="card border-0 rounded-0 mb-0">
+				 <div class="card-header page-body-header">
 					 개인정보관리 설정
 				 </div>
 				 <div class="card-body">
 
-					 <div class="card">
+					 <div class="card mb-3">
 					 	<div class="card-header">
 					 		노출항목 및 옵션 <code>settings</code>
 					 	</div>
@@ -1070,7 +1070,7 @@ include_once $_tmpvfile;
 					 	</div>
 					 </div>
 
-					 <div class="card">
+					 <div class="card mb-3">
 						 <div class="card-header">
 							 <i class="fa fa-lock fa-fw" aria-hidden="true"></i>  개인정보보호
 						 </div>

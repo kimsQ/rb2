@@ -1003,7 +1003,7 @@
 #emuldevices .table tbody tr.active td,
 #emuldevices .table tbody tr.active th {
     color: #fff;
-    background-color: #428bca;
+    background-color: #007bff;
 }
 
 #emuldevices .table var {

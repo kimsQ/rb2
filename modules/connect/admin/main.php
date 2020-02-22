@@ -8,7 +8,7 @@ include_once $_tmpdfile;
 
 	<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
 		<div id="accordion">
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header p-0 d-flex justify-content-between">
 
 					<a class="muted-link d-block w-100" role="button" aria-expanded="true" aria-controls="collapseOne">
@@ -87,7 +87,7 @@ include_once $_tmpdfile;
 				<input type="hidden" name="a" value="config">
 
 
-				<div class="card-header d-flex justify-content-between align-items-center" style="line-height: 1.2;">
+				<div class="card-header d-flex justify-content-between align-items-center page-body-header" style="line-height: 1.2;">
 					<span>연결 등록정보</span>
 				</div><!-- /.card-header -->
 

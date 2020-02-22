@@ -33,7 +33,7 @@ $SITEN   = db_num_rows($SITES);
 				 <input type="hidden" name="module" value="<?php echo $module?>">
 				 <input type="hidden" name="front" value="<?php echo $front?>">
 
-					<div class="card">
+					<div class="card border-0">
 						<div class="card-header p-0">
 							<a class="d-block muted-link collapsed" href="#collapse-sort" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapse-sort">
 								정렬

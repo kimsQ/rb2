@@ -30,7 +30,7 @@ if ($uid)
    <div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
 
 		 <div id="accordion" role="tablist">
-		   <div class="card">
+		   <div class="card border-0">
 		     <div class="card-header p-0" role="tab" id="headingOne">
 					 <a class="muted-link d-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
 						게시판 목록
@@ -42,7 +42,7 @@ if ($uid)
 					 <div class="list-group list-group-flush" style="height: calc(100vh - 17rem);">
 						 <?php if($NUM):?>
 						 <?php $_i=1;while($BR = db_fetch_array($RCD)):?>
-						 <a href="<?php echo $g['adm_href']?>&amp;recnum=<?php echo $recnum?>&amp;p=<?php echo $p?>&amp;uid=<?php echo $BR['uid']?>&amp;account=<?php echo $account?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($uid==$BR['uid']):?> border border-primary<?php endif?>">
+						 <a href="<?php echo $g['adm_href']?>&amp;recnum=<?php echo $recnum?>&amp;p=<?php echo $p?>&amp;uid=<?php echo $BR['uid']?>&amp;account=<?php echo $account?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($uid==$BR['uid']):?> active<?php endif?>">
 							 <?php echo $BR['name']?>(<?php echo $BR['id']?>)
 							 <span class="badge badge-dark badge-pill ml-auto"><?php echo number_format($BR['num_r'])?></span>
 						 </a>

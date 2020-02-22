@@ -35,11 +35,18 @@
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left px-3" role="button" data-history="back">arrow_back</a>
     <?php if ($d['post']['writeperm']): ?>
-    <a role="button" data-toggle="popup" href="#popup-post-newPost" data-start="#page-post-allpost" data-title="새 포스트" class="icon material-icons px-3 pull-right">
+    <a role="button" data-toggle="popup"
+      href="#popup-post-newPost"
+      data-start="#page-post-allpost"
+      data-title="새 포스트"
+      class="icon material-icons pr-3 pl-2 pull-right">
       add_box
     </a>
     <?php endif; ?>
-    <a class="icon pull-right material-icons px-2" role="button" data-toggle="sheet" data-target="#sheet-post-filter" data-backdrop="static">tune</a>
+    <a class="icon pull-right material-icons px-2" role="button"
+      data-toggle="sheet"
+      data-target="#sheet-post-filter"
+      data-backdrop="static">tune</a>
     <span class="title title-left" data-history="back" data-role="title">전체 포스트</span>
   </header>
   <main role="main" class="content bg-faded">

@@ -53,7 +53,7 @@ else {
 <div id="rb-popup" class="row no-gutters">
 	<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar"><!-- 좌측  내용 -->
 		<div class="panel-group" id="accordion">
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header d-flex justify-content-between p-2">
 					<span>팝업 목록 <?php if ($NUM): ?><span class="badge badge-pill badge-dark dueday"><?php echo $NUM ?> 개</span><?php endif; ?></span>
 					<button type="button" class="btn btn-link muted-link py-0<?php if(!$_SESSION['sh_popup_search']):?> collapsed<?php endif?>" data-toggle="collapse" data-target="#panel-search" onclick="sessionSetting('sh_popup_search','1','','1');getSearchFocus();">
@@ -166,7 +166,7 @@ else {
 			<input type="hidden" name="uid" value="<?php echo $R['uid']?>" />
 			<input type="hidden" name="dispage" value="<?php echo $R['dispage']?>" />
 
-			<div class="card-header d-flex justify-content-between align-items-center">
+			<div class="card-header d-flex justify-content-between align-items-center page-body-header">
 				<?php echo $R['uid']?'팝업 등록정보':'새 팝업 만들기' ?>
 			</div><!-- /.card-header -->
 			<div class="card-body">
@@ -372,7 +372,7 @@ else {
 
 				<hr>
 
-				<div class="card">
+				<div class="card mb-3">
 					<div class="card-header">
 						<i class="fa fa-desktop fa-fw"></i> 데스크탑 팝업
 					</div><!-- /.card-header -->

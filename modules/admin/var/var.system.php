@@ -1,6 +1,6 @@
 <?php
-$d['admin']['themepc'] = "kimsq-dark";
-$d['admin']['pannellink'] = "kimsq-dark.css";
+$d['admin']['themepc'] = "kimsq-white";
+$d['admin']['pannellink'] = "kimsq-white.css";
 $d['admin']['cache_flag'] = "totime";
 $d['admin']['smtp_host'] = "";
 $d['admin']['smtp_port'] = "465";

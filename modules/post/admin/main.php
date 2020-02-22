@@ -33,7 +33,7 @@ $TPG = getTotalPage($NUM,$recnum);
 			 <input type="hidden" name="front" value="<?php echo $front?>">
 
 			<div id="accordion" role="tablist">
-			  <div class="card">
+			  <div class="card border-0">
 			    <div class="card-header p-0" role="tab">
 						<a class="d-block muted-link<?php if($_SESSION['bbs_post_collapse']!='filter'):?> collapsed<?php endif?>" data-toggle="collapse" href="#collapse-filter" role="button" aria-expanded="true" aria-controls="collapseOne" onclick="sessionSetting('bbs_post_collapse','filter','','');">
 							필터
@@ -179,7 +179,7 @@ $TPG = getTotalPage($NUM,$recnum);
 			<input type="hidden" name="m" value="<?php echo $module?>">
 			<input type="hidden" name="a" value="">
 
-			<div class="card-header border-0">
+			<div class="card-header border-0 page-body-header">
 				<?php echo number_format($NUM)?> 개
 				<span class="badge badge-pill badge-dark"><?php echo $p?>/<?php echo $TPG?> 페이지</span>
 			</div>

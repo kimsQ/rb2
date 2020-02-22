@@ -2,7 +2,7 @@
 	<div class="row mt-4">
 		<div class="col-md-6">
 			<div class="panel-group" id="accordion">
-				<div class="card border-0">
+				<div class="card">
 					<form name="sosokForm" action="<?php echo $g['s']?>/" method="post" target="_action_frame_<?php echo $m?>" onsubmit="return regisCheck(this);">
 					<input type="hidden" name="r" value="<?php echo $r?>">
 					<input type="hidden" name="m" value="<?php echo $module?>">
@@ -90,7 +90,7 @@
 		</div>
 	   <!-- 회원등급 시작 -->
 		<div class="col-md-6 col-lg-6 pl-0">
-			<div class="card border-dark">
+			<div class="card">
 				<div class="card-header border-bottom-0">
 					<i class="fa fa-arrows-v fa-lg fa-fw"></i> 회원등급 <span class="badge badge-light">Level</span>
 				</div>

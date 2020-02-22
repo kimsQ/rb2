@@ -71,7 +71,7 @@ $mf_json = json_decode($mf_str , true);
 
 <body>
 <div class="container-fluid rb-fixed-sidebar<?php if($_COOKIE['_tabShow1']):?> rb-minified-sidebar<?php endif?><?php if($_COOKIE['_tabShow2']):?> rb-hidden-system-admin<?php endif?><?php if($_COOKIE['_tabShow3']):?> rb-hidden-system-site<?php endif?>">
-	<div class="rb-system-sidebar rb-system-admin rb-inverse" role="navigation">
+	<div class="rb-system-sidebar rb-system-admin rb-inverse shadow-sm" role="navigation">
 		<div class="rb-icons">
 			<span class="rb-icon-hide js-tooltip" title="<?php echo $_COOKIE['_tabShow2']?'고정하기':'숨기기'?>"><i class="fa rb-icon"></i></span>
 			<span class="rb-icon-minify js-tooltip" title="<?php echo $_COOKIE['_tabShow1']?'펼치기':'접기'?>"><i class="fa rb-icon"></i></span>
@@ -127,7 +127,7 @@ $mf_json = json_decode($mf_str , true);
 			</div>
 			<div class="rb-buttons rb-content-padded">
 				<div class="btn-group">
-					<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=admin&amp;module=project&amp;front=gallery" target="_ADMPNL_" class="btn btn-light rb-modal-add-package" style="width:165px"><i class="fa fa-plus-circle fa-lg"></i> 패키지 갤러리</a>
+					<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=admin&amp;module=project&amp;front=gallery" target="_ADMPNL_" class="btn btn-light rb-modal-add-package rounded-0" style="width:165px"><i class="fa fa-plus-circle fa-lg"></i> 패키지 갤러리</a>
 					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-caret-down" aria-hidden="true"></i>
 					</button>

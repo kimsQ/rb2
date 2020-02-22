@@ -1,16 +1,18 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 html,
 body {
   height: 100%;
 }
 
 body {
-  background-color: #343a40 !important;
-  font-family: "돋움", dotum, '나눔고딕', 'Nanum Gothic', sans-serif, FontAwesome, kimsq !important;
-  color: #ccc
+  background-color: #f9f9f9;
+  font-family:'Noto Sans KR', "돋움", dotum, '나눔고딕', 'Nanum Gothic', sans-serif, FontAwesome, kimsq !important;
 }
 
 a {
-  color: #ccc
+  color: #444
 }
 
 .rb-root {
@@ -29,21 +31,12 @@ a {
 
 #rb-login .card {
   margin: 0 auto 15px;
-  color: #ccc;
-  background-color: rgb(39, 44, 50);
-  border: 1px solid #222;
   border-radius: 3px;
-  color: #999;
-  box-shadow: 0px 2px 2px #222;
 }
 
 #rb-login .card-header h1 {
   margin-bottom: 0;
   font-size: 18px
-}
-
-#rb-login .card-header a {
-  color: #ccc
 }
 
 #rb-login .card-header a:hover {
@@ -76,9 +69,6 @@ a {
 
 .form-control,
 .form-control[readonly] {
-  background-color: rgb(31, 34, 39);
-  color: rgb(171, 175, 181);
-  border-color: rgb(27, 30, 36);
   border-radius: 0
 }
 

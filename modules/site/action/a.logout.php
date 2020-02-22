@@ -1,4 +1,4 @@
-site_common_result<?php
+<?php
 if(!defined('__KIMS__')) exit;
 
 if ($my['uid'])

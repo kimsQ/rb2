@@ -1,9 +1,10 @@
 @charset "utf-8";
+
 .well {
   min-height: 20px;
   margin-bottom: 20px;
   background-color: rgb(245, 245, 245);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px inset;
   padding: 19px;
   border-width: 1px;
   border-style: solid;
@@ -13,171 +14,172 @@
 }
 
 #rb-body .page-header {
-	margin: 30px 0 20px;
+  margin: 30px 0 20px;
 }
 
 #rb-body .page-header:first-child {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 /**
  * Nestable
  */
-
 .dd-list {
-    position: relative;
-    margin: 0; padding: 0;
-    list-style: none;
- }
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .dd-item {
-    position: relative;
-    margin: 6px;
-    padding: 0;
-    min-height: 20px;
-    font-size: 13px;
-    line-height: 20px;
-    height: 70px
+  position: relative;
+  margin: 6px;
+  padding: 0;
+  min-height: 20px;
+  font-size: 13px;
+  line-height: 20px;
+  height: 70px
 }
 
 .dd-placeholder,
 .dd-empty {
-    background: #f2fbff;
-    border: 1px dashed #b6bcbf;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  background: #f2fbff;
+  border: 1px dashed #b6bcbf;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
-.dd-placeholder {
-}
+.dd-placeholder {}
 
 .dd-dragel {
-    position: absolute;
-    pointer-events: none;
-    z-index: 9999;
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel>.dd-item .dd-handle {
+  margin-top: 0;
+}
 
 .dd-dragel .dd-handle {
-    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
-            box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+  -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
 }
 
 .dd.well {
-    padding-bottom: 5px;
-    background-color: #f5f5f5;
-    position: relative;
-	min-height: 110px;
-	max-height: 200px;
-	overflow: auto;
+  padding-bottom: 5px;
+  background-color: #f5f5f5;
+  position: relative;
+  min-height: 110px;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .dd.well .rb-help {
-    color: #999;
+  color: #999;
 }
 
 .dd.well .rb-help:hover {
-    color: #777;
+  color: #777;
 }
 
 .dd-list.list-inline {
-	display: inline;
+  display: inline;
 }
 
 .dd-list.list-inline>li {
-    display: inline-block;
-    padding-right: 0;
-    padding-left: 0;
+  display: inline-block;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .dd-item {
-    width: 75px;
-	height: 69px;
+  width: 75px;
+  height: 69px;
 }
 
 .dd-list .dd-item {
-    position: relative;
-    color: #333;
-    text-decoration: none;
-    border: 1px solid #D5D5D5;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
-    background: -moz-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
-    background: -webkit-linear-gradient(top, #ffffff 0%,#f5f5f5 100%);
-    background: -o-linear-gradient(top, #ffffff 0%,#f5f5f5 100%);
-    background: -ms-linear-gradient(top, #ffffff 0%,#f5f5f5 100%);
-    background: linear-gradient(to bottom, #ffffff 0%,#f5f5f5 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f5f5',GradientType=0 );
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
-         box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #D5D5D5;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 .dd-list .dd-item.rb-active {
   background-color: #007bff;
   background-image: none;
   border-color: #3278b3;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
-  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
 
 .dd-list .dd-item.rb-active a {
-    color: #fff;
+  color: #fff;
 }
 
 .dd-placeholder {
-	display: block;
-	position: relative;
-	top: -16px;
-	left: 11px;
-	width: 73px;
-	margin-right:12px;
-	background:transparent;
+  display: block;
+  position: relative;
+  top: -16px;
+  left: 11px;
+  width: 73px;
+  margin-right: 12px;
+  background: transparent;
 }
 
 .dd-handle {
-	cursor: move;
-	height: 67px;
-    z-index: 9999999;
-    background-color: transparent;
+  cursor: move;
+  height: 67px;
+  z-index: 9999999;
+  background-color: transparent;
 }
 
 .dd-item a {
-	display: block;
-	position:absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-    color: #777;
-	background-color:transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #777;
+  background-color: transparent;
 }
 
 .dd-list .rb-site-icon {
-    display: block;
-	position:absolute;
-	top: 5px;
-	left : 20px;
-    line-height: 42px;
-    font-size: 30px;
-    text-align: center;
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  line-height: 42px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .dd-list .rb-site-label {
-    font-weight: normal;
-    position: absolute;
-	display: block;
-	top: 45px;
-    font-size: 13px;
-    text-align: center;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    /*white-space: nowrap;/**/
-    overflow: hidden;
-	width: 73px;
-	height: 15px;
+  font-weight: normal;
+  position: absolute;
+  display: block;
+  top: 45px;
+  font-size: 13px;
+  text-align: center;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  /*white-space: nowrap;/**/
+  overflow: hidden;
+  width: 73px;
+  height: 15px;
 }
 
 .rb-add {
@@ -189,74 +191,76 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   text-align: center;
-  color: #ccc ;
+  color: #ccc;
   border: 1px dashed #D5D5D5;
 }
 
 .rb-add.active {
-	border: 1px solid #007bff;
-	background-color: #007bff;
-	color: #ffffff;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #ffffff;
 }
 
 .rb-add i {
-    display: inline-block;
+  display: inline-block;
 }
 
 .dd-list a:hover,
 .dd-list .rb-add a:hover {
-    color: #2ea8e5;
-    text-decoration: none;
+  color: #2ea8e5;
+  text-decoration: none;
 }
 
-.dd-persistent { pointer-events: none; }
+.dd-persistent {
+  pointer-events: none;
+}
 
 .form-horizontal .has-feedback.rb-outside .form-control-feedback {
-        left: -925px;
+  left: -925px;
 }
 
 .input-group-btn:last-child>.btn,
 .input-group-addon:last-child {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 #site-advance .form-group {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .rb-guide dt {
-    margin-bottom: 5px
+  margin-bottom: 5px
 }
-
 
 /*고급설정 표시*/
-
-
 .rb-advance .btn .rb-ca1:before {
-    content: "▲"
+  content: "▲"
 }
+
 .rb-advance .btn.collapsed .rb-ca1:before {
-    content: "▼"
+  content: "▼"
 }
+
 .rb-advance .btn .rb-ca2:before {
-    content: "▼"
+  content: "▼"
 }
+
 .rb-advance .btn.collapsed .rb-ca2:before {
-    content: "▲"
+  content: "▲"
 }
 
 .form-group .panel-heading a {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
 }
 
-@media (min-width: 1200px) {
-    .form-horizontal .has-feedback.rb-outside .form-control-feedback {
-        width: 46px;
-        height: 46px;
-        line-height: 46px;
-        right: -25px;
-        left: auto
-    }
+@media(min-width: 1200px) {
+  .form-horizontal .has-feedback.rb-outside .form-control-feedback {
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    right: -25px;
+    left: auto
+  }
 }

@@ -22,7 +22,7 @@
 
 <div class="row no-gutters">
   <div class="col-sm-4 col-md-4 col-lg-3 d-none d-sm-block sidebar"><!-- 좌측영역 시작 -->
-    <div class="card">
+    <div class="card border-0">
       <div class="card-header">
         테마 리스트
       </div>
@@ -70,7 +70,7 @@
       <input type="hidden" name="a" value="theme_config" />
       <input type="hidden" name="theme" value="<?php echo $theme?>" />
 
-      <div class="card-header p-0">
+      <div class="card-header p-0 page-body-header">
         <ol class="breadcrumb rounded-0 mb-0 bg-transparent text-muted">
           <?php $_theme =explode('/' , $theme); ?>
           <li class="breadcrumb-item">root</li>

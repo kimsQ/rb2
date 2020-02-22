@@ -35,7 +35,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 <div id="catebody" class="row no-gutters">
 	<nav id="category" class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
 		<div id="accordion">
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header p-0">
 					<a class="d-block accordion-toggle muted-link<?php if($_SESSION['site_menu_collapse']):?> collapsed<?php endif?>"
 						 data-toggle="collapse"
@@ -157,7 +157,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 			<input type="hidden" name="m_layout" value="">
 			<input type="hidden" name="menutype" value="<?php echo $CINFO['uid']?$CINFO['menutype']:4?>">
 
-			<div class="card-header d-flex justify-content-between align-items-center">
+			<div class="card-header d-flex justify-content-between align-items-center page-body-header">
 
 				<?php if($is_regismode):?>
 				<input type="hidden" name="mobile" value="1">
@@ -223,14 +223,14 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 								</span>
 								<?php endif?>
 
-							<input class="form-control" placeholder="" type="text" name="name" value="<?php echo $CINFO['name']?>"<?php if(!$cat && !$g['device']):?> autofocus<?php endif?> required autocomplete="off">
+							<input class="form-control border-left-0" placeholder="" type="text" name="name" value="<?php echo $CINFO['name']?>"<?php if(!$cat && !$g['device']):?> autofocus<?php endif?> required autocomplete="off">
 							<span class="input-group-append">
 								<a href="<?php echo $g['adm_href']?>&amp;cat=<?php echo $cat?>&amp;code=<?php echo $code?>&amp;vtype=sub" class="btn btn-light" data-tooltip="tooltip" title="서브메뉴 만들기">
 									<i class="fa fa-share fa-rotate-90 fa-lg"></i>
 								</a>
 							</span>
 							<span class="input-group-append">
-								<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletemenu&amp;cat=<?php echo $cat?>&amp;parent=<?php echo $delparent?>&amp;code=<?php echo substr($catcode,0,strlen($catcode)-1)?>" onclick="return hrefCheck(this,true,'정말로 삭제하시겠습니까?');" class="btn btn-light" data-tooltip="tooltip" title="메뉴삭제">
+								<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletemenu&amp;cat=<?php echo $cat?>&amp;parent=<?php echo $delparent?>&amp;code=<?php echo substr($catcode,0,strlen($catcode)-1)?>" onclick="return hrefCheck(this,true,'정말로 삭제하시겠습니까?');" class="btn btn-light rounded-0" data-tooltip="tooltip" title="메뉴삭제">
 									<i class="fa fa-trash-o fa-lg"></i>
 								</a>
 							</span>
@@ -241,7 +241,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 						<div class="input-group input-group-lg">
 							<input class="form-control" placeholder="" type="text" name="name" value="<?php echo $CINFO['name']?>"<?php if(!$g['device']):?> autofocus<?php endif?> required  autocomplete="off">
 							<span class="input-group-append">
-								<button class="btn btn-light rb-help-btn" type="button" data-toggle="collapse" data-target="#guide_new" data-tooltip="tooltip" title="도움말"><i class="fa fa-question fa-lg text-muted"></i></button>
+								<button class="btn btn-light rb-help-btn rounded-0" type="button" data-toggle="collapse" data-target="#guide_new" data-tooltip="tooltip" title="도움말"><i class="fa fa-question fa-lg text-muted"></i></button>
 							</span>
 						</div>
 
@@ -441,9 +441,9 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 				<?php endif?>
 
 
-					<div id="menu-settings">
+					<div id="menu-settings" class="mt-5">
 							<!-- 메타설정-->
-							<div class="card" id="menu-settings-meta">
+							<div class="card mb-2" id="menu-settings-meta">
 								<div class="card-header p-0">
 									<a class="d-block pl-3 pr-4 muted-link<?php if(!$code && $_SESSION['sh_site_menu_1']!=1):?> collapsed<?php endif?>" data-toggle="collapse" href="#menu-settings-meta-body">
 										메타설정

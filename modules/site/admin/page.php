@@ -23,8 +23,8 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 
 <div class="row no-gutters">
 	<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar">
-		<div class="card">
-			<div class="card-header p-1 d-flex justify-content-between">
+		<div class="card border-0">
+			<div class="card-header p-1 d-flex justify-content-between border-bottom-0">
 				<div class="dropdown">
 					<a class="btn btn-link muted-link dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-file-text-o fa-lg fa-fw"></i> <?php echo $cat?$cat:'전체페이지'?>
@@ -144,7 +144,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 			<input type="hidden" name="p" value="<?php echo $p?>">
 			<input type="hidden" name="pagetype" value="<?php echo $R['uid']?$R['pagetype']:3?>">
 
-			<div class="card-header d-flex justify-content-between align-items-center">
+			<div class="card-header d-flex justify-content-between align-items-center page-body-header">
 				<?php if($R['uid']):?>
 				<h4 class="h5 mb-0">페이지 등록정보 <span class="badge badge-primary badge-pill"><?php echo $R['name']?></span></h4>
 				<a href="<?php echo $g['adm_href']?>" class="btn btn-light"><i class="fa fa-plus"></i> 새 페이지</a>
@@ -161,7 +161,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 						<div class="input-group input-group-lg">
 							<?php if($R['uid']):?>
 							<span class="input-group-append">
-								<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" data-tooltip="tooltip" title="문서의 형식">
+								<button type="button" class="btn btn-light dropdown-toggle border-right-0" data-toggle="dropdown" data-tooltip="tooltip" title="문서의 형식">
 									<span id="rb-document-type"><?php echo $pageType[$R['pagetype']]?></span> <span class="caret"></span>
 								</button>
 								<div class="dropdown-menu" role="menu">
@@ -173,11 +173,11 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 							<?php endif?>
 							<input class="form-control" placeholder="" type="text" name="name" value="<?php echo $R['name']?>"<?php if(!$R['uid'] && !$g['device']):?> autofocus<?php endif?> autocomplete="off">
 							<span class="input-group-append">
-								<button class="btn btn-light rb-help-btn" type="button" data-toggle="collapse" data-target="#guide_startpage" data-tooltip="tooltip" title="페이지 형식지정"><i class="fa fa-cog fa-lg"></i></button>
+								<button class="btn btn-light rb-help-btn rounded-0" type="button" data-toggle="collapse" data-target="#guide_startpage" data-tooltip="tooltip" title="페이지 형식지정"><i class="fa fa-cog fa-lg"></i></button>
 							</span>
 							<?php if($R['uid']):?>
 							<span class="input-group-append">
-								<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletepage&amp;uid=<?php echo $R['uid']?>" onclick="return hrefCheck(this,true,'정말로 삭제하시겠습니까?');" class="btn btn-light" data-tooltip="tooltip" title="삭제">
+								<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletepage&amp;uid=<?php echo $R['uid']?>" onclick="return hrefCheck(this,true,'정말로 삭제하시겠습니까?');" class="btn btn-light rounded-0" data-tooltip="tooltip" title="삭제">
 								<i class="fa fa-trash-o fa-lg"></i>
 								</a>
 							</span>
@@ -347,7 +347,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 
 
 				<div class="panel-group" id="page-settings">
-					<div class="card" id="page-settings-meta">
+					<div class="card mb-2" id="page-settings-meta">
 						<div class="card-header p-0">
 							<a class="d-block pl-3 pr-4 muted-link<?php if(!$uid && $_SESSION['sh_site_page_1']!=1):?> collapsed<?php endif?>" data-toggle="collapse" href="#page-settings-meta-body">
 								메타설정

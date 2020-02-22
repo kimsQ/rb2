@@ -106,7 +106,7 @@ if ($R['uid'])
 						<span class="input-group-append">
 							<button class="btn btn-light rb-modal-iconset" type="button" data-toggle="modal" data-target="#modal_window" data-tooltip="tooltip" title="라벨 아이콘"><i id="_label_icon_btn_" class="fa fa-globe fa-lg"></i></button>
 							<?php if($R['uid']):?>
-							<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletesite&amp;account=<?php echo $R['uid']?>" onclick="return hrefCheck(this,true,'사이트관련 모든 데이터가 삭제됩니다.\n정말로 선택된 사이트를 삭제하시겠습니까?');" class="btn btn-light" data-tooltip="tooltip" title="사이트 삭제">
+							<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletesite&amp;account=<?php echo $R['uid']?>" onclick="return hrefCheck(this,true,'사이트관련 모든 데이터가 삭제됩니다.\n정말로 선택된 사이트를 삭제하시겠습니까?');" class="btn btn-light rounded-0" data-tooltip="tooltip" title="사이트 삭제">
 								<i class="fa fa-trash-o fa-lg"></i>
 							</a>
 							<?php endif?>
@@ -130,7 +130,7 @@ if ($R['uid'])
 						<div class="input-group input-group-lg">
 							<input class="form-control" placeholder="미입력 시 자동으로 부여됩니다." type="text" name="id" value="<?php echo $R['id']?>" id="site-code">
 							<span class="input-group-append">
-								<button class="btn btn-light rb-help-btn" type="button" data-toggle="collapse" data-tooltip="tooltip" title="사이트 코드" data-target="#guide_sitecode"><i class="fa fa-question fa-lg text-muted"></i></button>
+								<button class="btn btn-light rb-help-btn rounded-0" type="button" data-toggle="collapse" data-tooltip="tooltip" title="사이트 코드" data-target="#guide_sitecode"><i class="fa fa-question fa-lg text-muted"></i></button>
 							</span>
 						</div>
 						<ul id="guide_sitecode" class="collapse form-text text-muted mt-3 pl-3">
@@ -465,7 +465,7 @@ if ($R['uid'])
 					<label class="col-lg-2 col-form-label text-lg-right">코드삽입</label>
 					<div class="col-lg-10 col-xl-9">
 						<div class="panel-group">
-							<div class="card">
+							<div class="card mb-2">
 								<div class="card-header p-0">
 									<a class="d-block muted-link collapsed" data-toggle="collapse" href="#site-code-head" onclick="sessionSetting('sh_site_main_2','1','','1');">
 										head 코드 <?php if($R['headercode']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
@@ -478,7 +478,7 @@ if ($R['uid'])
 									</div>
 								</div>
 							</div>
-							<div class="card">
+							<div class="card mb-2">
 								<div class="card-header p-0">
 									<a class="d-block muted-link collapsed" data-toggle="collapse" href="#site-code-foot" onclick="sessionSetting('sh_site_main_3','1','','1');">
 										foot 코드 <?php if($R['footercode']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
@@ -493,7 +493,7 @@ if ($R['uid'])
 								</div>
 							</div>
 
-								<div class="card">
+							<div class="card mb-2">
 								<div class="card-header p-0">
 									<a class="d-block muted-link collapsed" data-toggle="collapse" href="#site-code-php" onclick="sessionSetting('sh_site_main_4','1','','1');">
 										PHP코드 <?php if($R['uid']&&filesize($g['path_var'].'sitephp/'.$R['uid'].'.php')):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
@@ -508,7 +508,7 @@ if ($R['uid'])
 								</div>
 							</div>
 
-							<div class="card">
+							<div class="card mb-2">
 								<div class="card-header p-0">
 									<a class="d-block muted-link collapsed" data-toggle="collapse" href="#site-code-googleanalytics" onclick="sessionSetting('sh_site_main_5','1','','1');">
 										구글 웹로그 분석 <?php if($R['dtd']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>

@@ -32,7 +32,7 @@ $type = $type ? $type : '_join.complete';
 	<div class="col-sm-4 col-md-3 col-xl-3 d-none d-sm-block sidebar" id="tab-content-list">
 
 		<div id="accordion">
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header p-0">
 					<a class="d-block accordion-toggle muted-link<?php if($_SESSION['member_msgdoc_collapse']):?> collapsed<?php endif?>"
 						data-toggle="collapse"
@@ -59,7 +59,7 @@ $type = $type ? $type : '_join.complete';
 				</div><!-- /.collapse -->
 			</div><!-- /.card -->
 
-			<div class="card">
+			<div class="card border-0">
 				<div class="card-header p-0">
 					<a class="d-block accordion-toggle muted-link<?php if($_SESSION['member_msgdoc_collapse']!='smsdoc'):?> collapsed<?php endif?>"
 						data-toggle="collapse"
@@ -98,7 +98,7 @@ $type = $type ? $type : '_join.complete';
 			<input type="hidden" name="doc" value="<?php echo $doc?>">
 			<input type="hidden" name="type" value="<?php echo $type?>">
 
-			<div class="card-header">
+			<div class="card-header page-body-header">
 				<?php if ($doc=='email'): ?><i class="fa fa-envelope-o fa-fw"></i><?php else: ?><i class="fa fa-mobile fa-lg fa-fw"></i><?php endif; ?>
 				<span><?php echo getMDname($type)?> <span class="badge badge-primary badge-pill">양식수정</span></span>
 			</div>

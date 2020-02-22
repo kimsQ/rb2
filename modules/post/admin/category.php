@@ -30,7 +30,7 @@ $catcode = '';
 
       <div id="accordion">
 
-        <div class="card">
+        <div class="card border-0">
           <div class="card-header p-0">
   					<a class="d-block accordion-toggle muted-link<?php if($_SESSION['post_category_collapse']):?> collapsed<?php endif?>"
   						 data-toggle="collapse"

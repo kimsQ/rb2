@@ -4,11 +4,11 @@
 	<input type="hidden" name="a" value="config">
 
 	<div class="col-sm-3 col-md-3 col-xl-3 d-none d-sm-block sidebar">
-		<div class="card">
+		<div class="card border-0">
 			<div class="card-header">
 				메뉴
 			</div>
-			<div class="list-group" id="list-tab" role="tablist">
+			<div class="list-group list-group-flush" id="list-tab" role="tablist">
 				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if(!$_SESSION['post_config_nav'] || $_SESSION['post_config_nav']=='basic'):?> active<?php endif?>" data-toggle="list" href="#basic" role="tab" onclick="sessionSetting('post_config_nav','basic','','');" aria-selected="false">
 					일반
 				</a>
@@ -26,10 +26,10 @@
 
 		<div class="tab-content">
 
-			<div class="tab-pane <?php if(!$_SESSION['post_config_nav'] || $_SESSION['post_config_nav']=='basic'):?> show active<?php endif?>" id="basic" >
+			<div class="tab-pane <?php if(!$_SESSION['post_config_nav'] || $_SESSION['post_config_nav']=='basic'):?> show active<?php endif?>" id="basic">
 
-				<div class="card rounded-0 mb-0">
-					<div class="card-header">
+				<div class="card border-0 rounded-0 mb-0">
+					<div class="card-header page-body-header">
 						일반 설정
 					</div>
 					<div class="card-body">
@@ -162,8 +162,8 @@
 
 			<div class="tab-pane <?php if($_SESSION['post_config_nav']=='theme'):?> show active<?php endif?>" id="theme">
 
-				<div class="card rounded-0 mb-0">
-					<div class="card-header">
+				<div class="card border-0 rounded-0 mb-0">
+					<div class="card-header page-body-header">
 						<i class="fa fa-columns fa-fw" aria-hidden="true"></i> 레이아웃 설정
 					</div>
 					<div class="card-body">
@@ -227,8 +227,8 @@
 				</div><!-- /.card -->
 
 
-				<div class="card rounded-0 mb-0">
-					<div class="card-header">
+				<div class="card border-left-0 rounded-0 mb-0">
+					<div class="card-header page-body-header">
 						<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i> 테마 설정
 					</div>
 					<div class="card-body">
@@ -309,8 +309,8 @@
 
 			<div class="tab-pane <?php if($_SESSION['post_config_nav']=='perm'):?> show active<?php endif?>" id="perm">
 
-				<div class="card rounded-0 mb-0">
-					<div class="card-header">
+				<div class="card border-0 rounded-0 mb-0">
+					<div class="card-header page-body-header">
 						포스트 작성
 					</div>
 					<div class="card-body">
@@ -347,8 +347,8 @@
 				</div><!-- /.card -->
 
 
-				<div class="card rounded-0 mb-0">
-					<div class="card-header">
+				<div class="card border-left-0 rounded-0 mb-0">
+					<div class="card-header page-body-header">
 						카테고리 지정
 					</div>
 					<div class="card-body">

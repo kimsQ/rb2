@@ -17,7 +17,7 @@ $type = $type ? $type : '_join';
 <div class="row no-gutters">
 	<div class="col-sm-4 col-md-3 col-xl-3 d-none d-sm-block sidebar" id="tab-content-list">
 
-		<div class="card">
+		<div class="card border-0">
 			<div class="card-header">
 				양식목록
 			</div>
@@ -39,14 +39,14 @@ $type = $type ? $type : '_join';
 	</div>
 	<div class="col-sm-8 col-md-9 ml-sm-auto col-xl-9" id="tab-content-view">
 
-		<form class="card" name="procForm" action="<?php echo $g['s']?>/" method="post" target="_action_frame_<?php echo $m?>" onsubmit="return saveCheck(this);">
+		<form class="card border-0" name="procForm" action="<?php echo $g['s']?>/" method="post" target="_action_frame_<?php echo $m?>" onsubmit="return saveCheck(this);">
 			<input type="hidden" name="r" value="<?php echo $r?>">
 			<input type="hidden" name="m" value="<?php echo $module?>">
 			<input type="hidden" name="a" value="msgdoc_regis">
 			<input type="hidden" name="doc" value="<?php echo $doc?>">
 			<input type="hidden" name="type" value="<?php echo $type?>">
 
-			<div class="card-header">
+			<div class="card-header page-body-header">
 				<?php if ($doc=='email'): ?><i class="fa fa-envelope-o fa-fw"></i><?php else: ?><i class="fa fa-bell-o fa-lg fa-fw"></i><?php endif; ?>
 				<span><?php echo getMDname($type)?> <span class="badge badge-primary badge-pill">양식수정</span></span>
 			</div>

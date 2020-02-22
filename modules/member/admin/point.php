@@ -29,7 +29,7 @@ $TPG = getTotalPage($NUM,$recnum);
 
 	<div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar sidebar-right">
 
-		<form name="procForm" action="<?php echo $g['s']?>/" method="get" class="card">
+		<form name="procForm" action="<?php echo $g['s']?>/" method="get" class="card border-0">
 			<input type="hidden" name="r" value="<?php echo $r?>">
 			<input type="hidden" name="m" value="<?php echo $m?>">
 			<input type="hidden" name="module" value="<?php echo $module?>">
@@ -126,7 +126,7 @@ $TPG = getTotalPage($NUM,$recnum);
 	<div class="col-sm-8 col-md-8 mr-sm-auto col-xl-9">
 
 		<?php if($NUM):?>
-		<form class="card rounded-0 border-0" name="listForm" action="<?php echo $g['s']?>/" method="post">
+		<form class="card rounded-0 border-0 page-body-header" name="listForm" action="<?php echo $g['s']?>/" method="post">
 			<input type="hidden" name="r" value="<?php echo $r?>">
 			<input type="hidden" name="m" value="<?php echo $module?>">
 			<input type="hidden" name="a" value="">
