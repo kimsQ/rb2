@@ -58,26 +58,22 @@
 
   <main class="content">
 
-    <div class="clearfix content-padded">
+    <div class="d-flex justify-content-between align-items-center content-padded my-3">
 
-      <div class="pull-xs-left">
+      <a class="media" style="width:15rem"
+        data-toggle="sheet"
+        data-avatar=""
+        data-mbruid=""
+        href="#sheet-member-profile">
+        <img class="media-object pull-left rb-avatar img-rounded bg-faded" src="" style="width:2.55rem;height:2.55rem" data-role="avatar">
+        <div class="media-body rb-meta ml-2" style="line-height: 1.2;">
+          <strong class="f14 text-black" data-role="name"></strong> <br>
+          <span class="badge badge-default badge-inverted font-weight-normal" data-role="d_regis"></span>
+          <span class="badge badge-default badge-inverted font-weight-normal">조회 <span data-role="hit"></span></span>
+        </div>
+      </a>
 
-        <a class="media" style="width:15rem"
-          data-toggle="sheet"
-          data-avatar=""
-          data-mbruid=""
-          href="#sheet-member-profile">
-          <img class="media-object pull-left rb-avatar img-rounded bg-faded" src="" style="width:2.55rem;height:2.55rem" data-role="avatar">
-          <div class="media-body rb-meta m-l-1" style="line-height: 1.2;">
-            <span class="badge badge-inverted" data-role="name"></span> <br>
-            <span class="badge badge-default badge-inverted font-weight-normal" data-role="d_regis"></span>
-            <span class="badge badge-default badge-inverted font-weight-normal">조회 <span data-role="hit"></span></span>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="pull-xs-right pt-1">
+      <div class="">
         <button type="button" class="btn btn-outline-secondary"
           data-toggle="move"
           data-target="[data-role='comment-box']"
