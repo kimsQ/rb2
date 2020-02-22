@@ -67,11 +67,11 @@
           data-avatar=""
           data-mbruid=""
           href="#sheet-member-profile">
-          <img class="media-object pull-left rb-avatar img-circle bg-faded" src="" style="width:2.55rem;height:2.55rem" data-role="avatar">
+          <img class="media-object pull-left rb-avatar img-rounded bg-faded" src="" style="width:2.55rem;height:2.55rem" data-role="avatar">
           <div class="media-body rb-meta m-l-1" style="line-height: 1.2;">
-            <span class="badge badge-default badge-inverted" data-role="name"></span> <br>
-            <span class="badge badge-default badge-inverted" data-role="d_regis"></span>
-            <span class="badge badge-default badge-inverted">조회 <span data-role="hit"></span></span>
+            <span class="badge badge-inverted" data-role="name"></span> <br>
+            <span class="badge badge-default badge-inverted font-weight-normal" data-role="d_regis"></span>
+            <span class="badge badge-default badge-inverted font-weight-normal">조회 <span data-role="hit"></span></span>
           </div>
         </a>
 
@@ -88,10 +88,10 @@
       </div>
 
     </div><!-- /.clearfix -->
-    <hr class="mt-0">
-    <div class="content-padded px-2" data-role="post">
+
+    <div class="content-padded mt-4" data-role="post">
       <span data-role="cat" data-act="category" class="badge badge-primary badge-inverted"></span>
-      <h3 data-role="subject" class="rb-subject"></h3>
+      <h3 data-role="subject" class="h5 font-weight-bold"></h3>
     </div>
     <div data-role="article">
       <div class="text-xs-center">다시 시도해주세요.</div>
