@@ -589,7 +589,8 @@ var RC_initDrawer=function(){
     if(window.snapper==undefined){
         // Initialize Snap.js
         window.snapper = new Snap({
-            element: $('[data-extension="drawer"]')[0]
+            element: $('[data-extension="drawer"]')[0],
+            disable: 'right'
         });
     } else {
         // Snap.js already exists, we just need to re-bind events

@@ -32,7 +32,9 @@
 	<?php include $g['dir_layout'].'/_includes/_import.foot.php' ?>
 	<script>
 		$(function() {
-			RC_initDrawer();  // 드로어 플러그인 초기화
+			RC_initDrawer({
+				disable : 'right'
+			});  // 드로어 플러그인 초기화
 		});
 	</script>
 
