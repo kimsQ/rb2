@@ -199,6 +199,7 @@
                      if(cache.easingTo===0){
                          utils.klass.remove(doc.body, 'snapjs-right');
                          utils.klass.remove(doc.body, 'snapjs-left');
+                         $('.backdrop').remove() // RC Backdrop remove
                      }
 
                      utils.dispatchEvent('animated');
@@ -439,7 +440,6 @@
                              $('.backdrop').remove() // RC Backdrop remove
                             return;
                          }
-                         $('.backdrop').remove() // RC Backdrop remove
 
                          // Revealing Left
                          if (cache.simpleStates.opening === 'left') {
@@ -474,6 +474,8 @@
                          }
                          cache.isDragging = false;
                          cache.startDragX = utils.page('X', e);
+
+                         //$('.backdrop').remove() // RC Backdrop remove
                      }
                  }
              }
