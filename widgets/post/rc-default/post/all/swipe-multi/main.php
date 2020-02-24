@@ -21,7 +21,7 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
   </header>
   <?php endif; ?>
 
-  <main class="position-relative px-3 pb-3 <?php echo $wdgvar['show_header']=='show'?' pt-0':' pt-3' ?>">
+  <main class="position-relative pl-3 pb-3 <?php echo $wdgvar['show_header']=='show'?' pt-0':' pt-3' ?>">
 
     <div class="swiper-container">
       <div class="swiper-wrapper">

@@ -232,10 +232,10 @@ figure.media.ck-placeholder:before {
   color: #ccc
 }
 [data-role="search"] .bar-nav .input-group {
-  top: 0;
+  top: 0.08125rem;
   left: 0;
   right: 0;
-  width: 87%
+  width: 80%
 }
 
 /*검색어 추천*/
