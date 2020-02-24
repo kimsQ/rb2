@@ -31,6 +31,12 @@
 <div class="page right" id="page-site-info">
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
+    <?php if ($my['admin']): ?>
+    <button class="btn btn-link btn-nav pull-right p-x-2" type="button"
+      data-href="<?php echo $g['s'].'/?r='.$r.'&amp;layoutPage=settings&prelayout=rc-starter/blank' ?>">
+      수정
+    </button>
+    <?php endif; ?>
     <h1 class="title title-left" data-history="back">홈 정보 보기</h1>
   </header>
   <main role="main" class="content bg-white">

@@ -107,7 +107,9 @@
     </button>
   </main>
 
+  <?php if ($my['uid']): ?>
   <nav class="nav nav-control">
+    
     <?php if ($d['post']['writeperm']): ?>
     <a class="nav-link" href="#popup-post-newPost"
       data-toggle="popup"
@@ -117,9 +119,18 @@
       포스트 작성
     </a>
     <?php endif; ?>
+
+    <?php if ($d['layout']['company_name']): ?>
     <a class="nav-link" href="#page-site-info" data-toggle="page" data-start="#page-main">
       홈 정보 보기
     </a>
+    <?php else: ?>
+    <a class="nav-link" href="#" data-href="<?php echo $g['s'].'/?r='.$r.'&amp;layoutPage=settings&prelayout=rc-starter/blank' ?>">
+      홈 정보 편집
+    </a>
+    <?php endif; ?>
+
   </nav>
+  <?php endif; ?>
 
 </section>

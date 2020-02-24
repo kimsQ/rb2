@@ -46,7 +46,18 @@ $d['layout']['dom'] = array(
 			array('num2','input','통신판매업',''),
 			array('manager','input','개인정보보호책임자',''),
 			array('addr','textarea','주소','3'),
+			array('name','input','회사명',''),
+			array('addr','textarea','주소','3'),
+		),
+	),
 
+	'contact' => array(
+		'고객센터',
+		'',
+		array(
+			array('tel','input','전화번호',''),
+			array('email','input','이메일',''),
+			array('fax','input','팩스',''),
 		),
 	),
 
@@ -63,17 +74,6 @@ $d['layout']['dom'] = array(
 			array('band','input','밴드',''),
 		),
 	),
-
-	'contact' => array(
-		'고객센터',
-		'',
-		array(
-			array('tel','input','전화번호',''),
-			array('email','input','이메일',''),
-			array('fax','input','팩스',''),
-		),
-	),
-
 
 );
 
