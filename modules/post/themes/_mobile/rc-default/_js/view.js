@@ -133,11 +133,7 @@ function getPostView(settings) {
         })
 
       }
-    } else {
-      setTimeout(function(){
-        wrapper.find('[data-role="box"]').loader({ position: 'inside' });
-      }, 50);
-    }
+    } 
 
     $.post(rooturl+'/?r='+raccount+'&m=post&a=get_postView',{
       uid : uid,
