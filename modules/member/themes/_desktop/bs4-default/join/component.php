@@ -735,7 +735,7 @@ unset($_SESSION['SL']); //본인확인 세션 초기화
               <?php if ($_photo): ?>
               <img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border">
               <?php else: ?>
-              <img src="<?php echo $g['s'].'/_var/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" width="100">
+              <img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" width="100">
               <?php endif; ?>
 	    				<span class="position-absolute" style="bottom:0;right:0">
 	    					<img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" width="48">
@@ -1035,7 +1035,7 @@ unset($_SESSION['SL']); //본인확인 세션 초기화
               <?php if ($_photo): ?>
               <img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border">
               <?php else: ?>
-              <img src="<?php echo $g['s'].'/_var/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" width="100">
+              <img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" width="100">
               <?php endif; ?>
 	    				<span class="position-absolute" style="bottom:0;right:0">
 	    					<img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" width="48">

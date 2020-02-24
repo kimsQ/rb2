@@ -305,7 +305,7 @@ $my_shipping_num = getDbRows($table['s_mbrshipping'],'mbruid='.$my['uid']);
 
 				<div class="avatar-blank">
 					<span>
-						<img class="img-circle js-avatar-img m-x-auto" src="<?php echo $g['s']?>/_var/avatar/0.svg" alt="" width="160">
+						<img class="img-circle js-avatar-img m-x-auto" src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt="" width="160">
 						<span class="fa-stack fa-lg js-avatar-img">
 						  <i class="fa fa-circle fa-stack-2x"></i>
 						  <i class="fa fa-camera fa-stack-1x fa-inverse"></i>

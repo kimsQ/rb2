@@ -168,7 +168,7 @@ $_SESSION['SL'] = ''; //세션 비우기
 				<?php if ($_photo): ?>
 				<img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
 				<?php else: ?>
-				<img src="<?php echo $g['s'].'/_var/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
+				<img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
 				<?php endif; ?>
 				<?php if ($sns_name): ?>
 				<img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" width="35" style="margin-left: -10px">

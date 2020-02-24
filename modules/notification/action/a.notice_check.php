@@ -23,7 +23,7 @@ $NT_DATA = explode('|',$my['noticeconf']);
 	<div class="media">
 		<?php if($R['frommbr']):?>
 		<a href="#." class="mr-3" id='_rb-popover-from-<?php echo $_i?>' data-placement="right" data-popover="popover" data-content="<div id='rb-popover-from-<?php echo $_i?>'><script>getPopover('member','<?php echo $R['mbruid']?>','rb-popover-from-<?php echo $_i?>')</script></div>">
-			<img src="<?php echo $g['s']?>/_var/avatar/<?php echo $M['photo']?$M['photo']:'0.svg'?>" width="48" height="48" alt="프로필 사진<?php echo $M['nic']?>" class="rounded-circle">
+			<img src="<?php echo $g['s']?>/files/avatar/<?php echo $M['photo']?$M['photo']:'0.svg'?>" width="48" height="48" alt="프로필 사진<?php echo $M['nic']?>" class="rounded-circle">
 		</a>
 		<?php else:?>
 		<i class="fa fa-bullhorn fa-2x mr-3 text-muted"></i>

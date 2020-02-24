@@ -63,7 +63,7 @@ $type = $type ? $type : '_opinion';
 					<div class="card-body" id="noti-msg">
 
 						<div class="media">
-						  <img class="mr-3" src="/_var/avatar/0.svg" alt="회원 아바타" style="width: 100px">
+						  <img class="mr-3" src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt="회원 아바타" style="width: 100px">
 						  <div class="media-body">
 
 								<div class="form-group">
