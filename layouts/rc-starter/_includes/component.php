@@ -31,7 +31,7 @@
 <div class="page right" id="page-site-info">
   <header class="bar bar-nav bar-light bg-white px-0">
     <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
-    <h1 class="title title-left" data-history="back">사이트 정보</h1>
+    <h1 class="title title-left" data-history="back">홈 정보 보기</h1>
   </header>
   <main role="main" class="content bg-white">
 
@@ -66,7 +66,7 @@
       <?php if ($d['layout']['company_num2']): ?>
       <li class="table-view-cell">
         <div class="media-body">
-          <p class="mb-0"><small>통신판매업신고번호</small></p>
+          <p class="mb-0"><small>통신판매업 신고번호</small></p>
           <?php echo $d['layout']['company_num2'] ?>
         </div>
       </li>
@@ -75,7 +75,7 @@
       <?php if ($d['layout']['company_manager']): ?>
       <li class="table-view-cell">
         <div class="media-body">
-          <p class="mb-0"><small>개인정보보호책임자</small></p>
+          <p class="mb-0"><small>개인정보보호 책임자</small></p>
           <?php echo $d['layout']['company_manager'] ?>
         </div>
       </li>
@@ -89,6 +89,8 @@
         </div>
       </li>
       <?php endif; ?>
+
+      <li class="table-view-cell table-view-divider bg-faded"><strong class="small">고객센터</strong></li>
 
       <?php if ($d['layout']['contact_tel']): ?>
       <li class="table-view-cell">
@@ -120,6 +122,8 @@
         </div>
       </li>
       <?php endif; ?>
+
+      <li class="table-view-cell table-view-divider bg-faded"><strong class="small">소셜미디어</strong></li>
 
       <?php if ($d['layout']['sns_youtube']): ?>
       <li class="table-view-cell">

@@ -79,6 +79,10 @@ body.disabled .content{
  * ----------------------------------------------------------------------------
  */
 
+.bar-nav.bar-light {
+  background-color: #fff
+}
+
  .bar-nav .title {
    font-weight: bold;
  }
@@ -117,7 +121,7 @@ body.disabled .content{
   text-align: center;
 }
 
-.bar .icon,
+.bar.bar-light .icon,
 .bar-tab .tab-item .icon {
   color: #707070;
   font-size: 1.4rem;

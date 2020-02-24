@@ -1,7 +1,8 @@
 var page_main = $('#page-main');
 
 //사이트
-var page_site_page = $('#page-site-page');  // 사이트 모듈 페이지
+var page_site_info = $('#page-site-info');
+var page_site_page = $('#page-site-page');
 var modal_site_settings = $('#modal-site-settings'); //사이드
 
 //게시판
@@ -17,37 +18,12 @@ var page_bbs_qnawrite = $('#page-bbs-qnawrite');  // 1:1 상담 게시판 쓰기
 var popup_link_share =  $('#popup-link-share'); //링크 공유
 var kakao_link_btn = $('#kakao-link-btn')  //카카오톡 링크공유 버튼
 
-function _getBbsList(bid,cat,page,collapse) {
-
-  $.post(rooturl+'/?r='+raccount+'&m=bbs&a=get_bbsList',{
-     bid : bid,
-     cat : cat,
-     collapse : collapse
-  },function(response){
-     var result = $.parseJSON(response);
-     var error=result.error;
-     var list=result.list;
-     var category=result.category;
-     if (error) {
-       setTimeout(function(){
-         history.back();
-         page.find('.content').loader('hide');
-         setTimeout(function(){ $.notify({message: error},{type: 'default'}); }, 400);
-         return false
-       }, 300);
-     } else {
-       var list=result.list;
-       page.find('[data-role="main"]').html(list);
-       page.find('.content').loader('hide');
-       if (category) {
-         page.find('.bar-header-secondary').removeClass('d-none');
-         page.find('[data-role="category"]').html(category);
-       }
-     }
-  });
-}
-
 $( document ).ready(function() {
+
+  page_site_info.on('hidden.rc.page', function (event) {
+    var page = $(this);
+    page.find('.content').scrollTop(0);
+  });
 
   // 일반 페이지 보기
   page_site_page.on('show.rc.page', function (event) {

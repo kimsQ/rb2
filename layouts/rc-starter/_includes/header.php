@@ -1,7 +1,7 @@
-<header class="bar bar-nav bar-light bg-white px-0" data-snap-ignore="true">
+<header class="bar bar-nav bar-light px-0" data-snap-ignore="true">
   <a href="#drawer-left" data-toggle="drawer" class="icon icon-bars pull-left p-x-1" role="button"></a>
 
-  <?php if($d['layout']['header_noti']=='true'):?>
+  <?php if($my['uid'] && $d['layout']['header_noti']=='true'):?>
   <a class="icon pull-right p-r-1 pl-1" role="button"
     data-toggle="page"
     href="#page-noti-list"
@@ -20,7 +20,7 @@
     data-title="검색">search</a>
   <?php endif?>
 
-  <a class="title" data-href="<?php echo RW(0)?>" data-text="새로고침">
-    <?php echo $d['layout']['header_file']?'<img src="'.$g['url_layout'].'/_var/'.$d['layout']['header_file'].'">':stripslashes($d['layout']['header_title'])?>
-  </a>
+  <h1 class="title" data-href="<?php echo RW(0)?>" data-text="새로고침">
+    <?php echo $d['layout']['header_title']?stripslashes($d['layout']['header_title']):$_HS['name'] ?>
+  </h1>
 </header>

@@ -54,7 +54,7 @@ function moreNOTI(container,totalPage){
 function edgeEffect(container,pos,show) {
   var topEdge = $('#topEdge');
   var bottomEdge = $('#bottomEdge');
-  var bar_nav_height = container.find('.bar-nav:not(.d-none)').height();
+  var bar_nav_height = container.find('.bar-nav:not(.onscroll):not(.d-none)').height();
   var bar_standard_height = container.find('.bar-standard:not(.d-none)').height();
   var bar_header_secondary = container.find('.bar-header-secondary:not(.d-none)').height();
   var bar_tab_height = container.find('.bar-tab:not(.d-none)').height();
@@ -159,7 +159,8 @@ $('[data-plugin="timeago"]').timeago();  // 상대시간 플러그인 초기화
 
 $(document).ready(function() {
 
-  overScrollEffect(page_main);
+
+  overScrollEffect(page_main.find('.snap-content'));
   // pullToRefresh(page_main);
 
   $('[data-toggle="fullscreen"]').click(function() {

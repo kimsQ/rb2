@@ -32,7 +32,11 @@ function getPostAll(settings) {
 
         wrapper.find('[data-plugin="timeago"]').timeago();
 
-        overScrollEffect(page);
+        if (page.find('.snap-content').length) {
+          overScrollEffect(page.find('.snap-content'));
+        } else {
+          overScrollEffect(page);
+        }
 
         if (paging=='infinit') {
 
