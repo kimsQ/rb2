@@ -2,7 +2,7 @@
   <?php if ($my['uid']): ?>
   <a class="icon icon icon-gear pull-right p-x-1" role="button" data-toggle="modal" href="#modal-settings-general" data-url="/settings"></a>
   <h1 class="title" data-toggle="profile" data-target="#modal-member-profile" data-mbruid="<?php echo $my['uid'] ?>">
-    <img class="mt-2 mr-2 pull-left img-circle bg-faded" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'56') ?>" width="28">
+    <img class="mt-2 mr-2 pull-left img-circle bg-faded" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'56') ?>" style="width:1.75rem">
     <small><?php echo $my['nic']?$my['nic']:$my['name'] ?></small>
   </h1>
   <?php else: ?>

@@ -85,7 +85,7 @@
   		    <a class="navigate-right" data-toggle="page" data-start="#page-settings-profile" href="#page-settings-avatar">
 
   					<?php if($d['member']['form_settings_avatar']):?>
-  					<img class="media-object pull-left img-circle bg-faded" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'100') ?>" width="49">
+  					<img class="media-object pull-left img-circle bg-faded" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'100') ?>" style="width:3.0625rem">
   					<?php endif; ?>
 
   		      <div class="media-body">
@@ -102,7 +102,7 @@
   		  </li>
         <li class="table-view-cell">
           <a class="navigate-right" data-toggle="page" data-start="#page-settings-profile" href="#page-settings-cover">
-            <img class="media-object pull-left bg-faded" data-role="cover" src="<?php echo getCoverSrc($my['uid'],'100','100') ?>" width="49" height="49">
+            <img class="media-object pull-left bg-faded" data-role="cover" src="<?php echo getCoverSrc($my['uid'],'100','100') ?>" style="width:3.0625rem;height:3.0625rem">
             <div class="media-body">
               배경 이미지
               <p>프로필 배경이미지를 변경해보세요.</p>
@@ -250,7 +250,7 @@
 
           <div class="avatar-blank">
             <span>
-              <img class="img-circle js-avatar-img m-x-auto" src="<?php echo $g['s']?>/files/avatar/0.svg" alt="" width="160">
+              <img class="img-circle js-avatar-img m-x-auto" src="<?php echo $g['s']?>/files/avatar/0.svg" alt="" style="width:10rem">
               <span class="fa-stack fa-lg js-avatar-img">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
@@ -261,7 +261,7 @@
 
           <div class="avatar-photo">
             <span class="avatar-photo">
-              <img class="img-circle m-x-auto" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'320') ?>" alt="<?php echo $my[$_HS['nametype']]?>" width="160">
+              <img class="img-circle m-x-auto" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'320') ?>" alt="<?php echo $my[$_HS['nametype']]?>" style="width:10rem">
             </span>
             <div class="m-t-1">
               <a class="btn btn-secondary" href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=member&amp;a=member_photo_delete" onclick="return hrefCheck(this,true,'정말로 삭제 하시겠습니까?');">
