@@ -36,5 +36,10 @@ $RCD	= getDbSelect($table['s_tag'],$_WHERE1.' group by keyword order by hit desc
         </ul>
       </div>
     </div><!-- /.row -->
+    <?php if(!db_num_rows($RCD)):?>
+    <div class="text-xs-center py-5 text-muted">
+      자료가 없습니다.
+    </div>
+    <?php endif?>
   </main>
 </section>
