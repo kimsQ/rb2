@@ -27,6 +27,187 @@
 <!-- 댓글 -->
 <?php include_once $g['path_module'].'comment/themes/'.$d['comment']['skin_mobile'].'/component.php';  ?>
 
+<!-- 사이트 정보 -->
+<div class="page right" id="page-site-info">
+  <header class="bar bar-nav bar-light bg-white px-0">
+    <a class="icon material-icons pull-left  px-3" role="button" data-history="back">arrow_back</a>
+    <h1 class="title title-left" data-history="back">사이트 정보</h1>
+  </header>
+  <main role="main" class="content bg-white">
+
+    <?php if ($d['layout']['company_name']): ?>
+    <ul class="table-view mt-0 border-top-0">
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>회사명</small></p>
+          <?php echo $d['layout']['company_name'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['company_ceo']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>대표자</small></p>
+          <?php echo $d['layout']['company_ceo'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['company_num']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>사업자등록번호</small></p>
+          <?php echo $d['layout']['company_num'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['company_num2']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>통신판매업신고번호</small></p>
+          <?php echo $d['layout']['company_num2'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['company_manager']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>개인정보보호책임자</small></p>
+          <?php echo $d['layout']['company_manager'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['company_addr']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>주소</small></p>
+          <?php echo $d['layout']['company_addr'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['contact_tel']): ?>
+      <li class="table-view-cell">
+        <a href="tel://<?php echo $d['layout']['contact_tel'] ?>" class="navigate-right">
+          <div class="media-body">
+            <p class="mb-0"><small>전화번호</small></p>
+            <?php echo $d['layout']['contact_tel'] ?>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['contact_email']): ?>
+      <li class="table-view-cell">
+        <a href="mailto:<?php echo $d['layout']['contact_email'] ?>" class="navigate-right">
+          <div class="media-body">
+            <p class="mb-0"><small>이메일</small></p>
+            <?php echo $d['layout']['contact_email'] ?>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['contact_fax']): ?>
+      <li class="table-view-cell">
+        <div class="media-body">
+          <p class="mb-0"><small>팩스</small></p>
+          <?php echo $d['layout']['contact_fax'] ?>
+        </div>
+      </li>
+      <?php endif; ?>
+
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_youtube'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left" src="<?php echo $g['img_core'] ?>/sns/youtube.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>유튜브</small></p>
+            <small><?php echo $d['layout']['sns_youtube'] ?></small>
+          </div>
+        </a>
+      </li>
+
+      <?php if ($d['layout']['sns_instagram']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_instagram'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/instagram.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>인스타그램</small></p>
+            <small><?php echo $d['layout']['sns_instagram'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['sns_facebook']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_facebook'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/facebook.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>페이스북</small></p>
+            <small><?php echo $d['layout']['sns_facebook'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['sns_nblog']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_nblog'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/nblog.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>네이버 블로그</small></p>
+            <small><?php echo $d['layout']['sns_nblog'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['sns_ncafe']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_ncafe'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/ncafe.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>네이버 카페</small></p>
+            <small><?php echo $d['layout']['sns_ncafe'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['sns_dcafe']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_dcafe'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/dcafe.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>다음 카페</small></p>
+            <small><?php echo $d['layout']['sns_dcafe'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+      <?php if ($d['layout']['sns_band']): ?>
+      <li class="table-view-cell">
+        <a href="<?php echo $d['layout']['sns_band'] ?>" target="_blank" class="navigate-right">
+          <div class="media-body">
+            <img class="media-object pull-left img-rounded" src="<?php echo $g['img_core'] ?>/sns/band.png" style="width:2.625rem;border-radius: .7rem;">
+            <p class="mb-0"><small>밴드</small></p>
+            <small><?php echo $d['layout']['sns_band'] ?></small>
+          </div>
+        </a>
+      </li>
+      <?php endif; ?>
+
+    </ul>
+
+  </main>
+</div>
+
 <!-- 사이트 페이지 -->
 <div class="page right" id="page-site-page">
   <header class="bar bar-nav bar-light bg-white px-0">

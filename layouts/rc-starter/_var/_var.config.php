@@ -32,7 +32,7 @@ $d['layout']['dom'] = array(
 		'메인',
 		'',
 		array(
-			array('type','select','타입','최신 포스트 피드=postAllFeed,직접 꾸미기=widget'),
+			array('type','select','타입','기본=postAllFeed,직접 꾸미기=widget'),
 		),
 	),
 
@@ -54,10 +54,13 @@ $d['layout']['dom'] = array(
 		'소셜미디어',
 		'URL을 입력하세요.',
 		array(
+			array('youtube','input','유튜브',''),
 			array('instagram','input','인스타그램',''),
 			array('facebook','input','페이스북',''),
 			array('nblog','input','네이버블로그',''),
-			array('youtube','input','유튜브',''),
+			array('ncafe','input','네이버카페',''),
+			array('dcafe','input','다음카페',''),
+			array('band','input','밴드',''),
 		),
 	),
 
@@ -124,12 +127,19 @@ $d['layout']['widget'] = array (
 		),
 	),
 
-	// 'profile' => array(
-	// 	'채널',
-	// 	array(
-	// 		array('bs4-best-card','기간별 추천채널')
-	// 	),
-	// ),
+	'profile' => array(
+		'프로필',
+		array(
+			array('rc-default/my/card-default','나의 프로필 카드')
+		),
+	),
+
+	'site' => array(
+		'사이트',
+		array(
+			array('rc-default/cover-default','사이트 커버 기본형')
+		),
+	),
 
 	'search' => array(
 		'검색',
