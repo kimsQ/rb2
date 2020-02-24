@@ -46,8 +46,6 @@ $d['layout']['dom'] = array(
 			array('num2','input','통신판매업',''),
 			array('manager','input','개인정보보호책임자',''),
 			array('addr','textarea','주소','3'),
-			array('name','input','회사명',''),
-			array('addr','textarea','주소','3'),
 		),
 	),
 
