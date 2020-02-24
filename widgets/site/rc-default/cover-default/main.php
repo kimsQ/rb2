@@ -93,23 +93,23 @@
       <?php echo $wdgvar['subtitle']?$wdgvar['subtitle']:'사진, 동영상, 카드뷰 등 다양한 형태로 발행하는 브랜드 소식' ?>
     </small>
 
-    <button type="button" class="btn btn-circle-secondary btn-sm">
+    <a type="button" class="btn btn-circle-secondary btn-sm">
       <i class="material-icons">share</i>
       <small>공유하기</small>
-    </button>
+    </a>
     <a href="tel://<?php echo $d['layout']['contact_tel'] ?>" class="btn btn-circle-secondary btn-sm ml-4">
       <i class="material-icons">phone</i>
       <small>전화문의</small>
     </a>
-    <button type="button" class="btn btn-circle-secondary btn-sm ml-4">
+    <a type="button" class="btn btn-circle-secondary btn-sm ml-4">
       <i class="material-icons">comment</i>
       <small>카톡상담</small>
-    </button>
+    </a>
   </main>
 
   <?php if ($my['uid']): ?>
   <nav class="nav nav-control">
-    
+
     <?php if ($d['post']['writeperm']): ?>
     <a class="nav-link" href="#popup-post-newPost"
       data-toggle="popup"

@@ -1,30 +1,34 @@
-<li class="media mb-2" data-role="item"
-	data-toggle="page"
-	data-target="#page-post-view"
-	data-format="{$format}"
-	data-start="{$start}"
-	data-uid="{$uid}"
-	data-featured="{$featured_16by9}"
-	data-provider="{$provider}"
-	data-videoId="{$videoId}"
-	data-title="{$subject}"
-	data-url="/post/{$cid}">
-  <div class="media-left {$has_featured}">
-		<div class="embed-responsive embed-responsive-16by9 bg-faded">
-			<img class="media-object" src="{$featured_16by9_sm}" alt="" data-role="featured" style="width:10rem">
-			<time class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:0.125rem;bottom:0.125rem" data-role="time">{$time}</time>
-		</div>
-  </div>
-  <div class="media-body pt-1">
-    <h4 class="media-heading f15 line-clamp-2">{$subject}</h4>
-		<ul class="list-inline f13 text-muted mt-1 mb-0">
-			<li class="list-inline-item">{$nic}</li>
-			<li class="list-inline-item">조회수 {$hit}회 </li>
-			<li class="list-inline-item">댓글 {$comment} </li>
-			<li class="list-inline-item"><time data-plugin="timeago" datetime="{$d_modify}"></time></li>
-			<li class="list-inline-item"><i class="material-icons f15" style="vertical-align:text-bottom">{$display}</i></li>
-		</ul>
-  </div>
+<li class="d-flex justify-content-between mb-2" data-role="item">
+
+	<div class="media"
+		data-toggle="page"
+		data-target="#page-post-view"
+		data-format="{$format}"
+		data-start="{$start}"
+		data-uid="{$uid}"
+		data-featured="{$featured_16by9}"
+		data-provider="{$provider}"
+		data-videoId="{$videoId}"
+		data-title="{$subject}"
+		data-url="/post/{$cid}">
+		<div class="media-left {$has_featured}">
+			<div class="embed-responsive embed-responsive-16by9 bg-faded">
+				<img class="media-object" src="{$featured_16by9_sm}" alt="" data-role="featured" style="width:10rem">
+				<time class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:0.125rem;bottom:0.125rem" data-role="time">{$time}</time>
+			</div>
+	  </div>
+	  <div class="media-body pt-1">
+	    <h4 class="media-heading f15 line-clamp-2">{$subject}</h4>
+			<ul class="list-inline f13 text-muted mt-1 mb-0">
+				<li class="list-inline-item">{$nic}</li>
+				<li class="list-inline-item">조회수 {$hit}회 </li>
+				<li class="list-inline-item">댓글 {$comment} </li>
+				<li class="list-inline-item"><time data-plugin="timeago" datetime="{$d_modify}"></time></li>
+				<li class="list-inline-item"><i class="material-icons f15" style="vertical-align:text-bottom">{$display}</i></li>
+			</ul>
+	  </div>
+	</div>
+
 	<div class="ml-4 px-1">
 		<a href="#popup-post-postMore" data-toggle="popup" data-uid="{$uid}" data-role="more" class="icon material-icons text-muted f18">
 			more_vert
