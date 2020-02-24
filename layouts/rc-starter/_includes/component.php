@@ -121,6 +121,7 @@
       </li>
       <?php endif; ?>
 
+      <?php if ($d['layout']['sns_youtube']): ?>
       <li class="table-view-cell">
         <a href="<?php echo $d['layout']['sns_youtube'] ?>" target="_blank" class="navigate-right">
           <div class="media-body">
@@ -130,6 +131,7 @@
           </div>
         </a>
       </li>
+     <?php endif; ?>
 
       <?php if ($d['layout']['sns_instagram']): ?>
       <li class="table-view-cell">
