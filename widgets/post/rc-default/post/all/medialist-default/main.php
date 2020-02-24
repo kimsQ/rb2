@@ -43,13 +43,13 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
         <?php if ($wdgvar['thumb']=='avatar'): ?>
         <div class="position-relative pull-<?php echo $wdgvar['media_align']=='left'?'left mr-2':'right ml-2' ?>">
           <img class="media-object img-circle"
-            src="<?php echo getAvatarSrc($_R['mbruid'],'110') ?>" style="width:55px">
+            src="<?php echo getAvatarSrc($_R['mbruid'],'110') ?>" style="width:3.4375rem">
         </div>
         <?php else: ?>
         <?php if (getUpImageSrc($_R)): ?>
         <div class="position-relative pull-<?php echo $wdgvar['media_align']=='left'?'left mr-2':'right ml-2' ?>">
           <img class="media-object border"
-            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:95px">
+            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:5.9375rem">
           <?php if ($_R['format']==2): ?>
           <?php if ($wdgvar['duration']=='show'): ?>
           <time class="badge badge-default bg-black rounded-0 position-absolute" style="right:1px;bottom:1px"><?php echo getUpImageTime($_R) ?></time>
@@ -60,8 +60,6 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'gid='.
         </div>
         <?php endif; ?>
         <?php endif; ?>
-
-
 
         <div class="media-body">
           <span class="line-clamp-2">

@@ -58,7 +58,7 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
           <span class="rank-icon <?php echo $wdgvar['ranking']!='false' && $i<$active_ranking?' active':'' ?>"><span><?php echo $i ?></span></span>
           <?php endif; ?>
           <img class="media-object img-circle"
-            src="<?php echo getAvatarSrc($_R['mbruid'],'110') ?>" style="width:55px">
+            src="<?php echo getAvatarSrc($_R['mbruid'],'110') ?>" style="width:3.4375rem">
         </div>
         <?php else: ?>
         <?php if (getUpImageSrc($_R)): ?>
@@ -67,7 +67,7 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
           <span class="rank-icon <?php echo $wdgvar['ranking']!='false' && $i<$active_ranking?' active':'' ?>"><span><?php echo $i ?></span></span>
           <?php endif; ?>
           <img class="media-object"
-            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:95px">
+            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:5.9375rem">
           <?php if ($_R['format']==2): ?>
           <?php if ($wdgvar['duration']=='show'): ?>
           <time class="badge badge-default bg-black rounded-0 position-absolute" style="right:1px;bottom:1px"><?php echo getUpImageTime($_R) ?></time>

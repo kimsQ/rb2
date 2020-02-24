@@ -53,7 +53,7 @@ while($R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.$
         <?php if (getUpImageSrc($_R)): ?>
         <div class="position-relative pull-left mr-2">
           <img class="media-object border"
-            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:95px">
+            src="<?php echo getPreviewResize(getUpImageSrc($_R),'231x130') ?>" style="width:5.9375rem">
           <?php if ($_R['format']==2): ?>
           <?php if ($wdgvar['duration']=='show'): ?>
           <time class="badge badge-default bg-black rounded-0 position-absolute" style="right:1px;bottom:1px"><?php echo getUpImageTime($_R) ?></time>

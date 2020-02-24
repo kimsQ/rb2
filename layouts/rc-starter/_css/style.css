@@ -925,6 +925,10 @@ body.refreshing .refresher.shrink {
 
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 
+.material-icons {
+  font-size: 1.5rem;
+}
+
 /**
  * 6 - Drawer 드로어(사이드 메뉴)
  * ----------------------------------------------------------------------------
@@ -1163,7 +1167,7 @@ body.refreshing .refresher.shrink {
   color: #fff;
   z-index: 99;
   font-size: 0.75rem;
-
+}
 
 /* widget */
 .widget {
@@ -1185,12 +1189,12 @@ body.refreshing .refresher.shrink {
   justify-content: space-between !importa
   background-color: #fff;
   border-bottom: 0;
-  padding: .7rem 0rem .5rem
+  padding: .7rem 0.9375rem .5rem;
 }
 .widget header h3 {
   margin-bottom: 0;
   font-weight: 600;
-  font-size: 1.13em;
+  font-size: 1rem;
   line-height: 1.29;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1310,9 +1314,20 @@ body.refreshing .refresher.shrink {
 }
 
 
-
-
 /**
   * 8 - utility 유틸리티
   * ----------------------------------------------------------------------------
   */
+
+.f12 {
+  font-size: 0.75rem !important;
+}
+.f13 {
+  font-size: 0.8125rem !important;
+}
+.f14 {
+  font-size: 0.875rem !important;
+}
+.f15 {
+  font-size: 0.9375rem !important;
+}
