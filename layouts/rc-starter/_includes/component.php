@@ -267,56 +267,56 @@
     </header>
     <div class="content text-xs-center rounded-0">
 
-      <ul class="table-view mt-0" style="max-height: 400px;">
+      <ul class="table-view mt-0" style="max-height: 25rem;">
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/kakaotalk.png" alt="카카오톡" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/kakaotalk.png" alt="카카오톡" class="media-object pull-left img-circle" style="width:2.375rem">
           카카오톡
           <button class="btn btn-secondary" id="kakao-link-btn">링크공유</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/youtube.png" alt="유튜브" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/youtube.png" alt="유튜브" class="media-object pull-left img-circle" style="width:2.375rem">
           유튜브
           <button class="btn btn-secondary" data-role="youtube" data-toggle="linkCopy" data-clipboard-text="">
             링크복사
           </button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/instagram.png" alt="인스타그램" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/instagram.png" alt="인스타그램" class="media-object pull-left img-circle" style="width:2.375rem">
           인스타그램
           <button class="btn btn-secondary" data-role="instagram" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/facebook.png" alt="페이스북공유" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/facebook.png" alt="페이스북공유" class="media-object pull-left img-circle" style="width:2.375rem">
           페이스북
           <button class="btn btn-secondary" data-role="facebook" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/band.png" alt="밴드" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/band.png" alt="밴드" class="media-object pull-left img-circle" style="width:2.375rem">
           밴드
           <button class="btn btn-secondary" data-role="band" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/naver.png" alt="네이버 카페" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/naver.png" alt="네이버 카페" class="media-object pull-left img-circle" style="width:2.375rem">
           네이버 카페
           <button class="btn btn-secondary" data-role="naver" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/kakaostory.png" alt="카카오스토리" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/kakaostory.png" alt="카카오스토리" class="media-object pull-left img-circle" style="width:2.375rem">
           카카오스토리
           <button class="btn btn-secondary" data-role="kakaostory" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/twitter.png" alt="트위터" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/twitter.png" alt="트위터" class="media-object pull-left img-circle" style="width:2.375rem">
           트위터
           <button class="btn btn-secondary" data-role="twitter" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/mail.png" alt="이메일" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/mail.png" alt="이메일" class="media-object pull-left img-circle" style="width:2.375rem">
           이메일
           <button class="btn btn-secondary" data-role="email" data-toggle="linkCopy">링크복사</button>
         </li>
         <li class="table-view-cell media align-items-center">
-          <img src="<?php echo $g['img_core']?>/sns/sms.png" alt="SMS" class="media-object pull-left img-circle" style="width:38px">
+          <img src="<?php echo $g['img_core']?>/sns/sms.png" alt="SMS" class="media-object pull-left img-circle" style="width:2.375rem">
           SMS
           <button class="btn btn-secondary" data-role="sms" data-toggle="linkCopy">링크복사</button>
         </li>

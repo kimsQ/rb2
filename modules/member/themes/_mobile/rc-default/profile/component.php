@@ -17,7 +17,7 @@
       </h1>
     </header>
     <div class="bar bar-header-secondary  border-bottom-0 p-x-0 shadow-sm">
-      <nav class="nav nav-inline" style="margin-top: 3px;"></nav>
+      <nav class="nav nav-inline" style="margin-top: 0.1875rem;"></nav>
     </div>
     <div class="content bg-white" data-control="scroll" data-type="updown" data-defaultHeight="180"></div>
   </div><!-- /.modal -->
@@ -28,7 +28,7 @@
   <div class="content-padded py-1">
     <div class="media" data-history="back">
       <span class="media-left media-middle">
-        <img data-role="avatar" class="border rounded-circle" style="width:75px">
+        <img data-role="avatar" class="border rounded-circle" style="width:4.6875rem">
       </span>
       <div class="media-body">
         <h6 class="media-heading mb-2">

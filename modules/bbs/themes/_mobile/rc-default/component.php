@@ -319,7 +319,7 @@
 
   			 </div><!-- /.form-list -->
 
-         <div data-role="editor" style="margin-top: -5px;" class="mb-5">
+         <div data-role="editor" style="margin-top: -0.3125rem;" class="mb-5">
            <div data-role="editor-body" class="editable-container" style="color:#55595c"></div>
          </div>
 
@@ -434,7 +434,7 @@
         예
       </a>
     </nav>
-    <div class="content" style="min-height: 115px;">
+    <div class="content" style="min-height: 7.1875rem;">
       <div class="p-a-2 text-xs-center">글쓰기를 취소 하시겠습니까?</div>
     </div>
   </div>

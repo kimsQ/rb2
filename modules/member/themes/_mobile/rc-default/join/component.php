@@ -452,11 +452,11 @@ $_SESSION['SL'] = ''; //세션 비우기
       <h1 class="title">
         <span>
           <?php if ($_photo): ?>
-  				<img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
+  				<img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 2.1875rem">
   				<?php else: ?>
-  				<img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
+  				<img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 2.1875rem">
   				<?php endif; ?>
-          <img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" width="35" style="margin-left: -10px">
+          <img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" style="width: 2.1875rem;margin-left: -0.625rem">
         </span>
         <?php echo $name ?>님
       </h1>

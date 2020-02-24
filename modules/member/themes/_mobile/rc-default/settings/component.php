@@ -740,7 +740,7 @@
             data-change="true"
             data-url="<?php echo getProfileLink($my['uid']); ?>"
             data-nic="<?php echo $my['nic'] ?>">
-            <img class="media-object pull-left img-circle" src="<?php echo getAvatarSrc($my['uid'],'130') ?>" style="width:65px;height:65px">
+            <img class="media-object pull-left img-circle" src="<?php echo getAvatarSrc($my['uid'],'130') ?>" style="width:4.0625rem;height:4.0625rem">
             <div class="media-body">
               <?php echo $my['name'] ?>
               <p>

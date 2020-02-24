@@ -36,7 +36,7 @@
 <div id="sheet-noti" class="sheet">
 
   <div class="card card-full">
-    <div class="card-header bg-primary px-2 clearfix rounded-0" data-history="back" style="padding-bottom: 8px;">
+    <div class="card-header bg-primary px-2 clearfix rounded-0" data-history="back" style="padding-bottom: 0.5rem;">
       <div class="pull-left">
         <span data-role="micon" style="vertical-align: middle;"></span>
         <span data-role="title" class="ml-1" style="vertical-align: middle;"></span>
@@ -51,7 +51,7 @@
 
         <div class="media">
           <span class="media-left">
-            <img class="img-circle" src="" style="width:60px" data-role="avatar">
+            <img class="img-circle" src="" style="width:3.75rem" data-role="avatar">
           </span>
           <div class="media-body">
             <span data-role="message"></span>

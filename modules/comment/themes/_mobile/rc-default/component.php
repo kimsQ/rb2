@@ -53,7 +53,7 @@
 <!-- Popup : 댓글관리 -->
 <div id="popup-comment-mypost" class="popup zoom">
   <div class="popup-content">
-    <div class="content" style="min-height: 80px;">
+    <div class="content" style="min-height: 5rem;">
       <ul class="table-view table-view-full mt-0 text-xs-center">
         <li class="table-view-cell">
           <a data-toggle="commentWrite" data-act="edit">수정하기</a>

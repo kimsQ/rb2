@@ -127,7 +127,7 @@
 <!-- 팝업 : 로그인 안내-->
 <div id="popup-login-guide" class="popup zoom">
   <div class="popup-content rounded-0">
-    <div class="content rounded-0" style="min-height: 110px;">
+    <div class="content rounded-0" style="min-height: 6.875rem;">
       <div class="p-a-1">
         <h5 data-role="title"></h5>
 				<span data-role="subtext" class="f14 text-muted"></span>
@@ -166,12 +166,12 @@ $_SESSION['SL'] = ''; //세션 비우기
     <h1 class="title">
       <span>
 				<?php if ($_photo): ?>
-				<img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
+				<img src="<?php echo $user_avatar_src ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 2.1875rem">
 				<?php else: ?>
-				<img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 35px">
+				<img src="<?php echo $g['s'].'/files/avatar/0.svg' ?>" alt=<?php echo $name ?>"" class="rounded-circle border" style="width: 2.1875rem">
 				<?php endif; ?>
 				<?php if ($sns_name): ?>
-				<img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" width="35" style="margin-left: -10px">
+				<img src="<?php echo $g['img_core']?>/sns/<?php echo $sns_name ?>.png" alt="<?php echo $sns_name ?>" class="rounded-circle" style="width: 2.1875rem;margin-left: -0.625rem">
 				<?php endif; ?>
       </span>
       <?php echo $name ?>님
