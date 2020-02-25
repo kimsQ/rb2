@@ -10,9 +10,9 @@
 		<div class="card-body">
 
 			<span class="form-text text-muted mb-4">
-				프로젝트 키는 킴스큐 프로젝트와 호스팅 계정간의 제반정보의 연동을 위한 인증 및 지원을 위해 활용되며 호스팅 개설시 부여됩니다.<br>
-				key가 맞지 않거나 분실시에는 <a href="https://kimsq.com" target="_blank">kimsq.com</a> 에 로그인 후, 나의 프로젝트 > 호스팅 > kimsQ 설치 페이지에서 확인할 수 있습니다.<br>
-				기타 문의 사항은 live@kimsq.com 또는 전화 1544-1507 로 문의 바랍니다.
+				프로젝트 키는 프로젝트의 라이센스 취득여부를 확인하여 후속 지원에 활용됩니다. <br>
+        key가 맞지 않거나 분실시에는 kimsq.com 에 로그인 후, 나의 프로젝트 페이지에서 확인할 수 있습니다. <br>
+        기타 문의 사항은 break@redblock.co.kr 로 문의 바랍니다.
 			</span>
 
 			<form name="procKey" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);">
