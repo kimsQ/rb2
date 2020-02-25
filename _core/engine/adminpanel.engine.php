@@ -245,7 +245,7 @@ $mf_json = json_decode($mf_str , true);
 		</div>
 	</div>
 
-	<div class="rb-system-sidebar rb-system-site rb-default" role="application">
+	<div class="rb-system-sidebar rb-system-site rb-default shadow-sm" role="application">
 		<div class="rb-opener" role="button"><i class="fa fa-caret-left fa-lg"></i></div>
 		<div class="rb-panel-top">
 			<span class="rb-icon-hide js-tooltip" title="<?php echo $_COOKIE['_tabShow3']?'고정하기':'숨기기'?>"><i class="fa rb-icon"></i></span>

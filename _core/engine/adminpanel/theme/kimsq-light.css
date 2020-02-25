@@ -1,5 +1,6 @@
 body {
-	background-color: #f8f9fa
+	background-color: #F4F4F4;
+	font-family: 'Noto Sans KR', sans-serif, '돋움', dotum, sans-serif;
 }
 
 /*************** theme ******************/
@@ -116,7 +117,7 @@ body {
 
 .rb-system-sidebar.rb-inverse {
   display: block;
-  background-color: #fff;
+  background-color: #F4F4F4;
   min-height: 100%;
 	border-right: 1px solid rgba(0,0,0,.1);
 }
@@ -149,6 +150,10 @@ body {
   color: #c9c9c9
 }
 
+.rb-system-admin .rb-icon-minify:hover .rb-icon:before {
+	color  : #999;
+}
+
 .rb-system-sidebar.rb-inverse nav ul li.active a,
 .rb-system-sidebar.rb-inverse nav ul li.active a:hover {
   color: #555
@@ -160,7 +165,10 @@ body {
 }
 
 .rb-system-admin nav > ul li.active ul li.active >a {
-	background-color: #fff
+	background-color: #D5D5D5
+}
+.rb-system-admin #sidebar-sites nav .list-group-item.active {
+  background-color: #D5D5D5;
 }
 
 .rb-system-sidebar.rb-inverse nav ul li:hover,
@@ -177,15 +185,14 @@ body {
   color: #444;
 }
 #sidebar-modules .list-group-item.active a {
-  background-color: #272c32;
-	color:#fff
+  background-color: #D5D5D5;
 }
 .rb-system-sidebar.rb-inverse nav ul li .menu-item-parent {
   color: #444;
 }
 
 .rb-system-sidebar.rb-inverse nav ul li a:focus {
-  color: #c9c9c9
+  /* color: #c9c9c9 */
 }
 
 .rb-system-sidebar.rb-inverse nav ul ul {
@@ -201,11 +208,11 @@ body {
 }
 
 .rb-system-sidebar.rb-inverse nav > ul li.active>a.collapsed:before {
-  color: #eee;
+  color: #D5D5D5;
 }
 
 .rb-system-sidebar.rb-inverse nav > ul li.active ul li.active >a:before {
-  color: #eee;
+  color: #D5D5D5;
 }
 
 .rb-system-sidebar.rb-inverse nav ul li a:active {
@@ -331,16 +338,16 @@ body {
 	border-left: 1px solid rgba(0,0,0,.1);
 }
 .rb-system-site .rb-panel-top {
-	background-color: #fff!important;
+	background-color: #F4F4F4!important;
   border-bottom: 1px solid rgba(0,0,0,.1);
 	color: #eee
 }
 .rb-system-site .rb-icon-hide {
-	color: #444
+	color: #999
 }
 .rb-hidden-system-site .rb-system-site .rb-icon-hide:hover .rb-icon:before,
 .rb-system-site .rb-icon-hide:hover .rb-icon:before {
-  color: #eee;
+  color  : #999;
 }
 
 /* tabs-below */
@@ -451,12 +458,11 @@ body {
 }
 .rb-system-site .card {
 	background-color: inherit;
-	color: #eee
+	color: #555;
 }
 
-
 .bg-light {
-  background-color: rgba(0,0,0,.03)!important;
+  background-color: #F4F4F4!important;
 }
 .btn.btn-light {
 
@@ -465,7 +471,7 @@ body {
   border-radius: 4rem;
 }
 .btn-outline-primary {
-  color: #ccc;
+  color: #555;
   border-color: #ccc;
 }
 .rb-hidden-system-site .rb-system-site .rb-opener {
