@@ -1275,9 +1275,9 @@ body.refreshing .refresher.shrink {
 }
 
 .widget .card .btn {
-  position: absolute;
+  /* position: absolute;
   right: .5rem;
-  top: .5rem;
+  top: .5rem; */
 }
 
 .widget a .widget-title {
