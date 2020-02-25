@@ -162,6 +162,9 @@ code {
   border-color: rgb(0, 123, 255) !important;
   border-image: initial !important;
 }
+.sidebar .list-group-item.active .badge-dark {
+  color: #eee;
+}
 
 .breadcrumb {
   background-color: transparent;
@@ -353,6 +356,14 @@ h4 {
   border: 1px solid #222;
 }
 
+.table-active, .table-active>td, .table-active>th {
+  background-color: #007bff;
+}
+.table tbody .table-active td .badge-dark,
+.table tbody .table-active td a {
+  color: #fff;
+}
+
 #rb-body .card .card-header.rb-icon .icon {
   float: left;
   border-right: 1px solid #c9c9c9;
@@ -364,6 +375,7 @@ h4 {
   left: 1px;
   text-align: center;
 }
+
 
 /*comment*/
 .form-control,
@@ -808,6 +820,11 @@ h4 {
 .card-header,
 .card-footer {
   background-color: #fff
+}
+
+.card>.list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 /*유틸리티*/
