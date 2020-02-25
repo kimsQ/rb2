@@ -32,17 +32,17 @@
 
 				<?php if ($d['member']['login_social']): ?>
 
-				<?php if ($d['connect']['use_n']): ?>
-				<button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-naver text-xs-center" data-connect="naver" role="button">
-					<span></span>
-					네이버로 로그인
-				</button>
-				<?php endif; ?>
-
 				<?php if ($d['connect']['use_k']): ?>
 				<button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-kakao text-xs-center" data-connect="kakao" role="button">
 					<span></span>
 					카카오톡으로 로그인
+				</button>
+				<?php endif; ?>
+
+				<?php if ($d['connect']['use_n']): ?>
+				<button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-naver text-xs-center" data-connect="naver" role="button">
+					<span></span>
+					네이버로 로그인
 				</button>
 				<?php endif; ?>
 

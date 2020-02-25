@@ -22,17 +22,17 @@
         <?php if ($d['member']['join_bySocial']): ?>
         <span class="section-divider"><span>또는</span></span>
 
+        <?php if ($d['connect']['use_k']): ?>
+        <button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-kakao text-xs-center" data-connect="kakao" role="button">
+          <span></span>
+          카카오톡으로 가입
+        </button>
+        <?php endif; ?>
+
         <?php if ($d['connect']['use_n']): ?>
         <button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-naver text-xs-center" data-connect="naver" role="button">
 					<span></span>
 					네이버로 가입
-				</button>
-        <?php endif; ?>
-
-        <?php if ($d['connect']['use_k']): ?>
-        <button type="button" class="btn btn-lg btn-secondary btn-block btn-social btn-kakao text-xs-center" data-connect="kakao" role="button">
-					<span></span>
-					카카오톡으로 가입
 				</button>
         <?php endif; ?>
 

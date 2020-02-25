@@ -63,17 +63,17 @@
         <?php if ($d['member']['login_social']): ?>
         <div class="mx-auto mt-3 px-4">
 
-          <?php if ($d['connect']['use_n']): ?>
-          <button type="button" class="btn btn-lg btn-block btn-social btn-naver" data-connect="naver" role="button">
-            <span></span>
-            <span class="f14">네이버로 로그인</span>
-          </button>
-          <?php endif; ?>
-
           <?php if ($d['connect']['use_k']): ?>
           <button type="button" class="btn btn-lg btn-block btn-social btn-kakao" data-connect="kakao" role="button">
             <span></span>
             <span class="f14">카카오톡으로 로그인</span>
+          </button>
+          <?php endif; ?>
+
+          <?php if ($d['connect']['use_n']): ?>
+          <button type="button" class="btn btn-lg btn-block btn-social btn-naver" data-connect="naver" role="button">
+            <span></span>
+            <span class="f14">네이버로 로그인</span>
           </button>
           <?php endif; ?>
 

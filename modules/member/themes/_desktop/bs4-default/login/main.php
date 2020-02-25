@@ -55,17 +55,17 @@
 				<div class="mx-auto mt-3">
 					<h6 class="mb-2">내 소셜계정으로 로그인</h6>
 
+					<?php if ($d['connect']['use_k']): ?>
+					<button type="button" class="btn btn-lg btn-block btn-social btn-kakao" data-connect="kakao" role="button">
+						<span></span>
+						<span class="f14">카카오톡 계정으로 로그인</span>
+					</button>
+					<?php endif; ?>
+
 					<?php if ($d['connect']['use_n']): ?>
 					<button type="button" class="btn btn-lg btn-block btn-social btn-naver" data-connect="naver" role="button">
             <span></span>
             <span class="f14">네이버 계정으로 로그인</span>
-          </button>
-					<?php endif; ?>
-
-					<?php if ($d['connect']['use_k']): ?>
-					<button type="button" class="btn btn-lg btn-block btn-social btn-kakao" data-connect="kakao" role="button">
-            <span></span>
-            <span class="f14">카카오톡 계정으로 로그인</span>
           </button>
 					<?php endif; ?>
 

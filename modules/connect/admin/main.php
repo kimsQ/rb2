@@ -20,20 +20,9 @@ include_once $_tmpdfile;
 
 					<div class="list-group list-group-flush border-bottom">
 
-						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if(!$_SESSION['connect_config_nav'] || $_SESSION['connect_config_nav']=='naver'):?> active<?php endif?>" data-toggle="pill" href="#pane_naver" onclick="sessionSetting('connect_config_nav','naver','','');">
+						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if(!$_SESSION['connect_config_nav'] || $_SESSION['connect_config_nav']=='kakao'):?> active<?php endif?>" data-toggle="pill" href="#pane_kakao" onclick="sessionSetting('connect_config_nav','kakao','','');">
 							<span>
-								<img src="<?php echo $g['img_module_admin']?>/naver-simbol-gray.png" style="width: 15px" class="ml-1 mr-2 align-baseline">
-								네이버
-							</span>
-							<span>
-							<?php if ($d[$module]['use_n']): ?>
-							<i class="fa fa-circle text-success ml-auto" data-toggle="tooltip" title="" data-original-title="사용중"></i>
-							<?php endif; ?>
-							</span>
-						</a>
-						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($_SESSION['connect_config_nav']=='kakao'):?> active<?php endif?>" data-toggle="pill" href="#pane_kakao" onclick="sessionSetting('connect_config_nav','kakao','','');">
-							<span>
-								<i class="fa fa-commenting-o fa-fw fa-lg" aria-hidden="true"></i> 카카오
+								카카오
 							</span>
 							<span>
 							<?php if ($d[$module]['use_k']): ?>
@@ -43,7 +32,7 @@ include_once $_tmpdfile;
 						</a>
 						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($_SESSION['connect_config_nav']=='google'):?> active<?php endif?>" data-toggle="pill" href="#pane_google" onclick="sessionSetting('connect_config_nav','google','','');">
 							<span>
-								<i class="fa fa-google fa-fw fa-lg" aria-hidden="true"></i> 구글
+								구글
 							</span>
 							<span>
 							<?php if ($d[$module]['use_g']): ?>
@@ -51,10 +40,19 @@ include_once $_tmpdfile;
 							<?php endif; ?>
 							</span>
 						</a>
-
+						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($_SESSION['connect_config_nav']=='naver'):?> active<?php endif?>" data-toggle="pill" href="#pane_naver" onclick="sessionSetting('connect_config_nav','naver','','');">
+							<span>
+								네이버
+							</span>
+							<span>
+							<?php if ($d[$module]['use_n']): ?>
+							<i class="fa fa-circle text-success ml-auto" data-toggle="tooltip" title="" data-original-title="사용중"></i>
+							<?php endif; ?>
+							</span>
+						</a>
 						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($_SESSION['connect_config_nav']=='facebook'):?> active<?php endif?>"  data-toggle="pill" href="#pane_facebook" onclick="sessionSetting('connect_config_nav','facebook','','');">
 							<span>
-								<i class="fa fa-facebook fa-fw fa-lg" aria-hidden="true"></i> 페이스북
+								페이스북
 							</span>
 							<span>
 							<?php if ($d[$module]['use_f']): ?>
@@ -64,7 +62,7 @@ include_once $_tmpdfile;
 						</a>
 						<a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($_SESSION['connect_config_nav']=='instagram'):?> active<?php endif?>"  data-toggle="pill" href="#pane_instagram" onclick="sessionSetting('connect_config_nav','instagram','','');">
 							<span>
-								<i class="fa fa-instagram fa-fw fa-lg" aria-hidden="true"></i> 인스타그램
+								인스타그램
 							</span>
 							<span>
 							<?php if ($d[$module]['use_i']): ?>
@@ -241,7 +239,7 @@ include_once $_tmpdfile;
 									<div class="col-lg-10 col-xl-9">
 
 										<div class="input-group">
-										  <input type="text" class="form-control" value="<?php echo $g['s'].'/'.$r.'/oauth/kakao'?>" readonly id="url_k">
+										  <input type="text" class="form-control" value="<?php echo $g['url_root'].'/'.$r.'/oauth/kakao'?>" readonly id="url_k">
 										  <div class="input-group-append">
 												<button class="btn btn-light js-clipboard" type="button" data-tooltip="tooltip" title="클립보드에 복사" data-clipboard-target="#url_k">
 													<i class="fa fa-clipboard"></i>

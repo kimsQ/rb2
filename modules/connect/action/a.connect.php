@@ -6,8 +6,9 @@ $connect_referer = $_SESSION['connect_referer'];
 
 include $g['path_var'].'site/'.$r.'/connect.var.php';
 
-if ($_POST['returnofgoogle'] == 'Y')
-{
+$_SESSION['SL'] = array();
+
+if ($_POST['returnofgoogle'] == 'Y') {
 	$result = array();
 	$result['token'] = $_POST['token'];
 	$result['uid'] = $_POST['uid'];
@@ -73,16 +74,19 @@ function socialLogin($s,$id,$secret,$callBack,$type) {
 	}
 
 	// 카카오 ******************************************************************************************************************************************/
-	if ($s == 'kakao')
-	{
-
-		$g['connect']['callurl'] = 'https://kauth.kakao.com/oauth/token?client_id='.$g['connect']['client_id'].'&grant_type=authorization_code&code='.$g['connect']['code'].'&redirect_uri='.$g['connect']['redirect_uri'];
+	if ($s == 'kakao') {
+		$g['connect']['callurl'] = 'https://kauth.kakao.com/oauth/token?client_id='.$g['connect']['client_id'].'&grant_type=authorization_code&code='.$g['connect']['code'].'&redirect_uri='.$g['connect']['redirect_uri'].'&client_secret='.$g['connect']['client_secret'];
 
 		if ($type == 'token')
 		{
-			if($_GET['error'] == 'access_denied') getLink('','','인증에 실패했습니다. 다시 시도해 주세요.','close');
-			if ($_SESSION['SL'][$s]['userinfo']['access_token']) $dat1['access_token'] = $_SESSION['SL'][$s]['userinfo']['access_token'];
-			else $dat1 = json_decode(getCURLData($g['connect']['callurl'],''), true);
+
+			if($_GET['error'] == 'access_denied') getLink('','','인증에 실패했습니다. 다시 시도해 주세요.','');
+
+			if ($_SESSION['SL'][$s]['userinfo']['access_token']) {
+				$dat1['access_token'] = $_SESSION['SL'][$s]['userinfo']['access_token'];
+			} else {
+				$dat1 = json_decode(getCURLData($g['connect']['callurl'],''), true);
+			}
 
 			$dat2 = json_decode(getCURLData('https://kapi.kakao.com/v2/user/me',array("Authorization: Bearer ".$dat1['access_token'])), true);
 			$isksuser = json_decode(getCURLData('https://kapi.kakao.com/v1/api/story/isstoryuser',array("Authorization: Bearer ".$dat1['access_token'])), true);
@@ -120,6 +124,7 @@ function socialLogin($s,$id,$secret,$callBack,$type) {
 			$result['ks_img_bg'] = $dat3['bgImageURL'];
 
 			$_SESSION['SL'][$s]['userinfo'] = $result;
+
 			header('Location: '.$connect_referer);
 		}
 	}
