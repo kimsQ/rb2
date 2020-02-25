@@ -28,7 +28,7 @@ code {
 }
 
 #rb-body.lang-ko {
-  font-family: '돋움', dotum, sans-serif;
+  font-family: 'Noto Sans KR', "돋움", dotum, '나눔고딕', 'Nanum Gothic', sans-serif, FontAwesome, kimsq !important;
 }
 
 #rb-body.lang-en {

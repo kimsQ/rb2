@@ -6,7 +6,7 @@
 /* ------------------ 공통사항 --------------------*/
 body {
   padding-top: 3.5rem;
-  background-color: #fff!important;
+  background-color: #fff !important;
   padding: 0;
   font-family: 'Noto Sans KR', '돋움', dotum, sans-serif;
   font-size: 16px;
@@ -162,6 +162,7 @@ code {
   border-color: rgb(0, 123, 255) !important;
   border-image: initial !important;
 }
+
 .sidebar .list-group-item.active .badge-dark {
   color: #eee;
 }
@@ -307,37 +308,31 @@ h4 {
   color: #999;
   border: 1px solid #222;
 }
+
 .input-group-text {
   background-color: #fff
 }
 
 /* tab */
 .nav-tabs {
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 .nav-tabs .nav-link {
   border-radius: 0;
 }
 
-.nav-tabs .nav-link:hover {
+.nav-tabs .nav-link:hover {}
 
-}
+.nav-tabs .nav-link.active {}
 
-.nav-tabs .nav-link.active {
-
-}
-
-.nav-tabs .nav-link.active:first-child {
-
-}
+.nav-tabs .nav-link.active:first-child {}
 
 
 
 /* ------------------ table --------------------*/
-.table {
+.table {}
 
-}
 .table thead th {
   border-bottom: none;
   padding: .75rem;
@@ -356,9 +351,12 @@ h4 {
   border: 1px solid #222;
 }
 
-.table-active, .table-active>td, .table-active>th {
+.table-active,
+.table-active>td,
+.table-active>th {
   background-color: #007bff;
 }
+
 .table tbody .table-active td .badge-dark,
 .table tbody .table-active td a {
   color: #fff;
@@ -593,7 +591,7 @@ h4 {
 /* modal */
 
 .modal .modal-header {
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -607,12 +605,12 @@ h4 {
 }
 
 .modal-content {
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 0
 }
 
 .modal-footer {
-  border-top: 1px solid rgba(0,0,0,.1);
+  border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 /*list-group*/
@@ -621,7 +619,7 @@ h4 {
 /*badge*/
 .badge-dark {
   color: #586069;
-  background-color: rgba(27,31,35,.08);
+  background-color: rgba(27, 31, 35, .08);
   font-weight: 300
 }
 
@@ -775,7 +773,7 @@ h4 {
 
 .form-group label {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 300;
   color: #6c757d
 }
 
@@ -813,10 +811,12 @@ h4 {
 .card-header.p-0 a.d-block.collapsed::before {
   content: "\f0da";
 }
+
 .card-header.bg-primary {
   border-bottom: 0;
   border-radius: 0;
 }
+
 .card-header,
 .card-footer {
   background-color: #fff
