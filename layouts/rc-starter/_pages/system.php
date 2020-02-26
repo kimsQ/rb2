@@ -34,7 +34,7 @@ $_SESSION['current_version'] = '';
       <input type="hidden" name="r" value="<?php echo $r?>">
   		<input type="hidden" name="m" value="admin">
   		<input type="hidden" name="a" value="update">
-  		<input type="hidden" name="remote" value="https://github.com/kimsQ/rb.git">
+  		<input type="hidden" name="remote" value="https://github.com/kimsQ/rb2.git">
   		<input type="hidden" name="current_version" value="<?php echo $current_version?>">
   		<input type="hidden" name="lastest_version" value="<?php echo $lastest_version?>">
 

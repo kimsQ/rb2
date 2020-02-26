@@ -30,11 +30,11 @@ $_SESSION['current_version'] = '';
 	</div>
 </div>
 
-<form name="updateForm" method="post" action="<?php echo $g['s']?>/" target="_action_frame_admin" class="px-4">
+<form name="updateForm" method="post" action="<?php echo $g['s']?>/" target="_action_frame_admin" class="p-4">
 	<input type="hidden" name="r" value="<?php echo $r?>">
 	<input type="hidden" name="m" value="admin">
 	<input type="hidden" name="a" value="update">
-	<input type="hidden" name="remote" value="https://github.com/kimsQ/rb.git">
+	<input type="hidden" name="remote" value="https://github.com/kimsQ/rb2.git">
 	<input type="hidden" name="current_version" value="<?php echo $current_version?>">
 	<input type="hidden" name="lastest_version" value="<?php echo $lastest_version?>">
 
