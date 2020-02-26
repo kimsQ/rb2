@@ -102,7 +102,7 @@ if ($R['uid'])
 				<label class="col-lg-2 col-form-label col-form-label-lg text-lg-right">라벨</label>
 				<div class="col-lg-10 col-xl-9">
 					<div class="input-group input-group-lg">
-						<input type="text" name="label" value="<?php echo $R['label']?>" class="form-control"<?php if(!$R['uid'] && !$g['device']):?> autofocus<?php endif?> autocomplete="off">
+						<input type="text" name="label" value="<?php echo $R['label']?>" class="form-control"<?php if(!$R['uid'] && !$g['device']):?> autofocus<?php endif?> autocomplete="off" required>
 						<span class="input-group-append">
 							<button class="btn btn-light rb-modal-iconset" type="button" data-toggle="modal" data-target="#modal_window" data-tooltip="tooltip" title="라벨 아이콘"><i id="_label_icon_btn_" class="fa fa-globe fa-lg"></i></button>
 							<?php if($R['uid']):?>

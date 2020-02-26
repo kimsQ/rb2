@@ -14,7 +14,7 @@ body {
 .btn-light {
   color: #24292e;
   user-select: none;
-  background-color: #F4F4F4 !important;
+  background-color: #F4F4F4;
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 0.25em;
   white-space: nowrap;
@@ -68,13 +68,15 @@ body {
 }
 
 [data-toggle="buttons"].btn-group .btn-light {
-  color: #777 !important;
+  color: #999;
   font-weight: normal;
+  background-color: #fff;
+  font-weight: 300
 }
 
 [data-toggle="buttons"].btn-group .btn-light.active,
 [data-toggle="buttons"].btn-group .btn-light:active {
-  color: #444 !important;
+  color: #666 !important;
   background-color: rgba(0, 0, 0, .05) !important;
   border-color: rgba(0, 0, 0, .1) !important;
   -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, .1);
