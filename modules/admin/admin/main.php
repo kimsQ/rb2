@@ -459,29 +459,6 @@
 
 			</div><!-- /.tab-pane -->
 
-			<div class="tab-pane <?php if($_SESSION['admin_config_nav']=='theme'):?> show active<?php endif?>" id="theme">
-
-				<form role="form" name="procForm" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);">
-					<input type="hidden" name="r" value="<?php echo $r?>">
-					<input type="hidden" name="m" value="<?php echo $module?>">
-					<input type="hidden" name="a" value="config">
-					<input type="hidden" name="act" value="config">
-					<input type="hidden" name="autosave" value="">
-					<input type="hidden" name="email" value="<?php echo $d['admin']['email']?>">
-					<input type="hidden" name="smtp" value="<?php echo $d['admin']['email']?>">
-					<input type="hidden" name="ftp" value="<?php echo $d['admin']['ftp']?>">
-					<input type="hidden" name="type" value="">
-					<input type="hidden" name="chk_email" value="">
-					<input type="hidden" name="chk_sms" value="">
-
-					<div class="px-3">
-						<button class="mt-3 btn btn-primary btn-block btn-lg" type="submit">설정 저장하기</button>
-					</div>
-
-				</form>
-
-			</div><!-- /.tab-pane -->
-
 			<div class="tab-pane <?php if($_SESSION['admin_config_nav']=='email'):?> show active<?php endif?>" id="email">
 
 				<div class="card border-left-0 rounded-0 border-bottom-0 border-top-0" id="emailTemplate">
@@ -603,33 +580,7 @@ function sendCheck(id)
 		}
 		f.chk_email.value = f.sysmail.value;
 	}
-	if (id == 'smtpbtn')
-	{
-		if (f.smtp_host.value == '')
-		{
-			alert('SMTP 서버주소를 입력해 주세요.   ');
-			f.smtp_host.focus();
-			return false;
-		}
-		if (f.smtp_port.value == '')
-		{
-			alert('SMTP 포트번호를 입력해 주세요.    ');
-			f.smtp_port.focus();
-			return false;
-		}
-		if (f.smtp_user.value == '')
-		{
-			alert('인증 아이디를 입력해 주세요.    ');
-			f.smtp_user.focus();
-			return false;
-		}
-		if (f.smtp_pass.value == '')
-		{
-			alert('인증 암호를 입력해 주세요.    ');
-			f.smtp_pass.focus();
-			return false;
-		}
-	}
+
 	if (id == 'ftpbtn')
 	{
 		if (f.ftp_host.value == '')
