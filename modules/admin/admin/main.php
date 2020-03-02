@@ -11,9 +11,6 @@
 				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if(!$_SESSION['admin_config_nav'] || $_SESSION['post_config_nav']=='basic'):?> active<?php endif?>" data-toggle="list" href="#basic" role="tab" onclick="sessionSetting('post_config_nav','basic','','');" aria-selected="false">
 					시스템 환경
 				</a>
-				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if($_SESSION['admin_config_nav']=='theme'):?> active<?php endif?>" data-toggle="list" href="#theme" role="tab" onclick="sessionSetting('post_config_nav','theme','','');" aria-selected="true">
-					시스템 테마 및 고급기능
-				</a>
 				<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action<?php if($_SESSION['admin_config_nav']=='email'):?> active<?php endif?>" data-toggle="list" href="#email" role="tab" onclick="sessionSetting('post_config_nav','email','','');" aria-selected="true">
 					이메일 양식
 				</a>
@@ -323,29 +320,6 @@
 						</div>
 					</div><!-- /.card -->
 
-					<div class="px-3">
-						<button class="mt-3 btn btn-primary btn-block btn-lg" type="submit">설정 저장하기</button>
-					</div>
-
-				</form>
-
-			</div><!-- /.tab-pane -->
-
-			<div class="tab-pane <?php if($_SESSION['admin_config_nav']=='theme'):?> show active<?php endif?>" id="theme">
-
-				<form role="form" name="procForm" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);">
-					<input type="hidden" name="r" value="<?php echo $r?>">
-					<input type="hidden" name="m" value="<?php echo $module?>">
-					<input type="hidden" name="a" value="config">
-					<input type="hidden" name="act" value="config">
-					<input type="hidden" name="autosave" value="">
-					<input type="hidden" name="email" value="<?php echo $d['admin']['email']?>">
-					<input type="hidden" name="smtp" value="<?php echo $d['admin']['email']?>">
-					<input type="hidden" name="ftp" value="<?php echo $d['admin']['ftp']?>">
-					<input type="hidden" name="type" value="">
-					<input type="hidden" name="chk_email" value="">
-					<input type="hidden" name="chk_sms" value="">
-
 					<div class="card border-left-0 rounded-0 border-bottom-0 border-top-0">
 						<div class="card-header">
 							시스템 테마 및 고급기능
@@ -476,6 +450,29 @@
 
 						</div><!-- /.card-body -->
 					</div><!-- /.card -->
+
+					<div class="px-3">
+						<button class="mt-3 btn btn-primary btn-block btn-lg" type="submit">설정 저장하기</button>
+					</div>
+
+				</form>
+
+			</div><!-- /.tab-pane -->
+
+			<div class="tab-pane <?php if($_SESSION['admin_config_nav']=='theme'):?> show active<?php endif?>" id="theme">
+
+				<form role="form" name="procForm" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);">
+					<input type="hidden" name="r" value="<?php echo $r?>">
+					<input type="hidden" name="m" value="<?php echo $module?>">
+					<input type="hidden" name="a" value="config">
+					<input type="hidden" name="act" value="config">
+					<input type="hidden" name="autosave" value="">
+					<input type="hidden" name="email" value="<?php echo $d['admin']['email']?>">
+					<input type="hidden" name="smtp" value="<?php echo $d['admin']['email']?>">
+					<input type="hidden" name="ftp" value="<?php echo $d['admin']['ftp']?>">
+					<input type="hidden" name="type" value="">
+					<input type="hidden" name="chk_email" value="">
+					<input type="hidden" name="chk_sms" value="">
 
 					<div class="px-3">
 						<button class="mt-3 btn btn-primary btn-block btn-lg" type="submit">설정 저장하기</button>
