@@ -8,7 +8,7 @@ $readme_skin = @fopen($readme_file, 'r');
 $readme = @fread($readme_skin, filesize($readme_file));
 $readme = nl2br($readme);
 
-if ($g['mobile']&&$_SESSION['pcmode']!='Y') $is_mobile = 1;
+if ($g['mobile']&&$_SESSION['pcmode']!='Y'&& !$panel) $is_mobile = 1;
 else $is_mobile = 0;
 
 //카테고리출력
@@ -58,12 +58,12 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 
 		              <div class="">';
 		} else {
-			$html .=  '<div class="card border-primary shadow-sm mb-2">
-		              <div class="card-header bg-primary text-white rounded-0 d-flex justify-content-between align-items-center">
-		                <span>'.$_val[0].'</span>
+			$html .=  '<div class="modal-content border-0 rounded-0" style="height:100%">
+		              <div class="modal-header bg-primary text-white rounded-0 d-flex justify-content-between align-items-center py-2">
+	                 <span data-dismiss="modal" role="button"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>'.$_val[0].'</span>
 		                <small class=""></span>
 		              </div>
-		              <div class="card-body f13">';
+		              <div class="modal-body" style="overflow:auto" data-role="form">';
 		}
 
 	  if (count($_val[1])) {
@@ -131,7 +131,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	                    </option>';
 	                  }
 	        $html .= '</select>';
-					$html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-secondary" type="button" data-toggle="tooltip" title="리스트 추가" data-act="make" data-mod="postlist">+</button></div>';
+					$html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-light" type="button" data-toggle="tooltip" title="리스트 추가" data-act="make" data-mod="postlist">+</button></div>';
 					$html .= '</div>';
 	      }
 
@@ -155,7 +155,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	                    </option>';
 	                  }
 	        $html .= '</select>';
-				  $html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-secondary" type="button" data-toggle="tooltip" title="게시판 추가"  data-act="make" data-mod="bbs">+</button></div>';
+				  $html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-light" type="button" data-toggle="tooltip" title="게시판 추가"  data-act="make" data-mod="bbs">+</button></div>';
 					$html .= '</div>';
 	      }
 
@@ -229,12 +229,12 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	  $html .=  '</div>';
 
 		if (!$is_mobile) {
-			$html .=  '<footer class="card-footer d-flex justify-content-between bg-white">
-									<button type="button" data-act="cancel" class="btn btn-link text-muted">취소</button>
-		              <button type="button" data-act="save" data-mod="'.($wdgvar?'edit':'add').'" data-area="'.$area.'" class="btn btn-outline-primary">
+			$html .=  '<footer class="modal-footer d-flex rounded-0 py-1 rb-tab-pane-bottom bg-white">
+									<div class="flex-fill"><button type="button" data-act="cancel" data-dismiss="modal" class="btn btn-link text-reset btn-block">취소</button></div>
+		              <div class="flex-fill"><button type="button" data-act="save" data-mod="'.($wdgvar?'edit':'add').'" data-area="'.$area.'" class="btn btn-link btn-block">
 		                <span class="not-loading">'.($wdgvar?'적용':'추가').'</span>
 		                <span class="is-loading"><div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">처리중...</span></div></span>
-		              </button>
+		              </button></div>
 		            </footer>';
 		}
 

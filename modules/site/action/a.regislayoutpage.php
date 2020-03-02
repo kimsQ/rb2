@@ -18,24 +18,14 @@ $_tmpdfile = is_file($g['layoutPageVarForSite']) ? $g['layoutPageVarForSite'] : 
 
 include $_tmpdfile;
 
-$area_arr = explode(',',$area);
-
 $fp = fopen($g['layoutPageVarForSite'],'w');
 fwrite($fp, "<?php\n");
-
-foreach ($area_arr as $key ) {
-	fwrite($fp, "\$d['layout']['".$key."'] = \"".trim(${$key})."\";\n");
-}
-
+fwrite($fp, "\$d['layout']['main_widgets'] = \"".trim($main_widgets)."\";\n");
 fwrite($fp, "?>");
 fclose($fp);
 @chmod($g['layoutPageVarForSite'],0707);
 
-echo '<script type="text/javascript">';
-echo 'parent.$.notify({message: "저장 되었습니다"},{type: "'.$notify_type.'"});';
-echo 'parent.$("[data-act=reset]").removeClass("d-none");';
-echo 'parent.$("[data-act=submit]").attr("disabled", false);';
-echo '</script>';
-exit();
+setrawcookie('site_common_result', rawurlencode('저장 되었습니다'));
+getLink('reload','parent.frames._ADMPNL_.','','');
 
 ?>

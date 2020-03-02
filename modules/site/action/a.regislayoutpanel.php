@@ -3,7 +3,18 @@ if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
 $device = $_POST['device'];
-$g['layoutVarForSite'] = $g['path_var'].'site/'.$r.'/layout.'.($device?'mobile':'desktop').'.var.php';
+
+$_HS = getDbData($table['s_site'],"id='".$r."'",'*');
+
+if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
+	$layout = dirname($_HS['m_layout']);
+	$device = 'mobile';
+} else {
+  $layout = dirname($_HS['layout']);
+	$device = 'desktop';
+}
+
+$g['layoutVarForSite'] = $g['path_var'].'site/'.$r.'/layout.'.$layout.'.var.php';
 $_tmpdfile = is_file($g['layoutVarForSite']) ? $g['layoutVarForSite'] : $g['path_layout'].$layout.'/_var/_var.php';
 include $themelang2 ? $themelang2 : $themelang1;
 include $_tmpdfile;
@@ -39,8 +50,8 @@ foreach($d['layout']['dom'] as $_key => $_val)
 				$realname	= $_FILES['layout_'.$_key.'_'.$_v[0]]['name'];
 				$fileExt	= strtolower(getExt($realname));
 				$fileExt	= $fileExt == 'jpeg' ? 'jpg' : $fileExt;
-				$fileName	= $r.'_'.$_key.'_'.$_v[0].'.'.$fileExt;
-				$saveFile	= $g['path_layout'].$layout.'/_var/'.$fileName;
+				$fileName	= $_key.'_'.$_v[0].'.'.$fileExt;
+				$saveFile	= $g['path_var'].'site/'.$r.'/'.$fileName;
 				if (!strstr('[gif][jpg][png][swf]',$fileExt))
 				{
 					continue;
@@ -53,7 +64,7 @@ foreach($d['layout']['dom'] as $_key => $_val)
 				$fileName	= $d['layout'][$_key.'_'.$_v[0]];
 				if ($fileName && ${'layout_'.$_key.'_'.$_v[0].'_del'})
 				{
-					unlink( $g['path_layout'].$layout.'/_var/'.$fileName);
+					unlink( $g['path_var'].'site/'.$r.'/'.$fileName);
 					$fileName = '';
 				}
 			}
@@ -68,6 +79,6 @@ foreach($d['layout']['dom'] as $_key => $_val)
 fwrite($fp, "?>");
 fclose($fp);
 @chmod($g['layoutVarForSite'],0707);
-
-getLink('reload','parent.frames._ADMPNL_.','변경되었습니다.','');
+setrawcookie('site_common_result', rawurlencode('변경 되었습니다.'));  // 알림처리를 위한 로그인 상태 cookie 저장
+getLink('reload','parent.frames._ADMPNL_.','','');
 ?>

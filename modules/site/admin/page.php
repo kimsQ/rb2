@@ -128,7 +128,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 
 	<div id="tab-content-view" class="col-sm-8 col-md-8 ml-sm-auto col-xl-9">
 		<?php if($g['device']):?><a name="site-page-info"></a><?php endif?>
-		<form name="procForm" class="card rounded-0 border-0" role="form" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);">
+		<form name="procForm" class="card rounded-0 border-0" role="form" action="<?php echo $g['s']?>/" method="post" onsubmit="return saveCheck(this);" autocomplete="off">
 			<input type="hidden" name="r" value="<?php echo $r?>">
 			<input type="hidden" name="m" value="<?php echo $module?>">
 			<input type="hidden" name="a" value="regispage">

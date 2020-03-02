@@ -847,7 +847,7 @@ h4 {
 
 /*tree*/
 .sidebar .rb-tree {
-  font-family: inherit;
+  font-family: 'Open Sans','돋움', dotum, sans-serif, FontAwesome;
 }
 
 .sidebar .rb-tree li:before {

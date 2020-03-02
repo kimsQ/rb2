@@ -7,7 +7,7 @@ $g['layoutPageVarForSite'] = $g['path_var'].'site/'.$r.'/layout.'.$layout.'.'.$p
 $_tmpdfile = is_file($g['layoutPageVarForSite']) ? $g['layoutPageVarForSite'] : $g['path_layout'].$layout.'/_var/_var.'.$page.'.php';
 include $_tmpdfile;
 
-$result['list'] = getWidgetListEdit($d['layout']['main_widgets']);
+$result['list'] = getWidgetListEdit($d['layout']['main_widgets'],'');
 
 if (is_file($g['layoutPageVarForSite'])) {
   $result['layoutPageVarForSite'] = true;

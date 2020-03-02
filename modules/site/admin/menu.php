@@ -142,7 +142,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 		</div>
 	</nav>
 	<div id="catinfo" class="col-sm-8 col-md-8 ml-sm-auto col-xl-9">
-		<form class="card rounded-0 border-0" name="procForm" action="<?php echo $g['s']?>/" method="post" enctype="multipart/form-data" onsubmit="return saveCheck(this);">
+		<form class="card rounded-0 border-0" name="procForm" action="<?php echo $g['s']?>/" method="post" enctype="multipart/form-data" onsubmit="return saveCheck(this);" autocomplete="off">
 			<input type="hidden" name="r" value="<?php echo $r?>">
 			<input type="hidden" name="m" value="<?php echo $module?>">
 			<input type="hidden" name="a" value="regismenu">
@@ -794,7 +794,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 													</div>
 												</div>
 
-													<div class="card">
+													<div class="card mt-2">
 													<div class="card-header p-0">
 														<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_footer" onclick="sessionSetting('sh_site_menu_4','1','','1');">
 															문서풋터
@@ -833,7 +833,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 													</div>
 												</div>
 
-													<div class="card">
+													<div class="card mt-2">
 													<div class="card-header p-0">
 														<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_addinfo" onclick="sessionSetting('sh_site_menu_5','1','','1');">
 															부가필드
@@ -854,7 +854,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 													</div>
 												</div>
 
-													<div class="card">
+													<div class="card mt-2">
 													<div class="card-header p-0">
 														<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_addattr" onclick="sessionSetting('sh_site_menu_6','1','','1');">
 															속성추가
@@ -885,7 +885,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 
 
 				<?php if($is_fcategory && $CINFO['is_child']):?>
-				<div class="custom-control custom-checkbox">
+				<div class="custom-control custom-checkbox mt-3">
 				  <input type="checkbox" class="custom-control-input" name="subcopy" id="cubcopy" value="1">
 				  <label class="custom-control-label" for="cubcopy">이 설정을 서브메뉴에도 일괄적용 <small class="text-muted">(메뉴숨김, 레이아웃, 권한)</small></label>
 				</div>
