@@ -65,10 +65,9 @@
 					<input type="hidden" name="chk_email" value="">
 					<input type="hidden" name="chk_sms" value="">
 
-
 					<div class="card border-left-0 rounded-0 border-bottom-0">
 						<div class="card-header">
-							시스템 기본 메일
+							<strong>시스템 기본 메일</strong>
 						</div>
 						<div class="card-body">
 
@@ -131,198 +130,9 @@
 						</div><!-- /.card-body -->
 					</div><!-- /.card -->
 
-					<div class="card border-left-0 rounded-0 border-bottom-0">
+					<div class="card border-left-0 rounded-0 border-bottom-0 mt-3">
 						<div class="card-header">
-							FCM <span class="badge badge-dark ml-1">무료</span>
-						</div>
-						<div class="card-body">
-								<input class="form-control" type="hidden" name="fcm_app_js_src" value="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js">
-								<input class="form-control" type="hidden" name="fcm_messaging_js_src" value="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js">
-								<input class="form-control" type="hidden" name="fcm_icon" value="/_core/images/touch/homescreen-192x192.png">
-
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label">콘솔</label>
-								<div class="col-lg-10 col-xl-9 pt-2">
-									<a href="https://console.firebase.google.com" target="_blank">https://console.firebase.google.com</a>
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">서버 키</label>
-								<div class="col-lg-10 col-xl-9">
-									<textarea class="form-control f13	" name="fcm_key" rows="2"><?php echo $d['admin']['fcm_key'] ?></textarea>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">발신자 ID</label>
-								<div class="col-lg-10 col-xl-9">
-									<input class="form-control" type="text" name="fcm_SenderId" value="<?php echo $d['admin']['fcm_SenderId'] ?>">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">웹 푸시 인증서</label>
-								<div class="col-lg-10 col-xl-9">
-									<input class="form-control" type="text" name="fcm_VAPID" value="<?php echo $d['admin']['fcm_VAPID'] ?>">
-									<small class="form-text text-muted">키 쌍을 입력하세요.</small>
-								</div>
-							</div>
-						</div><!-- /.card-body -->
-						<div class="card-footer">
-							<small class="form-text text-muted">
-								FCM (Firebase Cloud Messaging)은 클라우드에서 기기로 푸시하는 메시징 서비스로 Google 클라우드 메시징 서비스 입니다.<br>
-								사용제한 없이 무료로 이용할 수 있습니다.
-								자세한 내용은 <a href="https://firebase.google.com/docs/cloud-messaging/?hl=ko" target="_blank">여기</a>를 참조해주세요.
-							</small>
-						</div>
-					</div><!-- /.card -->
-
-					<div class="card border-left-0 rounded-0 border-bottom-0">
-						<div class="card-header">
-							SMS  <span class="badge badge-light ml-1">유료</span>
-						</div>
-						<div class="card-body">
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">SMS 발신번호</label>
-								<div class="col-lg-10 col-xl-9">
-									<input class="form-control" type="text" name="sms_tel" value="<?php echo $d['admin']['sms_tel'] ?>" placeholder="SMS 발신번호 등록 후 입력해주세요.">
-									<small class="form-text text-muted">발신번호등록이 완료된 번호에서만 SMS 발신이 가능합니다. 자세한 내용은 <a href="https://kimsq.com/blog/post/25" target="_blank">여기</a>를 참고해 주세요.</small>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">SMS 계정번호</label>
-								<div class="col-lg-10 col-xl-9">
-									<input class="form-control" type="text" name="sms_id" value="<?php echo $d['admin']['sms_id'] ?>">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">SMS 계정 인증키</label>
-								<div class="col-lg-10 col-xl-9">
-									<input class="form-control" type="text" name="sms_key" value="<?php echo $d['admin']['sms_key'] ?>">
-								</div>
-							</div>
-							<hr>
-
-							<div class="form-group row">
-								<label class="col-lg-2 col-form-label pt-3">발송 테스트</label>
-								<div class="col-lg-10 col-xl-9">
-
-									<div class="input-group">
-										<input type="tel" name="testsms" value="<?php echo $my['phone']?>" class="form-control" placeholder="휴대폰 번호">
-										<span class="input-group-append">
-											<button class="btn btn-light" type="button" id="sendsmsbtn" onclick="sendCheck(this.id);">
-												<?php if($d['admin']['sms']):?>발송하기<?php else:?>SMS 전송확인<?php endif?>
-											</button>
-										</span>
-									</div>
-									<small class="form-text text-muted">입력한 휴대폰 번호로 테스트 메시지가 수신되는지 확인해 보세요.</small>
-								</div>
-							</div>
-
-						</div><!-- /.card-body -->
-						<div class="card-footer">
-							<small class="form-text text-muted">
-								SMS(핸드폰 문자메시지) 유료서비스 이며, 킴스큐 프로젝트 콘솔에서 충전할 수 있습니다. 자세한 내용은 <a href="#" target="_blank">여기</a>를 참조해주세요.
-							</small>
-						</div>
-					</div><!-- /.card -->
-
-					<div class="card border-left-0 rounded-0 border-bottom-0">
-						<div class="card-header">
-							사이트 코드 제한
-						</div>
-						<div class="card-body">
-							<div class="form-group">
-								<label>사용제한 사이트 코드</label>
-								<textarea class="form-control" name="site_cutid" rows="4"><?php echo $d['admin']['site_cutid']?></textarea>
-								<small class="form-text text-muted">사용을 제한하려는 아이디를 콤마(,)로 구분해서 입력해 주세요.</small>
-							</div>
-						</div>
-					</div><!-- /.card -->
-
-					<div class="card border-left-0 rounded-0">
-						<div class="card-header">
-							FTP
-						</div>
-						<div class="card-body">
-
-							<div class="btn-group btn-group-toggle nav" data-toggle="buttons">
-								<label class="btn btn-light<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-nobody">
-									<input type="radio" name="ftp_use" value=""<?php if(!$d['admin']['ftp_use']):?> checked<?php endif?>> Nobody
-								</label>
-								<label class="btn btn-light<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-user">
-									<input type="radio" name="ftp_use" value="1"<?php if($d['admin']['ftp_use']=='1'):?> checked<?php endif?>> User
-								</label>
-							</div>
-
-							<div class="tab-content mt-3">
-								<div id="ftp-nobody" class="tab-pane clearfix<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>">
-
-									<p>일부기능에 제한이 있거나 보안에 취약할 수 있습니다.</p>
-
-								</div>
-								<div id="ftp-user" class="tab-pane clearfix<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>">
-
-									<div class="form-group">
-										<label>FTP Type</label>
-										<select name="ftp_type" class="form-control" onchange="ftp_select(this);">
-											<option value=""<?php if(!$d['admin']['ftp_type']):?> selected<?php endif?>>FTP</option>
-											<option value="sftp"<?php if($d['admin']['ftp_type']=='sftp'):?> selected<?php endif?>>SFTP</option>
-										</select>
-									</div>
-
-									<div class="form-group">
-										<label>FTP Server</label>
-										<input type="text" class="form-control" name="ftp_host" value="<?php echo $d['admin']['ftp_host']?>" placeholder="예) example.kimsq.com  또는 IP adress 입력">
-									</div>
-
-									<div class="form-group">
-										<label>FTP Port</label>
-										<input type="text" class="form-control" name="ftp_port" value="<?php echo $d['admin']['ftp_port']?$d['admin']['ftp_port']:'21'?>" placeholder="">
-									</div>
-
-									<div class="form-group">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="ftp_pasv" value="1"<?php if($d['admin']['ftp_pasv']):?> checked<?php endif?>> <i></i>Passive Mode
-											</label>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label>FTP ID</label>
-										<input type="text" class="form-control" name="ftp_user" value="<?php echo $d['admin']['ftp_user']?>" placeholder="FTP ID">
-									</div>
-
-									<div class="form-group">
-										<label>Password</label>
-										<input type="password" class="form-control" name="ftp_pass" value="<?php echo $d['admin']['ftp_pass']?>" placeholder="Password">
-									</div>
-
-									<div class="form-group">
-										<label>Rb 경로</label>
-										<input type="text" class="form-control" name="ftp_rb" value="<?php echo $d['admin']['ftp_rb']?>" placeholder="">
-										<p class="form-control-static">
-											<small class="text-muted">
-												FTP로 접속했을때 처음 접속된 경로부터 킴스큐Rb가 설치된 경로를 입력해 주세요.
-												경로의 처음과 마지막은 반드시 슬래쉬(/)로 끝나야 합니다. <br>
-												보기)<code>/rb/</code> 또는 <code>/www/rb/</code> 또는 <code>/public_html/rb/</code><br>
-											</small>
-										</p>
-									</div>
-
-									<button type="button" class="btn btn-light" id="ftpbtn" onclick="sendCheck(this.id);">
-										<?php if($d['admin']['ftp']):?><i class="fa fa-info-circle fa-lg fa-fw"></i>정상<?php else:?>FTP 연결확인<?php endif?>
-									</button>
-
-								</div>
-							</div>
-
-						</div>
-					</div><!-- /.card -->
-
-					<div class="card border-left-0 rounded-0 border-bottom-0 border-top-0">
-						<div class="card-header">
-							시스템 테마 및 고급기능
+							<strong>시스템 테마 및 고급기능</strong>
 						</div>
 						<div class="card-body">
 
@@ -449,6 +259,195 @@
 							</div><!-- /.row -->
 
 						</div><!-- /.card-body -->
+					</div><!-- /.card -->
+
+					<div class="card border-left-0 rounded-0 border-bottom-0">
+						<div class="card-header">
+							<strong>FCM</strong> <span class="badge badge-dark ml-1">무료</span>
+						</div>
+						<div class="card-body">
+								<input class="form-control" type="hidden" name="fcm_app_js_src" value="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js">
+								<input class="form-control" type="hidden" name="fcm_messaging_js_src" value="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js">
+								<input class="form-control" type="hidden" name="fcm_icon" value="/_core/images/touch/homescreen-192x192.png">
+
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label">콘솔</label>
+								<div class="col-lg-10 col-xl-9 pt-2">
+									<a href="https://console.firebase.google.com" target="_blank">https://console.firebase.google.com</a>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">서버 키</label>
+								<div class="col-lg-10 col-xl-9">
+									<textarea class="form-control f13	" name="fcm_key" rows="2"><?php echo $d['admin']['fcm_key'] ?></textarea>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">발신자 ID</label>
+								<div class="col-lg-10 col-xl-9">
+									<input class="form-control" type="text" name="fcm_SenderId" value="<?php echo $d['admin']['fcm_SenderId'] ?>">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">웹 푸시 인증서</label>
+								<div class="col-lg-10 col-xl-9">
+									<input class="form-control" type="text" name="fcm_VAPID" value="<?php echo $d['admin']['fcm_VAPID'] ?>">
+									<small class="form-text text-muted">키 쌍을 입력하세요.</small>
+								</div>
+							</div>
+						</div><!-- /.card-body -->
+						<div class="card-footer">
+							<small class="form-text text-muted">
+								FCM (Firebase Cloud Messaging)은 클라우드에서 기기로 푸시하는 메시징 서비스로 Google 클라우드 메시징 서비스 입니다.<br>
+								사용제한 없이 무료로 이용할 수 있습니다.
+								자세한 내용은 <a href="https://firebase.google.com/docs/cloud-messaging/?hl=ko" target="_blank">여기</a>를 참조해주세요.
+							</small>
+						</div>
+					</div><!-- /.card -->
+
+					<div class="card border-left-0 rounded-0 border-bottom-0 mt-5">
+						<div class="card-header">
+							<strong>SMS</strong>  <span class="badge badge-light ml-1">유료</span>
+						</div>
+						<div class="card-body">
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">SMS 발신번호</label>
+								<div class="col-lg-10 col-xl-9">
+									<input class="form-control" type="text" name="sms_tel" value="<?php echo $d['admin']['sms_tel'] ?>" placeholder="SMS 발신번호 등록 후 입력해주세요.">
+									<small class="form-text text-muted">발신번호등록이 완료된 번호에서만 SMS 발신이 가능합니다. 자세한 내용은 <a href="https://kimsq.com/blog/post/25" target="_blank">여기</a>를 참고해 주세요.</small>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">SMS 계정번호</label>
+								<div class="col-lg-10 col-xl-9">
+									<input class="form-control" type="text" name="sms_id" value="<?php echo $d['admin']['sms_id'] ?>">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">SMS 계정 인증키</label>
+								<div class="col-lg-10 col-xl-9">
+									<input class="form-control" type="text" name="sms_key" value="<?php echo $d['admin']['sms_key'] ?>">
+								</div>
+							</div>
+							<hr>
+
+							<div class="form-group row">
+								<label class="col-lg-2 col-form-label pt-3">발송 테스트</label>
+								<div class="col-lg-10 col-xl-9">
+
+									<div class="input-group">
+										<input type="tel" name="testsms" value="<?php echo $my['phone']?>" class="form-control" placeholder="휴대폰 번호">
+										<span class="input-group-append">
+											<button class="btn btn-light" type="button" id="sendsmsbtn" onclick="sendCheck(this.id);">
+												<?php if($d['admin']['sms']):?>발송하기<?php else:?>SMS 전송확인<?php endif?>
+											</button>
+										</span>
+									</div>
+									<small class="form-text text-muted">입력한 휴대폰 번호로 테스트 메시지가 수신되는지 확인해 보세요.</small>
+								</div>
+							</div>
+
+						</div><!-- /.card-body -->
+						<div class="card-footer">
+							<small class="form-text text-muted">
+								SMS(핸드폰 문자메시지) 유료서비스 이며, 킴스큐 프로젝트 콘솔에서 충전할 수 있습니다. 자세한 내용은 <a href="#" target="_blank">여기</a>를 참조해주세요.
+							</small>
+						</div>
+					</div><!-- /.card -->
+
+					<div class="card border-left-0 rounded-0 border-bottom-0 mt-5">
+						<div class="card-header">
+							<strong>사이트 코드 제한</strong>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label>사용제한 사이트 코드</label>
+								<textarea class="form-control" name="site_cutid" rows="4"><?php echo $d['admin']['site_cutid']?></textarea>
+								<small class="form-text text-muted">사용을 제한하려는 아이디를 콤마(,)로 구분해서 입력해 주세요.</small>
+							</div>
+						</div>
+					</div><!-- /.card -->
+
+					<div class="card border-left-0 rounded-0 mt-3">
+						<div class="card-header">
+							<strong>FTP</strong>
+						</div>
+						<div class="card-body">
+
+							<div class="btn-group btn-group-toggle nav" data-toggle="buttons">
+								<label class="btn btn-light<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-nobody">
+									<input type="radio" name="ftp_use" value=""<?php if(!$d['admin']['ftp_use']):?> checked<?php endif?>> Nobody
+								</label>
+								<label class="btn btn-light<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-user">
+									<input type="radio" name="ftp_use" value="1"<?php if($d['admin']['ftp_use']=='1'):?> checked<?php endif?>> User
+								</label>
+							</div>
+
+							<div class="tab-content mt-3">
+								<div id="ftp-nobody" class="tab-pane clearfix<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>">
+
+									<p>일부기능에 제한이 있거나 보안에 취약할 수 있습니다.</p>
+
+								</div>
+								<div id="ftp-user" class="tab-pane clearfix<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>">
+
+									<div class="form-group">
+										<label>FTP Type</label>
+										<select name="ftp_type" class="form-control" onchange="ftp_select(this);">
+											<option value=""<?php if(!$d['admin']['ftp_type']):?> selected<?php endif?>>FTP</option>
+											<option value="sftp"<?php if($d['admin']['ftp_type']=='sftp'):?> selected<?php endif?>>SFTP</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>FTP Server</label>
+										<input type="text" class="form-control" name="ftp_host" value="<?php echo $d['admin']['ftp_host']?>" placeholder="예) example.kimsq.com  또는 IP adress 입력">
+									</div>
+
+									<div class="form-group">
+										<label>FTP Port</label>
+										<input type="text" class="form-control" name="ftp_port" value="<?php echo $d['admin']['ftp_port']?$d['admin']['ftp_port']:'21'?>" placeholder="">
+									</div>
+
+									<div class="form-group">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="ftp_pasv" value="1"<?php if($d['admin']['ftp_pasv']):?> checked<?php endif?>> <i></i>Passive Mode
+											</label>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label>FTP ID</label>
+										<input type="text" class="form-control" name="ftp_user" value="<?php echo $d['admin']['ftp_user']?>" placeholder="FTP ID">
+									</div>
+
+									<div class="form-group">
+										<label>Password</label>
+										<input type="password" class="form-control" name="ftp_pass" value="<?php echo $d['admin']['ftp_pass']?>" placeholder="Password">
+									</div>
+
+									<div class="form-group">
+										<label>Rb 경로</label>
+										<input type="text" class="form-control" name="ftp_rb" value="<?php echo $d['admin']['ftp_rb']?>" placeholder="">
+										<p class="form-control-static">
+											<small class="text-muted">
+												FTP로 접속했을때 처음 접속된 경로부터 킴스큐Rb가 설치된 경로를 입력해 주세요.
+												경로의 처음과 마지막은 반드시 슬래쉬(/)로 끝나야 합니다. <br>
+												보기)<code>/rb/</code> 또는 <code>/www/rb/</code> 또는 <code>/public_html/rb/</code><br>
+											</small>
+										</p>
+									</div>
+
+									<button type="button" class="btn btn-light" id="ftpbtn" onclick="sendCheck(this.id);">
+										<?php if($d['admin']['ftp']):?><i class="fa fa-info-circle fa-lg fa-fw"></i>정상<?php else:?>FTP 연결확인<?php endif?>
+									</button>
+
+								</div>
+							</div>
+
+						</div>
 					</div><!-- /.card -->
 
 					<div class="px-3">
