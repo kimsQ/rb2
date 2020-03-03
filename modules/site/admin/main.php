@@ -159,7 +159,7 @@ if ($R['uid'])
 				<div class="col-lg-10 col-xl-9">
 					<div class="form-row">
 						<div class="col-sm-6" id="rb-layout-select">
-							<select class="form-control custom-select custom-select-lg" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select custom-select-lg');">
+							<select class="form-control custom-select custom-select-lg" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
 								<?php $_layoutExp1=explode('/',$R['layout'])?>
 								<?php $dirs = opendir($g['path_layout'])?>
 								<?php $_i=0;while(false !== ($tpl = readdir($dirs))):?>
@@ -191,7 +191,7 @@ if ($R['uid'])
 					<div class="col-lg-10 col-xl-9">
 						<div class="form-row">
 							<div class="col-sm-6" id="rb-mlayout-select">
-								<select class="form-control custom-select custom-select-lg" name="m_layout_1" required onchange="getSubLayout(this,'rb-mlayout-select2','m_layout_1_sub','custom-select custom-select-lg');">
+								<select class="form-control custom-select custom-select-lg" name="m_layout_1" required onchange="getSubLayout(this,'rb-mlayout-select2','m_layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
 									<option value="0">사용안함 (기본 레이아웃 적용)</option>
 									<option disabled>--------------------</option>
 									<?php $_layoutExp2=explode('/',$R['m_layout'])?>
