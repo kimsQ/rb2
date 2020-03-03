@@ -957,27 +957,29 @@ body {
 
 #site-settings .rb-scrollbar {
   position: absolute;
-  top: 100px;
+  top: 64px;
   left: 10px;
   right: 0;
   bottom: 60px;
+  padding-top: 15px;
   padding-right: 5px;
   overflow: auto;
   margin-bottom: 0;
   padding-bottom: 15px;
   overflow-x: hidden;
 }
-
-#site-settings .rb-tab-pane-bottom {
+#site-settings .rb-tab-pane-bottom,
+#main-settings .rb-tab-pane-bottom {
   height: 60px;
 }
 
 #layout-settings .rb-scrollbar {
   position: absolute;
-  top: 100px;
+  top: 64px;
   left: 10px;
   right: 0;
   bottom: 60px;
+  padding-top: 15px;
   padding-right: 5px;
   overflow: auto;
   margin-bottom: 0;
@@ -1492,4 +1494,411 @@ html {
 
 .f12 {
   font-size: 12px !important
+}
+
+/* submit button loading */
+[role="button"] .not-loading,
+.btn .not-loading {
+  display: block;
+}
+[role="button"].disabled .not-loading,
+[role="button"]:disabled .not-loading,
+.btn:disabled .not-loading {
+  display: none;
+}
+[role="button"] .is-loading,
+.btn .is-loading {
+  display: none;
+}
+[role="button"].disabled .is-loading,
+[role="button"]:disabled .is-loading,
+.btn:disabled .is-loading {
+  display: block;
+}
+
+/* 메인화면 편집 */
+[data-role="widgetPage"] .card.active {
+  background: #f2fbff;
+  border-color: #d2d1d1
+}
+
+[data-role="widgetPage"] .card-body {
+  padding: 10px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: rgba(0,0,0,.03);
+}
+
+[data-role="widgetPage"] .dd-item .badge {
+  display: none;
+  position: absolute;
+  width: 19px;
+  height: 16px;
+  border-radius: 0
+}
+
+[data-role="widgetPage"] .dd-item:hover .badge {
+  display: inline-block;
+}
+
+.dd-dragel .dd-item .badge {
+  display: none
+}
+
+[data-role="widgetPage"] .dd-item .badge[data-act="remove"] {
+  right: 5px;
+  top: 5px;
+}
+[data-role="widgetPage"] .dd-item .badge[data-act="move"] {
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+[data-role="addWidget"] .card {
+  display: none
+}
+[data-role="addWidget"].active .card {
+  display: block
+}
+[data-role="addWidget"].active .btn {
+  display: none
+}
+
+.card-placeholder {
+  margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box;
+}
+
+/**
+* Nestable
+*/
+.dd {  }
+.dd-list { display: block; position: relative; list-style: none; }
+.dd-list .dd-list {  }
+.dd-collapsed .dd-list { display: none; }
+.dd-item,
+.dd-empty,
+.dd-placeholder { }
+
+
+.dd-placeholder,
+.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+  background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                    -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+  background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                       -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+  background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                            linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel .dd-handle {
+  -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+          box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+
+
+/*animation :  https://daneden.github.io/animate.css/ */
+
+.anim-fade-in {
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.animated.fadeInUp,
+.animated.fadeInDown,
+.animated.fadeOutUp,
+.animated.fadeOutDown {
+  -webkit-animation-duration: .5s;
+       -o-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+       -o-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-o-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -o-transform: none;
+       transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+         -o-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+       -o-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-o-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -o-transform: none;
+       transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+         -o-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+       -o-animation-name: fadeInDown;
+          animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+       -o-animation-name: fadeOut;
+          animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+}
+
+@-o-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+       -o-animation-name: fadeOutUp;
+          animation-name: fadeOutUp;
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+}
+
+@-o-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+       -o-animation-name: fadeOutDown;
+          animation-name: fadeOutDown;
+}
+
+.delay-1 {
+  -webkit-animation-delay: 0.1s;
+       -o-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.delay-2 {
+  -webkit-animation-delay: 0.25s;
+       -o-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+.delay-3 {
+  -webkit-animation-delay: 0.4s;
+       -o-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.animate-bg {
+  -moz-animation: animate-highlight 2s ease 0s 1 alternate ;
+  -webkit-animation: animate-highlight 2s ease 0s 1 alternate;
+  animation: animate-highlight 2s ease 0s 1 alternate;
+}
+@-webkit-keyframes animate-highlight {
+  from { background-color: #F5FFFE;}
+  to {background-color: white;}
+}
+@-moz-keyframes animate-highlight {
+  from { background-color: #F5FFFE;}
+  to {background-color: white;}
+}
+@-keyframes animate-highlight {
+  from { background-color: #F5FFFE;}
+  to {background-color: white;}
 }

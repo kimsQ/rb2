@@ -81,6 +81,10 @@ if (!is_dir($g['path_module'].$m)) $m = $g['sys_module'];
 $g['dir_module'] = $g['path_module'].$m.'/';
 $g['url_module'] = $g['s'].'/modules/'.$m;
 
+$g['url_var'] = $g['s'].'/_var';
+$g['dir_var_site'] = $g['path_var'].'site/'.$r.'/';
+$g['url_var_site'] = $g['s'].'/_var/site/'.$r;
+
 if ($a) require $g['path_core'].'engine/action.engine.php';
 if ($_HS['open'] > 1) require $g['path_core'].'engine/siteopen.engine.php';
 if (!$s && $m != 'admin') getLink($g['s'].'/?m=admin&module='.$g['sys_module'].'&nosite=Y','','','');

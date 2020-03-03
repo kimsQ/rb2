@@ -378,13 +378,13 @@ function getWidgetList($str)
 }
 
 // 페이지 편집용 위젯목록
-function getWidgetListEdit($str)
+function getWidgetListEdit($str,$panel)
 {
 	global $g;
 	$page_widgets = preg_replace('/\r\n|\r|\n/','',trim($str));
 	$widgets = getArrayString($page_widgets);
 
-	if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
+	if ($g['mobile']&&$_SESSION['pcmode']!='Y' && !$panel) {
 		$html = '<ol class="list-unstyled mb-0">';
 		foreach ($widgets['data'] as $widget) {
 			$wdg_arr = explode('^',$widget);
@@ -392,7 +392,7 @@ function getWidgetListEdit($str)
 									<a data-act="remove" title="삭제" role="button" class="position-absolute btn btn-link text-muted border-0" style="right:.5rem;top:50%;margin-top: -.92rem;"><i class="fa fa-times" aria-hidden="true"></i></a>
 									<div data-act="move" class="position-absolute btn btn-link text-muted border-0" style="left:.5rem;top:50%;margin-top: -.92rem;"><i class="fa fa-arrows" aria-hidden="true"></i></div>
 									<input type="hidden" name="widget_members[]" value="['.$widget.']">
-									<button type="button" class="btn btn-link btn-lg text-reset" data-act="edit">'.$wdg_arr[1].'</button>
+									<button type="button" class="btn btn-link btn-lg text-reset" data-act="edit">'.stripslashes($wdg_arr[1]).'</button>
 								</li>';
 		}
 		$html .= '</ol>';
@@ -400,11 +400,11 @@ function getWidgetListEdit($str)
 		$html = '<ol class="dd-list list-unstyled mb-0">';
 		foreach ($widgets['data'] as $widget) {
 			$wdg_arr = explode('^',$widget);
-			$html .= '<li class="card round-0 mb-3 text-muted  text-center dd-item" data-name="'.$wdg_arr[1].'" data-path="'.$wdg_arr[2].'" id="'.$wdg_arr[0].'" data-role="item">
+			$html .= '<li class="card round-0 mb-2 shadow-sm text-muted text-center dd-item" data-name="'.$wdg_arr[1].'" data-path="'.$wdg_arr[2].'" id="'.$wdg_arr[0].'" data-role="item">
 									<div class="position-relative"><a href="" data-act="remove" title="삭제" class="badge badge-light border-0"><i class="fa fa-times" aria-hidden="true"></i></a>
 									<div data-act="move" class="badge badge-light dd-handle border-0"><i class="fa fa-arrows" aria-hidden="true"></i></div></div>
 									<input type="hidden" name="widget_members[]" value="['.$widget.']">
-									<div class="card-body"><a href="#" class="text-reset" data-role="title" data-act="edit">'.$wdg_arr[1].'</a></div>
+									<div class="card-body"><a href="#" class="text-reset" data-role="title" data-act="edit">'.stripslashes($wdg_arr[1]).'</a></div>
 								</li>';
 		}
 		$html .= '</ol>';
