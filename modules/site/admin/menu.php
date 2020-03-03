@@ -70,7 +70,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 						</div>
 					</div>
 					<?php else: ?>
-					<div class="text-center text-muted d-flex align-items-center justify-content-center" style="height: calc(100vh - 8.6rem);">
+					<div class="text-center text-muted d-flex align-items-center justify-content-center" style="height: calc(100vh - 9.1rem);">
 						 <div><i class="fa fa-exclamation-circle fa-3x mb-2" aria-hidden="true"></i> <br>등록된 메뉴가 없습니다. </div>
 					</div>
 					<?php endif?>
