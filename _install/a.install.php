@@ -139,7 +139,7 @@ foreach($mdlarray as $_val)
 }
 
 $siteid = $siteid ? $siteid : 'home';
-$layout = 'bs4-starter/default.php';
+$layout = 'bs4-default/default.php';
 $m_layout = 'rc-starter/default.php';
 
 $QKEY = "gid,id,name,label,title,titlefix,icon,layout,startpage,m_layout,m_startpage,lang,open,dtd,nametype,timecal,rewrite,buffer,usescode,headercode,footercode";
@@ -220,14 +220,15 @@ $pagesarray = array
 	'main'=>array('메인','2','1','1','','',''),
 	'privacy'=>array('개인정보취급방침','3','0','0','','rc-starter/blank-drawer.php',''),
 	'policy'=>array('이용약관','3','0','0','','rc-starter/blank-drawer.php',''),
-	'login'=>array('로그인','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=login'),
-	'join'=>array('회원가입','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=join'),
+	'cscenter'=>array('고객센터','3','0','0','','rc-starter/blank-drawer.php',''),
+	'login'=>array('로그인','1','0','1','bs4-default/blank.php','rc-starter/blank-drawer.php','/?m=member&front=login'),
+	'join'=>array('회원가입','1','0','1','bs4-default/blank.php','rc-starter/blank-drawer.php','/?m=member&front=join'),
 	'settings'=>array('개인정보수정','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=settings'),
 	'password_reset'=>array('비밀번호찾기','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=login&page=password_reset'),
 	'saved'=>array('저장함','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=saved'),
 	'noti'=>array('알림함','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=noti'),
 	'profile'=>array('프로필','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=profile'),
-	'dashboard'=>array('대시보드','1','0','1','bs4-starter/dashboard.php','rc-starter/blank-drawer.php','/?m=member&front=dashboard')
+	'dashboard'=>array('대시보드','1','0','1','bs4-default/dashboard.php','rc-starter/blank-drawer.php','/?m=member&front=dashboard')
 );
 foreach($pagesarray as $_key => $_val)
 {
@@ -302,7 +303,7 @@ if ($d['admin']['syslang'] != $sitelang)
 }
 
 //레이아웃 설정파일 생성
-$layoutset = array('bs4-starter','rc-starter');
+$layoutset = array('bs4-default','rc-starter');
 foreach ($layoutset as $_val) {
 
 	if ($_val=='rc-starter') {
