@@ -431,7 +431,8 @@ $mf_json = json_decode($mf_str , true);
 											<?php $_layoutExp1=explode('/',$_HS['layout'])?>
 											<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
 											<div class="alert alert-danger">
-												<?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다.
+												지정된 <?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다.
+												<a href="/?r=docs&amp;m=admin&amp;module=site" target="_ADMPNL_" class="alert-link">변경하기</a>
 											</div>
 											<?php else: ?>
 											<div class="form-group">
@@ -459,12 +460,20 @@ $mf_json = json_decode($mf_str , true);
 													</select>
 												</div>
 											</div>
+											<?php endif; ?>
+
+											<?php $_layoutExp2=explode('/',$_HS['m_layout'])?>
+											<?php if (!is_dir($g['path_layout'].$_layoutExp2[0])): ?>
+											<div class="alert alert-danger">
+												지정된 모바일 전용 <?php echo $g['path_layout'].$_layoutExp2[0] ?> 레이아웃이 존재하지 않습니다.
+												<a href="/?r=docs&amp;m=admin&amp;module=site" target="_ADMPNL_" class="alert-link">변경하기</a>
+											</div>
+											<?php else: ?>
 											<div class="form-group">
 												<label>모바일 전용</label>
 												<div id="rb-mlayout-select">
 													<select class="form-control custom-select" name="m_layout_1" required onchange="getSubLayout(this,'rb-mlayout-select2','m_layout_1_sub','');">
 														<option value="0">사용안함</option>
-														<?php $_layoutExp2=explode('/',$_HS['m_layout'])?>
 														<?php $dirs = opendir($g['path_layout'])?>
 														<?php while(false !== ($tpl = readdir($dirs))):?>
 														<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -485,11 +494,12 @@ $mf_json = json_decode($mf_str , true);
 													</select>
 												</div>
 											</div>
+											<?php endif; ?>
+
 											<button type="submit" class="btn btn-outline-primary btn-block">
 												<span class="not-loading">저장하기</span>
 												<span class="is-loading">처리중...</span>
 											</button>
-											<?php endif; ?>
 										</div>
 									</div>
 								</div>

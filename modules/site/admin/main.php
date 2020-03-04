@@ -162,8 +162,22 @@ if ($R['uid'])
 						<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
 						<div class="col-sm-12">
 							<div class="alert alert-danger">
-								<?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다.
+								지정된 <?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
 							</div>
+						</div>
+						<div class="col-sm-6" id="rb-layout-select">
+							<select class="form-control custom-select custom-select-lg" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
+								<?php $dirs = opendir($g['path_layout'])?>
+								<?php $_i=0;while(false !== ($tpl = readdir($dirs))):?>
+								<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+								<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?>(<?php echo $tpl?>)</option>
+								<?php $_i++;endwhile?>
+								<?php closedir($dirs)?>
+							</select>
+						</div>
+						<div class="col-sm-6" id="rb-layout-select2">
+							<select class="form-control custom-select custom-select-lg" name="layout_1_sub">
+							</select>
 						</div>
 						<?php else: ?>
 						<div class="col-sm-6" id="rb-layout-select">
@@ -198,11 +212,35 @@ if ($R['uid'])
 					<label class="col-lg-2 col-form-label col-form-label-lg text-lg-right">모바일 전용</label>
 					<div class="col-lg-10 col-xl-9">
 						<div class="form-row">
+							<?php $_layoutExp2=explode('/',$R['m_layout'])?>
+							<?php if (!is_dir($g['path_layout'].$_layoutExp2[0])): ?>
+							<div class="col-sm-12">
+								<div class="alert alert-danger">
+									지정된 <?php echo $g['path_layout'].$_layoutExp2[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
+								</div>
+							</div>
 							<div class="col-sm-6" id="rb-mlayout-select">
 								<select class="form-control custom-select custom-select-lg" name="m_layout_1" required onchange="getSubLayout(this,'rb-mlayout-select2','m_layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
 									<option value="0">사용안함 (기본 레이아웃 적용)</option>
 									<option disabled>--------------------</option>
-									<?php $_layoutExp2=explode('/',$R['m_layout'])?>
+										<?php $dirs = opendir($g['path_layout'])?>
+										<?php while(false !== ($tpl = readdir($dirs))):?>
+										<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+										<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?> (<?php echo $tpl?>)</option>
+										<?php endwhile?>
+										<?php closedir($dirs)?>
+								</select>
+							</div>
+							<div class="col-sm-6" id="rb-mlayout-select2">
+								<select class="form-control custom-select custom-select-lg" name="m_layout_1_sub">
+								</select>
+							</div>
+							<?php else: ?>
+							<div class="col-sm-6" id="rb-mlayout-select">
+								<select class="form-control custom-select custom-select-lg" name="m_layout_1" required onchange="getSubLayout(this,'rb-mlayout-select2','m_layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
+									<option value="0">사용안함 (기본 레이아웃 적용)</option>
+									<option disabled>--------------------</option>
+
 										<?php $dirs = opendir($g['path_layout'])?>
 										<?php while(false !== ($tpl = readdir($dirs))):?>
 										<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -211,18 +249,18 @@ if ($R['uid'])
 										<?php closedir($dirs)?>
 								</select>
 							</div>
-
-								<div class="col-sm-6" id="rb-mlayout-select2">
-									<select class="form-control custom-select custom-select-lg" name="m_layout_1_sub"<?php if(!$R['m_layout']):?> disabled<?php endif?>>
-										<?php if(!$R['m_layout']):?><option>서브 레이아웃</option><?php endif?>
-										<?php $dirs1 = opendir($g['path_layout'].$_layoutExp2[0])?>
-										<?php while(false !== ($tpl1 = readdir($dirs1))):?>
-										<?php if(!strstr($tpl1,'.php') || $tpl1=='_main.php')continue?>
-										<option value="<?php echo $tpl1?>"<?php if($_layoutExp2[1]==$tpl1):?> selected<?php endif?>><?php echo str_replace('.php','',$tpl1)?></option>
-										<?php endwhile?>
-										<?php closedir($dirs1)?>
-									</select>
+							<div class="col-sm-6" id="rb-mlayout-select2">
+								<select class="form-control custom-select custom-select-lg" name="m_layout_1_sub"<?php if(!$R['m_layout']):?> disabled<?php endif?>>
+									<?php if(!$R['m_layout']):?><option>서브 레이아웃</option><?php endif?>
+									<?php $dirs1 = opendir($g['path_layout'].$_layoutExp2[0])?>
+									<?php while(false !== ($tpl1 = readdir($dirs1))):?>
+									<?php if(!strstr($tpl1,'.php') || $tpl1=='_main.php')continue?>
+									<option value="<?php echo $tpl1?>"<?php if($_layoutExp2[1]==$tpl1):?> selected<?php endif?>><?php echo str_replace('.php','',$tpl1)?></option>
+									<?php endwhile?>
+									<?php closedir($dirs1)?>
+								</select>
 							</div>
+							<?php endif; ?>
 						</div>
 
 						<span class="form-text">
