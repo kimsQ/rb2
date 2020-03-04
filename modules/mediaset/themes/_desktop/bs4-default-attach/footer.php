@@ -6,7 +6,6 @@
 var inputId='attach-file-input'; // 실제 작옹하는 input 엘리먼트 id 값을 옵션으로 지정을 해준다. (커스텀 버튼으로 click 이벤트 바인딩)
 var attach_file_saveDir = '<?php echo $g['path_file'].$parent_module?>/';// 파일 업로드 폴더
 var attach_module_theme = '<?php echo $attach_module_theme?>';// attach 모듈 테마
-var editor_type = '<?php echo $editor_type ?>'; // 에디터 타입 : html, markdown
 var uploadElement = $('#attach-files');
 
 $(document).ready(function() {
@@ -22,7 +21,7 @@ $(document).ready(function() {
     maxFileCount: <?php echo $d['mediaset']['maxnum_file'] ?>, // 1회 첨부파일 갯수
     maxFileSize: <?php echo $d['mediaset']['maxsize_file'] ?>, // 1회 첨부파일 용량
     inputId:inputId, // 실제 작옹하는 input 엘리먼트 id 값을 옵션으로 지정을 해준다. (커스텀 버튼으로 click 이벤트 바인딩)
-    formData: {"saveDir":attach_file_saveDir,"theme":attach_module_theme,"editor":editor_type}, // 추가 데이타 세팅
+    formData: {"saveDir":attach_file_saveDir,"theme":attach_module_theme}, // 추가 데이타 세팅
 
     onSubmit:function(files){
       console.log('모든 파일이 업로드가 시작되었습니다.')
