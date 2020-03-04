@@ -1,10 +1,14 @@
 <section class="row justify-content-center my-5 mx-0">
 	<div class="col-5">
 
-		<div class="text-center">
-			<h2>회원가입</h2>
-			<span>하나의 아이디로 다양한 서비스를 이용해 보세요.</span>
-		</div>
+		<header>
+			<h2 class="text-center">
+				<a class="navbar-brand" href="<?php  echo RW(0) ?>"
+					style="background-image:url(<?php echo $d['layout']['header_logo']?$g['url_var_site'].'/'.$d['layout']['header_logo'].$g['wcache']:''?>);background-size:<?php echo $d['layout']['header_logo_size'] ?>%">
+					<?php echo !$d['layout']['header_logo']?$d['layout']['header_title'] :'' ?>
+				</a>
+			</h2>
+		</header>
 
 		<?php if ($d['member']['join_bySocial']): ?>
 

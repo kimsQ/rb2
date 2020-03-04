@@ -1,8 +1,15 @@
 <section class="my-5">
 
-	<h2 class="text-center">회원 로그인</h2>
+	<header>
+		<h2 class="text-center">
+			<a class="navbar-brand" href="<?php  echo RW(0) ?>"
+				style="background-image:url(<?php echo $d['layout']['header_logo']?$g['url_var_site'].'/'.$d['layout']['header_logo'].$g['wcache']:''?>);background-size:<?php echo $d['layout']['header_logo_size'] ?>%">
+				<?php echo !$d['layout']['header_logo']?$d['layout']['header_title'] :'' ?>
+			</a>
+		</h2>
+	</header>
 
-	<div class="form-signin mt-4">
+	<div class="form-signin mt-2">
 		<div class="card">
 			<div class="card-body">
 
