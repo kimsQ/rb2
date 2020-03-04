@@ -126,8 +126,17 @@ else
 		}
 	}
 
-	include './layouts/'.$d['layout']['dir'].'/_includes/_import.control.php';
-	include $g['path_layout'].$d['layout']['php'];
+	if (!is_dir('./layouts/'.$d['layout']['dir'])) {
+		echo './layouts/'.$d['layout']['dir'].' 레이아웃이 존재하지 않습니다.';
+		exit();
+	}
+	if (!file_exists($g['path_layout'].$d['layout']['php'])) {
+		echo $g['path_layout'].$d['layout']['php'].' 파일이 존재하지 않습니다.';
+		exit();
+	}
+
+	@include './layouts/'.$d['layout']['dir'].'/_includes/_import.control.php';
+	@include $g['path_layout'].$d['layout']['php'];
 	foreach($g['switch_4'] as $_switch) include $_switch;
 	echo "\n".'<!-- KimsQ Rb v.'.$d['admin']['version'].' / Runtime : '.round(getCurrentDate()-$g['time_start'],3).' -->';
 	if($g['buffer']) ob_end_flush();

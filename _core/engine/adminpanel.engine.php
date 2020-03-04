@@ -428,11 +428,16 @@ $mf_json = json_decode($mf_str , true);
 									</div>
 									<div id="site-settings-02-body" class="panel-collapse collapse" data-parent="#site-settings-panels">
 										<div class="card-body">
+											<?php $_layoutExp1=explode('/',$_HS['layout'])?>
+											<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
+											<div class="alert alert-danger">
+												<?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다.
+											</div>
+											<?php else: ?>
 											<div class="form-group">
 												<label>기본</label>
 												<div id="rb-layout-select">
 													<select class="form-control custom-select" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','');">
-														<?php $_layoutExp1=explode('/',$_HS['layout'])?>
 														<?php $dirs = opendir($g['path_layout'])?>
 														<?php $_i=0;while(false !== ($tpl = readdir($dirs))):?>
 														<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -484,6 +489,7 @@ $mf_json = json_decode($mf_str , true);
 												<span class="not-loading">저장하기</span>
 												<span class="is-loading">처리중...</span>
 											</button>
+											<?php endif; ?>
 										</div>
 									</div>
 								</div>

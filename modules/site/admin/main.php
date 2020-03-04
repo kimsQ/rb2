@@ -158,9 +158,16 @@ if ($R['uid'])
 				<label class="col-lg-2 col-form-label col-form-label-lg text-lg-right">기본</label>
 				<div class="col-lg-10 col-xl-9">
 					<div class="form-row">
+						<?php $_layoutExp1=explode('/',$R['layout'])?>
+						<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
+						<div class="col-sm-12">
+							<div class="alert alert-danger">
+								<?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다.
+							</div>
+						</div>
+						<?php else: ?>
 						<div class="col-sm-6" id="rb-layout-select">
 							<select class="form-control custom-select custom-select-lg" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select custom-select-lg');" style="letter-spacing: -1px;">
-								<?php $_layoutExp1=explode('/',$R['layout'])?>
 								<?php $dirs = opendir($g['path_layout'])?>
 								<?php $_i=0;while(false !== ($tpl = readdir($dirs))):?>
 								<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -180,6 +187,7 @@ if ($R['uid'])
 									<?php closedir($dirs1)?>
 							</select>
 						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
