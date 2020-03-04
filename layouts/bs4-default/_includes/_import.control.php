@@ -26,7 +26,7 @@ if (isset($layoutPage)){
 
 function getLayoutLogo($layout) {
 	if ($layout['header_logo']) {
-		return '<a class="navbar-brand p-0" href="'.RW(0).'" style="background-image:url('.$GLOBALS['g']['url_var_site'].'/'.$layout['header_logo'].$g['wcache'].');background-size:'.$layout['header_logo_size'].'%;background-position:'.$layout['header_logo_position'].'% 50%"></a>';
+		return '<a class="navbar-brand p-0" href="'.RW(0).'" style="background-image:url('.$GLOBALS['g']['url_var_site'].'/'.$layout['header_logo'].$GLOBALS['g']['wcache'].');background-size:'.$layout['header_logo_size'].'%;background-position:'.$layout['header_logo_position'].'% 50%"></a>';
 	} else {
 		return '<a class="navbar-brand p-0" href="'.RW(0).'">'.$layout['header_title'].'</a>';
 	}
