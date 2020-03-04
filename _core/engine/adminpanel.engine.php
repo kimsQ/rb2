@@ -1053,6 +1053,9 @@ $mf_json = json_decode($mf_str , true);
 	</div>
 </nav>
 
+<!-- bootstrap-notify : https://github.com/mouse0270/bootstrap-notify -->
+<?php getImport('bootstrap-notify','bootstrap-notify.min','3.1.3','js')?>
+
 <?php getImport('nestable','jquery.nestable','1.0','js'); ?>
 
 <script>
