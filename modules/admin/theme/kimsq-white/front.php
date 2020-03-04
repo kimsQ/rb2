@@ -10,7 +10,7 @@
 			<span class="badge badge-light"><?php echo $MD['name']?></span>
 		</a>
 		<?php if($module == 'dashboard' && ($front == 'main' || $front == 'mobile.dashboard')):?>
-		<i class="fa fa-cog rb-modal-dashboard js-tooltip" title="대시보드 꾸미기" data-toggle="modal" data-target="#modal_window"></i>
+		<i class="fa fa-cog rb-modal-dashboard js-tooltip d-none" title="대시보드 꾸미기" data-toggle="modal" data-target="#modal_window"></i>
 		<?php endif?>
 		<?php endif?>
 

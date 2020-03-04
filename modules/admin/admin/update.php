@@ -1,7 +1,8 @@
 <?php
 include $g['path_core'].'function/rss.func.php';
+include $g['path_module'].'market/var/var.php';
 include $g['path_module'].$module.'/var/var.version.php';
-$lastest_version = trim(getUrlData('https://kimsq.github.io/rb2/lastest.txt'.$g['wcache'],10));
+$lastest_version = trim(getUrlData($d['github']['lastest'].$g['wcache'],10));
 $current_version = $_SESSION['current_version']?$_SESSION['current_version']:$d['admin']['version'];
 $_current_version = str_replace('.','',$current_version);
 $_lastest_version = str_replace('.','',$lastest_version);
@@ -35,7 +36,7 @@ $_SESSION['current_version'] = '';
 	<input type="hidden" name="r" value="<?php echo $r?>">
 	<input type="hidden" name="m" value="admin">
 	<input type="hidden" name="a" value="update">
-	<input type="hidden" name="remote" value="https://github.com/kimsQ/rb2.git">
+	<input type="hidden" name="remote" value="<?php echo $d['github']['remote'] ?>">
 	<input type="hidden" name="current_version" value="<?php echo $current_version?>">
 	<input type="hidden" name="lastest_version" value="<?php echo $lastest_version?>">
 

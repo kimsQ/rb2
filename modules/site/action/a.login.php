@@ -123,7 +123,7 @@ if ($usertype == 'admin' || $M1['admin']) {
 }
 
 if ($usertype == 'admin' && $M1['admin']) {
-	getLink($g['s'].'/?r='.$r.'&panel=Y&pickmodule=site&amp;important=panel','parent.parent.','','');
+	getLink($g['s'].'/?r='.$r.'&panel=Y&pickmodule=dashboard&amp;important=panel','parent.parent.','','');
 }
 
 if ($M1['admin']) {
