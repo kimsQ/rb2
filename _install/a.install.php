@@ -319,6 +319,12 @@ foreach ($layoutset as $_val) {
 		$layout_header_menu_limit = "3";
 		$layout_header_search = "true";
 		$layout_header_login  = "true";
+		$layout_header_container = "container";
+	  $layout_home_container = "container";
+	  $layout_default_container = "container";
+	  $layout_sidebar_container = "container";
+	  $layout_docs_container = "container";
+	  $layout_footer_container = "container";
 		$layout_footer_type = "type1";
 	}
 
