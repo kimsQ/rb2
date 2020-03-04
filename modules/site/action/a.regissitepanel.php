@@ -1,4 +1,4 @@
-<?php
+	<?php
 if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
@@ -27,6 +27,8 @@ if ($_HS['id'] != $id || $_HS['name'] != $name)
 	getLink($g['s'].'/?r='.$id.'&panel=Y&_admpnl_='.urlencode($referer),'parent.parent.','변경되었습니다','');
 }
 else {
-	getLink('reload','parent.frames._ADMPNL_.','변경되었습니다','');
+	//getLink('reload','parent.frames._ADMPNL_.','변경되었습니다','');
+	setrawcookie('site_common_result', rawurlencode('변경 되었습니다.'));  // 알림처리를 위한 로그인 상태 cookie 저장
+	getLink('reload','parent.frames._ADMPNL_.','','');
 }
 ?>

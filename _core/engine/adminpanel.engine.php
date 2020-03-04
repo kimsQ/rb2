@@ -295,7 +295,7 @@ $mf_json = json_decode($mf_str , true);
 
 										<div class="form-group">
 											<label class="small">앱 짧은 이름</label>
-											<input type="text" class="form-control form-control-sm" name="site_manifest_short_name" value="<?php echo $mf_json['short_name'] ?>">
+											<input type="text" class="form-control" name="site_manifest_short_name" value="<?php echo $mf_json['short_name'] ?>">
 										</div>
 
 										<div class="form-group">
@@ -370,7 +370,10 @@ $mf_json = json_decode($mf_str , true);
 											</select>
 										</div>
 
-										<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+										<button type="submit" class="btn btn-outline-primary btn-block">
+											<span class="not-loading">저장하기</span>
+											<span class="is-loading">처리중...</span>
+										</button>
 									</form>
 
 									<p class="mt-3 mb-0 small">웹앱을 위한 <a href="https://developers.google.com/web/fundamentals/web-app-manifest/?hl=ko&authuser=0" target="_blank">매니페스트</a> 파일을 구성합니다.</p>
@@ -412,7 +415,10 @@ $mf_json = json_decode($mf_str , true);
 											<input type="text" class="form-control" name="title" value="<?php echo $_HS['title']?>">
 											<span class="form-text text-muted"><small>입력된 내용은 브라우저의 타이틀로 사용됩니다. 치환코드는 매뉴얼을 참고하세요.</small></span>
 										</div>
-										<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+										<button type="submit" class="btn btn-outline-primary btn-block">
+											<span class="not-loading">저장하기</span>
+											<span class="is-loading">처리중...</span>
+										</button>
 									</div>
 								</div>
 
@@ -474,7 +480,10 @@ $mf_json = json_decode($mf_str , true);
 													</select>
 												</div>
 											</div>
-											<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+											<button type="submit" class="btn btn-outline-primary btn-block">
+												<span class="not-loading">저장하기</span>
+												<span class="is-loading">처리중...</span>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -507,7 +516,10 @@ $mf_json = json_decode($mf_str , true);
 												<?php endwhile?>
 												</select>
 											</div>
-											<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+											<button type="submit" class="btn btn-outline-primary btn-block">
+												<span class="not-loading">저장하기</span>
+												<span class="is-loading">처리중...</span>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -546,7 +558,10 @@ $mf_json = json_decode($mf_str , true);
 												<option value="3"<?php if($_HS['s004']=='3'):?> selected="selected"<?php endif?>>정지</option>
 												</select>
 											</div>
-											<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+											<button type="submit" class="btn btn-outline-primary btn-block">
+												<span class="not-loading">저장하기</span>
+												<span class="is-loading">처리중...</span>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -701,7 +716,10 @@ $mf_json = json_decode($mf_str , true);
 								</div>
 								<?php endforeach?>
 
-								<button type="submit" class="btn btn-outline-primary btn-block">저장하기</button>
+								<button type="submit" class="btn btn-outline-primary btn-block">
+									<span class="not-loading">저장하기</span>
+									<span class="is-loading">처리중...</span>
+								</button>
 								<?php endif?>
 
 							</div>
@@ -1290,11 +1308,20 @@ function _siteInfoSaveCheck(f)
 	if(f.m_layout_1.value != '0') f.m_layout.value = f.m_layout_1.value + '/' + f.m_layout_1_sub.value;
 	else f.m_layout.value = '';
 	f.referer.value = frames._ADMPNL_.location.href;
-	return confirm('정말로 변경하시겠습니까?    ');
+	// return confirm('정말로 변경하시겠습니까?    ');
+	f.querySelector('[type="submit"]').disabled = true;
+	setTimeout(function(){
+		f.querySelector('[type="submit"]').disabled = false;
+	}, 700);
+	return;
 }
 function _layoutInfoSaveCheck(f)
 {
 	// return confirm('정말로 변경하시겠습니까?    ');
+	f.querySelector('[type="submit"]').disabled = true;
+	setTimeout(function(){
+		f.querySelector('[type="submit"]').disabled = false;
+	}, 700);
 	return;
 }
 function getOuturl(n)

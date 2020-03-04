@@ -7,7 +7,7 @@ $tmpname	= $_FILES['site_manifest_icon']['tmp_name'];
 $realname	= $_FILES['site_manifest_icon']['name'];
 $iconsURL = $g['s'].'/_core/images/touch/';
 
-if (is_uploaded_file($tmpname)) {
+if ($tmpname && is_uploaded_file($tmpname)) {
   $fileExt	= strtolower(getExt($realname));
   $fileExt	= $fileExt == 'jpeg' ? 'jpg' : $fileExt;
   $fileName	= 'homescreen.'.$fileExt;
@@ -15,7 +15,7 @@ if (is_uploaded_file($tmpname)) {
   $saveFile	= $g['path_var'].'site/'.$r.'/'.$fileName;
 
   if (!strstr('[gif][jpg][png]',$fileExt)) {
-    continue;
+    getLink('reload','parent.','허용되지 않는 확장자 입니다..','');
   }
 
   move_uploaded_file($tmpname,$saveFile);
@@ -58,5 +58,7 @@ fwrite($fp, $_manifestJSON );
 fclose($fp);
 @chmod($_manifestfile,0707);
 
-getLink('reload','parent.frames._ADMPNL_.','변경되었습니다.','');
+// getLink('reload','parent.frames._ADMPNL_.','변경되었습니다.','');
+setrawcookie('site_common_result', rawurlencode('변경 되었습니다.'));  // 알림처리를 위한 로그인 상태 cookie 저장
+getLink('reload','parent.frames._ADMPNL_.','','');
 ?>
