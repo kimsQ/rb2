@@ -585,8 +585,8 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 <div id="_modal_footer" hidden>
 	<?php if(!$dfiles):?>
 	<div class="">
-		<button type="button" class="btn btn-secondary" <?php if($album!='trash'):?>onclick="frames._modal_iframe_modal_window.getId('filefiled').click();"<?php else:?>disabled<?php endif?>><i class="fa fa-cloud-upload fa-lg"></i> PC사진</button>
-		<button type="button" class="btn btn-secondary" <?php if($album!='trash'):?>onclick="frames._modal_iframe_modal_window.picAdd();"<?php else:?>disabled<?php endif?>><i class="fa fa-link fa-lg"></i> 외부사진</button>
+		<button type="button" class="btn btn-light" <?php if($album!='trash'):?>onclick="frames._modal_iframe_modal_window.getId('filefiled').click();"<?php else:?>disabled<?php endif?>><i class="fa fa-cloud-upload fa-lg"></i> 내컴퓨터에서</button>
+		<button type="button" class="btn btn-light" <?php if($album!='trash'):?>onclick="frames._modal_iframe_modal_window.picAdd();"<?php else:?>disabled<?php endif?>><i class="fa fa-link fa-lg"></i> 외부사진</button>
 
 		<?php if($album>0):?>
 		<button type="button" class="btn btn-danger" onclick="frames._modal_iframe_modal_window.catDelete();">카테고리 삭제</button>
@@ -605,7 +605,7 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 	<?php endif?>
 
 	<div class="">
-		<button type="button" class="btn btn-secondary" data-dismiss="modal" aria-hidden="true" id="_modalclosebtn_">닫기</button>
+		<button type="button" class="btn btn-light" data-dismiss="modal" aria-hidden="true" id="_modalclosebtn_">닫기</button>
 		<?php if($dropfield&&$dropfield!='editor'):?>
 		<button type="button" class="btn btn-danger" onclick="frames._modal_iframe_modal_window.fieldDrop();">적용하기</button>
 		<?php endif?>
