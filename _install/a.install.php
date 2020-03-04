@@ -313,9 +313,13 @@ foreach ($layoutset as $_val) {
 		$layout_main_type = 'postAllFeed';
 	} else {
 		$_layout = explode('/', $layout);
+		$layout_main_dashboard = "false";
+		$layout_header_type = "type1";
+		$layout_header_menu = "dropdown-hover";
+		$layout_header_menu_limit = "3";
 		$layout_header_search = "true";
 		$layout_header_login  = "true";
-		$layout_main_dashboard = "false";
+		$layout_footer_type = "type1";
 	}
 
 	$layout_header_title = $sitename;
