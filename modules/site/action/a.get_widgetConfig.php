@@ -144,19 +144,22 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	      }
 
 				if ($_v[1]=='mediasetcat') {
+					$html .= '<div class="input-group">';
 					$html .= '<select name="'.$_v[0].'" class="form-control custom-select">
 											<option value="">선택하세요.</option>
 											<option value="" disabled>----------------------------------</option>';
 
 											$MEDIASETCAT = getDbArray($table['s_uploadcat'],'site='.$s.' and mbruid="'.$my['uid'].'" and hidden=0','*','gid','asc',0,1);
 							        while ($R=db_fetch_array($MEDIASETCAT)) {
-												if ($R['uid']==1 || $R['uid']==2) continue; 
+												if ($R['uid']==1 || $R['uid']==2) continue;
 							          $html .= '<option data-name="'.$R['name'].'" value="'.$R['uid'].'" '.($R['uid']==$_wdgvar[$_v[0]]?' selected':'').'>
 							                      ㆍ'.$R['name'].'
 							                    </option>';
 															}
 
 					$html .= '</select>';
+					$html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-light rb-modal-photo" type="button" data-toggle="modal" data-target="#modal_window" title="포토셋 열기">+</button></div>';
+					$html .= '</div>';
 				}
 
 	      if ($_v[1]=='bbs') {

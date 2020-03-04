@@ -1397,6 +1397,13 @@ function setWidgetConfig(id,name,path,wdgvar) {
 					}
 				});
 
+				$('.rb-modal-photo').on('click',function() {
+				  modalSetting('modal_window','<?php echo getModalLink('&amp;m=mediaset&amp;mdfile=modal.photo.media')?>');
+				});
+				$('.rb-modal-video').on('click',function() {
+				  modalSetting('modal_window','<?php echo getModalLink('&amp;m=mediaset&amp;mdfile=modal.video.media')?>');
+				});
+
       } else {
         $.notify({message: '위젯설정을 확인해주세요.'},{type: 'danger'});
         return false
