@@ -1,5 +1,5 @@
 <?php
-$d['post']['layout'] = "bs4-starter/default.php";
+$d['post']['layout'] = "bs4-default/default.php";
 $d['post']['m_layout'] = "rc-starter/blank-drawer.php";
 $d['post']['skin_main'] = "_desktop/bs4-default";
 $d['post']['skin_mobile'] = "_mobile/rc-default";

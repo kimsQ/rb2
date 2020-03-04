@@ -123,10 +123,10 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	                    <option value="">선택하세요.</option>
 	                    <option value="" disabled>----------------------------------</option>';
 	        $_sk=explode(',',$_v[3]);
-	        $POSTLIST = getDbArray($table['postlist_member'],'mbruid="'.$my['uid'].'" and display<>1','*','gid','asc',0,1);
+	        $POSTLIST = getDbArray($table['postlist_member'],'site='.$s.' and mbruid="'.$my['uid'].'" and display<>1','*','gid','asc',0,1);
 	        while ($R=db_fetch_array($POSTLIST)) {
 	          $L = getUidData($table['postlist'],$R['list']);
-	          $html .= '<option value="'.$L['id'].'" '.($L['id']==$_wdgvar[$_v[0]]?' selected':'').'>
+	          $html .= '<option data-name="'.$L['name'].'" value="'.$L['id'].'" '.($L['id']==$_wdgvar[$_v[0]]?' selected':'').'>
 	                      ㆍ'.$L['name'].'
 	                    </option>';
 	                  }
@@ -142,6 +142,22 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 					$html .=	 getCategoryShowSelect($table['postcategory'],0,0,0,0,0,$_wdgvar[$_v[0]]);
 	        $html .= '</select>';
 	      }
+
+				if ($_v[1]=='mediasetcat') {
+					$html .= '<select name="'.$_v[0].'" class="form-control custom-select">
+											<option value="">선택하세요.</option>
+											<option value="" disabled>----------------------------------</option>';
+
+											$MEDIASETCAT = getDbArray($table['s_uploadcat'],'site='.$s.' and mbruid="'.$my['uid'].'" and hidden=0','*','gid','asc',0,1);
+							        while ($R=db_fetch_array($MEDIASETCAT)) {
+												if ($R['uid']==1 || $R['uid']==2) continue; 
+							          $html .= '<option data-name="'.$R['name'].'" value="'.$R['uid'].'" '.($R['uid']==$_wdgvar[$_v[0]]?' selected':'').'>
+							                      ㆍ'.$R['name'].'
+							                    </option>';
+															}
+
+					$html .= '</select>';
+				}
 
 	      if ($_v[1]=='bbs') {
 					$html .= '<div class="input-group">';

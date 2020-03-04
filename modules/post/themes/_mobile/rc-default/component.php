@@ -51,38 +51,7 @@
   </header>
   <main role="main" class="content bg-faded">
     <div data-role="list"></div>
-    <div data-role="none" hidden>
-      <div class="d-flex justify-content-center align-items-center" style="height: 70vh">
-        <div class="text-xs-center text-reset">
-          <div class="material-icons mb-4" style="font-size: 100px;color:#ccc">
-            subscriptions
-          </div>
-          <h5>나만의 채널을 시작합니다.</h5>
-          <small class="text-muted">당신만울 위한 모바일 베이스캠프</small>
-
-          <div class="mt-4 text-xs-center">
-            <?php if ($my['uid']): ?>
-            <a class="btn btn-primary btn-lg" role="button"
-              href="#popup-post-newPost"
-              data-toggle="popup"
-              data-start="#page-post-allpost"
-              data-url="/post/write"
-              data-title="새 포스트">
-              포스트 작성
-            </a>
-            <?php else: ?>
-            <a class="btn btn-primary btn-lg" role="button"
-              href="#modal-login"
-              data-toggle="modal"
-              data-title="로그인">
-              로그인
-            </a>
-            <?php endif; ?>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <div data-role="none" hidden></div>
   </main>
 </div><!-- /.page -->
 
@@ -283,7 +252,7 @@
           <div class="media content-padded">
             <span class="media-left">
               <div class="embed-responsive embed-responsive-16by9 bg-faded">
-                <img class="media-object bg-faded" src="" alt="" data-role="featured" style="width:110px">
+                <img class="media-object bg-faded" src="" alt="" data-role="featured" style="width:6.875rem">
                 <time class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:0;bottom:0" data-role="time"></time>
               </div>
             </span>
@@ -343,7 +312,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -364,7 +333,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -385,7 +354,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -406,7 +375,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -427,7 +396,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -448,7 +417,7 @@
     </header>
     <div class="content">
       <div data-role="loader">
-        <div class="d-flex justify-content-center align-items-center"  style="height:385px">
+        <div class="d-flex justify-content-center align-items-center"  style="height:24.0625rem">
           <div class="spinner-border text-muted" role="status">
             <span class="sr-only">Loading...</span>
           </div>
@@ -569,8 +538,8 @@
         </span>
       </button>
       <a href="#popover-post-display" data-toggle="popover" class="title title-left ml-3">
-        <span data-role="display_label" style="min-width: 38px;display: inline-block"></span>
-        <span class="icon icon-caret ml-1" style="top: 2px;"></span>
+        <span data-role="display_label" style="min-width: 2.375rem;display: inline-block"></span>
+        <span class="icon icon-caret ml-1" style="top: 0.125rem;"></span>
       </a>
     </header>
     <header class="bar bar-nav bar-light bg-faded p-x-0 border-top" data-role="editor-nav">
@@ -608,11 +577,11 @@
         <div class="content-padded my-0 editor-focused-hide">
           <div class="media">
             <span class="media-left media-middle position-relative pr-0 mr-2 d-none">
-              <img class="media-object bg-faded" src="" alt="" data-role="featured" style="height:58px">
-              <time class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:1px;bottom:1px" data-role="time"></time>
-              <span class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:1px;bottom:1px" data-role="attachNum"></span>
+              <img class="media-object bg-faded" src="" alt="" data-role="featured" style="height:3.625rem">
+              <time class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:0.0625rem;bottom:0.0625rem" data-role="time"></time>
+              <span class="badge badge-default bg-black rounded-0 position-absolute f12 p-1" style="right:0.0625rem;bottom:0.0625rem" data-role="attachNum"></span>
             </span>
-            <div class="media-body f14" style="max-height: 300px;overflow: auto">
+            <div class="media-body f14" style="max-height: 18.75rem;overflow: auto">
               <div class="form-list floating mb-1">
                 <div class="input-row pl-1">
                   <label class="small text-muted">제목</label>
@@ -623,7 +592,7 @@
           </div><!-- /.media -->
         </div><!-- /.content-padded -->
 
-        <div data-role="editor" class="mb-4" style="margin-top: -5px;">
+        <div data-role="editor" class="mb-4" style="margin-top: -0.3125rem;">
           <div data-role="editor-body" class="editable-container" style="color:#55595c"></div>
         </div>
 
@@ -654,7 +623,7 @@
 
   			</ul>
 
-        <ul class="table-view editor-focused-hide bg-white" style="margin-top:-1px">
+        <ul class="table-view editor-focused-hide bg-white" style="margin-top:-0.0625rem">
           <li class="table-view-cell">
             <a class="navigate-right" href="#page-post-edit-review" data-start="#page-post-edit-main" data-toggle="page">
               <span class="badge badge-default badge-inverted"></span>
@@ -772,7 +741,7 @@
     </header>
     <main class="content">
 
-      <div data-role="box" style="margin-top:-1px"></div>
+      <div data-role="box" style="margin-top:-0.0625rem"></div>
 
     </main>
   </section>
@@ -824,7 +793,7 @@
     </header>
     <main class="content bg-white">
       <div class="content-backdrop d-none" data-role="backdrop"></div>
-      <ol class="table-view bg-white border-top-0" data-role="attach-goods" data-sortable="goods" style="margin-top:-1px"></ol>
+      <ol class="table-view bg-white border-top-0" data-role="attach-goods" data-sortable="goods" style="margin-top:-0.0625rem"></ol>
     </main>
   </section>
 
@@ -871,9 +840,9 @@
     <div class="content-padded my-0 editor-focused-hide">
       <div class="media mt-3">
         <span class="media-left  position-relative pr-0 mr-2">
-          <img class="media-object img-circle" src="<?php echo getAvatarSrc($my['uid'],'84') ?>" style="height:42px">
+          <img class="media-object img-circle" src="<?php echo getAvatarSrc($my['uid'],'84') ?>" style="height:2.625rem">
         </span>
-        <div class="media-body f14" style="max-height: 300px;overflow: auto">
+        <div class="media-body f14" style="max-height: 18.75rem;overflow: auto">
           <div class="form-list mt-2">
             <div class="input-row pl-1 border-bottom-0">
               <label class="sr-only">제목</label>
@@ -889,7 +858,7 @@
 <!-- 팝업 : 포스트 옵션 더보기 -->
 <div id="popup-post-postMore" class="popup zoom">
   <div class="popup-content">
-    <ul class="table-view table-view-full text-xs-center rounded-0" data-role="list" style="max-height: 328px;">
+    <ul class="table-view table-view-full text-xs-center rounded-0" data-role="list" style="max-height: 20.5rem;">
     </ul>
   </div>
 </div>
@@ -1009,7 +978,7 @@
 <!-- 팝업 : 새 재생목록 -->
 <div id="popup-post-newList" class="popup zoom">
   <div class="popup-content rounded-0">
-    <div class="content rounded-0" style="min-height: 110px;">
+    <div class="content rounded-0" style="min-height: 6.875rem">
       <div class="p-a-1">
         <h5>새 재생목록</h5>
         <div class="form-list stacked mt-3 mb-1">
@@ -1053,12 +1022,12 @@
       <a class="icon icon-close pull-right" data-history="back" role="button"></a>
       <h1 class="title" data-role="title">새 포스트</h1>
     </header>
-    <div class="content rounded-0" style="min-height: 185px;">
+    <div class="content rounded-0" style="min-height: 11.5625rem;">
       <div class="px-3 pb-3">
         <div class="row">
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="twit">
-              <div class="material-icons" style="font-size: 60px;">
+              <div class="material-icons" style="font-size: 3.75rem;">
                 format_quote
               </div>
               <div><small class="text-muted">간단글</small></div>
@@ -1066,7 +1035,7 @@
           </div>
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="editor">
-              <div class="material-icons" style="font-size: 60px;">
+              <div class="material-icons" style="font-size: 3.75rem;">
                 notes
               </div>
               <div><small class="text-muted">긴글 작성</small></div>
@@ -1074,7 +1043,7 @@
           </div>
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="link">
-              <div class="material-icons" style="font-size: 60px;">
+              <div class="material-icons" style="font-size: 3.75rem;">
                 link
               </div>
               <div><small class="text-muted">링크 추가</small></div>
@@ -1082,7 +1051,7 @@
           </div>
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="photo">
-              <div class="material-icons" style="font-size: 60px;">
+              <div class="material-icons" style="font-size: 3.75rem;">
                 insert_photo
               </div>
               <div><small class="text-muted">사진 추가</small></div>
@@ -1090,14 +1059,14 @@
           </div>
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="youtube">
-              <div class="fa fa-youtube-square text-muted" style="font-size: 60px;">
+              <div class="fa fa-youtube-square text-muted" style="font-size: 3.75rem;">
               </div>
-              <div style="margin-top:3px"><small class="text-muted">내 영상 추가</small></div>
+              <div style="margin-top:0.1875rem"><small class="text-muted">내 영상 추가</small></div>
             </button>
           </div>
           <div class="col-xs-4">
             <button type="button" class="btn btn-block btn-link text-muted" data-toggle="newpost" data-type="map">
-              <div class="material-icons" style="font-size: 60px;">
+              <div class="material-icons" style="font-size: 3.75rem;">
                 room
               </div>
               <div><small class="text-muted">장소 추가</small></div>
@@ -1112,7 +1081,7 @@
 <!-- 팝업 : 삭제확인 안내-->
 <div id="popup-post-delConfirm" class="popup zoom">
   <div class="popup-content rounded-0">
-    <div class="content rounded-0" style="min-height: 110px;">
+    <div class="content rounded-0" style="min-height: 6.875rem;">
       <div class="p-a-1">
         <h5 data-role="title">정말로 삭제하시겠습니까?</h5>
 				<span data-role="subtext" class="f14 text-muted"></span>
@@ -1200,7 +1169,7 @@
 </div>
 
 <!-- 시트 : 새 포스트 링크추가 -->
-<div id="sheet-post-linkadd" class="sheet shadow" style="height: 93px;">
+<div id="sheet-post-linkadd" class="sheet shadow" style="height: 5.8125rem;">
   <header class="bar bar-nav bar-light bg-white">
     <h1 class="title title-left px-3">링크 추가</h1>
   </header>
@@ -1250,7 +1219,7 @@
     <div data-role="none">
       <div class="d-flex justify-content-center align-items-center" style="height: 43vh">
           <div class="text-xs-center" data-act="attach">
-            <div class="material-icons mb-4" style="font-size: 100px;color:#ccc">
+            <div class="material-icons mb-4" style="font-size: 6.25rem;color:#ccc">
               image_search
             </div>
             <h5>새로운 사진을 올려 주세요.</h5>
@@ -1268,7 +1237,7 @@
 
 <!-- Popover-->
 <div id="popover-post-display" class="popover">
-  <ul class="table-view" style="line-height: 1.2;max-height: 325px;">
+  <ul class="table-view" style="line-height: 1.2;max-height: 20.3125rem;">
 
     <li class="table-view-cell">
       <a class="d-flex align-items-center" data-toggle="display" data-display="1" data-label="비공개">
