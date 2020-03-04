@@ -13,11 +13,17 @@ shell_exec($command1.'; echo $?');
 $output = shell_exec($command2.'; echo $?');
 $command	= $command1.'  '.$command2;
 
+if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
+  $msg_type = 'default';
+} else {
+  $msg_type = 'success';
+}
+
 if(strpos($output, 'Already up-to-date.') !== false) {
-  $msg = '이미 최신버전 입니다.|default';
+  $msg = '이미 최신버전 입니다.|'.$msg_type;
 } else {
   getDbInsert($table['s_gitlog'],'mbruid,remote,command,version,output,d_regis',"'$mbruid','$remote','$command','$version','$output','$d_regis'");
-  $msg = '업데이트가 완료 되었습니다.|default';
+  $msg = '업데이트가 완료 되었습니다.|'.$msg_type;
 }
 $_SESSION['current_version'] = $lastest_version;
 setrawcookie('system_update_result', rawurlencode($msg));  // 알림처리를 위한 로그인 상태 cookie 저장
