@@ -872,29 +872,30 @@ $mf_json = json_decode($mf_str , true);
 
 					<!-- 메인화면 꾸미기 게시판생성 -->
 					<div class="modal" tabindex="-1" role="dialog" id="modal-widget-makebbs">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title">새 게시판</h5>
+					  <div class="modal-dialog m-0 h-100" role="document">
+					    <div class="modal-content border-0 rounded-0" style="height:100%">
+					      <div class="modal-header bg-primary text-white rounded-0 d-flex justify-content-between align-items-center py-2">
+									<span data-dismiss="modal" role="button"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>새 게시판</span>
 					      </div>
 					      <div class="modal-body">
-
 					        <div class="form-group">
 					          <label>게시판 아이디</label>
 					          <input type="text" class="form-control" name="id" autocomplete="off">
 					          <div class="invalid-feedback"></div>
 					        </div>
-
 					        <div class="form-group">
 					          <label>게시판 이름</label>
 					          <input type="text" class="form-control" name="name" autocomplete="off">
 					          <div class="invalid-feedback"></div>
 					        </div>
-
 					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-link" data-dismiss="modal">취소</button>
-					        <button type="button" class="btn btn-primary" data-act="submit">만들기</button>
+					      <div class="modal-footer d-flex rounded-0 py-1 rb-tab-pane-bottom bg-white">
+									<div class="flex-fill">
+										<button type="button" class="btn btn-link text-reset btn-block" data-dismiss="modal">취소</button>
+									</div>
+									<div class="flex-fill">
+										<button type="button" class="btn btn-link btn-block" data-act="submit">만들기</button>
+									</div>
 					      </div>
 					    </div>
 					  </div>
@@ -902,22 +903,25 @@ $mf_json = json_decode($mf_str , true);
 
 					<!-- 메인화면 꾸미기 리스트 생성 -->
 					<div class="modal" tabindex="-1" role="dialog" id="modal-widget-makelist">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title">새 리스트</h5>
+					  <div class="modal-dialog m-0 h-100" role="document">
+					    <div class="modal-content border-0 rounded-0" style="height:100%">
+					      <div class="modal-header bg-primary text-white rounded-0 d-flex justify-content-between align-items-center py-2">
+									<span data-dismiss="modal" role="button"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>새 리스트</span>
 					      </div>
 					      <div class="modal-body">
-
 					        <div class="form-group">
 					          <label>리스트 이름</label>
 					          <input type="text" class="form-control" name="name" autocomplete="off">
 					          <div class="invalid-feedback"></div>
 					        </div>
 					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-link" data-dismiss="modal">취소</button>
-					        <button type="button" class="btn btn-primary" data-act="submit">만들기</button>
+								<div class="modal-footer d-flex rounded-0 py-1 rb-tab-pane-bottom bg-white">
+									<div class="flex-fill">
+										<button type="button" class="btn btn-link text-reset btn-block" data-dismiss="modal">취소</button>
+									</div>
+									<div class="flex-fill">
+										<button type="button" class="btn btn-link btn-block" data-act="submit">만들기</button>
+									</div>
 					      </div>
 					    </div>
 					  </div>
