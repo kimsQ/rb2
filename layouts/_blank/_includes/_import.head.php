@@ -25,6 +25,9 @@
 <?php getImport('font-awesome','css/font-awesome','4.7.0','css')?>
 <?php getImport('font-kimsq','css/font-kimsq',false,'css')?>
 
+<!-- 한글 NotoSans 폰트 -->
+<?php getImport('NotoSans','fonts','1.0','css')?>
+
 <!-- is-loading : https://github.com/hekigan/is-loading-->
 <?php getImport('is-loading','jquery.isloading.min','1.0.6','js')?>
 

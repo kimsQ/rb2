@@ -55,6 +55,7 @@ $mf_json = json_decode($mf_str , true);
 
 <?php getImport('font-awesome','css/font-awesome','4.7.0','css')?>
 <?php getImport('font-kimsq','css/font-kimsq',false,'css')?>
+<?php getImport('NotoSans','fonts','1.0','css')?>
 
 <link href="<?php echo $g['s']?>/_core/engine/adminpanel/main.css" rel="stylesheet">
 <link href="<?php echo $g['s']?>/_core/engine/adminpanel/theme/<?php echo $d['admin']['pannellink']?>" rel="stylesheet">

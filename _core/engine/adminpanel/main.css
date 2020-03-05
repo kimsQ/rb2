@@ -25,11 +25,9 @@
  * ----------------------------------------------------------------------------
  */
 
-@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
-
 body {
   font-size: 14px;
-  font-family: '돋움', dotum, sans-serif;
+  font-family: 'NotoSans', dotum, sans-serif;
 }
 
 

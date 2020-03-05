@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 /*!
  * kimsQ Rb v2.4.5 데스크탑 기본 레이아웃 글로벌 스타일 (bs4-default)
@@ -37,7 +36,7 @@ html {
 body {
   font-size: 14px;
   line-height: 1.5;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSans', sans-serif;
   color: #222;
   font-size: 14px;
 }
