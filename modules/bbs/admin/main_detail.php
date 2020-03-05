@@ -588,9 +588,9 @@ if ($uid)
 					<!-- 추가설정 시작 : panel-group 으로 각각의 panel 을 묶는다.-->
 			     <div id="bbs-settings" class="panel-group">
 
-						<div id="bbs-settings-noti" class="card">
+						<div id="bbs-settings-noti" class="card mb-2">
 							<div class="card-header p-0">
-								<a onclick="boxDeco('noti');sessionSetting('bbs_settings_collapse','noti','','');"
+								<a onclick="sessionSetting('bbs_settings_collapse','noti','','');"
 									href="#bbs-settings-noti-body"
 									data-toggle="collapse"
 									class="d-block collapsed muted-link pl-2<?php if($_SESSION['bbs_settings_collapse']!='noti'):?> collapsed<?php endif?>">
@@ -604,9 +604,9 @@ if ($uid)
 						 </div>
 						</div><!-- /.알림설정 -->
 
-						 <div id="bbs-settings-add" class="card"> <!-- 추가설정-->
+						 <div id="bbs-settings-add" class="card mb-2"> <!-- 추가설정-->
 						    <div class="card-header p-0">
-									<a onclick="boxDeco('add');sessionSetting('bbs_settings_collapse','add','','');"
+									<a onclick="sessionSetting('bbs_settings_collapse','add','','');"
 										href="#bbs-settings-add-body"
 										data-toggle="collapse"
 										class="d-block collapsed muted-link pl-2<?php if($_SESSION['bbs_settings_collapse']!='add'):?> collapsed<?php endif?>">
@@ -626,9 +626,10 @@ if ($uid)
 								</div>
 							</div> <!-- .panel-body & .panel-footer : 숨겼다 보였다 하는 내용  -->
 						 </div> <!-- .panel 전체 -->
-						 <div id="bbs-settings-right" class="card"><!--권한설정-->
+
+						 <div id="bbs-settings-right" class="card mb-2"><!--권한설정-->
 							 <div class="card-header p-0">
-								 <a onclick="boxDeco('right');sessionSetting('bbs_settings_collapse','right','','');"
+								 <a onclick="sessionSetting('bbs_settings_collapse','right','','');"
 								 	href="#bbs-settings-right-body"
 									data-toggle="collapse"
 									class="collapsed d-block collapsed muted-link pl-2<?php if($_SESSION['bbs_settings_collapse']!='right'):?> collapsed<?php endif?>">
@@ -648,10 +649,9 @@ if ($uid)
 				          </div> <!-- .panel-body & .panel-footer : 숨겼다 보였다 하는 내용  -->
 			          </div>  <!-- .panel 전체 -->
 
-
-	          <div id="bbs-settings-hcode" class="card"><!--헤더삽입-->
+	          <div id="bbs-settings-hcode" class="card mb-2"><!--헤더삽입-->
 							 <div class="card-header p-0">
-								 <a onclick="boxDeco('hcode');sessionSetting('bbs_settings_collapse','hcode','','');"
+								 <a onclick="sessionSetting('bbs_settings_collapse','hcode','','');"
 								 	href="#bbs-settings-hcode-body"
 									data-toggle="collapse"
 									class="collapsed d-block collapsed muted-link pl-2<?php if($_SESSION['bbs_settings_collapse']!='hcode'):?> collapsed<?php endif?>">
@@ -671,9 +671,9 @@ if ($uid)
 				          </div> <!-- .panel-body & .panel-footer : 숨겼다 보였다 하는 내용  -->
 			          </div>  <!-- .panel 전체 -->
 
-          	 <div id="bbs-settings-fcode" class="card"><!--풋터삽입-->
+          	 <div id="bbs-settings-fcode" class="card mb-2"><!--풋터삽입-->
 							 <div class="card-header p-0">
-								 <a onclick="boxDeco('fcode');sessionSetting('bbs_settings_collapse','fcode','','');"
+								 <a onclick="sessionSetting('bbs_settings_collapse','fcode','','');"
 								 	href="#bbs-settings-fcode-body"
 									data-toggle="collapse"
 									class="collapsed d-block collapsed muted-link pl-2<?php if($_SESSION['bbs_settings_collapse']!='fcode'):?> collapsed<?php endif?>">
@@ -721,22 +721,6 @@ $('[data-role="siteSelector"]').removeClass('d-none')
 
 putCookieAlert('result_bbs_main') // 실행결과 알림 메시지 출력
 
-// 추가설정 패널 디자인 조정
-function boxDeco(val)
-{
-	var layer_arr=["noti","add","right","hcode","fcode"]; // 레이어 배열
-   var parent='bbs-settings-';
-   var this_layer='bbs-settings-'+val;
-   for(var i=0;i<layer_arr.length;i++)
-   {
-      if(layer_arr[i]!=val) {
-				$('#'+parent+layer_arr[i]).removeClass("border-primary");
-				$('#'+parent+layer_arr[i]).find('.card-header').removeClass("bg-primary");
-			}
-   }
-   $('#'+this_layer).addClass("border-primary");
-	 $('#'+this_layer).find('.card-header').addClass("bg-primary");
-}
 function saveCheck(f)
 {
   var l1 = f._perm_g_list;
