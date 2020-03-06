@@ -715,7 +715,7 @@ function getMetaImage($str)
 	if (strstr($str,'://'))	return $str;
 	$imgs = getArrayString($str);
 	$R = getUidData($GLOBALS['table']['s_upload'],$imgs['data'][0]);
-	if ($R['type'] == 2 || $R['type'] == 5) return getPreviewResize($R['host'],$R['folder'],$R['tmpname'],'z');
+	if ($R['type'] == 2 || $R['type'] == 5) return getPreviewResize($R['src'],'z');
 	if ($R['type'] == -1) return $R['src'];
 	return '';
 }
