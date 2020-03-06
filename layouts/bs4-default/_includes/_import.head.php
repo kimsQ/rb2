@@ -66,6 +66,12 @@
 <!-- 레이아웃 본문 컨텐츠 스타일 -->
 <link href="<?php echo $g['s']?>/_core/css/article.css<?php echo $g['wcache']?>" rel="stylesheet">
 
+<?php
+if (file_exists($g['dir_layout'].'/_css/custom.css')) {
+  echo '<link href="'.$g['url_layout'].'/_css/custom.css'.$g['wcache'].'" rel="stylesheet">';   // 커스텀 레이아웃 스타일
+}
+?>
+
 <!-- timeago : 상대시간 표기 -->
 <?php getImport('jquery-timeago','jquery.timeago','1.6.7','js')?>
 <?php getImport('jquery-timeago','locales/jquery.timeago.ko','1.6.7','js')?>
