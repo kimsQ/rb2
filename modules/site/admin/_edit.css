@@ -44,6 +44,20 @@ html,
   transition-property: left, right, top, bottom, width, margin;
   -webkit-transition-duration: .2s;
   transition-duration: .2s;
+  font-family: 'NotoSans', 'Malgun Gothic', '맑은 고딕','Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+
+.document-editor .ck-content h2 {
+  font-weight: 600 !important
+}
+
+.document-editor .ck-content h3,
+.document-editor .ck-content h4 {
+  font-weight: 400 !important
+}
+
+.document-editor .ck-content p {
+  font-family: 'NotoSans', 'Malgun Gothic', '맑은 고딕','Apple SD Gothic Neo', '돋움', dotum, sans-serif !important;
 }
 
 .rb-fixed-sidebar .document-editor {

@@ -6,7 +6,9 @@
 <body class="rb-layout-full">
 
 	<main role="main">
-		<?php include __KIMS_CONTENT__ ?>
+		<article class="rb-article">
+			<?php include __KIMS_CONTENT__ ?>
+		</article>
 	</main><!-- /.container -->
 
 	<?php include $g['dir_layout'].'/_includes/component.php' ?>

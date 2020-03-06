@@ -63,8 +63,8 @@
 <!-- 레이아웃 스타일 -->
 <link href="<?php echo $g['url_layout']?>/_css/style.css<?php echo $g['wcache']?>" rel="stylesheet">
 
-<!-- 레이아웃 본문 컨텐츠 스타일(선택) -->
-<link href="<?php echo $g['url_layout']?>/_css/article.css" rel="stylesheet">
+<!-- 레이아웃 본문 컨텐츠 스타일 -->
+<link href="<?php echo $g['s']?>/_core/css/article.css<?php echo $g['wcache']?>" rel="stylesheet">
 
 <!-- timeago : 상대시간 표기 -->
 <?php getImport('jquery-timeago','jquery.timeago','1.6.7','js')?>

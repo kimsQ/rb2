@@ -19,7 +19,9 @@
 			<?php if ($c && $d['layout']['default_menutitle']!='false')
 				include $g['dir_layout'].'/_includes/submenutitle.'.$d['layout']['default_menutitle'].'.php' ?>
 
-			<?php include __KIMS_CONTENT__ ?>
+				<article class="rb-article">
+					<?php include __KIMS_CONTENT__ ?>
+				</article>
 
 		</div><!-- /.container -->
 	</main>

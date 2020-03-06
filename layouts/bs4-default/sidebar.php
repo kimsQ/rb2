@@ -24,7 +24,10 @@
 					<?php if ($c && $d['layout']['sidebar_menutitle']!='false')
 						include $g['dir_layout'].'/_includes/submenutitle.'.$d['layout']['sidebar_menutitle'].'.php' ?>
 
-					<?php include __KIMS_CONTENT__ ?>
+					<article class="rb-article">
+						<?php include __KIMS_CONTENT__ ?>
+					</article>
+
 				</div><!-- /.page-main -->
 
 			</div><!-- /.page-wrapper -->
