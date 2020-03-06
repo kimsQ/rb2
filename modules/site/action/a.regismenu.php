@@ -30,12 +30,19 @@ if(!$redirect&&$menutype==1)
 	include $g['path_core'].'function/menu.func.php';
 }
 
+// 임시-icon 필드 없는 경우, 생성
+$_tmp = db_query("SHOW COLUMNS FROM ".$table['s_menu']." WHERE `Field` = 'imgicon'",$DB_CONNECT);
+if(!db_num_rows($_tmp)) {
+	$_tmp = ("alter table ".$table['s_menu']." ADD imgicon varchar(100) NOT NULL");
+	db_query($_tmp, $DB_CONNECT);
+}
+
 if ($cat && !$vtype)
 {
 	$R = getUidData($table['s_menu'],$cat);
 	$imghead = $R['imghead'];
 	$imgfoot = $R['imgfoot'];
-	$imgset = array('head','foot');
+	$imgset = array('head','foot','icon');
 
 	if ($id != $R['id'])
 	{
@@ -43,7 +50,7 @@ if ($cat && !$vtype)
 		if ($ISMCODE['uid']) getLink('','',sprintf('메뉴코드 [%s] 는 다른메뉴 [%s] 에서 사용중입니다.',$ISMCODE['id'],$ISMCODE['name']),'');
 	}
 
-	for ($i = 0; $i < 2; $i++)
+	for ($i = 0; $i < 3; $i++)
 	{
 		$tmpname	= $_FILES['img'.$imgset[$i]]['tmp_name'];
 		$realname	= $_FILES['img'.$imgset[$i]]['name'];
@@ -54,9 +61,9 @@ if ($cat && !$vtype)
 
 		if (is_uploaded_file($tmpname))
 		{
-			if (!strstr('[gif][jpg][png][swf]',$fileExt))
+			if (!strstr('[gif][jpg][png]',$fileExt))
 			{
-				getLink('','','헤더/풋터파일은 gif/jpg/png/swf 파일만 등록할 수 있습니다.','');
+				getLink('','','헤더/풋터파일은 gif/jpg/png 파일만 등록할 수 있습니다.','');
 			}
 			move_uploaded_file($tmpname,$saveFile);
 			@chmod($saveFile,0707);
@@ -77,7 +84,7 @@ if ($cat && !$vtype)
 
 	$QVAL = "id='$id',menutype='$menutype',mobile='$mobile',hidden='$hidden',reject='$reject',name='$name',target='$target',";
 	$QVAL.= "redirect='$redirect',joint='$joint',perm_g='$perm_g',perm_l='$perm_l',";
-	$QVAL.= "layout='$layout',m_layout='$m_layout',imghead='$imghead',imgfoot='$imgfoot',addattr='$addattr',addinfo='$addinfo',upload='$upload'";
+	$QVAL.= "layout='$layout',m_layout='$m_layout',imghead='$imghead',imgfoot='$imgfoot',addattr='$addattr',addinfo='$addinfo',upload='$upload',imgicon='$imgicon'";
 	getDbUpdate($table['s_menu'],$QVAL,'uid='.$cat);
 
 	$_SEO = getDbData($table['s_seo'],'uid='.(int)$seouid,'uid');
@@ -169,8 +176,8 @@ else {
 		$xname	= trim($sarr[$i]);
 		$xnarr	= explode('=',$xname);
 
-		$QKEY = "gid,site,is_child,parent,depth,id,menutype,mobile,hidden,reject,name,target,redirect,joint,perm_g,perm_l,layout,m_layout,imghead,imgfoot,addattr,num,d_last,addinfo,upload";
-		$QVAL = "'$gid','".$_HS['uid']."','0','$parent','$xdepth','$xnarr[1]','$menutype','$mobile','$hidden','$reject','$xnarr[0]','$target','$redirect','$joint','$perm_g','$perm_l','$layout','$m_layout','','','$addattr','0','','$addinfo','$upload'";
+		$QKEY = "gid,site,is_child,parent,depth,id,menutype,mobile,hidden,reject,name,target,redirect,joint,perm_g,perm_l,layout,m_layout,imghead,imgfoot,addattr,num,d_last,addinfo,upload,imgicon";
+		$QVAL = "'$gid','".$_HS['uid']."','0','$parent','$xdepth','$xnarr[1]','$menutype','$mobile','$hidden','$reject','$xnarr[0]','$target','$redirect','$joint','$perm_g','$perm_l','$layout','$m_layout','','','$addattr','0','','$addinfo','$upload','$imgicon'";
 
 		getDbInsert($table['s_menu'],$QKEY,$QVAL);
 		$lastmenu = getDbCnt($table['s_menu'],'max(uid)','');

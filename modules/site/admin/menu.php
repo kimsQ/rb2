@@ -28,6 +28,7 @@ if ($is_regismode){
 	$CINFO['target']   = '';
 	$CINFO['imghead']  = '';
 	$CINFO['imgfoot']  = '';
+	$CINFO['imgicon']  = '';
 }
 $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집');
 ?>
@@ -777,7 +778,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 																			<a class="btn btn-link" href="<?php echo $g['s']?>/_var/menu/<?php echo $CINFO['imghead']?>" target="_blank">등록파일 보기</a>
 																		</p>
 																	<?php else:?>
-																	<small class="help-block">(gif/jpg/png/swf 가능)</small>
+																	<small class="help-block">(gif/jpg/png 가능)</small>
 																	<?php endif?>
 																</div>
 															</div>
@@ -815,7 +816,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 																			<a class="btn btn-link" href="<?php echo $g['s']?>/_var/menu/<?php echo $CINFO['imgfoot']?>" target="_blank">등록파일 보기</a>
 																		</p>
 																	<?php else:?>
-																	<small class="help-block">(gif/jpg/png/swf 가능)</small>
+																	<small class="help-block">(gif/jpg/png 가능)</small>
 																	<?php endif?>
 																</div>
 															</div>
@@ -833,7 +834,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 													</div>
 												</div>
 
-													<div class="card mt-2">
+												<div class="card mt-2">
 													<div class="card-header p-0">
 														<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_addinfo" onclick="sessionSetting('sh_site_menu_5','1','','1');">
 															부가필드
@@ -854,11 +855,11 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 													</div>
 												</div>
 
-													<div class="card mt-2">
+												<div class="card mt-2">
 													<div class="card-header p-0">
 														<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_addattr" onclick="sessionSetting('sh_site_menu_6','1','','1');">
 															속성추가
-															<?php if($_SEO['subject']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
+															<?php if($CINFO['addattr']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
 														</a>
 													</div>
 
@@ -873,8 +874,37 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 														</div>
 													</div>
 												</div>
-
 											</div>
+
+											<div class="card mt-2">
+												<div class="card-header p-0">
+													<a class="d-block pl-3 pr-4 muted-link collapsed" data-toggle="collapse" href="#menu_icon" onclick="sessionSetting('sh_site_menu_7','1','','1');">
+														아이콘
+														<?php if($CINFO['imgicon']):?><i class="fa fa-check-circle" title="내용있음" data-tooltip="tooltip"></i><?php endif?>
+													</a>
+												</div>
+
+												<div id="menu_icon" class="panel-collapse collapse<?php if($_SESSION['sh_site_menu_7']):?> show<?php endif?>">
+												<div class="card-body">
+
+													<div class="form-group row">
+														<label class="col-lg-2 col-form-label text-lg-right" for="menuicon-InputFile">아이콘</label>
+														<div class="col-lg-10 col-xl-9">
+															<input type="file" name="imgicon" id="menuicon-InputFile">
+															<?php if($CINFO['imgicon']):?>
+																<p class="form-control-static">
+																	<a class="btn bnt-link" href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=menu_file_delete&amp;cat=<?php echo $CINFO['uid']?>&amp;dtype=icon" onclick="return hrefCheck(this,true,'정말로 삭제하시겠습니까?');">삭제</a>
+																	<a class="btn btn-link" href="<?php echo $g['s']?>/_var/menu/<?php echo $CINFO['imgicon']?>" target="_blank">등록파일 보기</a>
+																</p>
+															<?php else:?>
+															<small class="help-block">(gif/jpg/png 가능)</small>
+															<?php endif?>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
 										</div>
 									</div>
 									</div>
@@ -903,12 +933,8 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 	</div>
 </div>
 
-
 <!-- bootstrap-maxlength -->
 <?php getImport('bootstrap-maxlength','bootstrap-maxlength.min',false,'js')?>
-
-
-
 
 <script>
 
