@@ -12,8 +12,8 @@
 }
 .rb-article h3 {
   display: block;
-  margin: 55px 0 11px;
-  padding-top: 50px;
+  margin: 50px 0 11px;
+  padding-top: 60px;
   border-top: 1px solid #e6e6e6;
   font-size: 30px;
   font-weight: 600;
@@ -59,18 +59,17 @@
 .rb-article h4:after {
   content: '';
   position: absolute;
-  top: 2px;
+  top: 4px;
   left: 0;
   width: 4px;
   height: 20px;
-  background-color: #314ffe;
+  background-color: #007bff;
 }
 
 /* link */
 .rb-article a {
   font-weight: 300;
-  color: #1b39eb;
-  font-size: 16px;
+  color: #007bff;
 }
 
 /* desc div */
@@ -297,5 +296,5 @@ pre .hljs {
 }
 .rb-article p em a,
 .rb-article p var a {
-  color: #1b39eb;
+  color: #007bff;
 }
