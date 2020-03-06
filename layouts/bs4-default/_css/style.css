@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /*!
- * kimsQ Rb v2.4.5 데스크탑 기본 레이아웃 글로벌 스타일 (bs4-default)
+ * kimsQ Rb v2.4.5 데스크탑 기본 레이아웃 스타일 (bs4-default)
  * Homepage: http://www.kimsq.com
  * Copyright 2020 redblock inc
  * Licensed under RBL
@@ -36,9 +36,8 @@ html {
 body {
   font-size: 14px;
   line-height: 1.5;
-  font-family: 'NotoSans', sans-serif;
+  font-family: 'NotoSans', 'Malgun Gothic', '맑은 고딕','Apple SD Gothic Neo', '돋움', dotum, sans-serif;
   color: #222;
-  font-size: 14px;
 }
 
 body.header-fixed {
@@ -392,7 +391,7 @@ header .navbar-brand,
   display: block;
   font-size: 24px;
   letter-spacing: -.049em;
-  font-weight: 400
+  font-weight: 300
 }
 
 .tit_desc {
@@ -400,7 +399,7 @@ header .navbar-brand,
   font-size: 16px;
   line-height: 26px;
   letter-spacing: -.029em;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .tit_function {
