@@ -253,7 +253,7 @@ else {
 	}
 	else {
 		setrawcookie('result_menu', rawurlencode('메뉴가 등록 되었습니다.|success'));  // 처리여부 cookie 저장
-		getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=menu&cat='.$lastmenu.'&code='.$code.'/'.$lastmenu.'#site-menu-info','parent.','','');
+		getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=menu&cat='.$lastmenu.'&code='.($code?$code.'/'.$lastmenu:$lastmenu).'#site-menu-info','parent.','','');
 	}
 }
 ?>

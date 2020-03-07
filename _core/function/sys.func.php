@@ -544,7 +544,7 @@ function getTreeMenu($conf,$code,$depth,$parent,$tmpcode)
 			$tree.= '<a data-toggle="collapse" href="#'.$id.'-'.$_i.'-'.$C['uid'].'" class="rb-branch'.($conf['allOpen']||$topen?'':' collapsed').'"></a>';
 			if ($conf['userMenu']=='link') $tree.= '<a href="'.RW('c='.$rcode).'"><span'.($code==$rcode?' class="rb-active"':'').'>';
 			else if($conf['userMenu']=='bookmark') $tree.= '<a data-scroll href="#rb-tree-menu-'.$C['id'].'"><span'.($code==$rcode?' class="rb-active"':'').'>';
-			else $tree.= '<a href="'.$conf['link'].$C['uid'].($_HS['rewrite']?'?':'&amp;').'code='.$rcode.($conf['bookmark']?'#'.$conf['bookmark']:'').'"><span'.($code==$rcode?' class="rb-active"':'').'>';
+			else $tree.= '<a href="'.$conf['link'].$C['uid'].($_HS['rewrite']?'&amp;':'&amp;').'code='.$rcode.($conf['bookmark']?'#'.$conf['bookmark']:'').'"><span'.($code==$rcode?' class="rb-active"':'').'>';
 			if($conf['dispCheckbox']) $tree.= '<input type="checkbox" name="tree_members[]" value="'.$C['uid'].'">';
 			if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
 			$tree.= $C['name'];
@@ -567,7 +567,7 @@ function getTreeMenu($conf,$code,$depth,$parent,$tmpcode)
 			$tree.= '<a href="#." class="rb-leaf"></a>';
 			if ($conf['userMenu']=='link') $tree.= '<a href="'.RW('c='.$rcode).'"><span'.($code==$rcode?' class="rb-active"':'').'>';
 			else if ($conf['userMenu']=='bookmark') $tree.= '<a data-scroll href="#rb-tree-menu'.$C['id'].'"><span'.($code==$rcode?' class="rb-active"':'').'>';
-			else $tree.= '<a href="'.$conf['link'].$C['uid'].($_HS['rewrite']?'?':'&amp;').'code='.$rcode.($conf['bookmark']?'#'.$conf['bookmark']:'').'"><span'.($code==$rcode?' class="rb-active"':'').'>';
+			else $tree.= '<a href="'.$conf['link'].$C['uid'].($_HS['rewrite']?'&amp;':'&amp;').'code='.$rcode.($conf['bookmark']?'#'.$conf['bookmark']:'').'"><span'.($code==$rcode?' class="rb-active"':'').'>';
 			if($conf['dispCheckbox']) $tree.= '<input type="checkbox" name="tree_members[]" value="'.$C['uid'].'">';
 			if($C['hidden']) $tree.='<u title="숨김" data-tooltip="tooltip">';
 			$tree.= $C['name'];
