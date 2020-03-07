@@ -4,26 +4,34 @@ input[type=radio],
 input[type=checkbox] {
   margin-left: -1.25rem;
 }
-
 </style>
 
-<?php include_once $g['path_module'].$module.'/_main.php';
+<?php
+
+include_once $g['path_module'].$module.'/_main.php';
 $ISCAT = getDbRows($table[$module.'category'],'');
-if($cat){	$CINFO = getUidData($table[$module.'category'],$cat);
+
+if($cat){
+  $CINFO = getUidData($table[$module.'category'],$cat);
   $ctarr = getPostCategoryCodeToPath($table[$module.'category'],$cat,0);
   $ctnum = count($ctarr);
-  for ($i = 0; $i < $ctnum; $i++) $CXA[] = $ctarr[$i]['uid'];
+  for ($i = 0; $i < $ctnum; $i++) {
+    $CXA[] = $ctarr[$i]['uid'];
+		$CINFO['code'] .= $ctarr[$i]['id'].($i < $ctnum-1 ? '/' : '');
+		$_code .= $ctarr[$i]['uid'].($i < $ctnum-1 ? '/' : '');
+  }
+  $code = $code ? $code : $_code;
 }
 $catcode = '';
-  $is_fcategory =  $CINFO['uid'] && $vtype != 'sub';
-  $is_regismode = !$CINFO['uid'] || $vtype == 'sub';
+$is_fcategory =  $CINFO['uid'] && $vtype != 'sub';
+$is_regismode = !$CINFO['uid'] || $vtype == 'sub';
 
-
-  if ($is_regismode){	$CINFO['name']	   = '';
-    $CINFO['hidden']   = '';
-    $CINFO['imghead']  = '';
-    $CINFO['imgfoot']  = '';
-  }?>
+if ($is_regismode){	$CINFO['name']	   = '';
+  $CINFO['hidden']   = '';
+  $CINFO['imghead']  = '';
+  $CINFO['imgfoot']  = '';
+}
+?>
 
   <div id="catebody" class="row">
     <div id="category" class="col-sm-4 col-md-4 col-lg-3 sidebar">
@@ -44,8 +52,7 @@ $catcode = '';
             <div class="card-body">
               <?php if($ISCAT):?>
 
-
-                <?php $_treeOptions=array('site'=>$s,'table'=>$table[$module.'category'],'dispNum'=>true,'dispHidden'=>false,'dispCheckbox'=>false,'allOpen'=>false,'bookmark'=>'site-menu-info')?>
+                <?php $_treeOptions=array('site'=>$s,'table'=>$table[$module.'category'],'dispNum'=>true,'dispHidden'=>false,'dispCheckbox'=>false,'allOpen'=>false,'bookmark'=>'site-cafe-info')?>
     						<?php $_treeOptions['link'] = $g['adm_href'].'&amp;cat='?>
     						<?php echo getTreeMenu($_treeOptions,$code,0,0,'')?>
 
@@ -110,7 +117,7 @@ $catcode = '';
 
     </div>
     <div id="catinfo" class="col-sm-8 col-md-8 ml-sm-auto col-xl-9">
-      <form name="procForm" action="<?php echo $g['s']?>/" method="post" target="_action_frame_<?php echo $m?>" enctype="multipart/form-data" onsubmit="return saveCheck(this);">
+      <form name="procForm" action="<?php echo $g['s']?>/" method="post" target="_action_frame_<?php echo $m?>" enctype="multipart/form-data" onsubmit="return saveCheck(this);" autocomplete="off">
         <input type="hidden" name="r" value="<?php echo $r?>" />
         <input type="hidden" name="m" value="<?php echo $module?>" />
         <input type="hidden" name="a" value="regiscategory" />
@@ -187,7 +194,9 @@ $catcode = '';
                           <i class="fa fa-share fa-rotate-90 fa-lg"></i>
                         </a>
                         <?php endif?>
-                        <a class="btn btn-light" href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletecategory&amp;cat=<?php echo $cat?>&amp;parent=<?php echo $delparent?>&amp;code=<?php echo substr($catcode,0,strlen($catcode)-1)?>" target="_action_frame_<?php echo $m?>" onclick="return confirm('정말로 삭제하시겠습니까?     ')" data-toggle="tooltip" title="카테고리삭제">
+                        <a class="btn btn-light"
+                          href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=deletecategory&amp;cat=<?php echo $cat?>&amp;parent=<?php echo $delparent?>"
+                          target="_action_frame_<?php echo $m?>" onclick="return confirm('정말로 삭제하시겠습니까?     ')" data-toggle="tooltip" title="카테고리삭제">
                           <i class="fa fa-trash-o fa-lg"></i>
                         </a>
                       </span>
@@ -195,8 +204,6 @@ $catcode = '';
                   </div>
                 </div>
               </div>
-
-
 
               <div class="form-group row rb-outside">
       					<label class="col-lg-2 col-form-label text-lg-right">코드</label>
@@ -330,6 +337,21 @@ $catcode = '';
                   </select>
                 </div>
               </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label text-center">대표이미지</label>
+                <div class="col-md-10 col-lg-9">
+                  <div class="input-group">
+                    <input class="form-control rb-modal-photo-drop" onmousedown="_mediasetField='meta_image_src&dfiles='+this.value;" data-tooltip="tooltip" data-toggle="modal" data-target="#modal_window" type="text" name="featured_img" id="meta_image_src" value="<?php echo $CINFO['featured_img']?>">
+                    <div class="input-group-append">
+                      <button class="btn btn-light rb-modal-photo1" type="button" title="포토셋" data-tooltip="tooltip" data-toggle="modal" data-target="#modal_window">
+                        <i class="fa fa-photo fa-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <?php if($CINFO['uid']):?>
                 <div class="form-group form-row">
                   <label class="col-md-2 col-form-label text-center">코드확장</label>
@@ -470,5 +492,12 @@ $catcode = '';
   }
 
   putCookieAlert('result_post_category') // 실행결과 알림 메시지 출력
+
+  $('.rb-modal-photo1').on('click',function() {
+    modalSetting('modal_window','<?php echo getModalLink('&amp;m=mediaset&amp;mdfile=modal.photo.media&amp;dropfield=meta_image_src')?>');
+  });
+  $('.rb-modal-photo-drop').on('click',function() {
+    modalSetting('modal_window','<?php echo getModalLink('&amp;m=mediaset&amp;mdfile=modal.photo.media&amp;dropfield=')?>'+_mediasetField);
+  });
 
 </script>

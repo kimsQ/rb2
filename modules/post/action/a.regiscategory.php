@@ -8,6 +8,13 @@ $codhead = trim($codhead);
 $codfoot = trim($codfoot);
 $recnum  = trim($recnum);
 
+// 임시-featured_img 필드 없는 경우, 생성
+$_tmp = db_query("SHOW COLUMNS FROM ".$table[$m.'category']." WHERE `Field` = 'featured_img'",$DB_CONNECT);
+if(!db_num_rows($_tmp)) {
+	$_tmp = ("alter table ".$table[$m.'category']." ADD featured_img varchar(50) NOT NULL");
+	db_query($_tmp, $DB_CONNECT);
+}
+
 if ($cat && !$vtype) {
 	$R = getUidData($table[$m.'category'],$cat);
 	$imghead = $R['imghead'];
@@ -36,7 +43,7 @@ if ($cat && !$vtype) {
 	}
 
 	$QVAL = "id='$id',hidden='$hidden',reject='$reject',name='$name',";
-	$QVAL.= "layout='$layout',layout_mobile='$layout_mobile',skin='$skin',skin_mobile='$skin_mobile',imghead='$imghead',imgfoot='$imgfoot',puthead='$puthead',putfoot='$putfoot',recnum='$recnum',sosokmenu='$sosokmenu'";
+	$QVAL.= "layout='$layout',layout_mobile='$layout_mobile',skin='$skin',skin_mobile='$skin_mobile',imghead='$imghead',imgfoot='$imgfoot',puthead='$puthead',putfoot='$putfoot',recnum='$recnum',sosokmenu='$sosokmenu',featured_img='$featured_img'";
 	getDbUpdate($table[$m.'category'],$QVAL,'uid='.$cat);
 
 	$vfile = $g['dir_module'].'var/code/'.sprintf('%05d',$cat);
@@ -98,8 +105,8 @@ else {
 		$xname	= trim($sarr[$i]);
 		$xnarr	= explode('=',$xname);
 
-		$QKEY = "gid,site,id,is_child,parent,depth,hidden,reject,name,layout,layout_mobile,skin,skin_mobile,imghead,imgfoot,puthead,putfoot,recnum,num,sosokmenu";
-		$QVAL = "'$gid','".$_HS['uid']."','".$xnarr[1]."','0','$parent','$xdepth','$hidden','$reject','$xnarr[0]','$layout','$layout_mobile','$skin','$skin_mobile','','','','','$recnum','0','$sosokmenu'";
+		$QKEY = "gid,site,id,is_child,parent,depth,hidden,reject,name,layout,layout_mobile,skin,skin_mobile,imghead,imgfoot,puthead,putfoot,recnum,num,sosokmenu,featured_img";
+		$QVAL = "'$gid','".$_HS['uid']."','".$xnarr[1]."','0','$parent','$xdepth','$hidden','$reject','$xnarr[0]','$layout','$layout_mobile','$skin','$skin_mobile','','','','','$recnum','0','$sosokmenu','$featured_img'";
 		getDbInsert($table[$m.'category'],$QKEY,$QVAL);
 		$lastcat = getDbCnt($table[$m.'category'],'max(uid)','');
 
@@ -120,7 +127,7 @@ else {
 	db_query("OPTIMIZE TABLE ".$table[$m.'category'],$DB_CONNECT);
 
 	setrawcookie('result_post_category', rawurlencode('카테고리가 등록 되었습니다.'));
-	getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=category&cat='.$lastcat.'&code='.$code.'/'.$lastcat.'#site-menu-info','parent.','','');
+	getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=category&cat='.$lastcat.'&code='.($code?$code.'/'.$lastcat:$lastcat).'#site-cate-info','parent.','','');
 
 }
 ?>
