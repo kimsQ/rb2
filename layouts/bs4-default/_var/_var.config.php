@@ -42,6 +42,7 @@ $d['layout']['dom'] = array (
 			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
 			array('type','select','타입','타입1=type1,타입2=type2,타입3=type3'),
 			array('theme','select','배경색','흰색=white,밝은회색=light,어두운회색=dark'),
+			array('family','menu','패밀리 사이트',''),
 		),
 	),
 
