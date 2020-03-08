@@ -4,6 +4,7 @@
 		<div class="d-flex justify-content-between">
 
 			<div class="">
+				<?php echo getLayoutLogo($d['layout'],'footer')?>
 				<p>
 					<?php echo $d['layout']['company_name'] ?> <span class="split">|</span> 대표이사 : <?php echo $d['layout']['company_ceo'] ?> <span class="split">|</span> 개인정보 보호 최고책임자 : <?php echo $d['layout']['company_manager'] ?> <br>
 					사업자등록번호 : <?php echo $d['layout']['company_num'] ?> <span class="split">|</span> 통신판매업신고번호 <?php echo $d['layout']['company_num2'] ?> <br>
@@ -64,41 +65,15 @@
 					<li class="list-inline-item">
 						<a href="<?php echo RW('mod=privacy')?>" class="muted-link">개인정보취급방침</a>
 					</li>
-
-					<?php if ($my['uid']): ?>
-					<li class="list-inline-item">
-						<a href="#" data-act="logout" class="muted-link" title="">
-							로그아웃
-						</a>
-					</li>
-					<?php else: ?>
-
-					<?php if ($d['layout']['login_type']=='modal'): ?>
-					<li class="list-inline-item">
-						<a href="#modal-login" data-toggle="modal" class="muted-link" title="모달형 로그인">
-							로그인
-						</a>
-					</li>
-					<?php else: ?>
-					<li class="list-inline-item">
-						<a href="<?php echo RW('mod=login')?>" class="muted-link" title="페이지형 로그인">
-							로그인
-						</a>
-					</li>
-					<?php endif; ?>
-
-					<?php endif; ?>
+					<?php if ($d['layout']['footer_link']) getWidget('site/bs4-default/menu/quickmenu/list-inline',array('smenu'=>$d['layout']['footer_link']));?>
 				</ul>
 
+				<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
 				<div class="text-muted small">
-					<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
 					powered by <a href="https://kimsq.com" target="_blank" class="text-reset ml-1"><i class="kf kf-bi-01 text-reset"></i></a>
 				</div>
 
-				<?php if ($d['layout']['footer_family']): ?>
-					<!-- 패밀리 사이트 -->
-				<?php getWidget('site/bs4-default/menu/quickmenu/dropdown-joint',array('smenu'=>$d['layout']['footer_family']));?>
-				<?php endif; ?>
+				<?php if ($d['layout']['footer_family']) getWidget('site/bs4-default/menu/quickmenu/dropdown-joint',array('smenu'=>$d['layout']['footer_family']));?>
 
 			</div><!-- /.d-flex -->
 

@@ -24,11 +24,17 @@ if (isset($layoutPage)){
 	$g['main'] = $g['dir_layout'].'/_pages/'.$layoutPage.'.php';
 }
 
-function getLayoutLogo($layout) {
-	if ($layout['header_logo']) {
-		return '<a class="navbar-brand p-0" href="'.RW(0).'" style="background-image:url('.$GLOBALS['g']['url_var_site'].'/'.$layout['header_logo'].$GLOBALS['g']['wcache'].');background-size:'.$layout['header_logo_size'].'%;background-position:'.$layout['header_logo_position'].'% 50%"></a>';
+function getLayoutLogo($layout,$mod) {
+	if ($mod=='header') {
+		if ($layout['header_logo']) {
+			return '<a class="navbar-brand p-0" href="'.RW(0).'" style="background-image:url('.$GLOBALS['g']['url_var_site'].'/'.$layout['header_logo'].$GLOBALS['g']['wcache'].');background-size:'.$layout['header_logo_size'].'%;background-position:'.$layout['header_logo_position'].'% 50%"></a>';
+		} else {
+			return '<a class="navbar-brand p-0" href="'.RW(0).'">'.$layout['header_title'].'</a>';
+		}
+	} elseif ($mod=='footer' && $layout['footer_logo']) {
+		return '<div class="footer-logo" style="background-image:url('.$GLOBALS['g']['url_var_site'].'/'.$layout['footer_logo'].$GLOBALS['g']['wcache'].');background-size:'.$layout['footer_logo_size'].'%;'.($layout['footer_logo_gray']=='true'?'filter: grayscale(100%)':'').'"></div>';
 	} else {
-		return '<a class="navbar-brand p-0" href="'.RW(0).'">'.$layout['header_title'].'</a>';
+		return;
 	}
 }
 

@@ -41,8 +41,11 @@ $d['layout']['dom'] = array (
 		array(
 			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
 			array('type','select','타입','타입1=type1,타입2=type2,타입3=type3'),
-			array('theme','select','배경색','흰색=white,밝은회색=light,어두운회색=dark'),
-			array('family','menu','패밀리 사이트',''),
+			array('logo','file','이미지 로고',''),
+			array('logo_size','input','이미지 로고 크기 (1~100% 숫자만)','84'),
+			array('logo_gray','select','로고 흑백처리','처리함=true,처리안함=false','true'),
+			array('link','menu','하단링크',''),
+			array('family','menu','패밀리 사이트','')
 		),
 	),
 

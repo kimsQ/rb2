@@ -12,35 +12,12 @@
 					<li class="list-inline-item">
 						<a href="<?php echo RW('mod=privacy')?>" class="muted-link">개인정보취급방침</a>
 					</li>
-
-					<?php if ($my['uid']): ?>
-					<li class="list-inline-item">
-						<a href="#" data-act="logout" class="muted-link" title="">
-							로그아웃
-						</a>
-					</li>
-					<?php else: ?>
-
-					<?php if ($d['layout']['login_type']=='modal'): ?>
-					<li class="list-inline-item">
-						<a href="#modal-login" data-toggle="modal" class="muted-link" title="모달형 로그인">
-							로그인
-						</a>
-					</li>
-					<?php else: ?>
-					<li class="list-inline-item">
-						<a href="<?php echo RW('mod=login')?>" class="muted-link" title="페이지형 로그인">
-							로그인
-						</a>
-					</li>
-					<?php endif; ?>
-
-					<?php endif; ?>
+					<?php if ($d['layout']['footer_link']) getWidget('site/bs4-default/menu/quickmenu/list-inline',array('smenu'=>$d['layout']['footer_link']));?>
 				</ul>
 
-				<div class="text-muted small">
-					<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
-					powered by <a href="https://kimsq.com" target="_blank" class="text-reset ml-1"><i class="kf kf-bi-01 text-reset"></i></a>
+				<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
+				<div class="text-muted">
+					© <?php echo $d['layout']['company_name']?$d['layout']['company_name']:'company' ?> <?php echo $date['year']?>
 				</div>
 
 				<?php if ($d['layout']['footer_family']): ?>
@@ -50,6 +27,17 @@
 
 			</div><!-- /.d-flex -->
 
+		</div><!-- /.container -->
+	</div><!-- /.quick-menu -->
+
+	<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
+	<div class="footer-quick">
+		<div class="<?php echo $d['layout']['footer_container'] ?> px-0">
+			<div class="text-center">
+				<div class="text-muted small">
+					powered by <a href="https://kimsq.com" target="_blank" class="text-reset ml-1"><i class="kf kf-bi-01 text-reset"></i></a>
+				</div>
+			</div><!-- /.d-flex -->
 		</div><!-- /.container -->
 	</div><!-- /.quick-menu -->
 

@@ -63,7 +63,7 @@
 	<div class="<?php echo $d['layout']['header_container'] ?> px-0">
 		<div class="d-flex justify-content-start align-items-center navbar p-0">
 
-			<?php echo getLayoutLogo($d['layout'])?>
+			<?php echo getLayoutLogo($d['layout'],'header')?>
 
 			<div class="ml-3" >
 				<form class="form-inline" action="<?php echo $_HS['rewrite']? RW('m=search'):$g['s'].'/'?>" role="search" data-role="searchform">

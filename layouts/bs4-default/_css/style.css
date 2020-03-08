@@ -1105,11 +1105,20 @@ figure.media oembed iframe {
   background-color: #fff
 }
 
+.footer .footer-logo {
+  width: 210px;
+  height: 55px;
+  margin-bottom: 5px;
+  background-repeat: no-repeat;
+  background-size: 84%;
+  background-position: 0 50%;
+}
+
 .footer p {
   font-size: 13px;
   color: #666;
   letter-spacing: -.3px;
-  line-height: 1.67;
+  line-height: 1.7;
 }
 
 .footer p span.split {
@@ -1121,7 +1130,7 @@ figure.media oembed iframe {
 .footer .footer-quick {
   border-top: 1px solid #eee;
   padding: 20px 0 0;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .footer .footer-contact strong {

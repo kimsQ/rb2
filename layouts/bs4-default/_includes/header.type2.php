@@ -71,7 +71,7 @@
 	<div class="<?php echo $d['layout']['header_container'] ?> px-0">
 		<div class="d-flex align-items-center navbar p-0">
 
-			<?php echo getLayoutLogo($d['layout'])?>
+			<?php echo getLayoutLogo($d['layout'],'header')?>
 
 			<div class="inner mr-auto flex-fill">
 
