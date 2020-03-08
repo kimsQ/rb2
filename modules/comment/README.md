@@ -1,11 +1,5 @@
-
 # 댓글 모듈
+## Copyright and license
+Copyright 2020 Redblock, Inc.
 
-기본형 댓글 모듈입니다.
-
-## 주요기능
-- 댓글 등록기능
-
-
-## 요구사항
-- kimsQ Rb 2.2.0 이상
+Licensed under the [RBL](https://kimsq.com/p/rbl) License

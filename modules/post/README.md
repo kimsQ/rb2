@@ -1,10 +1,5 @@
+## 포스트 모듈
+## Copyright and license
+Copyright 2020 Redblock, Inc.
 
-## 포스트 모듈 개요
-
-포스트 모듈은 컨텐츠를 관리하는 모듈입니다.
-
-
-### 주요링크
-
-
-### 개발자
+Licensed under the [RBL](https://kimsq.com/p/rbl) License

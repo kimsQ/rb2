@@ -1,3 +1,5 @@
-# 팝업 모듈 입니다.
+# 팝업 모듈
+## Copyright and license
+Copyright 2020 Redblock, Inc.
 
-안녕하세요. 감사합니다.
+Licensed under the [RBL](https://kimsq.com/p/rbl) License

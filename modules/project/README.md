@@ -1,4 +1,4 @@
+## Copyright and license
+Copyright 2020 Redblock, Inc.
 
-# 프로젝트 모듈 입니다.
-
-안녕하세요. 감사합니다.
+Licensed under the [RBL](https://kimsq.com/p/rbl) License
