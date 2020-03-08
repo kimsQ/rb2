@@ -4,7 +4,7 @@ RewriteCond %{ENV:HTTPS} !=on
 RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
 
 #기본사이트
-RewriteRule ^(admin)/?$ ./index.php?m=$1&pickmodule=site&panel=Y [L]
+RewriteRule ^(admin)/?$ ./index.php?m=$1&pickmodule=dashboard&panel=Y [L]
 RewriteRule ^(logout)/?$ ./index.php?a=logout [L]
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^(p)/([a-zA-Z0-9_\-]+)/?$ ./index.php?mod=$2&%1 [L]
