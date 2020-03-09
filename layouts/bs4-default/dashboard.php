@@ -15,10 +15,8 @@ if (!$my['uid']) getLink('/','','','');
 
 	<nav class="navbar fixed-top navbar-expand navbar-light bg-white border-bottom shadow-sm">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="<?php  echo RW(0) ?>"
-				style="background-image:url(<?php echo $d['layout']['header_logo']?$g['url_var_site'].'/'.$d['layout']['header_logo'].$g['wcache']:''?>);background-size:<?php echo $d['layout']['header_logo_size'] ?>%">
-				<?php echo !$d['layout']['header_logo']?$d['layout']['header_title'] :'' ?>
-			</a>
+
+			<?php echo getLayoutLogo($d['layout'],'header')?>
 
 			<form name="PostSearchForm" class="mr-auto ml-3 w-50" action="<?php echo $_HS['rewrite']? RW('mod=dashboard&page=post'):$g['s'].'/'?>"role="form" data-role="searchform">
 				<?php if (!$_HS['rewrite']): ?>
