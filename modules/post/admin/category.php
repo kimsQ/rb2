@@ -227,7 +227,7 @@ if ($is_regismode){	$CINFO['name']	   = '';
       				</div>
 
               <?php if($CINFO['uid']&&!$vtype):?>
-      				<?php $_url = $g['s'].'/?r='.$r.'&m=post&cat='.$CINFO['uid'].'&code='.$code?>
+      				<?php $_url = $g['s'].'/?r='.$r.'&m=post&cat='.$CINFO['id'].'&code='.$code?>
       				<div class="form-group row">
       					<label class="col-lg-2 col-form-label text-lg-right">주소</label>
       					<div class="col-lg-10 col-xl-9">
