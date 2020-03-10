@@ -19,6 +19,12 @@ $RCD = getDbArray($table['s_gitlog'],$listque,'*',$sort,$orderby,$recnum,$p);
 $NUM = getDbRows($table['s_gitlog'],$listque);
 $TPG = getTotalPage($NUM,$recnum);
 $_SESSION['current_version'] = '';
+
+if ($git_version ) {
+	$_skip_worktree  = shell_exec('git ls-files -v|grep ^s');
+	$skip_worktree = str_replace('s ', '', $_skip_worktree);
+}
+
 ?>
 
 <div id="update-body" class="p-4">
@@ -45,7 +51,7 @@ $_SESSION['current_version'] = '';
 		<?php if ($git_version): ?>
 			<?php if (is_dir('./.git')): ?>
 			<button type="button" data-toggle="modal" data-target="#modal-update-confirm" class="btn btn-primary">
-				최신 버전 <?php echo $lastest_version ?> 업데이트
+				최신 <?php echo $lastest_version ?> 업데이트
 			</button>
 			<?php else: ?>
 			<button type="button" data-act="gitinit" class="btn btn-outline-success mt-3">
@@ -106,17 +112,35 @@ $_SESSION['current_version'] = '';
 <?php endif; ?>
 
 <div class="p-4">
-<p class="clearfix">
-	<i class="fa fa-question-circle fa-lg"></i>
-	<strong>업데이트 유의사항</strong>
-</p>
+	<strong>유의사항</strong>
+	<ul class="mt-2 mb-0 list-unstyled text-muted small">
+		<li>원격 업데이트는 킴스큐의 기본 패키지 파일들을 항상 최신의 상태로 유지할 수 있는 시스템입니다.</li>
+		<li><a href="<?php echo $d['github']['remote'] ?>" target="_blank">킴스큐 Rb 저장소</a> 의 master 브랜치의 최신 코드가 적용됩니다.</li>
+		<li>수정하거나 추가한 코드가 있을 경우, 수정내역이 삭제되므로 업데이트 실행전 레이아웃 또는 테마를 별도저장 해주세요.</li>
+	</ul>
 
-<ul class="mb-0 list-unstyled text-muted small">
-	<li>원격 업데이트는 킴스큐의 기본 패키지 파일들을 항상 최신의 상태로 유지할 수 있는 시스템입니다.</li>
-	<li><a href="https://github.com/kimsq/rb" target="_blank">킴스큐 Rb 저장소</a> 의 master 브랜치의 최신 코드가 적용됩니다.</li>
-	<li>직접 수정하거나 추가한 코드가 포함된 파일이 업데이트 내역에 포함되어 있을 경우, 해당사항이 덧씌워 지므로 업데이트 전에 레이아웃 또는 테마의 폴더 및 파일명을 변경처리 해주세요.</li>
-</ul>
+	<hr>
+
+	<strong class="d-block mt-4">업데이트에서 특정 파일을 제외하는 방법</strong>
+
+	<ul class="mt-2 mb-0 list-unstyled text-muted small">
+		<li>쉘(ssh)접속 후, 아래 명령어로 제외목록에 추가할 수 있습니다.</li>
+	</ul>
+	<dl class="row small mt-2 text-muted">
+	  <dt class="col-2">제외목록에 추가</dt>
+	  <dd class="col-9"><code>git update-index --skip-worktree [file]</code></dd>
+		<dt class="col-2">제외목록에서 제외</dt>
+		<dd class="col-9"><code>git update-index --no-skip-worktree [file]</code></dd>
+	</dl>
+	<?php if ($skip_worktree): ?>
+	<div class="form-group mt-2">
+		<label for="">업데이트에서 제외된 파일 <span class="badge badge-light">skip-worktree</span></label>
+		<textarea class="form-control f13" rows="5" readonly><?php echo $skip_worktree ?></textarea>
+	</div>
+	<?php endif; ?>
+
 </div>
+
 
 <div class="modal" id="modal-update-info" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
@@ -155,18 +179,26 @@ $_SESSION['current_version'] = '';
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-muted">
+      <div class="modal-body f14">
 				<div>
 					<p>업데이트시 최신 코드가 적용됩니다.</p>
-					<p>기본 패키지 파일에 직접 수정하거나 추가한 코드가 포함된 파일이 업데이트 내역에 포함되어 있을 경우, 해당사항이 덧씌워 집니다.</p>
-					<p><mark>업데이트 전에 반드시 코드를 별도파일로 분리하거나 파일명을 변경한 후 업데이트 해주세요.</mark></p>
+					<p><span class="badge badge-danger">주의</span> 기본 파일에서 수정 또는 추가한 코드가 있을 경우 해당내역이 삭제됩니다.</p>
+					<p><span class="text-danger">업데이트 실행전 수정내역을 별도저장 해야 합니다.</span></p>
 				</div>
+
+				<?php if ($skip_worktree): ?>
+				<div class="form-group mt-2">
+					<label for="">업데이트에서 제외된 파일</label>
+					<textarea class="form-control f13" rows="3" readonly><?php echo $skip_worktree ?></textarea>
+				</div>
+				<?php endif; ?>
+
       </div>
 			<div class="modal-footer justify-content-between">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 				<button type="button" class="btn btn-primary" data-act="submit">
 					<span class="not-loading">
-		        확인 했습니다.
+		        확인 했습니다
 		      </span>
 		      <span class="is-loading">
 		        <span class="spinner-border spinner-border-sm mr-1" role="status"></span>
