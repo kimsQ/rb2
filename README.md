@@ -48,18 +48,18 @@
 최신패치는 git을 통해 동작하며 명령어 실행을 위해서는 서버에 git이 설치되어 있어야 합니다.
 
 ### 관리자모드를 통한 업데이트
-1. 데스크탑 : 관리자 모드 > 시스템 > 업데이트
-1. 모바일 : 설정 > 소프트웨어 정보 > 업데이트
+- 데스크탑 : 관리자 모드 > 시스템 > 업데이트
+- 모바일 : 설정 > 소프트웨어 정보 > 업데이트
 
 ### 수동 업데이트
-터미널 접속 후 아래의 명령어를 실행합니다.
+터미널 접속 후 아래의 명령어를 순차적으로 실행합니다.
 1. <code>git reset --hard</code>
 1. <code>git pull origin master</code>
 
 ### 업데이트시 특정 파일 제외 방법
 터미널 접속 후 아래의 명령어를 실행합니다.
-1. 제외목록에 추가 :  <code>git update-index --skip-worktree [file]</code>
-1. 제외목록에서 제외 :  <code>git update-index --no-skip-worktree [file]</code>
+- 제외목록에 추가 :  <code>git update-index --skip-worktree [file]</code>
+- 제외목록에서 제외 :  <code>git update-index --no-skip-worktree [file]</code>
 
 ## 메뉴얼
 
