@@ -218,16 +218,16 @@ fclose($fp);
 $pagesarray = array
 (
 	'main'=>array('메인','2','1','1','','',''),
-	'privacy'=>array('개인정보취급방침','3','0','0','','rc-starter/blank-drawer.php',''),
-	'policy'=>array('이용약관','3','0','0','','rc-starter/blank-drawer.php',''),
-	'cscenter'=>array('고객센터','3','0','0','','rc-starter/blank-drawer.php',''),
+	'privacy'=>array('개인정보취급방침','3','0','0','bs4-default/docs.php','rc-starter/blank-drawer.php',''),
+	'policy'=>array('이용약관','3','0','0','bs4-default/docs.php','rc-starter/blank-drawer.php',''),
+	'cscenter'=>array('고객센터','3','0','0','bs4-default/default.php','rc-starter/blank-drawer.php',''),
 	'login'=>array('로그인','1','0','1','bs4-default/blank.php','rc-starter/blank-drawer.php','/?m=member&front=login'),
 	'join'=>array('회원가입','1','0','1','bs4-default/blank.php','rc-starter/blank-drawer.php','/?m=member&front=join'),
-	'settings'=>array('개인정보수정','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=settings'),
-	'password_reset'=>array('비밀번호찾기','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=login&page=password_reset'),
-	'saved'=>array('저장함','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=saved'),
-	'noti'=>array('알림함','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=noti'),
-	'profile'=>array('프로필','1','0','1','','rc-starter/blank-drawer.php','/?m=member&front=profile'),
+	'settings'=>array('개인정보수정','1','0','1','bs4-default/default.php','rc-starter/blank-drawer.php','/?m=member&front=settings'),
+	'password_reset'=>array('비밀번호찾기','1','0','1','bs4-default/default.php','rc-starter/blank-drawer.php','/?m=member&front=login&page=password_reset'),
+	'saved'=>array('저장함','1','0','1','bs4-default/default.php','rc-starter/blank-drawer.php','/?m=member&front=saved'),
+	'noti'=>array('알림함','1','0','1','bs4-default/default.php','rc-starter/blank-drawer.php','/?m=member&front=noti'),
+	'profile'=>array('프로필','1','0','1','bs4-default/default.php','rc-starter/blank-drawer.php','/?m=member&front=profile'),
 	'dashboard'=>array('대시보드','1','0','1','bs4-default/dashboard.php','rc-starter/blank-drawer.php','/?m=member&front=dashboard')
 );
 foreach($pagesarray as $_key => $_val)
@@ -406,6 +406,7 @@ DirDelete('./_install');
 
 shell_exec('git init');
 shell_exec('git remote add origin https://github.com/kimsQ/rb2.git');
+shell_exec('git update-index --assume-unchanged .htaccess');
 
 // putNotice(1,'admin',0,sprintf(_LANG('a012','install'),$name,$name),'','');
 getLink('./index.php?r='.$siteid.'&iframe=Y&system=guide.install','parent.','','');
