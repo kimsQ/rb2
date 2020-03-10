@@ -3,12 +3,10 @@
 <head>
 <?php include $g['dir_layout'].'/_includes/_import.head.php' ?>
 </head>
-<body class="rb-layout-full">
+<body class="rb-layout-blank">
 
 	<main role="main">
-		<article class="rb-article">
-			<?php include __KIMS_CONTENT__ ?>
-		</article>
+		<?php include __KIMS_CONTENT__ ?>
 	</main><!-- /.container -->
 
 	<?php include $g['dir_layout'].'/_includes/component.php' ?>

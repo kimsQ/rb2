@@ -106,7 +106,7 @@
 
 	<div class="card form-signin mt-3 bg-transparent">
 		<div class="card-body">
-			<p class="mb-0"><a href="<?php echo RW('mod=join') ?>" tabindex="6">회원계정이 없으신가요 ?</a></p>
+			<a href="<?php echo RW('mod=join') ?>" tabindex="6">회원계정이 없으신가요 ?</a>
 		</div>
 	</div>
 
