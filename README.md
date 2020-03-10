@@ -42,7 +42,9 @@
 1. 브라우저를 통해 index.php 를 호출합니다.
 
 ## 업데이트
-
+원격 업데이트는 킴스큐의 기본 패키지 파일들을 항상 최신의 상태로 유지할 수 있는 시스템입니다.
+킴스큐 Rb2 저장소 의 master 브랜치의 최신 코드가 적용됩니다.
+수정하거나 추가한 코드가 있을 경우, 수정내역이 삭제되므로 업데이트 실행전 레이아웃 또는 테마를 별도저장 해주세요.
 최신패치는 git을 통해 동작하며 명령어 실행을 위해서는 서버에 git이 설치되어 있어야 합니다.
 
 ### 관리자모드를 통한 업데이트
@@ -54,6 +56,10 @@
 1. <code>git reset --hard</code>
 1. <code>git pull origin master</code>
 
+### 업데이트시 특정 파일 제외 방법
+터미널 접속 후 아래의 명령어를 실행합니다.
+1. 제외목록에 추가 :  <code>git update-index --skip-worktree [file]</code>
+1. 제외목록에서 제외 :  <code>git update-index --no-skip-worktree [file]</code>
 
 ## 메뉴얼
 
