@@ -16,7 +16,7 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
 
 <section class="rb-bbs-list">
 
-  <header class="d-flex justify-content-between align-items-center my-4">
+  <header class="d-flex justify-content-between align-items-center mb-4">
     <span class="text-muted">
       <small>총게시물 : <strong><?php echo number_format($NUM+count($NCD))?></strong> 건  (<?php echo $p?>/<?php echo $TPG?> page) </small>
     </span>
@@ -55,7 +55,7 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
       <!-- 검색창 출력부  -->
       <?php if($d['theme']['search']):?>
       <div class="input-group">
-        <select class="custom-select" name="where"  style="width:100px">
+        <select class="custom-select rounded-0" name="where">
           <option value="subject|tag"<?php if($where=='subject|tag'):?> selected="selected"<?php endif?>>제목+태그</option>
           <option value="content"<?php if($where=='content'):?> selected="selected"<?php endif?>>본문</option>
           <option value="name"<?php if($where=='name'):?> selected="selected"<?php endif?>>이름</option>
@@ -63,7 +63,7 @@ $col_xs = $d['theme']['xs_item']?' col-xs-'.$col_xs_num:'';
           <option value="id"<?php if($where=='id'):?> selected="selected"<?php endif?>>아이디</option>
           <option value="term"<?php if($where=='term'):?> selected="selected"<?php endif?>>등록일</option>
         </select>
-        <input type="text" class="form-control" name="keyword" value="<?php echo $_keyword?>" placeholder="검색어를 입력해주세요" style="width:200px">
+        <input type="text" class="form-control" name="keyword" value="<?php echo $_keyword?>" placeholder="검색어를 입력해주세요" style="min-width:200px">
         <div class="input-group-append">
           <button class="btn btn-light" type="submit">검색</button>
         </div>

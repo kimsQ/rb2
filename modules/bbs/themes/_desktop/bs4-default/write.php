@@ -42,7 +42,7 @@ else {
 
 <section class="rb-bbs-write">
 
-	<article class="mt-4">
+	<article>
   	<form name="writeForm" method="post" action="<?php echo $g['s']?>/" onsubmit="return writeCheck(this);" role="form">
   		<input type="hidden" name="r" value="<?php echo $r?>">
   		<input type="hidden" name="a" value="write">
