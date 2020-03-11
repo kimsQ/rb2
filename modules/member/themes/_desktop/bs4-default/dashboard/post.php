@@ -173,7 +173,7 @@ switch ($sort) {
 				data-comment="<?php echo $R['comment']?>"
 				data-subject="<?php echo checkPostPerm($R)?stripslashes($R['subject']):'[비공개 포스트]'?>">
 
-				<a href="<?php echo getPostLink($R,1)?>" class="position-relative mr-3" target="_blank">
+				<a href="<?php echo getPostLink($R,0)?>" class="position-relative mr-3" target="_blank">
 					<img class="" src="<?php echo checkPostPerm($R) ?getPreviewResize(getUpImageSrc($R),'300x168'):getPreviewResize('/files/noimage.png','300x168') ?>" alt="" width="180">
 					<time class="badge badge-dark rounded-0 position-absolute f14" style="right:1px;bottom:1px"><?php echo checkPostPerm($R)?getUpImageTime($R):'' ?></time>
 					<span class="badge badge-primary rounded-0 position-absolute f14" style="left:1px;top:1px"><?php echo $R['mbruid']!=$my['uid']?'공유':'' ?></span>

@@ -48,13 +48,13 @@ while($_R = db_fetch_array($_RCD)) $RCD[] = getDbData($table['postdata'],'uid='.
     <?php if (!empty($RCD)): ?>
     <?php $i=0;foreach($RCD as $R):$i++;?>
     <div class="card shadow-sm card-mask">
-      <a href="<?php echo getPostLink($R,1) ?>" class="position-relative">
+      <a href="<?php echo getPostLink($R,0) ?>" class="position-relative">
         <img src="<?php echo getPreviewResize(getUpImageSrc($R),'400x225') ?>" class="card-img-top" alt="...">
         <span class="position-absolute badge badge-primary f15 px-2 rounded-0 rank-icon" style="left:0;top:0"><?php echo $i ?></span>
         <time class="badge badge-dark rounded-0 position-absolute f14 font-weight-light" style="right:0;bottom:0"><?php echo getUpImageTime($R) ?></time>
       </a>
       <div class="card-body pb-0 f14">
-        <a href="<?php echo getPostLink($R,1) ?>" class="text-reset text-decoration-none line-clamp-2 mb-1"><?php echo$R['subject'] ?></a>
+        <a href="<?php echo getPostLink($R,0) ?>" class="text-reset text-decoration-none line-clamp-2 mb-1"><?php echo$R['subject'] ?></a>
         <a href="<?php echo getProfileLink($R['mbruid']) ?>" class="d-block f13 text-muted text-decoration-none">
           <?php echo getProfileInfo($R['mbruid'],$_HS['nametype']) ?>
         </a>

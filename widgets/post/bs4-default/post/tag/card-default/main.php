@@ -61,7 +61,7 @@ while($_R = db_fetch_array($TCD)) $RCD[] = $_R;
       </div>
       <div class="card-body pt-0 pb-2 f14">
 
-        <a href="<?php echo getPostLink($R,1) ?>" class="media text-reset text-decoration-none">
+        <a href="<?php echo getPostLink($R,0) ?>" class="media text-reset text-decoration-none">
           <div class="media-body">
             <div class="line-clamp-1">
               <?php echo getStrCut(stripslashes($R['subject']),100,'..') ?>

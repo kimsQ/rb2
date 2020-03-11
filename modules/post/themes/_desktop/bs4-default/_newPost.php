@@ -28,14 +28,14 @@ $_NUM = getDbRows($table['postmember'],$postque);
     <?php $i=0;foreach($RCD as $POST):$i++;?>
       <li class="media mb-2">
 
-        <a href="<?php echo getPostLink($POST,1) ?>" class="position-relative mr-2">
+        <a href="<?php echo getPostLink($POST,0) ?>" class="position-relative mr-2">
           <img class="" src="<?php echo getPreviewResize(getUpImageSrc($POST),'160x90') ?>" alt="" >
           <time class="badge badge-dark rounded-0 position-absolute" style="right:1px;bottom:1px"><?php echo getUpImageTime($POST) ?></time>
         </a>
 
         <div class="media-body">
           <h5 class="h6 my-1 font-weight-light line-clamp-3">
-            <a href="<?php echo getPostLink($POST,1) ?>" class="text-reset" ><?php echo stripslashes($POST['subject'])?></a>
+            <a href="<?php echo getPostLink($POST,0) ?>" class="text-reset" ><?php echo stripslashes($POST['subject'])?></a>
           </h5>
           <div class="mb-1">
             <ul class="list-inline d-inline-block f13 text-muted">
