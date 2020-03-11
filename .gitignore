@@ -4,7 +4,10 @@
 .AppleDouble
 .LSOverride
 
+.gitmodules
 .ftpconfig
+phpinfo.php
+
 _var/db.info.php
 _var/install.txt
 _var/php.version.txt
@@ -13,10 +16,10 @@ _var/table.info.php
 _var/site/*
 _var/bbs/*
 _var/update/*
-modules/shop/*
 _tmp/widget/*
-layouts/rc-youtube/*
+layouts/bs4-docs/*
 modules/comment/action/a.oneline_regis.php
 modules/comment/action/a.comment_regis.php
 modules/member/admin/point_ori.php
 modules/member/admin/point_ori.php
+modules/shop/*
