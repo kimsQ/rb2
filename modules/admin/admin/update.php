@@ -84,7 +84,10 @@ if ($git_version ) {
 
 			<?php while($R=db_fetch_array($RCD)):?>
 			<tr>
-				<td><?php echo $R['version']?></td>
+				<td>
+					<?php if(getNew($R['d_regis'],12)):?><span class="rb-new mr-1"></span><?php endif?>
+					<?php echo $R['version']?>
+				</td>
 				<td><?php echo getDateFormat($R['d_regis'],'Y년 m월 d일 H시 i분')?></td>
 				<td>
 					<button type="button" class="btn btn-light btn-sm"
