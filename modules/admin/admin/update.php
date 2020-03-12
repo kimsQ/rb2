@@ -21,8 +21,8 @@ $TPG = getTotalPage($NUM,$recnum);
 $_SESSION['current_version'] = '';
 
 if ($git_version ) {
-	$_skip_worktree  = shell_exec('git ls-files -v|grep ^s');
-	$skip_worktree = str_replace('s ', '', $_skip_worktree);
+	$_skip_worktree  = shell_exec('git ls-files -v | grep ^S');
+	$skip_worktree = str_replace('S ', '', $_skip_worktree);
 }
 
 ?>
