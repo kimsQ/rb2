@@ -274,9 +274,6 @@ $SITEN   = db_num_rows($SITES);
 		<div class="text-center text-muted d-flex align-items-center justify-content-center" style="height: calc(100vh - 10rem);">
 			 <div><i class="fa fa-exclamation-circle fa-3x mb-3" aria-hidden="true"></i>
 				 <p>등록된 리스트이 없습니다.</p>
-				 <a href="<?php echo $g['adm_href']?>&amp;front=main_detail"  class="btn btn-outline-primary btn-block">
-			 	 	<i class="fa fa-plus"></i> 새 리스트 만들기
-			 	 </a>
 			 </div>
 		 </div>
 
