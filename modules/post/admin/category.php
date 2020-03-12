@@ -439,6 +439,9 @@ if ($is_regismode){	$CINFO['name']	   = '';
 <script type="text/javascript">
   var orderopen = false;
 
+  //사이트 셀렉터 출력
+	$('[data-role="siteSelector"]').removeClass('d-none')
+
   function orderOpen() {
     if (orderopen == false) {
       getId('menuorder').style.display = 'block';

@@ -433,11 +433,11 @@
 	</div><!-- /.col -->
 
 
-
-
-
 </form>
 <script type="text/javascript">
+
+//사이트 셀렉터 출력
+$('[data-role="siteSelector"]').removeClass('d-none')
 
 putCookieAlert('post_config_result') // 실행결과 알림 메시지 출력
 
