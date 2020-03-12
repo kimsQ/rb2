@@ -1,6 +1,6 @@
 <?php
 //게시물링크
-function getPostLink($arr)
+function _getPostLink($arr)
  {
     return RW('m=bbs&bid='.$arr['bbsid'].'&uid='.$arr['uid'].($GLOBALS['s']!=$arr['site']?'&s='.$arr['site']:''));
  }

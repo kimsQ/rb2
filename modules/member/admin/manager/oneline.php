@@ -1,6 +1,6 @@
 <?php
 //한줄의견링크
-function getPostLink($arr)
+function _getPostLink($arr)
 {
 	global $table;
 	$C = getUidData($table['s_comment'],$arr['parent']);

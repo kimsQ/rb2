@@ -79,6 +79,19 @@ RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/s([0-9]+)/?$ ./ind
 RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4&CMT=$5#CMT [L]
 RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?r=$1&m=bbs&bid=$3&uid=$4&CMT=$5&s=$6#CMT [L]
 
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(dashboard)/?$ ./index.php?r=$1&mod=dashboard&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(settings)/?$ ./index.php?r=$1&mod=settings&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(noti)/?$ ./index.php?r=$1&mod=noti&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(saved)/?$ ./index.php?r=$1&mod=saved&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(search)/?$ ./index.php?r=$1&m=search&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(feed)/?$ ./index.php?r=$1&mod=feed&%1 [L]
+
 #외부연결 콜백
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^([a-zA-Z0-9_\-]+)/(oauth)/([a-zA-Z]+)/?$ ./index.php?r=$1&m=connect&a=connect&connectReturn=$3&%1 [L]

@@ -1,6 +1,6 @@
 <?php
 //댓글링크
-function getPostLink($arr)
+function _getPostLink($arr)
 {
 	$sync_arr=explode('|',$arr['sync']);
 	$B = getUidData($sync_arr[0],$sync_arr[2]);
