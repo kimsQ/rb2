@@ -16,7 +16,7 @@ if (file_exists($g['marketvar'])) include_once $g['marketvar'];
 		<div class="form-group row">
 			<label class="col-lg-2 col-form-label pt-3">킴스큐 회원 아이디 또는 이메일</label>
 			<div class="col-lg-10 col-xl-8">
-				<input class="form-control form-control-lg" type="text" name="userid" value="<?php echo $d['market']['userid']?$d['market']['userid']:'' ?>">
+				<input class="form-control form-control-lg" type="text" name="userid" value="<?php echo $d['market']['userid']?$d['market']['userid']:'' ?>" required>
 				<small class="form-text text-muted">
 					<a href="https://kimsq.com" target="_blank">킴스큐 포탈</a> 회원 아이디 또는 이메일
 				</small>
@@ -26,7 +26,7 @@ if (file_exists($g['marketvar'])) include_once $g['marketvar'];
 		<div class="form-group row">
 			<label class="col-lg-2 col-form-label pt-3">프로젝트 키</label>
 			<div class="col-lg-10 col-xl-8">
-				<input class="form-control form-control-lg" type="text" name="key" value="<?php echo $d['market']['key']?$d['market']['key']:'' ?>">
+				<input class="form-control form-control-lg" type="text" name="key" value="<?php echo $d['market']['key']?$d['market']['key']:'' ?>" required>
 				<small class="form-text text-muted">
 					<a href="https://kimsq.com/project/my" target="_blank">내 프로젝트</a>에 접속하여 키를 확인할 수 있습니다.
 				</small>
