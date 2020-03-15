@@ -2362,6 +2362,16 @@ fieldset[disabled] .btn-instagram.focus {
   background-color: #fff
 }
 
+/* 라이센스 */
+.badge-standard {
+  color: #fff;
+  background-color: #007bff;
+}
+.badge-premium {
+  color: #fff;
+  background-color: #563d7c;
+}
+
 /* 무한스크롤 */
 .infinitescroll-end {
   /* padding-top: 1rem;
