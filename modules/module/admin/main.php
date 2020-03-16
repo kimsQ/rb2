@@ -17,8 +17,8 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 	<div class="row">
 		<div class="col-sm-5 col-md-5 col-xl-4 d-none d-sm-block sidebar" id="tab-content-list">
 			<div id="accordion">
-				<div class="card py-0">
-					<div class="card-header d-flex justify-content-between p-0 align-items-center">
+				<div class="card py-0 border-0">
+					<div class="card-header d-flex justify-content-between p-0 align-items-center border-bottom-0">
 						<a class="accordion-toggle d-block muted-link <?php if($_SESSION['module_main_collapse']):?> collapsed<?php endif?>"
 							data-toggle="collapse" href="#collapmetane" style="width: 95%;"
 							onclick="sessionSetting('module_main_collapse','','','');">
@@ -63,9 +63,9 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 							</form>
 						</div>
 
-						<div id="module-list" style="height: calc(100vh - 11.8rem);">
+						<div id="module-list" style="height: calc(100vh - 12.5rem);">
 
-							<table class="table">
+							<table class="table f14 border-bottom mb-0">
 								<thead>
 									<tr>
 										<td class="rb-name"><span>모듈명</span></td>
@@ -77,7 +77,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 									<?php while($_R = db_fetch_array($RCD)):?>
 									<tr<?php if($id==$_R['id']):?> class="table-active"<?php endif?> onclick="goHref('<?php echo $g['adm_href']?>&amp;recnum=<?php echo $recnum?>&amp;p=<?php echo $p?>&amp;id=<?php echo $_R['id']?>&amp;keyw=<?php echo urlencode($keyw)?>');">
 										<td class="rb-name">
-											<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?>"></i>
+											<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?> fa-fw mr-2"></i>
 											<?php echo $_R['name']?>
 											<?php if(!$_R['hidden']):?><small class="fa fa-eye"></small><?php endif?>
 										</td>
@@ -93,7 +93,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 						</div>
 
 						<?php if($TPG>1):?>
-						<ul class="pagination justify-content-center">
+						<ul class="pagination pagination-sm justify-content-center">
 							<script>getPageLink(5,<?php echo $p?>,<?php echo $TPG?>,'');</script>
 						</ul>
 						<?php endif?>

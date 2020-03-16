@@ -16,8 +16,8 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-5 col-md-5 col-xl-4 d-none d-sm-block sidebar" id="tab-content-list">
-			<div class="card">
-				<div class="card-header  dropdown">
+			<div class="card border-0">
+				<div class="card-header dropdown">
 					<i class="fa kf kf-module fa-lg fa-fw"></i>
 					전체모듈
 					<span class="pull-right">
@@ -53,8 +53,8 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 					</form>
 				</div>
 
-				<div class="panel-collapse collapse show" id="collapmetane"  style="height: calc(100vh - 10.5rem);overflow:auto">
-					<table id="module-list" class="table mb-0">
+				<div class="panel-collapse collapse show" id="collapmetane"  style="height: calc(100vh - 12.5rem);overflow:auto">
+					<table id="module-list" class="table mb-0 f14 border-bottom">
 						<thead>
 							<tr>
 								<td class="rb-name"><span>모듈명</span></td>
@@ -66,7 +66,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 							<?php while($_R = db_fetch_array($RCD)):?>
 							<tr<?php if($id==$_R['id']):?> class="table-active"<?php endif?> onclick="goHref('<?php echo $g['adm_href']?>&amp;recnum=<?php echo $recnum?>&amp;p=<?php echo $p?>&amp;id=<?php echo $_R['id']?>&amp;keyw=<?php echo urlencode($keyw)?>#page-info');">
 								<td class="rb-name">
-									<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?>"></i>
+									<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?> fa-fw mr-2"></i>
 									<?php echo $_R['name']?>
 									<?php if(!$_R['hidden']):?><small><small class="fa fa-eye"></small></small><?php endif?>
 								</td>
@@ -81,7 +81,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 				</div>
 
 				<?php if($TPG>1):?>
-				<ul class="pagination justify-content-center mt-3">
+				<ul class="pagination pagination-sm justify-content-center mt-3">
 					<script>getPageLink(5,<?php echo $p?>,<?php echo $TPG?>,'');</script>
 				</ul>
 				<?php endif?>

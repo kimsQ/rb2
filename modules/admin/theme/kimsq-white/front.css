@@ -352,6 +352,7 @@ h4 {
 .table-active>td,
 .table-active>th {
   background-color: #007bff;
+  color: #fff
 }
 
 .table tbody .table-active td .badge-dark,
