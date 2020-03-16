@@ -17,8 +17,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 	<div class="row">
 		<div class="col-sm-5 col-md-5 col-xl-4 d-none d-sm-block sidebar" id="tab-content-list">
 			<div class="card border-0">
-				<div class="card-header dropdown">
-					<i class="fa kf kf-module fa-lg fa-fw"></i>
+				<div class="card-header dropdown border-bottom-0">
 					전체모듈
 					<span class="pull-right">
 						<button type="button" class="btn btn-link py-0 muted-link" data-toggle="collapse" data-target="#panel-search" data-tooltip="tooltip" title="검색필터" onclick="sessionSetting('sh_module_search','1','','1');getSearchFocus();">
@@ -68,7 +67,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 								<td class="rb-name">
 									<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?> fa-fw mr-2"></i>
 									<?php echo $_R['name']?>
-									<?php if(!$_R['hidden']):?><small><small class="fa fa-eye"></small></small><?php endif?>
+									<?php if(!$_R['hidden']):?><small><small class="fa fa-eye ml-1"></small></small><?php endif?>
 								</td>
 								<td class="rb-id"><?php echo $_R['id']?></td>
 								<td class="rb-time">

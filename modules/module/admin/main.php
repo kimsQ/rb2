@@ -22,7 +22,6 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 						<a class="accordion-toggle d-block muted-link <?php if($_SESSION['module_main_collapse']):?> collapsed<?php endif?>"
 							data-toggle="collapse" href="#collapmetane" style="width: 95%;"
 							onclick="sessionSetting('module_main_collapse','','','');">
-							<i class="fa kf kf-module fa-fw"></i>
 							전체모듈
 						</a>
 						<button type="button"
@@ -79,7 +78,7 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 										<td class="rb-name">
 											<i class="kf <?php echo $_R['icon']?$_R['icon']:'kf-'.$_R['id']?> fa-fw mr-2"></i>
 											<?php echo $_R['name']?>
-											<?php if(!$_R['hidden']):?><small class="fa fa-eye"></small><?php endif?>
+											<?php if(!$_R['hidden']):?><small class="fa fa-eye ml-1"></small><?php endif?>
 										</td>
 										<td class="rb-id"><?php echo $_R['id']?></td>
 										<td class="rb-time">
