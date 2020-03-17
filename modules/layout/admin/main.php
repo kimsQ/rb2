@@ -102,9 +102,7 @@ if ($layout) {
         <div class="tab-pane show active" id="readme" role="tabpanel" aria-labelledby="readme-tab">
 
           <?php if (is_file($g['path_layout'].$layout.'/README.md')): ?>
-          <div class="markdown-body p-4 readme">
-            <?php readfile($g['path_layout'].$layout.'/README.md')?>
-          </div>
+          <div class="markdown-body p-4 readme"><?php readfile($g['path_layout'].$layout.'/README.md')?></div>
           <?php else: ?>
 
             <div class="text-center text-muted d-flex align-items-center justify-content-center" style="height: calc(100vh - 10rem);">
@@ -140,10 +138,9 @@ if ($layout) {
 						    <strong ><?php echo $layout ?></strong> <?php echo $d['layout']['version'] ?>
 								<?php echo $try_update?'':'<span class="badge badge-light ml-2">최신버전</span>' ?>
 								<div class="f12 text-muted mb-2">
-									원격 업데이트를 이용하시면 킴스큐Rb를 항상 최신의 상태로 유지할 수 있습니다.
+									선택된 레이아웃에 대한 업데이트 정보입니다.
 								</div>
 								<?php if ($try_update): ?>
-
 								<?php if ($git_version): ?>
 								<form name="updateForm" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>">
 									<input type="hidden" name="r" value="<?php echo $r?>">
@@ -164,6 +161,10 @@ if ($layout) {
 									<strong>[git 설치필요]</strong> 버전관리를 위해 git 설치가 필요합니다. 호스팅 제공업체 또는 서버 관리자에게 요청해주세요.
 								</div>
 								<?php endif; ?>
+								<?php else: ?>
+								<button type="button" class="btn btn-light mb-2">
+									최신 업데이트가 없습니다.
+								</button>
 								<?php endif; ?>
 						  </div>
 						</div>
