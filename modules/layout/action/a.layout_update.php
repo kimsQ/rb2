@@ -3,54 +3,48 @@ if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
 
-if(!$layout) exit;
+$mbruid	= $my['uid'];
 
-$name = trim(stripslashes($name));
-if ($name)
-{
-	$nameFile = $g['path_layout'].$layout.'/name.txt';
-	$fp = fopen($nameFile,'w');
-	fwrite($fp,$name);
-	fclose($fp);
-	@chmod($nameFile,0707);
+$command_reset	= 'cd '.$g['path_layout'].$layout.' && git reset --hard';
+$command_pull	= 'cd '.$g['path_layout'].$layout.' && git pull origin master';
+$d_regis	= $date['totime'];
+$version = $current_version.'->'.$lastest_version;
+$output_pull;
+$return_pull;
+
+shell_exec($command_reset.'; echo $?');
+$output_pull = shell_exec($command_pull.'; echo $?');
+
+$command	= $command_reset.' '.$command_pull;
+
+if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
+  $msg_type = 'default';
+} else {
+  $msg_type = 'success';
 }
 
-$codeFile = $g['path_layout'].$layout.'/'.$editfile;
-$fp = fopen($codeFile,'w');
-fwrite($fp,trim(stripslashes($code))."\n");
-fclose($fp);
-@chmod($codeFile,0707);
-
-$_layout = $layout;
-$_sublayout = $sublayout;
-
-$sublayout = str_replace('.php','',trim($sublayout));
-$newSLayout= str_replace('.php','',trim($newSLayout));
-$newLayout = trim($newLayout);
-
-if ($newSLayout && $newSLayout != $sublayout && !is_file($g['path_layout'].$layout.'/'.$newSLayout.'.php'))
-{
-	if (is_file($g['path_layout'].$layout.'/'.$sublayout.'.css'))
-	{
-		rename($g['path_layout'].$layout.'/'.$sublayout.'.css',$g['path_layout'].$layout.'/'.$newSLayout.'.css');
-		@chmod($g['path_layout'].$layout.'/'.$newSLayout.'.css',0707);
-	}
-	if (is_file($g['path_layout'].$layout.'/'.$sublayout.'.js'))
-	{
-		rename($g['path_layout'].$layout.'/'.$sublayout.'.js',$g['path_layout'].$layout.'/'.$newSLayout.'.js');
-		@chmod($g['path_layout'].$layout.'/'.$newSLayout.'.js',0707);
-	}
-	rename($g['path_layout'].$layout.'/'.$sublayout.'.php',$g['path_layout'].$layout.'/'.$newSLayout.'.php');
-	@chmod($g['path_layout'].$layout.'/'.$newSLayout.'.php',0707);
-
-	$_sublayout = $newSLayout.'.php';
+// 임시-필드 없는 경우, 생성
+$_tmp1 = db_query("SHOW COLUMNS FROM ".$table['s_gitlog']." WHERE `Field` = 'module'",$DB_CONNECT);
+if(!db_num_rows($_tmp1)) {
+	$_tmp1 = ("alter table ".$table['s_gitlog']." ADD module VARCHAR(30) DEFAULT '' NOT NULL");
+	db_query($_tmp1, $DB_CONNECT);
+}
+$_tmp2 = db_query("SHOW COLUMNS FROM ".$table['s_gitlog']." WHERE `Field` = 'target'",$DB_CONNECT);
+if(!db_num_rows($_tmp2)) {
+	$_tmp2 = ("alter table ".$table['s_gitlog']." ADD target VARCHAR(100) DEFAULT '' NOT NULL");
+	db_query($_tmp2, $DB_CONNECT);
 }
 
-if ($newLayout && $newLayout != $layout && !is_dir($g['path_layout'].$newLayout))
-{
-	rename($g['path_layout'].$layout,$g['path_layout'].$newLayout);
-	$_layout = $newLayout;
-}
+if(strpos($output_pull, 'Already up-to-date.') !== false) {
+  $msg = '이미 최신버전 입니다.|'.$msg_type;
+} else {
 
-getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&layout='.$_layout.'&sublayout='.$_sublayout,'parent.',sprintf('[%s] 파일이 수정되었습니다.',$codeFile),'');
+  $module = $m;
+  $target = $layout;
+  getDbInsert($table['s_gitlog'],'module,target,mbruid,remote,command,version,output,d_regis',"'$module','$target','$mbruid','$remote','$command','$version','$output_pull','$d_regis'");
+  $msg = '업데이트가 완료-브라우저 재시작 필요|'.$msg_type;
+}
+$_SESSION['current_version'] = $lastest_version;
+setrawcookie('layout_action_result', rawurlencode($msg));  // 알림처리를 위한 로그인 상태 cookie 저장
+getLink('reload','parent.','','');
 ?>
