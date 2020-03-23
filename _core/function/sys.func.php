@@ -469,7 +469,7 @@ function putNotice($rcvmember,$sendmodule,$sendmember,$title,$message,$referer,$
 			  $email_body = str_replace('{TEL_MAIN}',$join_tel,$email_body); // 대표 전화
 			  $email_body = str_replace('{SITE}',$_HS['name'],$email_body); //사이트명
 
-			  getSendMail($M['email'].'|'.$M['name'],$my['email'].'|'.$my['nic'],$email_title,$email_body,'HTML');
+			  getSendMail($M['email'].'|'.$M['name'],$d['admin']['sysmail'].'|'.$my['nic'],$email_title,$email_body,'HTML');
 			}
 
 
