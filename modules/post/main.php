@@ -3,6 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 include_once $g['dir_module'].'_main.php';
 
+$d['post']['isperm'] = true;
 $mod = $mod ? $mod : 'post';
 $sort	= $sort ? $sort : 'gid';
 $orderby= $orderby && strpos('[asc][desc]',$orderby) ? $orderby : 'asc';
