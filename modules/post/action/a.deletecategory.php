@@ -3,7 +3,8 @@ checkAdmin(0);
 
 include_once $g['path_module'].$m.'/_main.php';
 if (!$cat) getLink('./?m=admin&module='.$m.'&front=category','parent.','','');
-$subQue = getPostCategoryCodeToSql($table[$m.'category'],$cat);
+$CINFO = getUidData($table[$m.'category'],$cat);
+$subQue = getPostCategoryCodeToSql($table[$m.'category'],$CINFO['id']);
 $subQue = str_replace('category=','uid=',$subQue);
 
 if ($subQue){
