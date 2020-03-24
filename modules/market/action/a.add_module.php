@@ -100,7 +100,7 @@ var gx = ex[0] + '&_admpnl_=' + escape(pt.frames._ADMPNL_.location.href);
 pt.location.href = gx;
 </script>
 <?php
-exit;
-//if ($reload == 'Y') getLink('reload',"parent.parent.",'모듈이 추가되었습니다.','');
-//else getLink('',"parent.parent.$('#modal_window').modal('hide');",'모듈이 추가되었습니다.','');
+// exit;
+if ($reload == 'Y') getLink('reload',"parent.parent.",'모듈이 추가되었습니다.','');
+else getLink('',"parent.parent.$('#modal_window').modal('hide');",'모듈이 추가되었습니다.','');
 ?>

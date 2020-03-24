@@ -34,7 +34,7 @@ if (is_uploaded_file($tmpname))
 	} else {
 			echo 'failed';
 	}
-	
+
 	unlink($saveFile);
 	mkdir($plfldPath,0707);
 	mkdir($plverPath,0707);
@@ -87,7 +87,7 @@ var gx = ex[0] + '&_admpnl_=' + escape(pt.frames._ADMPNL_.location.href);
 pt.location.href = gx;
 </script>
 <?php
-exit;
-//if ($reload == 'Y') getLink('reload',"parent.parent.",sprintf('플러그인[%s]이 추가되었습니다.',$plFolder.' - v.'.$plVersion),'');
-//else getLink('',"parent.parent.$('#modal_window').modal('hide');",sprintf('플러그인[%s]이 추가되었습니다.',$plFolder.' - v.'.$plVersion),'');
+// exit;
+if ($reload == 'Y') getLink('reload',"parent.parent.",sprintf('플러그인[%s]이 추가되었습니다.',$plFolder.' - v.'.$plVersion),'');
+else getLink('',"parent.parent.$('#modal_window').modal('hide');",sprintf('플러그인[%s]이 추가되었습니다.',$plFolder.' - v.'.$plVersion),'');
 ?>
