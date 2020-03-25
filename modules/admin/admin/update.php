@@ -163,7 +163,12 @@ if ($git_version ) {
 				</div>
 				<div class="d-flex justify-content-between mt-3">
 					<small class="text-muted" data-role="d_regis"></small>
-					<small class="text-muted">작업자 : <span data-role="name"></span></small>
+					<div class="">
+						<small class="text-muted">작업자 : <span data-role="name"></span></small>
+						<a href="https://github.com/kimsQ/rb2/commits/master" class="ml-2 btn btn-dark btn-sm" target="_blank">
+							저장소 커밋목록
+						</a>
+					</div>
 				</div>
       </div>
     </div>
