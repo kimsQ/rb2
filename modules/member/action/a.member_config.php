@@ -30,7 +30,6 @@ fwrite($fp, "\$d['member']['join_enable'] = \"".$join_enable."\";\n");
 fwrite($fp, "\$d['member']['join_byEmail'] = \"".$join_byEmail."\";\n");
 fwrite($fp, "\$d['member']['join_byPhone'] = \"".$join_byPhone."\";\n");
 fwrite($fp, "\$d['member']['join_bySocial'] = \"".$join_bySocial."\";\n");
-fwrite($fp, "\$d['member']['join_verify'] = \"".$join_verify."\";\n");
 fwrite($fp, "\$d['member']['join_auth'] = \"".$join_auth."\";\n");
 fwrite($fp, "\$d['member']['join_out'] = \"".$join_out."\";\n");
 fwrite($fp, "\$d['member']['join_rejoin'] = \"".$join_rejoin."\";\n");

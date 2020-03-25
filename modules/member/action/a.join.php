@@ -204,7 +204,40 @@ if ($auth == 2)
 }
 if ($auth == 3)
 {
-	// 확인이 필요함.
+	$email_from = $d['member']['join_email']?$d['member']['join_email']:$d['admin']['sysmail'];
+	$sms_tel = $d['member']['join_tel']?$d['member']['join_tel']:$d['admin']['sms_tel'];
+	$verify_code = date('His');
+
+	getDbUpdate($table['s_mbrdata'],'tmpcode='.$verify_code,'memberuid='.$memberuid);
+
+	if ($d['member']['join_email_send'] && $email_from) {
+		include_once $g['path_core'].'function/email.func.php';
+		$content = implode('',file($g['path_module'].'/admin/var/email.header.txt'));  //이메일 헤더 양식
+		$content .= implode('',file($g['dir_module'].'doc/email/_join.auth.txt'));
+		$content.= '<p><a href="'.$g['url_root'].'/?r='.$r.'&m=member&a=email_auth&tmpuid='.$memberuid.'&tmpcode='.$verify_code.'" style="display:block;font-size:15px;color:#fff;text-decoration:none;padding: 15px;background:#007bff;width: 200px;text-align: center;margin: 38px auto;" target="_blank">회원가입 계속하기</a></p>';
+		$content.= implode('',file($g['path_module'].'/admin/var/email.footer.txt')); // //이메일 풋터 양식
+		$content = str_replace('{EMAIL_MAIN}',$email_from,$content); //대표 이메일
+		$content = str_replace('{TEL_MAIN}',$sms_tel,$content); // 대표 전화
+		$content = str_replace('{SITE}',$_HS['name'],$content); //사이트명
+		$content = str_replace('{NAME}',$name,$content);
+		$content = str_replace('{NICK}',$nic,$content);
+		$content = str_replace('{CODE}',$verify_code,$content);
+		$content = str_replace('{ID}',$id,$content);
+		$content = str_replace('{PHONE}',$phone,$content);
+		$content = str_replace('{EMAIL}',$email,$content);
+		$content = str_replace('{DATE}',getDateFormat($d_regis,'Y.m.d H:i'),$content);
+		getSendMail($email.'|'.$name,$email_from.'|'.$_HS['name'], '['.$_HS['name'].'] 회원가입을 위한 본인인증 요청', $content, 'HTML');
+	}
+
+	if ($d['member']['join_sms_send'] && $sms_tel) {
+		include_once $g['path_core'].'function/sms.func.php';
+		$content = implode('',file($g['dir_module'].'doc/sms/_join.auth.txt'));  // SMS메시지 양식
+		$content = str_replace('{SITE}',$_HS['name'],$content); //사이트명
+		$content = str_replace('{NAME}',$name,$content);
+		$content = str_replace('{PHONE}',$phone,$content);
+		getSendSMS($phone,$sms_tel,'',$content,'sms');
+	}
+
 	getLink($modal?'reload':RW(0),'parent.','회원가입 인증메일이 발송되었습니다. 이메일('.$email.')확인 후 인증해 주세요.','');
 }
 ?>

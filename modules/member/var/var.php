@@ -14,7 +14,6 @@ $d['member']['join_enable'] = "1";
 $d['member']['join_byEmail'] = "1";
 $d['member']['join_byPhone'] = "";
 $d['member']['join_bySocial'] = "";
-$d['member']['join_verify'] = "";
 $d['member']['join_out'] = "2";
 $d['member']['join_rejoin'] = "1";
 $d['member']['join_auth'] = "1";

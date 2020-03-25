@@ -288,31 +288,28 @@ include_once $_tmpvfile;
 							</div>
 
 							<hr>
-							<div class="row">
 
+							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<label>가입시 본인확인 여부</label>
-
-										<div class="">
-											<div class="custom-control custom-radio custom-control-inline">
-											  <input type="radio" id="join_verify_0" name="join_verify" class="custom-control-input"<?php if(!$d['member']['join_verify']):?> checked<?php endif?> value="0">
-											  <label class="custom-control-label" for="join_verify_0">사용안함</label>
-											</div>
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="join_verify_1" name="join_verify" class="custom-control-input"<?php if($d['member']['join_verify']):?> checked<?php endif?> value="1">
-												<label class="custom-control-label" for="join_verify_1">사용함</label>
-											</div>
-
-										</div>
-			 						 <small class="form-text text-muted">
-										 이메일 및 SMS로 이메일 인증번호 및 인증링크가 발송됩니다.
-										 이메일 및 SMS <a href="<?php echo $g['s']?>/?r=<?php echo $r ?>&m=admin&module=admin&front=main">발송설정과 점검</a>이 필요합니다.<br>
-										 소셜미디어 계정으로 로그인 성공시 본인확인이 완료된 것으로 처리됩니다.
-									 </small>
+										<label>가입시 승인처리</label>
+										<select name="join_auth" class="form-control custom-select">
+											<option value="1"<?php if($d['member']['join_auth']==1):?> selected="selected"<?php endif?>>즉시승인</option>
+											<option value="2"<?php if($d['member']['join_auth']==2):?> selected="selected"<?php endif?>>관리자 확인 후 승인</option>
+											<option value="3"<?php if($d['member']['join_auth']==3):?> selected="selected"<?php endif?>>본인 확인 후 승인</option>
+										 </select>
+										 <small class="form-text text-muted">
+											 '본인 확인 후 승인' 설정시 가입 이메일 및 SMS로 이메일 인증번호 및 인증링크가 발송됩니다.
+											 이메일 및 SMS <a href="<?php echo $g['s']?>/?r=<?php echo $r ?>&m=admin&module=admin&front=main">발송설정과 점검</a>이 필요합니다.<br>
+											 소셜미디어 계정으로 로그인 성공시 본인확인이 완료된 것으로 처리됩니다.
+										 </small>
 									</div>
 								</div>
+								<div class="col-sm-6">
+
+								</div>
 							</div>
+
 							<hr>
 							<div class="row">
 								<div class="col-sm-6">
@@ -342,24 +339,6 @@ include_once $_tmpvfile;
 									 </div>
 									 <small class="form-text text-muted">지정된 횟수 초과시 본인확인을 위한 SMS 발송이 제한됩니다.</small>
 									</div><!-- /.form-group -->
-
-
-								</div>
-							</div>
-
-							<hr>
-
-							<div class="row">
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label>가입시 승인처리</label>
-										<select name="join_auth" class="form-control custom-select">
-											<option value="1"<?php if($d['member']['join_auth']==1):?> selected="selected"<?php endif?>>즉시승인</option>
-											<option value="2"<?php if($d['member']['join_auth']==2):?> selected="selected"<?php endif?>>관리자 확인 후 승인</option>
-										 </select>
-									</div>
-								</div>
-								<div class="col-sm-6">
 
 								</div>
 							</div>

@@ -48,11 +48,11 @@ function getSendMail($to,$from,$subject,$content,$html)
 		}
 	}
 	else {
-		$To = $to_exp[1] ? "\"".$to_exp[1]."\" <$to_exp[0]>" : $to_exp[0];
-		$Frm = $from_exp[1] ? "\"".$from_exp[1]."\" <$from_exp[0]>" : $from_exp[0];
+		$To = $to_exp[1] ? "\"".getUTFtoKR($to_exp[1])."\" <$to_exp[0]>" : $to_exp[0];
+		$Frm = $from_exp[1] ? "\"".getUTFtoKR($from_exp[1])."\" <$from_exp[0]>" : $from_exp[0];
 		$Header = "From:$Frm\nReply-To:$frm\nX-Mailer:PHP/".phpversion();
 		$Header.= "\nContent-Type:text/html;charset=EUC-KR\r\n";
-		return @mail($To,$subject,getUTFtoKR($content),$Header);
+		return @mail($To,getUTFtoKR($subject),getUTFtoKR($content),$Header);
 	}
 }
 ?>
