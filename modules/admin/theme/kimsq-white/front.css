@@ -9,7 +9,9 @@ body {
   font-size: 16px;
   line-height: 1.3rem;
   color: #222;
-  letter-spacing: -.5px
+  letter-spacing: -.5px;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
 }
 
 a {
@@ -26,7 +28,6 @@ code {
 
 .btn {
   border-radius: 0px;
-  font-size: 14px;
 }
 
 #rb-admin-page-content {
@@ -626,24 +627,9 @@ h4 {
   position: relative;
   display: inline-block;
   /* padding: 6px 12px; */
-  font-size: 14px;
-  line-height: 20px;
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-repeat: repeat-x;
-  background-position: -1px -1px;
-  background-size: 110% 110%;
-  border-radius: 0.25em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /*font-family: Dotum,'돋움',sans-serif*/
-  font-family: 'Apple SD Gothic Neo', Dotum, '돋움', sans-serif;
 }
 
 .btn:focus {
