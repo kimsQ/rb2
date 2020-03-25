@@ -270,8 +270,9 @@ function ftp_select(obj)
 	else obj.form.ftp_port.value = '22';
 }
 
-putCookieAlert('mediaset_config_result') // 실행결과 알림 메시지 출력
 
-byteConverter()
+$('[data-role="siteSelector"]').removeClass('d-none'); //사이트 셀렉터 출력
+putCookieAlert('mediaset_config_result'); // 실행결과 알림 메시지 출력
+byteConverter();
 
 </script>
