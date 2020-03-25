@@ -159,7 +159,7 @@ if ($git_version ) {
       </div>
       <div class="modal-body text-muted">
 				<div style="min-height:300px">
-					<code class="f13" data-role="output"></code>
+					<pre><code class="f13" data-role="output"></code></pre>
 				</div>
 				<div class="d-flex justify-content-between mt-3">
 					<small class="text-muted" data-role="d_regis"></small>
