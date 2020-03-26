@@ -840,7 +840,7 @@ $mf_json = json_decode($mf_str , true);
 					        <span class="modal-title" data-dismiss="modal" role="button">
 										<i class="fa fa-chevron-left mr-2" aria-hidden="true"></i> 위젯 추가
 									</span>
-									<small><?php echo $d['layout']['dir'] ?></small>
+									<small><?php echo $_nowlayuotdir ?></small>
 					      </div>
 					      <div class="modal-body" style="overflow:auto">
 
@@ -853,7 +853,7 @@ $mf_json = json_decode($mf_str , true);
 												<?php $_i=1;foreach($d['layout']['widget'] as $_key => $_val):$__i=sprintf('%02d',$_i)?>
 												<optgroup label="<?php echo $_val[0]?>">
 													<?php foreach($_val[1] as $_v):?>
-													<option value="<?php echo $_key ?>/<?php echo $_v[0]?>"><?php echo $_v[1]?></option>
+													<option value="<?php echo $_nowlayuotdir ?>/<?php echo $_key ?>/<?php echo $_v[0]?>"><?php echo $_v[1]?></option>
 													<?php endforeach?>
 												</optgroup>
 												<?php $_i++;endforeach?>
