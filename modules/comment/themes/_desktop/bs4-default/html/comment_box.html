@@ -6,23 +6,27 @@
   {$comment_write}
 </div>
 <main  data-role="comment-main">
-  <nav class="d-flex">
-    <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons" role="group">
-      <label class="btn btn-light active" data-kcact="changeSort" data-sort="uid" data-orderby="asc">
-        <input type="radio" name="changeSort" id="sort_uid_asc" autocomplete="off" checked> 최신순
-      </label>
-      <label class="btn btn-light" data-kcact="changeSort" data-sort="uid" data-orderby="desc">
-        <input type="radio" name="changeSort" id="sort_uid_desc" autocomplete="off"> 과거순
-      </label>
-      <label class="btn btn-light" data-kcact="changeSort" data-sort="likes" data-orderby="desc">
-        <input type="radio" name="changeSort" id="sort_likes_desc" autocomplete="off"> 추천순
-      </label>
-    </div>
-    <button type="button" class="btn btn-light btn-sm d-print-none ml-auto" role="button" data-kcact="reload" data-toggle="tooltip" title="새로고침">
-      <i class="fa fa-refresh" aria-hidden="true"></i>
-    </button>
-  </nav>
-  <hr>
+
+  <div data-role="comment-filter">
+    <nav class="d-flex">
+      <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons" role="group">
+        <label class="btn btn-light active" data-kcact="changeSort" data-sort="uid" data-orderby="asc">
+          <input type="radio" name="changeSort" id="sort_uid_asc" autocomplete="off" checked> 최신순
+        </label>
+        <label class="btn btn-light" data-kcact="changeSort" data-sort="uid" data-orderby="desc">
+          <input type="radio" name="changeSort" id="sort_uid_desc" autocomplete="off"> 과거순
+        </label>
+        <label class="btn btn-light" data-kcact="changeSort" data-sort="likes" data-orderby="desc">
+          <input type="radio" name="changeSort" id="sort_likes_desc" autocomplete="off"> 추천순
+        </label>
+      </div>
+      <button type="button" class="btn btn-light btn-sm d-print-none ml-auto" role="button" data-kcact="reload" data-toggle="tooltip" title="새로고침">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+      </button>
+    </nav>
+    <hr>
+  </div>
+
   <ul class="list-unstyled" data-role="comment-container"> <!-- 댓글 출력부 : comment_row.html -->
     {$comment_rows}
   </ul>

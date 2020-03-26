@@ -24,7 +24,7 @@
 					<?php if ($c && $d['layout']['sidebar_menutitle']!='false')
 						include $g['dir_layout'].'/_includes/submenutitle.'.$d['layout']['sidebar_menutitle'].'.php' ?>
 
-					<article class="rb-article">
+					<article>
 						<?php include __KIMS_CONTENT__ ?>
 					</article>
 

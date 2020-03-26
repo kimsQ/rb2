@@ -33,7 +33,7 @@
 <?php getImport('ckeditor5','decoupled-document/build/ckeditor','16.0.0','js');  ?>
 <?php getImport('ckeditor5','decoupled-document/build/translations/ko','16.0.0','js');  ?>
 <?php endif; ?>
-<script src="<?php echo $g['url_root']?>/modules/comment/lib/Rb.comment.js"></script>
+<script src="<?php echo $g['url_root']?>/modules/comment/lib/Rb.comment.js<?php echo $g['wcache']?>"></script>
 
 <!-- 레이아웃 공용 스크립트 -->
 <script src="<?php echo $g['url_layout']?>/_js/main.js<?php echo $g['wcache']?>"></script>
