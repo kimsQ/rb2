@@ -171,8 +171,8 @@
            this.initBtnMore(); // 더보기 버튼 세팅
            this.initDataNone(); // 자료없은 표시 세팅
            this.initEditorComment(); //에디터 초기화
-           Iframely('[data-role="comment-main"] oembed[url]'); // oembed 미디어 변환
-           $('[data-role="comment-main"]').find('[data-plugin="timeago"]').timeago();
+           Iframely(this.options.commentMainEle+' oembed[url]'); // oembed 미디어 변환
+           $(this.options.commentMainEle).find('[data-plugin="timeago"]').timeago();
            var e = $.Event('shown.rb.comment', { relatedTarget: this.$el_id });
            this.$el.trigger(e);
         },
@@ -257,9 +257,9 @@
 
                         // Plus, some custom transformation.
                         { from: '->', to: '→' },
-                        { from: ':)', to: '🙂' },
+                        { from: '^^', to: '🙂' },
                         { from: ':+1:', to: '👍' },
-                        { from: ':tada:', to: '🎉' },
+                        { from: ':축하:', to: '🎉' },
                     ],
                 }
             },
@@ -622,13 +622,16 @@
             var comment_none_ele = this.options.commentNoneEle;
             var commentFilterEle = this.options.commentFilterEle;
             var commentNumEle = this.options.commentNumEle;
-            var total_row_text=$(total_row_wrap).text();
+            var total_row_text=$(commentNumEle+':first').text();
+            if (!total_row_text) total_row_text = '0';
+
             total_row_text=this.delComma(total_row_text);
             var total_row;
 
             if(type=='add'){
                total_row=parseInt(total_row_text)+parseInt(num);
                this.totalRow = totalRow+num;
+
             }
             else if(type=='del'){
                total_row=parseInt(total_row_text)-parseInt(num);
@@ -637,13 +640,14 @@
 
             // 최종 합계에 콤마 추가
             total_row_comma=this.addComma(total_row);
+            if (total_row_comma==0) total_row_comma='';
 
             // 취소버튼 클릭시 초기화
             if(type=='init'){
                total_checked_num=0;
                $(total_row_wrap).text(0);
             }
-            else $(total_row_wrap).text(total_row_comma);
+            else $(commentNumEle).text(total_row_comma);
 
             if (total_row==0) {
               $(commentFilterEle).addClass('d-none');
@@ -744,8 +748,8 @@
                 }else{
                     setTimeout(function(){
                        $(role_commentContainer).find(self.loader).remove(); // loader 삭제
-                       Iframely('[data-role="comment-main"] oembed[url]') // oembed 미디어 변환
-                       $('[data-role="comment-main"]').find('[data-plugin="timeago"]').timeago(); //상대시간 적용
+                       Iframely(this.options.commentMainEle+' oembed[url]') // oembed 미디어 변환
+                       $(this.options.commentMainEle).find('[data-plugin="timeago"]').timeago(); //상대시간 적용
                     },50);
 
                     if(getType=='more') $(role_commentContainer).append(commentList);
