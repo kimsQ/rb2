@@ -1101,3 +1101,13 @@ h4 {
 .rb-codeview-footer {
   border-top: 1px solid #222
 }
+
+/* 라이선스 */
+.badge-standard {
+  color: #fff;
+  background-color: #007bff;
+}
+.badge-premium {
+  color: #fff;
+  background-color: #563d7c;
+}
