@@ -14,8 +14,6 @@ $_lastest_version = str_replace('.','',$lastest_version);
 if ($_lastest_version-$_current_version > 0) $try_update = true;
 else $try_update = false;
 
-$try_update= 1;
-
 // 마켓 업데이트 체크
 $g['marketvar'] = $g['path_var'].'/market.var.php';
 if (file_exists($g['marketvar'])) include_once $g['marketvar'];
