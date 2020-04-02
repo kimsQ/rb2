@@ -14,19 +14,42 @@ $_lastest_version = str_replace('.','',$lastest_version);
 if ($_lastest_version-$_current_version > 0) $try_update = true;
 else $try_update = false;
 
+$try_update= 1;
+
+// 마켓 업데이트 체크
+$g['marketvar'] = $g['path_var'].'/market.var.php';
+if (file_exists($g['marketvar'])) include_once $g['marketvar'];
+
+$num_market_update = 0;
+if ($d['market']['url']) {
+	$numData = getUrlData($d['market']['url'].'&iframe=Y&page=client.check_update&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'].'&ip='.$_SERVER['REMOTE_ADDR'],10);
+	$numData = explode('[NUM:',$numData);
+	$numData = explode(':NUM]',$numData[1]);
+	$num_market_update = $numData[0];
+}
+
 $d['admwidget'] = array();
 $_mywidget = $g['path_module'].$module.'/var/'.$my['uid'].'.php';
 if(is_file($_mywidget)) include $_mywidget;
 ?>
 
 <div id="rb-dashboard">
+
 	<?php if($try_update):?>
-	<div id="rb-update-alert" class="alert alert-success rounded-0">
-		Rb <?php echo $lastest_version?>
-		업데이트가 있습니다.
-		<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=admin&amp;module=admin&amp;front=update" class="alert-link">지금 업데이트 하시겠습니까?</a>
+	<div id="rb-update-alert" class="alert alert-success rounded-0 mb-1">
+		<strong>시스템</strong> 업데이트가 있습니다.
+		<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=admin&amp;module=admin&amp;front=update" class="alert-link"><u>지금 업데이트 하시겠습니까?</u></a>
 	</div>
 	<?php endif?>
+
+	<?php if($num_market_update):?>
+	<div id="rb-update-alert" class="alert alert-success rounded-0">
+		<strong>익스텐션</strong> 업데이트가
+		<a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=admin&amp;module=market&amp;front=update" class="alert-link"><u><?php echo $num_market_update ?>건</u></a> 있습니다.
+	</div>
+	<?php endif?>
+
+
 
 	<div id="rb-widgets-body" class="row">
 
