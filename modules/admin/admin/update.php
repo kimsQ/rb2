@@ -203,7 +203,7 @@ if ($git_version ) {
 
       </div>
 			<div class="modal-footer justify-content-between">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+				<button type="button" class="btn btn-link" data-dismiss="modal">취소</button>
 				<button type="button" class="btn btn-primary" data-act="submit">
 					<span class="not-loading">
 		        확인 했습니다
