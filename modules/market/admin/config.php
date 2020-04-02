@@ -36,14 +36,19 @@ if (file_exists($g['marketvar'])) include_once $g['marketvar'];
 		<div class="form-group form-row">
 			<div class="offset-sm-2 col-sm-10">
 				<button type="submit" class="btn btn-primary btn-lg<?php if($g['device']):?> btn-block<?php endif?>">저장하기</button>
+
+				<div class="mt-4">
+					<small class="text-muted">
+						프로젝트 키는 프로젝트의 정식판 여부를 확인하여 마켓이용과 지원에 활용됩니다.
+						<a href="https://kimsq.com/docs/c/start/market" class="btn btn-light btn-sm" target="_blank">도움말</a>
+					</small>
+				</div>
+
 			</div>
 		</div>
 	</form>
 
 </div>
-
-
-
 
 <script>
 
