@@ -13,7 +13,7 @@ else $try_update = false;
 $sort	= $sort ? $sort : 'uid';
 $orderby= $orderby ? $orderby : 'desc';
 $recnum	= $recnum && $recnum < 201 ? $recnum : 20;
-$listque	= 'uid';
+$listque	= 'uid and ext=""';
 
 $RCD = getDbArray($table['s_gitlog'],$listque,'*',$sort,$orderby,$recnum,$p);
 $NUM = getDbRows($table['s_gitlog'],$listque);

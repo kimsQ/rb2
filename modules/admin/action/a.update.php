@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
 
-$ext = 'system';
+$ext = '';
 $mbruid	= $my['uid'];
 $command_reset	= 'git reset --hard';
 $command_pull	= 'git pull origin master';
