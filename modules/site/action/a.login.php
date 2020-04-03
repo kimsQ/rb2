@@ -42,8 +42,6 @@ if ($M['pw'] != getCrypt($pw,$M1['d_regis']) && $M1['tmpcode'] != getCrypt($pw,$
 	exit();
 }
 
-
-
 if ($usertype == 'admin')
 if (!$M1['admin']) getLink('reload','parent.','회원님은 관리자가 아닙니다.',$history);
 
@@ -123,7 +121,11 @@ if ($usertype == 'admin' || $M1['admin']) {
 }
 
 if ($usertype == 'admin' && $M1['admin']) {
-	getLink($g['s'].'/?r='.$r.'&panel=Y&pickmodule=dashboard&amp;important=panel','parent.parent.','','');
+	if ($pickgoods) {
+		getLink($g['s'].'/?r='.$r.'&panel=Y&pickmodule=market&amp;pickgoods='.$pickgoods.'&amp;important=panel','parent.parent.','','');
+	} else {
+		getLink($g['s'].'/?r='.$r.'&panel=Y&pickmodule=dashboard&amp;important=panel','parent.parent.','','');
+	}
 }
 
 if ($M1['admin']) {

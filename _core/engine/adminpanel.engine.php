@@ -241,7 +241,7 @@ $mf_json = json_decode($mf_str , true);
 						<?php if($_admpnl_):?>
 						<iframe id="_ADMPNL_" name="_ADMPNL_" src="<?php echo urldecode($_admpnl_)?>"></iframe>
 						<?php else:?>
-						<iframe id="_ADMPNL_" name="_ADMPNL_" src="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo ($pickmodule?'admin&amp;module='.$pickmodule:$m)?><?php echo $pickfront?'&amp;front='.$pickfront:'' ?>"></iframe>
+						<iframe id="_ADMPNL_" name="_ADMPNL_" src="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo ($pickmodule?'admin&amp;module='.$pickmodule:$m)?><?php echo $pickfront?'&amp;front='.$pickfront:'' ?><?php echo $pickgoods?'&amp;goods='.$pickgoods:'' ?>"></iframe>
 						<?php endif?>
 					</div>
 				</div>

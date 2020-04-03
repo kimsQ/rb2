@@ -15,6 +15,7 @@
 					<input type="hidden" name="a" value="login">
 					<input type="hidden" name="referer" value="<?php echo $referer ? $referer : $_SERVER['HTTP_REFERER']?>">
 					<input type="hidden" name="usertype" value="admin">
+					<input type="hidden" name="pickgoods" value="<?php echo $pickgoods ?>">
 					<input type="hidden" name="form" value="">
 
 					<div class="form-group">
