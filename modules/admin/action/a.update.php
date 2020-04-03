@@ -11,7 +11,7 @@ $d_regis	= $date['totime'];
 $version = $current_version.'->'.$lastest_version;
 
 $output_reset = shell_exec($command_reset.'; echo $?');
-$output_pull = shell_exec($command_pull.'; echo $?');
+$output_pull = shell_exec($command_pull);
 $command	= $command_reset.' '.$command_pull;
 
 if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
