@@ -6,8 +6,6 @@ checkAdmin(0);
 $result=array();
 $result['error']=false;
 
-
-
 if(!$uid) {
 	$result['error']='잘못된 접근 입니다.';
 	echo json_encode($result);
@@ -27,6 +25,10 @@ if ($d['market']['url']) {
 	$pathData = explode(':PATH]',$pathData[1]);
 	$path = $pathData[0];
 
+	$path_arr = explode('/',$path);
+	$ext = $path_arr[0];
+	$folder = $path_arr[1];
+
 	$returnData = explode('[RESULT:',$returnData);
 	$returnData = explode(':RESULT]',$returnData[1]);
 	$return = $returnData[0];
@@ -41,12 +43,51 @@ if ($return != 'OK') {
 	$result['error']=' 다시 시도해주세요.'.$return;
 } else {
 
+	// 모듈일 경우 DB 테이블 삭제
+	if ($ext=='modules') {
+		$moduleid = $folder;
+		$R = getDbData($table['s_module'],"id='".$moduleid."'",'*');
+		getDbDelete($table['s_module'],"id='".$moduleid."'");
+
+		$table_db  = $g['path_module'].$moduleid.'/_setting/db.table.php.done';
+		$_tmptfile = $g['path_var'].'table.info.php';
+
+		if(is_file($table_db)) {
+
+			$module= $moduleid;
+			$_table= $table;
+			$table = array();
+			include_once $table_db;
+
+			$fp = fopen($_tmptfile,'w');
+			fwrite($fp, "<?php\n");
+			foreach($_table as $key => $val)
+			{
+				if (!$table[$key])
+				{
+					fwrite($fp, "\$table['$key'] = \"$val\";\n");
+				}
+			}
+			fwrite($fp, "?>");
+			fclose($fp);
+			@chmod($_tmptfile,0707);
+
+			foreach($table as $key => $val) {
+				db_query('drop table '.$val,$DB_CONNECT);
+			}
+		}
+
+		setrawcookie('market_action_result', rawurlencode('모듈이 삭제 되었습니다.'));
+
+	}
+
 	// 폴더삭제
 	$command_delete	= 'rm -rf '.$path;
-	shell_exec($command_delete.'; echo $?');
+	shell_exec($command_delete);
 
 }
 
+$result['ext']=$ext;
 echo json_encode($result);
 exit;
 
