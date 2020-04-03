@@ -93,23 +93,22 @@ if ($d['market']['url']) {
 	}
 
 	if(strpos($output_pull, 'Already up-to-date.') !== false) {
-	  $msg = '이미 최신버전 입니다.';
-		$result['error']=$msg;
+		$output_pull = '변경사항이 없습니다.';
+	}
+
+	getDbInsert($table['s_gitlog'],'ext,target,mbruid,remote,command,version,output,d_regis',"'$path','$folder','$mbruid','$remote','$command','$version','$output_pull','$d_regis'");
+
+	//마켓설치 정보 버전 및 갱신날짜 업데이트
+	$returnData = getUrlData($d['market']['url'].'&iframe=Y&page=_client.update&uid='.$uid.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'],10);
+	$returnData = explode('[RESULT:',$returnData);
+	$returnData = explode(':RESULT]',$returnData[1]);
+	$return = $returnData[0];
+
+	if ($return != 'OK') {
+		$result['error']=' 다시 시도해주세요.'.$return;
 	} else {
-	  getDbInsert($table['s_gitlog'],'ext,target,mbruid,remote,command,version,output,d_regis',"'$path','$folder','$mbruid','$remote','$command','$version','$output_pull','$d_regis'");
-
-		//마켓설치 정보 버전 및 갱신날짜 업데이트
-	  $returnData = getUrlData($d['market']['url'].'&iframe=Y&page=_client.update&uid='.$uid.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'],10);
-	  $returnData = explode('[RESULT:',$returnData);
-	  $returnData = explode(':RESULT]',$returnData[1]);
-	  $return = $returnData[0];
-
-	  if ($return != 'OK') {
-	    $result['error']=' 다시 시도해주세요.'.$return;
-	  } else {
-			$msg = '업데이트 완료|'.$msg_type;
-	    setrawcookie('market_action_result', rawurlencode($msg));
-	  }
+		$msg = '업데이트 완료|'.$msg_type;
+		setrawcookie('market_action_result', rawurlencode($msg));
 	}
 
 } else {
