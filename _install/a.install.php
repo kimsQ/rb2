@@ -119,7 +119,7 @@ fclose($fp);
 include $_tmptfile;
 
 $gid = 0;
-$mdlarray = array('admin','project','market','module','site','layout','mediaset','domain','device','notification','search','member','post','bbs','comment','tag','popup','dashboard','connect','widget');
+$mdlarray = array('admin','market','module','site','layout','mediaset','domain','device','notification','search','member','post','bbs','comment','tag','popup','dashboard','connect','widget');
 foreach($mdlarray as $_val)
 {
 	$new_modulename = $g['path_module'].$moduledir[$_val][0].'/name.txt';
