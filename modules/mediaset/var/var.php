@@ -1,6 +1,6 @@
 <?php
 $d['mediaset']['maxnum_file'] = "10";
-$d['mediaset']['maxsize_file'] = "31457280";
+$d['mediaset']['maxsize_file'] = "20971520";
 $d['mediaset']['thumbsize'] = "1000";
 $d['mediaset']['use_fileserver'] = "";
 $d['mediaset']['ftp_type'] = "";
