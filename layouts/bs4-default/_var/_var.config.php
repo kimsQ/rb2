@@ -27,7 +27,7 @@ $d['layout']['dom'] = array (
 			array('logo_position','select','이미지 로고 정렬','왼쪽=0,가운데=50,오른쪽=100','50'),
 			array('position','select','헤더 고정','고정안함=static,고정함=fixed'),
 			array('container','select','헤더 가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
-			array('menu','select','메뉴','dropdown-hover=dropdown-hover,mega-2depth=mega-2depth,mega-3depth=mega-3depth,출력안함=false'),
+			array('menu','select','메뉴','dropdown-hover=dropdown-hover,mega-3depth=mega-3depth,출력안함=false'),
 			array('menu_limit','select','메뉴레벨','1차메뉴=1,2차메뉴=2,3차메뉴=3,출력안함=false','3'),
 			array('allcat','select','전체 카테고리','출력=true,미출력=false'),
 			array('search','select','검색 출력','입력형=input,버튼형=button,미출력=false'),
