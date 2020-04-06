@@ -849,11 +849,11 @@ $mf_json = json_decode($mf_str , true);
 											<label class="small text-muted">레이아웃 위젯목록</label>
 											<select class="form-control custom-select" name="widget_selector" data-area="">
 												<option>선택하세요.</option>
-												<?php include $g['dir_layout'].'_var/_var.config.php'; ?>
+												<?php include $g['path_layout'].$_nowlayuotdir.'/_var/_var.config.php'; ?>
 												<?php $_i=1;foreach($d['layout']['widget'] as $_key => $_val):$__i=sprintf('%02d',$_i)?>
 												<optgroup label="<?php echo $_val[0]?>">
 													<?php foreach($_val[1] as $_v):?>
-													<option value="<?php echo $_nowlayuotdir ?>/<?php echo $_key ?>/<?php echo $_v[0]?>"><?php echo $_v[1]?></option>
+													<option value="<?php echo $_v[0]?>"><?php echo $_v[1]?></option>
 													<?php endforeach?>
 												</optgroup>
 												<?php $_i++;endforeach?>

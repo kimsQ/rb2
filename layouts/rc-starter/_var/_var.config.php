@@ -80,40 +80,40 @@ $d['layout']['widget'] = array (
 	'post' => array(
 		'포스트',
 		array(
-			array('rc-default/post/all/list-default','최근 리스트 기본'),
-			array('rc-default/post/all/list-highlight','최근 리스트 강조'),
-			array('rc-default/post/all/gallery-default','최근 갤러리'),
-			array('rc-default/post/all/gallery-grid','최근 그리드'),
-			array('rc-default/post/all/gallery-gridSwipe','최근 그리드 스와이프'),
-			array('rc-default/post/all/medialist-default','최근 미디어 리스트'),
-			array('rc-default/post/all/swipe-default','최근 스와이프 기본'),
-			array('rc-default/post/all/swipe-jumbotron','최근 스와이프 점보트론'),
-			array('rc-default/post/all/swipe-multi','최근 스와이프 멀티'),
+			array('rc-default/post/post/all/list-default','최근 리스트 기본'),
+			array('rc-default/post/post/all/list-highlight','최근 리스트 강조'),
+			array('rc-default/post/post/all/gallery-default','최근 갤러리'),
+			array('rc-default/post/post/all/gallery-grid','최근 그리드'),
+			array('rc-default/post/post/all/gallery-gridSwipe','최근 그리드 스와이프'),
+			array('rc-default/post/post/all/medialist-default','최근 미디어 리스트'),
+			array('rc-default/post/post/all/swipe-default','최근 스와이프 기본'),
+			array('rc-default/post/post/all/swipe-jumbotron','최근 스와이프 점보트론'),
+			array('rc-default/post/post/all/swipe-multi','최근 스와이프 멀티'),
 
-			array('rc-default/post/best/list-default','인기 리스트'),
-			array('rc-default/post/best/list-highlight','인기 리스트 강조'),
-			array('rc-default/post/best/medialist-default','인기 미디어 리스트'),
-			array('rc-default/post/best/gallery-default','인기 갤러리'),
-			array('rc-default/post/best/gallery-grid','인기 그리드'),
-			array('rc-default/post/best/gallery-gridSwipe','인기 그리드 스와이프'),
-			array('rc-default/post/best/swipe-default','인기 스와이프 기본'),
-			array('rc-default/post/best/swipe-multi','인기 스와이프 멀티'),
+			array('rc-default/post/post/best/list-default','인기 리스트'),
+			array('rc-default/post/post/best/list-highlight','인기 리스트 강조'),
+			array('rc-default/post/post/best/medialist-default','인기 미디어 리스트'),
+			array('rc-default/post/post/best/gallery-default','인기 갤러리'),
+			array('rc-default/post/post/best/gallery-grid','인기 그리드'),
+			array('rc-default/post/post/best/gallery-gridSwipe','인기 그리드 스와이프'),
+			array('rc-default/post/post/best/swipe-default','인기 스와이프 기본'),
+			array('rc-default/post/post/best/swipe-multi','인기 스와이프 멀티'),
 
-			array('rc-default/post/tag/list-default','태그 리스트'),
-			array('rc-default/post/tag/list-highlight','태그 리스트 강조'),
+			array('rc-default/post/post/tag/list-default','태그 리스트'),
+			array('rc-default/post/post/tag/list-highlight','태그 리스트 강조'),
 
-			array('rc-default/post/cat/list-default','카테고리 리스트'),
+			array('rc-default/post/post/cat/list-default','카테고리 리스트'),
 
-			array('rc-default/list/view/list-default','리스트뷰 리스트 기본'),
-			array('rc-default/list/view/list-highlight','리스트뷰 리스트 강조'),
-			array('rc-default/list/view/gallery-default','리스트뷰 갤러리'),
+			array('rc-default/post/list/view/list-default','리스트뷰 리스트 기본'),
+			array('rc-default/post/list/view/list-highlight','리스트뷰 리스트 강조'),
+			array('rc-default/post/list/view/gallery-default','리스트뷰 갤러리'),
 
-			// array('rc-default/list/view-card','특정 리스트'),
-			// array('rc-default/list/req-banner','기간별 추천 포스트'),
-			// array('rc-default/list/req-swipe','최근 리스트'),
-			// array('rc-default/post/cat-collapse','특정 리스트'),
-			// array('rc-default/post/req-card','특정 키워드'),
-			// array('rc-default/post/req-swipe','특정 키워드'),
+			// array('list/view-card','특정 리스트'),
+			// array('list/req-banner','기간별 추천 포스트'),
+			// array('list/req-swipe','최근 리스트'),
+			// array('post/cat-collapse','특정 리스트'),
+			// array('post/req-card','특정 키워드'),
+			// array('post/req-swipe','특정 키워드'),
 		),
 	),
 
@@ -121,28 +121,28 @@ $d['layout']['widget'] = array (
 	'bbs' => array(
 		'게시판',
 		array(
-			array('rc-default/all/list-default','최근 리스트 기본'),
+			array('rc-default/bbs/all/list-default','최근 리스트 기본'),
 		),
 	),
 
-	'profile' => array(
+	'member' => array(
 		'프로필',
 		array(
-			array('rc-default/my/card-default','나의 프로필 카드')
+			array('rc-default/member/my/card-default','나의 프로필 카드')
 		),
 	),
 
 	'site' => array(
 		'사이트',
 		array(
-			array('rc-default/cover-default','사이트 커버 기본형')
+			array('rc-default/site/cover-default','사이트 커버 기본형')
 		),
 	),
 
 	'search' => array(
 		'검색',
 		array(
-			array('rc-default/tag/ranking-top10','기간별 주요 키워드')
+			array('rc-default/search/tag/ranking-top10','기간별 주요 키워드')
 		),
 	),
 );

@@ -136,35 +136,35 @@ $d['layout']['widget'] = array (
 	'post' => array(
 		'포스트',
 		array(
-			array('bs4-default/post/best/card-default','기간별 추천 포스트'),
-			array('bs4-default/post/new/card-default','최근 포스트'),
-			array('bs4-default/post/tag/card-default','특정 키워드'),
-			array('bs4-default/post/cat/card-default','특정 카테고리'),
-			array('bs4-default/list/new/card-default','최근 리스트'),
-			array('bs4-default/list/view/card-default','특정 리스트'),
+			array('bs4-default/post/post/best/card-default','기간별 추천 포스트'),
+			array('bs4-default/post/post/new/card-default','최근 포스트'),
+			array('bs4-default/post/post/tag/card-default','특정 키워드'),
+			array('bs4-default/post/post/cat/card-default','특정 카테고리'),
+			array('bs4-default/post/list/new/card-default','최근 리스트'),
+			array('bs4-default/post/list/view/card-default','특정 리스트'),
 		),
 	),
 
 	'bbs' => array(
 		'게시판',
 		array(
-			array('bs4-default/all/list-default','최근 리스트 기본'),
-			array('bs4-default/all/gallery-default','최근 갤러리 기본'),
+			array('bs4-default/bbs/all/list-default','최근 리스트 기본'),
+			array('bs4-default/bbs/all/gallery-default','최근 갤러리 기본'),
 		),
 	),
 
 	'mediaset' => array(
 		'미디어셋',
 		array(
-			array('bs4-default/banner/carousel-jumbo','배너 캐러셀 점보'),
-			array('bs4-default/banner/grid-default','배너 그리드 기본형'),
+			array('bs4-default/mediaset/banner/carousel-jumbo','배너 캐러셀 점보'),
+			array('bs4-default/mediaset/banner/grid-default','배너 그리드 기본형'),
 		),
 	),
 
 	'profile' => array(
 		'채널',
 		array(
-			array('bs4-default/best/card-default','기간별 추천채널')
+			array('bs4-default/profile/best/card-default','기간별 추천채널')
 		),
 	),
 );
