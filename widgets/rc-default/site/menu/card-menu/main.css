@@ -1,0 +1,12 @@
+.rc-card-quickmenu .card {
+  margin: 0;
+  color: #222
+}
+
+.rc-card-quickmenu .card-title {
+  margin-bottom: .2rem;
+  height: 32px;
+  font-size: 1rem;
+  color: inherit;
+  overflow: hidden;
+}

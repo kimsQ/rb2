@@ -1,0 +1,39 @@
+.widget-quick .card {
+  background-size: cover
+}
+.widget-quick .card::before {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  opacity: 1 !important;
+  content: '';
+  transform: translate(0px, 0px);
+  transition-timing-function: ease-in;
+  transition-duration: 0.3s;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.widget-quick .card:hover::before {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.widget-quick .card-title {
+  min-height: 50px
+}
+
+.widget-quick .card-body {
+  margin-top: 4.5rem;
+  margin-bottom: 4.5rem;
+  z-index: 1
+}
+.widget-quick a:hover {
+  text-decoration: none;
+}
+.widget-quick .card-text {
+  width: 70%;
+  margin: 20px auto 0;
+  padding-top: 20px;
+  border-top: 2px solid #5cccfa
+}

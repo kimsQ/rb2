@@ -1,0 +1,31 @@
+.nav-table {
+  display: table;
+  width: 100%;
+  font-size: .9375rem;
+  border-radius: 0;
+  border-collapse:collapse;
+}
+.nav-table-row {
+  display: table-row;
+}
+.nav-table-cell {
+  display: table-cell;
+  overflow: hidden;
+  width: 25%;
+  max-width: 6.25rem;
+  min-height: 1rem;
+  padding: .75rem 0 .625rem;
+  color: #666;
+  letter-spacing: -.0625rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  border: .0625rem solid rgba(0, 0, 0, 0.075);;
+}
+.nav-table-cell:active {
+  background-color: #f4f4f4
+}
+.nav-table-cell.active,
+.nav-table-cell:active {
+  color: #0275d8 !important;
+}
