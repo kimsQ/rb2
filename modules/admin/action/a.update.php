@@ -38,9 +38,8 @@ if(strpos($output_pull, 'Already up-to-date.') !== false) {
 	}
 
   getDbInsert($table['s_gitlog'],'ext,target,mbruid,remote,command,version,output,d_regis',"'$ext','$target','$mbruid','$remote','$command','$version','$output_pull','$d_regis'");
-  $msg = '업데이트가 완료-브라우저 재시작 필요|'.$msg_type;
 }
 $_SESSION['current_version'] = $lastest_version;
 setrawcookie('system_update_result', rawurlencode($msg));  // 알림처리를 위한 로그인 상태 cookie 저장
-getLink('reload','parent.','','');
+getLink('reload','parent.','업데이트가 완료-브라우저 재시작 필요','');
 ?>
