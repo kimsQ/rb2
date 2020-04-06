@@ -65,7 +65,7 @@
 					<li class="list-inline-item">
 						<a href="<?php echo RW('mod=privacy')?>" class="muted-link">개인정보취급방침</a>
 					</li>
-					<?php if ($d['layout']['footer_link']) getWidget('site/bs4-default/menu/quickmenu/list-inline',array('smenu'=>$d['layout']['footer_link']));?>
+					<?php if ($d['layout']['footer_link']) getWidget('bs4-default/site/menu/quickmenu/list-inline',array('smenu'=>$d['layout']['footer_link']));?>
 				</ul>
 
 				<!-- 스탠다드 라이센스 없이는 아래 킴스큐 로고를 삭제할 수 없습니다. -->
@@ -73,7 +73,7 @@
 					powered by <a href="https://kimsq.com" target="_blank" class="text-reset ml-1"><i class="kf kf-bi-01 text-reset"></i></a>
 				</div>
 
-				<?php if ($d['layout']['footer_family']) getWidget('site/bs4-default/menu/quickmenu/dropdown-joint',array('smenu'=>$d['layout']['footer_family']));?>
+				<?php if ($d['layout']['footer_family']) getWidget('bs4-default/site/menu/quickmenu/dropdown-joint',array('smenu'=>$d['layout']['footer_family']));?>
 
 			</div><!-- /.d-flex -->
 

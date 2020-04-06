@@ -84,7 +84,7 @@
 						</a>
 					</li>
 					<?php endif; ?>
-					<?php getWidget('site/bs4-default/menu/navbar/'.$d['layout']['header_menu'],array('smenu'=>'0','limit'=>$d['layout']['header_menu_limit'],'dropdown'=>'1',));?>
+					<?php getWidget('bs4-default/site/menu/navbar/'.$d['layout']['header_menu'],array('smenu'=>'0','limit'=>$d['layout']['header_menu_limit'],'dropdown'=>'1',));?>
 				</ul>
 
 				<?php if ($d['layout']['header_search']=='button'):?>
