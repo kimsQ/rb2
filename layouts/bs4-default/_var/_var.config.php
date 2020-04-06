@@ -26,7 +26,7 @@ $d['layout']['dom'] = array (
 			array('logo_size','input','이미지 로고 크기 (1~100% 숫자만)','84'),
 			array('logo_position','select','이미지 로고 정렬','왼쪽=0,가운데=50,오른쪽=100','50'),
 			array('position','select','헤더 고정','고정안함=static,고정함=fixed'),
-			array('container','select','헤더 가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','헤더 가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('menu','select','메뉴','dropdown-hover=dropdown-hover,mega-2depth=mega-2depth,mega-3depth=mega-3depth,출력안함=false'),
 			array('menu_limit','select','메뉴레벨','1차메뉴=1,2차메뉴=2,3차메뉴=3,출력안함=false','3'),
 			array('allcat','select','전체 카테고리','출력=true,미출력=false'),
@@ -39,7 +39,7 @@ $d['layout']['dom'] = array (
 		'풋터',
 		'',
 		array(
-			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('type','select','타입','타입1=type1,타입2=type2,타입3=type3'),
 			array('logo','file','이미지 로고',''),
 			array('logo_size','input','이미지 로고 크기 (1~100% 숫자만)','84'),
@@ -55,7 +55,7 @@ $d['layout']['dom'] = array (
 		'데스크탑 메인페이지 설정을 관리합니다.',
 		array(
 			array('type','select','타입','기본=postAllFeed,직접 꾸미기=widget'),
-			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('dashboard','select','로그인 후 대시보드 이동','아니오=false,예=true'),
 		),
 	),
@@ -64,7 +64,7 @@ $d['layout']['dom'] = array (
 		'default',
 		'데스크탑 레이아웃 설정을 관리합니다.',
 		array(
-			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('bgcolor','select','배경색','흰색=bg-white,밝은회색=bg-light'),
 			array('breadcrumb','select','경로표시','미출력=false,타입1=type1,타입2=type2'),
 			array('titlebar','select','타이틀바','타입1=type1,타입2=type2,출력안함=false'),
@@ -76,7 +76,7 @@ $d['layout']['dom'] = array (
 		'sidebar',
 		'데스크탑 레이아웃 설정을 관리합니다.',
 		array(
-			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('bgcolor','select','배경색','흰색=bg-white,밝은회색=bg-light'),
 			array('breadcrumb','select','경로표시','미출력=false,타입1=type1,타입2=type2'),
 			array('titlebar','select','타이틀바','타입1=type1,타입2=type2,출력안함=false'),
@@ -88,7 +88,7 @@ $d['layout']['dom'] = array (
 		'docs',
 		'데스크탑 레이아웃 설정을 관리합니다.',
 		array(
-			array('container','select','가로폭','보통=container,넓게=container-lg,아주넓게=container-xl,와이드=container-fluid,좁게=container-sm,아주좁게=container-xs'),
+			array('container','select','가로폭','보통(1000px)=container,넓게(1140px)=container-lg,아주넓게(1200px)=container-xl,와이드(100%)=container-fluid,좁게(940px)=container-sm,아주좁게(860px)=container-xs'),
 			array('bgcolor','select','배경색','흰색=bg-white,밝은회색=bg-light'),
 			array('footer','select','전용풋터','타입1=type1,타입2=type2,타입3=type3'),
 		),
