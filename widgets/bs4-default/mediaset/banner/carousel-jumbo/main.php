@@ -13,6 +13,7 @@ $_RCD=getDbArray($table['s_upload'],$_mediasetque,'*','pid','asc',$wdgvar['limit
 
 <section class="widget carousel carousel-jumbo mb-4"  class="carousel slide" data-ride="carousel" id="banner-main">
 
+  <?php if ($wdgvar['category']): ?>
   <ol class="carousel-indicators">
     <?php $i=0;foreach($_RCD as $_R):?>
     <li data-target="#banner-main" data-slide-to="<?php echo $i ?>" class="<?php echo $i==0?' active':'' ?>"></li>
@@ -56,6 +57,12 @@ $_RCD=getDbArray($table['s_upload'],$_mediasetque,'*','pid','asc',$wdgvar['limit
     자료가 없습니다.
   </div>
   <?php endif?>
+
+  <?php else: ?>
+  <div class="d-flex justify-content-center align-items-center text-muted bg-light" style="height: 350px">
+    미디어셋 카테고리를 지정해 주세요.
+  </div>
+  <?php endif; ?>
 
 </section>
 
