@@ -18,8 +18,8 @@ if(!defined('__KIMS__')) exit;
 
 
 <?php
-getImport('ckeditor5','balloon-block/build/ckeditor','16.0.0','js');
-getImport('ckeditor5','balloon-block/build/translations/ko','16.0.0','js');
+getImport('ckeditor5','balloon-block/build/ckeditor',false,'js');
+getImport('ckeditor5','balloon-block/build/translations/ko',false,'js');
 ?>
 
 <script>

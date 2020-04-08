@@ -28,4 +28,5 @@ $d['ov']['bootstrap-validator'] = '0.5.0';
 $d['ov']['simplemde'] = '1.11.2';
 $d['ov']['font-kimsq'] = '1.0.0';
 $d['ov']['bootstrap-notify'] = '3.1.3';
+$d['ov']['ckeditor5'] = '16.0.0';
 ?>

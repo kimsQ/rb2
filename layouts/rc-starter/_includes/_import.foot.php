@@ -30,8 +30,8 @@
 
 <!-- 댓글출력시 필요 -->
 <?php if ($mod!='write'): ?>
-<?php getImport('ckeditor5','decoupled-document/build/ckeditor','16.0.0','js');  ?>
-<?php getImport('ckeditor5','decoupled-document/build/translations/ko','16.0.0','js');  ?>
+<?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');  ?>
+<?php getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');  ?>
 <?php endif; ?>
 <script src="<?php echo $g['url_root']?>/modules/comment/lib/Rb.comment.js<?php echo $g['wcache']?>"></script>
 

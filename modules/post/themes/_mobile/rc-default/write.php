@@ -16,8 +16,8 @@
 </div>
 
 
-<?php getImport('ckeditor5','decoupled-document/build/ckeditor','16.0.0','js');  ?>
-<?php getImport('ckeditor5','decoupled-document/build/translations/ko','16.0.0','js');  ?>
+<?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');  ?>
+<?php getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');  ?>
 
 <script>
 
