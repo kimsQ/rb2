@@ -8,7 +8,8 @@ if (!$R['uid']) getLink('','','존재하지 않는 게시판입니다.','');
 
 include_once $g['path_module'].'mediaset/var/var.php';
 include_once $g['path_var'].'bbs/var.'.$R['id'].'.php';
-include_once $g['path_module'].'mediaset/var/var.php';
+$g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/mediaset.var.php';
+include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['path_module'].'mediaset/var/var.php';
 include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
 
 use Aws\S3\S3Client;

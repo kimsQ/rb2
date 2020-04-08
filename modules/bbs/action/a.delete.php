@@ -8,7 +8,8 @@ if (!$B['uid']) getLink('','','존재하지 않는 게시판입니다.','');
 
 include_once $g['dir_module'].'var/var.php';
 include_once $g['path_var'].'bbs/var.'.$B['id'].'.php';
-include_once $g['path_module'].'mediaset/var/var.php';
+$g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/mediaset.var.php';
+include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['path_module'].'mediaset/var/var.php';
 include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
 
 use Aws\S3\S3Client;
@@ -212,7 +213,12 @@ if ($send=="ajax") {
 
 } else {
 
-	setrawcookie('bbs_action_result', rawurlencode('게시물이 삭제 되었습니다.|default'));  // 처리여부 cookie 저장
+	if ($g['mobile'] && $_SESSION['pcmode']!='Y') {
+	  $msg_type = 'default';
+	} else {
+	  $msg_type = 'success';
+	}
+	setrawcookie('bbs_action_result', rawurlencode('게시물이 삭제 되었습니다.|'.$msg_type));  // 처리여부 cookie 저장
 	getLink($backUrl ,'parent.' , $alert , $history);
 
 }
