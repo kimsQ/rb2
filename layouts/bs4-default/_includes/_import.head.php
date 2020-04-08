@@ -48,9 +48,6 @@
 <?php getImport('font-awesome','css/font-awesome','4.7.0','css')?>
 <?php getImport('font-kimsq','css/font-kimsq',false,'css')?>
 
-<!-- 한글 NotoSans 폰트 -->
-<?php getImport('NotoSans','fonts','1.0','css')?>
-
 <!-- anchorjs : https://github.com/bryanbraun/anchorjs -->
 <?php getImport('anchorjs','anchor.min','4.2.0','js')?>
 
