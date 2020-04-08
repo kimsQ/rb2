@@ -29,7 +29,7 @@
 <?php getImport('markjs','jquery.mark.min','8.11.1','js')?>
 
 <!-- 댓글출력시 필요 -->
-<?php if ($mod!='write'): ?>
+<?php if ($mod!='write' && $my['uid']): ?>
 <?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');  ?>
 <?php getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');  ?>
 <?php endif; ?>

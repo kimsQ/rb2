@@ -26,7 +26,7 @@
 
 <!-- 댓글출력시 필요 -->
 <?php if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9'): ?>
-  <?php if ($mod!='write'): ?>
+  <?php if ($mod!='write' && $my['uid']): ?>
   <?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');  ?>
   <?php getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');  ?>
   <?php endif; ?>
