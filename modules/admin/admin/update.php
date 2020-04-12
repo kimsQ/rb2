@@ -77,7 +77,7 @@ if ($git_version ) {
 			<tr>
 				<th>버전</th>
 				<th>적용일시</th>
-				<th>상세내역</th>
+				<th>로그</th>
 			</tr>
 		</thead>
 		<tbody class="text-muted">
