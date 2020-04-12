@@ -16,44 +16,110 @@ if (file_exists($g['marketvar'])) include_once $g['marketvar'];
 
 if ($d['market']['url']) {
 	include $g['path_core'].'function/rss.func.php';
-	$repoData = getUrlData($d['market']['url'].'&iframe=Y&page=client.check_clone&_clientu='.$g['s'].'&_clientr='.$r.'&goods='.$goods.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'].'&ip='.$_SERVER['REMOTE_ADDR'],10);
 
-	$privateData = explode('[PRIVATE:',$repoData);
-	$privateData = explode(':PRIVATE]',$privateData[1]);
-	$private = $privateData[0];
 
-	$ownerData = explode('[OWNER:',$repoData);
-	$ownerData = explode(':OWNER]',$ownerData[1]);
-	$owner = $ownerData[0];
+	$packageData = getUrlData($d['market']['url'].'&iframe=Y&page=client.check_package&_clientu='.$g['s'].'&_clientr='.$r.'&package='.$package.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'].'&ip='.$_SERVER['REMOTE_ADDR'],10);
 
-	$nameData = explode('[NAME:',$repoData);
-	$nameData = explode(':NAME]',$nameData[1]);
-	$name = $nameData[0];
+	$_installData = explode('[PACK:',$packageData);
+	$_installData = explode(':PACK]',$_installData[1]);
+	$_installData = $_installData[0];
 
-	$tokenData = explode('[TOKEN:',$repoData);
-	$tokenData = explode(':TOKEN]',$tokenData[1]);
-	$token = $tokenData[0];
+	$_extData = explode('[LIST:',$packageData);
+	$_extData = explode(':LIST]',$_extData[1]);
+	$_extData = $_extData[0];
+	$_extarr = getArrayString($_extData);
 
+	$list;
+	foreach ($_extarr['data'] as $_val) {
+
+		$extData =explode(',' , $_val);
+		$path    = $extData[0];
+		$folder  = $extData[1];
+		$name    = $extData[2];
+		$owner   = $extData[3];
+		$token   = $extData[4];
+
+		if ($token) {
+			$git = 'https://'.$token.'@github.com/'.$owner.'/'.$name.'.git';
+		} else {
+			$git = 'https://github.com/'.$owner.'/'.$name.'.git';
+		}
+
+		$command	= 'cd '.$path.' && git clone '.$git.' '.$folder;
+
+		exec($command,$command_output,$command_return);
+
+		if ($command_return != 0) {
+			$result['error']=$command.'실패 했습니다.';
+		}
+
+		// 모듈일 경우 DB테이블 생성
+		if ($path=='modules') {
+
+			$module		= $folder;
+			$_tmptable2 = $table;
+			$table		= array();
+			$table_db	= $g['path_module'].$module.'/_setting/db.table.php';
+			$table_sc	= $g['path_module'].$module.'/_setting/db.schema.php';
+			if(is_file($table_db)) {
+				$_tmptable1 = array();
+				$_tmptfile  = $g['path_var'].'table.info.php';
+				include $table_db;
+				include $table_sc;
+
+				$_tmptable1 = $table;
+				rename($table_db,$table_db.'.done');
+
+				$fp = fopen($_tmptfile,'w');
+				fwrite($fp, "<?php\n");
+				foreach($_tmptable2 as $key => $val) fwrite($fp, "\$table['$key'] = \"$val\";\n");
+				foreach($_tmptable1 as $key => $val) fwrite($fp, "\$table['$key'] = \"$val\";\n");
+				fwrite($fp, "?>");
+				fclose($fp);
+				@chmod($_tmptfile,0707);
+			}
+			else {
+				if(is_file($table_db.'.done')) include $table_db.'.done';
+			}
+
+			$maxgid = getDbCnt($_tmptable2['s_module'],'max(gid)','');
+
+			$QKEY = "gid,system,hidden,mobile,name,id,tblnum,icon,d_regis";
+			$QVAL = "'".($maxgid+1)."','0','0','1','".getFolderName($g['path_module'].$module)."','$module','".count($table)."','kf-module','".$date['totime']."'";
+
+			getDbInsert($_tmptable2['s_module'],$QKEY,$QVAL);
+		}
+
+	}
+
+	if ($_installData) {
+		$insData =explode(',' , $_installData);
+		$_name    = $insData[0];
+		$_owner   = $insData[1];
+		$_token   = $insData[2];
+
+		if ($_token) {
+			$_git = 'https://'.$_token.'@github.com/'.$_owner.'/'.$_name.'.git';
+		} else {
+			$_git = 'https://github.com/'.$_owner.'/'.$_name.'.git';
+		}
+
+		$_path = $g['path_tmp'].'app';
+		$package_folder = 'package-'.$date['totime'];
+		$_command	= 'cd '.$_path.' && git clone '.$_git.' '.$package_folder;
+
+		exec($_command,$_command_output,$_command_return);
+
+		if ($_command_return != 0) {
+			$result['error']=$_command.'실패 했습니다.';
+		}
+
+	}
 
 } else {
 	$result['error']='마켓 접속정보를 확인해주세요.';
 	echo json_encode($result);
 	exit;
-}
-
-if ($private) {
-	$git = 'https://'.$token.'@github.com/'.$owner.'/'.$name.'.git';
-} else {
-	$git = 'https://github.com/'.$owner.'/'.$name.'.git';
-}
-$path = $g['path_tmp'].'app';
-$package_folder = 'package-'.$date['totime'];
-$command	= 'cd '.$path.' && git clone '.$git.' '.$package_folder;
-
-exec($command,$command_output,$command_return);
-
-if ($command_return != 0) {
-	$result['error']=$command.'실패 했습니다.';
 }
 
 require $g['path_core'].'function/dir.func.php';
@@ -164,49 +230,6 @@ if ($ACT_CP) {
 $MP = getDbData($table['s_page'],"ismain=1 and site=".$S['uid'],'uid');
 getDbUpdate($table['s_site'],"startpage='".$MP['uid']."',m_startpage=''",'uid='.$S['uid']);
 
-//모듈설치
-if (is_dir($g['path_tmp'].'app/'.$package_folder.'/modules')) {
-	$dirh = opendir($g['path_tmp'].'app/'.$package_folder.'/modules');
-	while(false !== ($filename = readdir($dirh))) {
-		if($filename == '.' || $filename == '..') continue;
-		if(is_file($g['path_module'].$filename.'/main.php')) continue;
-
-		$module		= $filename;
-		$_tmptable2 = $table;
-		$table		= array();
-		$table_db	= $g['path_tmp'].'app/'.$package_folder.'/modules/'.$module.'/_setting/db.table.php';
-		$table_sc	= $g['path_tmp'].'app/'.$package_folder.'/modules/'.$module.'/_setting/db.schema.php';
-		if(is_file($table_db))
-		{
-			$_tmptable1 = array();
-			$_tmptfile  = $g['path_var'].'table.info.php';
-			include $table_db;
-			include $table_sc;
-
-			$_tmptable1 = $table;
-			rename($table_db,$table_db.'.done');
-
-			$fp = fopen($_tmptfile,'w');
-			fwrite($fp, "<?php\n");
-			foreach($_tmptable2 as $key => $val) fwrite($fp, "\$table['$key'] = \"$val\";\n");
-			foreach($_tmptable1 as $key => $val) fwrite($fp, "\$table['$key'] = \"$val\";\n");
-			fwrite($fp, "?>");
-			fclose($fp);
-			@chmod($_tmptfile,0707);
-		}
-		else {
-			if(is_file($table_db.'.done')) include $table_db.'.done';
-		}
-
-		$maxgid = getDbCnt($_tmptable2['s_module'],'max(gid)','');
-
-		$QKEY = "gid,system,hidden,mobile,name,id,tblnum,icon,d_regis";
-		$QVAL = "'".($maxgid+1)."','0','0','1','".getFolderName($g['path_tmp'].'app/'.$package_folder.'/modules/'.$module)."','$module','".count($table)."','kf-module','".$date['totime']."'";
-		getDbInsert($_tmptable2['s_module'],$QKEY,$QVAL);
-	}
-	closedir($dirh);
-}
-
 //플러그인설치
 if (is_dir($g['path_tmp'].'app/'.$package_folder.'/plugins')) {
 	$dirh = opendir($g['path_tmp'].'app/'.$package_folder.'/plugins');
@@ -292,6 +315,7 @@ if (is_file($g['path_tmp'].'app/'.$package_folder.'/_settings/run.php')) {
 	include $g['path_tmp'].'app/'.$package_folder.'/_settings/run.php';
 }
 
+DirDelete($g['path_tmp'].'app/'.$package_folder.'/.git');
 DirDelete($g['path_tmp'].'app/'.$package_folder.'/_settings');
 $extPath = $g['path_tmp'].'app';
 $extPath1= $extPath.'/'.$package_folder.'/';
