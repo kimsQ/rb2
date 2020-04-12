@@ -23,7 +23,7 @@ if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
 if(strpos($output_pull, 'Already up-to-date.') !== false) {
   $msg = '이미 최신버전 입니다.|'.$msg_type;
 } else if (strpos($output_pull, 'error') !== false) {
-  $msg = '에러 로그를 확인해주세요.|danger';
+  $msg = '에러발생! 로그를 확인해주세요.|danger';
 } else {
 
   // 임시-필드 없는 경우, 생성
@@ -41,9 +41,8 @@ if(strpos($output_pull, 'Already up-to-date.') !== false) {
 
   getDbInsert($table['s_gitlog'],'ext,target,mbruid,remote,command,version,output,d_regis',"'$ext','$target','$mbruid','$remote','$command','$version','$output_pull','$d_regis'");
 }
+
 $_SESSION['current_version'] = $lastest_version;
-
 setrawcookie('system_update_result', rawurlencode($msg));
-
-getLink('reload','parent.','업데이트가 완료-브라우저 재시작 필요','');
+getLink('reload','parent.','실행완료-브라우저 재시작 필요','');
 ?>
