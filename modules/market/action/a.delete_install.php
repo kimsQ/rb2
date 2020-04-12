@@ -25,9 +25,12 @@ if ($d['market']['url']) {
 	$pathData = explode(':PATH]',$pathData[1]);
 	$path = $pathData[0];
 
-	$path_arr = explode('/',$path);
-	$ext = $path_arr[0];
+	$path_arr = explode(',',$path);
+	$path = $path_arr[0];
 	$folder = $path_arr[1];
+
+	$_path_arr = explode('/',$path);
+	$ext = $_path_arr[0];
 
 	$returnData = explode('[RESULT:',$returnData);
 	$returnData = explode(':RESULT]',$returnData[1]);
@@ -82,7 +85,7 @@ if ($return != 'OK') {
 	}
 
 	// 폴더삭제
-	$command_delete	= 'rm -rf '.$path;
+	$command_delete	= 'rm -rf '.$path.'/'.$folder;
 	shell_exec($command_delete);
 
 }
