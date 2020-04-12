@@ -87,6 +87,7 @@ if ($git_version ) {
 				<td>
 					<?php if(getNew($R['d_regis'],12)):?><span class="rb-new mr-1"></span><?php endif?>
 					<?php echo $R['version']?>
+					<span class="badge badge-danger ml-1"><?php echo $R['version']?'에러':'' ?></span>
 				</td>
 				<td><?php echo getDateFormat($R['d_regis'],'Y년 m월 d일 H시 i분')?></td>
 				<td>
