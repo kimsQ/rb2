@@ -455,12 +455,36 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 									<div class="col-lg-10 col-xl-9">
 
 										<div class="form-row">
+											<?php $_layoutExp1=explode('/',$R['layout'])?>
+											<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
+											<div class="col-sm-12">
+												<div class="alert alert-danger">
+													지정된 <?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
+												</div>
+											</div>
 											<div class="col-sm-6" id="rb-layout-select">
 												<select class="form-control custom-select" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select');">
 													<?php $_layoutHexp=explode('/',$_HS['layout'])?>
 													<option value="0">사이트 레이아웃 (<?php echo $_layoutHexp[0]?>)</option>
 													<option disabled>--------------------</option>
-													<?php $_layoutExp1=explode('/',$R['layout'])?>
+													<?php $dirs = opendir($g['path_layout'])?>
+													<?php while(false !== ($tpl = readdir($dirs))):?>
+													<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+													<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?> (<?php echo $tpl?>)</option>
+													<?php endwhile?>
+													<?php closedir($dirs)?>
+												</select>
+											</div>
+											<div class="col-sm-6" id="rb-layout-select2">
+												<select class="form-control custom-select" name="layout_1_sub"<?php if(!$R['layout']):?> disabled<?php endif?>>
+												</select>
+											</div>
+											<?php else: ?>
+											<div class="col-sm-6" id="rb-layout-select">
+												<select class="form-control custom-select" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select');">
+													<?php $_layoutHexp=explode('/',$_HS['layout'])?>
+													<option value="0">사이트 레이아웃 (<?php echo $_layoutHexp[0]?>)</option>
+													<option disabled>--------------------</option>
 													<?php $dirs = opendir($g['path_layout'])?>
 													<?php while(false !== ($tpl = readdir($dirs))):?>
 													<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -480,6 +504,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 													<?php closedir($dirs1)?>
 												</select>
 											</div>
+											<?php endif; ?>
 										</div>
 									</div>
 								</div>
@@ -490,6 +515,13 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 									</label>
 									<div class="col-lg-10 col-xl-9">
 										<div class="form-row">
+											<?php $_layoutExp1=explode('/',$R['m_layout'])?>
+											<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
+											<div class="col-sm-12">
+												<div class="alert alert-danger">
+													지정된 <?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
+												</div>
+											</div>
 											<div class="col-sm-6" id="rb-m_layout-select">
 												<select class="form-control custom-select" name="m_layout_1" onchange="getSubLayout(this,'rb-m_layout-select2','m_layout_1_sub','custom-select');">
 													<?php if ($_HS['m_layout']): ?>
@@ -499,7 +531,28 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 													<option value="0">&nbsp;사용안함 (기본 레이아웃 적용)</option>
 													<?php endif; ?>
 													<option disabled>--------------------</option>
-													<?php $_layoutExp1=explode('/',$R['m_layout'])?>
+													<?php $dirs = opendir($g['path_layout'])?>
+													<?php while(false !== ($tpl = readdir($dirs))):?>
+													<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+													<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?>(<?php echo $tpl?>)</option>
+													<?php endwhile?>
+													<?php closedir($dirs)?>
+												</select>
+											</div>
+											<div class="col-sm-6" id="rb-m_layout-select2">
+												<select class="form-control custom-select" name="m_layout_1_sub"<?php if(!$R['m_layout']):?> disabled<?php endif?>>
+												</select>
+											</div>
+											<?php else: ?>
+											<div class="col-sm-6" id="rb-m_layout-select">
+												<select class="form-control custom-select" name="m_layout_1" onchange="getSubLayout(this,'rb-m_layout-select2','m_layout_1_sub','custom-select');">
+													<?php if ($_HS['m_layout']): ?>
+													<?php $_layoutHexp=explode('/',$_HS['m_layout'])?>
+													<option value="0">사이트 레이아웃 (<?php echo $_layoutHexp[0]?>)</option>
+													<?php else: ?>
+													<option value="0">&nbsp;사용안함 (기본 레이아웃 적용)</option>
+													<?php endif; ?>
+													<option disabled>--------------------</option>
 													<?php $dirs = opendir($g['path_layout'])?>
 													<?php while(false !== ($tpl = readdir($dirs))):?>
 													<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -519,6 +572,7 @@ $pageType = array('','모듈연결','코드편집','문서편집');
 													<?php closedir($dirs1)?>
 												</select>
 											</div>
+											<?php endif; ?>
 										</div>
 										<small class="d-block mt-2 form-text text-muted">모바일 레이아웃을 지정하지 않으면 데스크탑 레이아웃으로 설정됩니다.</small>
 									</div>
