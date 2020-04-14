@@ -338,7 +338,7 @@ if ($package_step == 2) {
 	@chmod($extPath,0707);
 
 	$result['siteid']=$S['id'];
-	$result['site_name']=urlencode($S['name']);
+	$result['site_name']=$S['name'];
 	$result['package_name']=$d['package']['name'];
 
 }
