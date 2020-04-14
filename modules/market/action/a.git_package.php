@@ -337,7 +337,9 @@ if ($package_step == 2) {
 	mkdir($extPath,0707);
 	@chmod($extPath,0707);
 
-	//getLink($g['s'].'/?r='.$r.'&iframe=Y&m=admin&module='.$m.'&front=modal.package&package_step=3&siteid='.$S['id'].'&site_name='.urlencode($S['name']).'&package_name='.urlencode($d['package']['name']),'parent.','','');
+	$result['siteid']=$S['id'];
+	$result['site_name']=urlencode($S['name']);
+	$result['package_name']=$d['package']['name'];
 
 }
 
