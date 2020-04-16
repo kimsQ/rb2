@@ -2518,3 +2518,43 @@ nav[data-toggle="toc"] .nav .nav>li>a {
 .rc-checkboxtree .collapsed .fa-minus:before {
   content: "\f067";
 }
+
+/* star-rating */
+.star-rating, .back-stars,
+.front-stars {
+  display: flex;
+}
+
+.star-rating {
+  align-items: center;
+  font-size: 1.1rem;
+  justify-content: center;
+  margin-bottom: 0.625rem;
+}
+
+.star-rating .fa {
+  padding-left: 0.1875rem;
+  padding-right: 0.1875rem
+}
+
+.back-stars {
+  color: #d9d9d9;
+  position: relative;
+}
+
+.front-stars {
+  color: #737373;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s;
+}
+
+.star-rating.star-rating-sm {
+  font-size: 0.875rem;
+}
+
+.star-rating.star-rating-sm .fa {
+  padding-left: 0.0625rem;
+  padding-right: 0.0625rem
+}
