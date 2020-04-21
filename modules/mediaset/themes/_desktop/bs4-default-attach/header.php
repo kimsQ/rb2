@@ -55,14 +55,14 @@ require_once $g['path_module'].'mediaset/var/var.php'; //모듈 공통변수 인
 /**
 * Nestable
 */
-.dd {  }
-.dd-list { display: block; position: relative; list-style: none; }
-.dd-list .dd-list {  }
-.dd-collapsed .dd-list { display: none; }
-.dd-item,
-.dd-empty,
-.dd-placeholder { }
-.dd-handle {
+[data-role="attach"] .dd {  }
+[data-role="attach"] .dd-list { display: block; position: relative; list-style: none; }
+[data-role="attach"] .dd-list .dd-list {  }
+[data-role="attach"] .dd-collapsed .dd-list { display: none; }
+[data-role="attach"] .dd-item,
+[data-role="attach"] .dd-empty,
+[data-role="attach"] .dd-placeholder { }
+[data-role="attach"] .dd-handle {
   position: absolute;
   margin: 0;
   left: 0;
@@ -82,12 +82,12 @@ require_once $g['path_module'].'mediaset/var/var.php'; //모듈 공통변수 인
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.dd-handle:hover {
+[data-role="attach"] .dd-handle:hover {
   background-color: #e6ebf1;
   background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
   background-position: -.5em;
 }
-.dd-handle:before {
+[data-role="attach"] .dd-handle:before {
   display: block;
   position: absolute;
   left: 0;
@@ -101,9 +101,9 @@ require_once $g['path_module'].'mediaset/var/var.php'; //모듈 공통변수 인
   font-weight: normal;
 }
 
-.dd-placeholder,
-.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
-.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+[data-role="attach"] .dd-placeholder,
+[data-role="attach"] .dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+[data-role="attach"] .dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
   background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
                     -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
   background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
@@ -113,9 +113,9 @@ require_once $g['path_module'].'mediaset/var/var.php'; //모듈 공통변수 인
   background-size: 60px 60px;
   background-position: 0 0, 30px 30px;
 }
-.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
-.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
-.dd-dragel .dd-handle {
+[data-role="attach"] .dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+[data-role="attach"] .dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+[data-role="attach"] .dd-dragel .dd-handle {
   -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
           box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
 }
