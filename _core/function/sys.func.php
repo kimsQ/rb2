@@ -1150,4 +1150,26 @@ function checkReferer($ref) {
  return $referer;
 }
 
+// 별점추출
+function getRatingStar($rating,$size){
+	$per = $rating/5*100;
+	$result= '<div class="star-rating'.($size?' star-rating-'.$size:'').' d-inline-block" title="'.$rating.'점">
+							<div class="back-stars">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<div class="front-stars" style="width: '.$per.'%">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<i class="fa fa-star" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>';
+  return $result;
+}
+
 ?>
