@@ -13,10 +13,17 @@ if ($d['market']['url']) {
   include $g['path_core'].'function/rss.func.php';
 
   $packageData = getUrlData($d['market']['url'].'&iframe=Y&page=client.get_goodsData&_clientu='.$g['s'].'&_clientr='.$r.'&goods='.$goods.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'].'&ip='.$_SERVER['REMOTE_ADDR'],10);
-
   $_contentData = explode('[CONTENT:',$packageData);
   $_contentData = explode(':CONTENT]',$_contentData[1]);
   $_contentData = $_contentData[0];
+
+  $_metaData = explode('[META:',$packageData);
+  $_metaData = explode(':META]',$_metaData[1]);
+  $_metaData = $_metaData[0];
+
+  $_galleryData = explode('[GALLERY:',$packageData);
+  $_galleryData = explode(':GALLERY]',  $_galleryData[1]);
+  $_galleryData =  $_galleryData[0];
 
   $_reviewData = explode('[REVIEW:',$packageData);
   $_reviewData = explode(':REVIEW]',$_reviewData[1]);
@@ -37,6 +44,8 @@ if ($d['market']['url']) {
 }
 
 $result['content'] = $_contentData;
+$result['meta'] = $_metaData;
+$result['gallery'] = $_galleryData;
 $result['list'] = $_extList;
 $result['review'] = $_reviewData;
 $result['aside'] = $_asideData;

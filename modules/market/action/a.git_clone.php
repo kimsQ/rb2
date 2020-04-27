@@ -26,10 +26,6 @@ if ($d['market']['url']) {
 	include $g['path_core'].'function/rss.func.php';
 	$repoData = getUrlData($d['market']['url'].'&iframe=Y&page=client.check_clone&_clientu='.$g['s'].'&_clientr='.$r.'&goods='.$goods.'&id='.$d['market']['userid'].'&key='.$d['market']['key'].'&version=2&host='.$_SERVER['HTTP_HOST'].'&ip='.$_SERVER['REMOTE_ADDR'],10);
 
-	$privateData = explode('[PRIVATE:',$repoData);
-	$privateData = explode(':PRIVATE]',$privateData[1]);
-	$private = $privateData[0];
-
 	$ownerData = explode('[OWNER:',$repoData);
 	$ownerData = explode(':OWNER]',$ownerData[1]);
 	$owner = $ownerData[0];
@@ -42,14 +38,13 @@ if ($d['market']['url']) {
 	$tokenData = explode(':TOKEN]',$tokenData[1]);
 	$token = $tokenData[0];
 
-
 } else {
 	$result['error']='마켓 접속정보를 확인해주세요.';
 	echo json_encode($result);
 	exit;
 }
 
-if ($private) {
+if ($token) {
 	$git = 'https://'.$token.'@github.com/'.$owner.'/'.$name.'.git';
 } else {
 	$git = 'https://github.com/'.$owner.'/'.$name.'.git';
@@ -60,7 +55,7 @@ $command	= 'cd '.$path.' && git clone '.$git.' '.$folder;
 exec($command,$command_output,$command_return);
 
 if ($command_return != 0) {
-	$result['error']=$command.'실패 했습니다.';
+	$result['error']=$command.' 실패 했습니다.';
 }
 
 // 모듈일 경우 DB테이블 생성
