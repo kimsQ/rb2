@@ -206,6 +206,17 @@ $R = getDbData($table['s_module'],"id='".$id."'",'*');
 						<?php endif?>
 							<i class="fa fa-question-circle fa-fw fa-lg"></i> 도움말
 						</a>
+
+						<div class="dropdown-divider"></div>
+
+						<?php if(!$R['system']):?>
+						<a class="dropdown-item" href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=module_delete&amp;moduleid=<?php echo $R['id']?>" onclick="return hrefCheck(this,true,'관련파일/DB데이터가 모두 삭제됩니다.\n정말로 삭제하시겠습니까?');">
+							<i class="fa fa-trash-o fa-fw fa-lg"></i> 모듈삭제
+						</a>
+						<?php else:?>
+						<button class="dropdown-item" type="button"><i class="fa fa-trash-o fa-fw fa-lg"></i> 모듈삭제</button>
+						<?php endif?>
+
 					</div>
 
 				</div>
