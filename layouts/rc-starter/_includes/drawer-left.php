@@ -50,7 +50,7 @@
   		</a>
   	</li>
 
-    <?php getWidget('menu/rc-drawer-menu',array('smenu'=>'0','limit'=>'2','link'=>'link','collid'=>'drawer-menu','accordion'=>'1','collapse'=>'1',))?>
+    <?php getWidget('rc-default/site/menu/drawer-default',array('smenu'=>'0','limit'=>'2','link'=>'link','collid'=>'drawer-menu','accordion'=>'1','collapse'=>'1',))?>
 
     <?php if ($d['layout']['main_type']!='postAllFeed'): ?>
     <li class="table-view-cell table-view-divider small">포스트</li>
