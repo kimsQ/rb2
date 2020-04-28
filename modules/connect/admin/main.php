@@ -91,7 +91,7 @@ include_once $_tmpdfile;
 
 				<div class="card-body tab-content">
 
-					<div id="pane_naver" class="tab-pane fade<?php if(!$_SESSION['connect_config_nav'] || $_SESSION['connect_config_nav']=='naver'):?> show active<?php endif?>">
+					<div id="pane_naver" class="tab-pane fade<?php if($_SESSION['connect_config_nav']=='naver'):?> show active<?php endif?>">
 
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="media p-2">
@@ -178,7 +178,7 @@ include_once $_tmpdfile;
 					</div><!-- /#pane_naver -->
 
 
-					<div id="pane_kakao" class="tab-pane fade<?php if($_SESSION['connect_config_nav']=='kakao'):?> show active<?php endif?>">
+					<div id="pane_kakao" class="tab-pane fade<?php if(!$_SESSION['connect_config_nav'] || $_SESSION['connect_config_nav']=='kakao'):?> show active<?php endif?>">
 
 
 						<div class="d-flex justify-content-between align-items-center">
