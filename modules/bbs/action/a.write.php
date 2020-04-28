@@ -110,9 +110,9 @@ if ($uid) {
 		$parentmbr = $R['mbruid'];
 
 		$QKEY = "site,gid,bbs,bbsid,depth,parentmbr,display,hidden,notice,name,nic,mbruid,id,pw,category,subject,content,html,tag,";
-		$QKEY.= "hit,down,comment,oneline,trackback,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,d_trackback,upload,ip,agent,sns,featured_img,location,pin,adddata";
+		$QKEY.= "hit,down,comment,oneline,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,upload,ip,agent,sns,featured_img,location,pin,adddata";
 		$QVAL = "'$s','$gid','$bbsuid','$bbsid','$depth','$parentmbr','$display','$hidden','$notice','$name','$nic','$mbruid','$id','$pw','$category','$subject','$content','$html','$tag',";
-		$QVAL.= "'0','0','0','0','0','0','0','0','$point1','$point2','$point3','$point4','$d_regis','','','','$upload','$ip','$agent','','$featured_img','$location','$pin','$adddata'";
+		$QVAL.= "'0','0','0','0','0','0','0','$point1','$point2','$point3','$point4','$d_regis','','','$upload','$ip','$agent','','$featured_img','$location','$pin','$adddata'";
 		getDbInsert($table[$m.'data'],$QKEY,$QVAL);
 		getDbInsert($table[$m.'idx'],'site,notice,bbs,gid',"'$s','$notice','$bbsuid','$gid'");
 		getDbUpdate($table[$m.'list'],"num_r=num_r+1,d_last='".$d_regis."'",'uid='.$bbsuid);
@@ -153,9 +153,9 @@ if ($uid) {
 	$gid = $mingid ? $mingid-1 : 100000000.00;
 
 	$QKEY = "site,gid,bbs,bbsid,depth,parentmbr,display,hidden,notice,name,nic,mbruid,id,pw,category,subject,content,html,tag,";
-	$QKEY.= "hit,down,comment,oneline,trackback,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,d_trackback,upload,ip,agent,sns,featured_img,location,pin,adddata";
+	$QKEY.= "hit,down,comment,oneline,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,upload,ip,agent,sns,featured_img,location,pin,adddata";
 	$QVAL = "'$s','$gid','$bbsuid','$bbsid','$depth','$parentmbr','$display','$hidden','$notice','$name','$nic','$mbruid','$id','$pw','$category','$subject','$content','$html','$tag',";
-	$QVAL.= "'0','0','0','0','0','0','0','0','$point1','$point2','$point3','$point4','$d_regis','','','','$upload','$ip','$agent','','$featured_img','$location','$pin','$adddata'";
+	$QVAL.= "'0','0','0','0','0','0','0','$point1','$point2','$point3','$point4','$d_regis','','','$upload','$ip','$agent','','$featured_img','$location','$pin','$adddata'";
 	getDbInsert($table[$m.'data'],$QKEY,$QVAL);
 	getDbInsert($table[$m.'idx'],'site,notice,bbs,gid',"'$s','$notice','$bbsuid','$gid'");
 	getDbUpdate($table[$m.'list'],"num_r=num_r+1,d_last='".$d_regis."'",'uid='.$bbsuid);
