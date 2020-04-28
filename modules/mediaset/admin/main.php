@@ -244,7 +244,7 @@ $TPG = getTotalPage($NUM,$recnum);
 					</td>
 					<td class="rb-left">
 						<i class="fa fa-file-image-o fa-fw" data-tooltip="tooltip" title="<?php echo $file_ext?>"></i>
-						<a href="<?php echo getMediaLink($R,1,'b')?>" target="_blank"><?php echo $R['name']?></a>
+						<a href="<?php echo $R['src']?>" target="_blank"><?php echo $R['name']?></a>
 					</td>
 					<?php if($R['mbruid']):?>
 					<?php $M=getDbData($table['s_mbrdata'],'memberuid='.$R['mbruid'],'memberuid,name,nic')?>
@@ -360,10 +360,10 @@ function dropDate(date1,date2)
 function actCheck(act)
 {
 	var f = document.listForm;
-    var l = document.getElementsByName('upfile_members[]');
-    var n = l.length;
+	var l = document.getElementsByName('upfile_members[]');
+	var n = l.length;
 	var j = 0;
-    var i;
+	var i;
 
     for (i = 0; i < n; i++)
 	{

@@ -6,6 +6,12 @@ include $g['path_core'].'function/thumb.func.php';
 $g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/'.$m.'.var.php';
 include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['dir_module'].'var/var.php';
 
+// 업로드 디렉토리 없는 경우 추가
+if(!is_dir($saveDir)){
+  mkdir($saveDir,0707);
+  @chmod($saveDir,0707);
+}
+
 $savePath1	= $saveDir.substr($date['today'],0,4);
 $savePath2	= $savePath1.'/'.substr($date['today'],4,2);
 $savePath3	= $savePath2.'/'.substr($date['today'],6,2);

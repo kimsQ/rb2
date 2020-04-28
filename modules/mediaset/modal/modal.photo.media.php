@@ -282,13 +282,13 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 	<input type="hidden" name="r" value="<?php echo $r?>">
 	<input type="hidden" name="m" value="<?php echo $m?>">
 	<input type="hidden" name="a" value="mediaset/upload">
-	<input type="hidden" name="saveDir" value="<?php echo $g['path_file']?>">
+	<input type="hidden" name="saveDir" value="<?php echo $g['path_file']?>mediaset/">
 	<input type="hidden" name="gparam" value="<?php echo $gparam?>">
 	<input type="hidden" name="category" value="<?php echo $_album?>">
 	<input type="hidden" name="mediaset" value="Y">
 	<input type="hidden" name="ablum_type" value="1">
 
-	<input name="upfiles[]" type="file" multiple="true" accept="image/*" id="filefiled" class="hidden" onchange="getFiles();">
+	<input name="upfiles[]" type="file" accept="image/*" id="filefiled" class="d-none" onchange="getFiles();">
 </form>
 
 <iframe name="_upload_iframe_" width="1" height="1" frameborder="0" scrolling="no"></iframe>
@@ -452,10 +452,10 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 		</div>
 
 		<?php else:?>
-		<img alt="<?php echo $_R['name']?>" class="card-img-top" src="<?php echo $_R['type']>0?$_R['url'].$_R['folder'].'/'.getPreviewResize($_R['tmpname'],'n'):'./_core/opensrc/timthumb/thumb.php?src='.$_R['src'].'&w=320&h=213&s=1'?>">
+		<img alt="<?php echo $_R['name']?>" class="card-img-top" src="<?php echo $_R['type']>0?getPreviewResize($_R['src'],'n'):'./_core/opensrc/timthumb/thumb.php?src='.$_R['src'].'&w=320&h=213&s=1'?>">
 
 		<div class="card-img-overlay">
-			<button class="btn btn-link" type="button" onclick="window.open('<?php echo $_R['type']<0?$_R['src']:$_R['url'].$_R['folder'].'/'.$_R['tmpname']?>');">
+			<button class="btn btn-link" type="button" onclick="window.open('<?php echo $_R['src']?>');">
 				원본보기
 			</button>
 		</div>

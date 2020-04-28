@@ -3,6 +3,14 @@ if(!defined('__KIMS__')) exit;
 
 $g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/'.$m.'.var.php';
 include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['dir_module'].'var/var.php';
+include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
+
+use Aws\S3\S3Client;
+
+define('S3_KEY', $d['mediaset']['S3_KEY']); //발급받은 키.
+define('S3_SEC', $d['mediaset']['S3_SEC'] ); //발급받은 비밀번호.
+define('S3_REGION', $d['mediaset']['S3_REGION']);  //S3 버킷의 리전.
+define('S3_BUCKET', $d['mediaset']['S3_BUCKET']); //버킷의 이름.
 
 foreach($photomembers as $file_uid)
 {
@@ -76,20 +84,27 @@ foreach($photomembers as $file_uid)
 
 				if ($R['type']>0)
 				{
-					if ($R['fserver'] && $R['url'] == $d['mediaset']['ftp_urlpath'])
-					{
-						$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-						$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-						if (!$FTP_CONNECT) continue;
-						if (!$FTP_CRESULT) continue;
-						if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
-						ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$R['folder'].'/'.$R['tmpname']);
-						if($R['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$R['folder'].'/'.$R['thumbname']);
-						ftp_close($FTP_CONNECT);
+
+		      if ($R['fserver']==2) {
+
+		        $s3 = new S3Client([
+		          'version'     => 'latest',
+		          'region'      => S3_REGION,
+		          'credentials' => [
+		              'key'    => S3_KEY,
+		              'secret' => S3_SEC,
+		          ],
+		        ]);
+
+		        $s3->deleteObject([
+		          'Bucket' => S3_BUCKET,
+		          'Key'    => $R['folder'].'/'.$R['tmpname']
+		        ]);
+
 					}
 					else {
-						unlink($g['path_file'].$R['folder'].'/'.$R['tmpname']);
-						if($R['type']==2) unlink($g['path_file'].$R['folder'].'/'.$R['thumbname']);
+						unlink('./'.$R['folder'].'/'.$R['tmpname']);
+						//if($R['type']==2) unlink($g['path_file'].$R['folder'].'/'.$R['thumbname']);
 					}
 				}
 
