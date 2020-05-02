@@ -41,9 +41,9 @@ if ($R['uid'])
 	unlink($g['path_var'].'sitephp/'.$account.'.php');
 
 	include $g['path_core'].'function/dir.func.php';
-	DirDelete($g['path_page'].$R['id'].'-menus');
-	DirDelete($g['path_page'].$R['id'].'-pages');
-	DirDelete($g['path_var'].'site/'.$R['id']);
+	if(is_dir($g['path_page'].$R['id'].'-menus')) DirDelete($g['path_page'].$R['id'].'-menus');
+	if(is_dir($g['path_page'].$R['id'].'-pages')) DirDelete($g['path_page'].$R['id'].'-pages');
+	if(is_dir($g['path_var'].'site/'.$R['id'])) DirDelete($g['path_var'].'site/'.$R['id']);
 }
 setrawcookie('result_site', rawurlencode('사이트가 삭제 되었습니다.|success'));  // 처리여부 cookie 저장
 
