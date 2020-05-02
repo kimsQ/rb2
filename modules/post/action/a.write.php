@@ -87,8 +87,8 @@ if ($uid) {
 
 	while($_ocm=db_fetch_array($_orign_category_members)) {
   	if(!strstr($category_members,'['.$_ocm['category'].']')) {
-  		getDbDelete($table[$m.'category_index'],'category='.$_ocm['category']);
-      getDbUpdate($table[$m.'category'],'num=num-1','uid='.$_ocm['category']);
+			getDbDelete($table[$m.'category_index'],'category='.$_ocm['category'].' and data='.$uid);
+			getDbUpdate($table[$m.'category'],'num=num-1','uid='.$_ocm['category']);
   	}
 	}
 
