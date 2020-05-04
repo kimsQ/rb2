@@ -33,8 +33,11 @@ if ($package_step == 1) {
 		$_extData = explode(':LIST]',$_extData[1]);
 		$_extData = $_extData[0];
 		$_extarr = getArrayString($_extData);
+		$_extnum = $_extarr[count];
+		$_extper = (100/$_extnum)/100;
 
 		$list;
+		// $_i=0;
 		if ($_extData) {
 			foreach ($_extarr['data'] as $_val) {
 
@@ -44,6 +47,8 @@ if ($package_step == 1) {
 				$name    = $extData[2];
 				$owner   = $extData[3];
 				$token   = $extData[4];
+				$_i++;
+				$process = $_extper*$_i;
 
 				if(is_dir($path.'/'.$folder)) continue;
 
@@ -97,6 +102,10 @@ if ($package_step == 1) {
 
 					getDbInsert($_tmptable2['s_module'],$QKEY,$QVAL);
 				}
+
+				// echo '<script type="text/javascript">';
+				// echo 'parent.progress.circleProgress("value", '.$process.');';
+				// echo '</script>';
 
 			}
 		}
@@ -183,7 +192,7 @@ if ($package_step == 2) {
 		$id = 's'.date('His');
 
 		$QKEY = "gid,id,name,label,title,titlefix,icon,layout,startpage,m_layout,m_startpage,lang,open,dtd,nametype,timecal,rewrite,buffer,usescode,headercode,footercode";
-		$QVAL = "'".$gid."','".$id."','".$name."','".$label."','{subject} | {site}','0','fa fa-home','".$d['package']['layout']."','0','".$d['package']['layout_mobile']."','0','','1','','nic','0','".$d['package']['rewrite']."','0','1','',''";
+		$QVAL = "'".$gid."','".$id."','".$name."','".$label."','{subject} | {site}','0','fa fa-home','".$d['package']['layout']."','".$d['package']['startpage']."','".$d['package']['layout_mobile']."','".$d['package']['startpage']."','','1','','nic','0','".$d['package']['rewrite']."','0','1','',''";
 		getDbInsert($table['s_site'],$QKEY,$QVAL);
 		$LASTUID = getDbCnt($table['s_site'],'max(uid)','');
 		db_query("OPTIMIZE TABLE ".$table['s_site'],$DB_CONNECT);
@@ -240,7 +249,10 @@ if ($package_step == 2) {
 
 	//메인페이지 지정
 	$MP = getDbData($table['s_page'],"ismain=1 and site=".$S['uid'],'uid');
-	getDbUpdate($table['s_site'],"startpage='".$MP['uid']."',m_startpage=''",'uid='.$S['uid']);
+
+	if ($MP['uid']) {
+		getDbUpdate($table['s_site'],"startpage='".$MP['uid']."',m_startpage=''",'uid='.$S['uid']);
+	}
 
 	//플러그인설치
 	if (is_dir($g['path_tmp'].'app/'.$package_folder.'/plugins')) {

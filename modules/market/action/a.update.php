@@ -28,10 +28,6 @@ if ($d['market']['url']) {
 	$nameData = explode(':NAME]',$nameData[1]);
 	$name = $nameData[0];
 
-	$privateData = explode('[PRIVATE:',$returnData);
-	$privateData = explode(':PRIVATE]',$privateData[1]);
-	$private = $privateData[0];
-
 	$tokenData = explode('[TOKEN:',$returnData);
 	$tokenData = explode(':TOKEN]',$tokenData[1]);
 	$token = $tokenData[0];
@@ -46,7 +42,7 @@ if ($d['market']['url']) {
 		$output_pull;
 		$return_pull;
 
-		if ($private) {
+		if ($token) {
 			if (!$token) {
 				$result['error']='[!TOKEN] 저장소연결에 실패했습니다.';
 				echo json_encode($result);
