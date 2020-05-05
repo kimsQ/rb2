@@ -187,9 +187,9 @@ if ($package_step == 2) {
 		$MAXC = getDbCnt($table['s_site'],'max(gid)','');
 		$gid = $MAXC + 1;
 
-		$name = 'SITE '.$gid;
-		$label = 'SITE '.$gid;
-		$id = 's'.date('His');
+		$name = $d['package']['name'];
+		$label = $d['package']['name'];
+		$id = $d['package']['id'].$gid;
 
 		$QKEY = "gid,id,name,label,title,titlefix,icon,layout,startpage,m_layout,m_startpage,lang,open,dtd,nametype,timecal,rewrite,buffer,usescode,headercode,footercode";
 		$QVAL = "'".$gid."','".$id."','".$name."','".$label."','{subject} | {site}','0','fa fa-home','".$d['package']['layout']."','".$d['package']['startpage']."','".$d['package']['layout_mobile']."','".$d['package']['startpage']."','','1','','nic','0','".$d['package']['rewrite']."','0','1','',''";
