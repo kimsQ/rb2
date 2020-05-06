@@ -35,6 +35,13 @@ if ($d['market']['url']) {
 	if ($owner && $name) {
 
 		$dir = $path.'/'.$folder;
+
+		if (!is_dir($dir)) {
+			$result['error']='[에러] 경로를 확인해주세요.';
+			echo json_encode($result);
+			exit;
+		}
+
 		$command_reset	= 'cd '.$dir.' && git reset --hard';
 		$command_pull	= 'cd '.$dir.' && git pull origin master';
 		$d_regis	= $date['totime'];
