@@ -193,9 +193,6 @@ $TPG = getTotalPage($NUM,$recnum);
 							<th>제목</th>
 							<th>등록자</th>
 							<th>조회</th>
-							<th>좋아요</th>
-							<th>댓글</th>
-							<th>신고</th>
 							<th>생성일시</th>
 							<th>관리</th>
 						</tr>
@@ -226,9 +223,6 @@ $TPG = getTotalPage($NUM,$recnum);
 						<td><?php echo getProfileInfo($R['mbruid'],$_HS['nametype'])?></td>
 						<?php endif?>
 						<td><strong><?php echo $R['hit']?></strong></td>
-						<td><?php echo $R['likes']?></td>
-						<td><?php echo $R['comment']?><?php if($R['oneline']):?>+<?php echo $R['oneline']?><?php endif?></td>
-						<td><?php echo $R['report']?></td>
 						<td>
 							<small class="text-muted"><?php echo getDateFormat($R['d_regis'],'Y.m.d H:i')?></small>
 						</td>

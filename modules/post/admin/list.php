@@ -231,7 +231,7 @@ $SITEN   = db_num_rows($SITES);
 					<tr>
 						<td><?php echo $NUM-((($p-1)*$recnum)+$_rec++)?></td>
 						<td><a href="<?php echo getListLink($R,0) ?>" target="_blank"><?php echo $R['id']?></a></td>
-						<td><span class="text-white"><?php echo $R['name']?></span></td>
+						<td><span><?php echo $R['name']?></span></td>
 						<td>
 							<span class="badge badge-pill badge-dark"><?php echo number_format($R['num'])?></span>
 							</td>
