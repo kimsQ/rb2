@@ -84,7 +84,7 @@ if ($is_regismode){	$CINFO['name']	   = '';
 
                   <div class="dd" id="nestable-category">
                     <ol class="dd-list">
-                      <?php $_MENUS=getDbSelect($table[$module.'category'],'parent='.intval($CINFO['uid']).' and depth='.($CINFO['depth']+1).' order by gid asc','*')?>
+                      <?php $_MENUS=getDbSelect($table[$module.'category'],'site='.$s.' and parent='.intval($CINFO['uid']).' and depth='.($CINFO['depth']+1).' order by gid asc','*')?>
                       <?php while($_M=db_fetch_array($_MENUS)):?>
                       <li class="dd-item" data-id="<?php echo $_i?>">
                         <input type="checkbox" name="categorymembers[]" value="<?php echo $_M['uid']?>" checked class="d-none">
