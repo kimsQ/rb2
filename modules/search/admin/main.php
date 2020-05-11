@@ -344,11 +344,31 @@ $SITEN = db_num_rows($SITES);
 					<div class="col-lg-10 col-xl-9">
 
 						<div class="form-row">
+							<?php $_layoutExp1=explode('/',$d['search']['layout'])?>
+							<?php if (!is_dir($g['path_layout'].$_layoutExp1[0])): ?>
+							<div class="col-sm-12">
+								<div class="alert alert-danger">
+									지정된 <?php echo $g['path_layout'].$_layoutExp1[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
+								</div>
+							</div>
+							<div class="col-sm-6" id="rb-layout-select">
+								<select class="form-control custom-select" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','custom-select');" style="letter-spacing: -1px;">
+									<?php $dirs = opendir($g['path_layout'])?>
+									<?php $_i=0;while(false !== ($tpl = readdir($dirs))):?>
+									<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+									<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?>(<?php echo $tpl?>)</option>
+									<?php $_i++;endwhile?>
+									<?php closedir($dirs)?>
+								</select>
+							</div>
+							<div class="col-sm-6" id="rb-layout-select2">
+								<select class="form-control custom-select" name="layout_1_sub">
+								</select>
+							</div>
+							<?php else: ?>
 							<div class="col-sm-6" id="rb-layout-select">
 								<select class="form-control custom-select" name="layout_1" required onchange="getSubLayout(this,'rb-layout-select2','layout_1_sub','');">
-									<?php $_layoutHexp=explode('/',$_HS['layout'])?>
 									<option value="0">사이트 레이아웃(<?php echo getFolderName($g['path_layout'].$_layoutHexp[0])?>)</option>
-									<?php $_layoutExp1=explode('/',$d['search']['layout'])?>
 									<?php $dirs = opendir($g['path_layout'])?>
 									<?php while(false !== ($tpl = readdir($dirs))):?>
 									<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -368,6 +388,7 @@ $SITEN = db_num_rows($SITES);
 									<?php closedir($dirs1)?>
 								</select>
 							</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -379,11 +400,33 @@ $SITEN = db_num_rows($SITES);
 					<div class="col-lg-10 col-xl-9">
 
 						<div class="form-row">
+							<?php $_mlayoutExp1=explode('/',$d['search']['m_layout'])?>
+							<?php if (!is_dir($g['path_layout'].$_mlayoutExp1[0])): ?>
+							<div class="col-sm-12">
+								<div class="alert alert-danger">
+									지정된 <?php echo $g['path_layout'].$_mlayoutExp1[0] ?> 레이아웃이 존재하지 않습니다. 변경해 주세요.
+								</div>
+							</div>
+							<div class="col-sm-6" id="rb-mlayout-select">
+								<select class="form-control custom-select" name="m_layout_1" required onchange="getSubLayout(this,'rb-layout-select4','m_layout_1_sub','custom-select');" style="letter-spacing: -1px;">
+									<option value="0">사용안함 (기본 레이아웃 적용)</option>
+									<option disabled>--------------------</option>
+										<?php $dirs = opendir($g['path_layout'])?>
+										<?php while(false !== ($tpl = readdir($dirs))):?>
+										<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
+										<option value="<?php echo $tpl?>"><?php echo getFolderName($g['path_layout'].$tpl)?> (<?php echo $tpl?>)</option>
+										<?php endwhile?>
+										<?php closedir($dirs)?>
+								</select>
+							</div>
+							<div class="col-sm-6" id="rb-layout-select4">
+								<select class="form-control custom-select" name="m_layout_1_sub">
+								</select>
+							</div>
+							<?php else: ?>
 							<div class="col-sm-6" id="rb-layout-select3">
 								<select class="form-control custom-select" name="m_layout_1" required onchange="getSubLayout(this,'rb-layout-select4','m_layout_1_sub','');">
-									<?php $_mlayoutHexp=explode('/',$_HS['m_layout'])?>
 									<option value="0">사이트 레이아웃(<?php echo getFolderName($g['path_layout'].$_mlayoutHexp[0])?>)</option>
-									<?php $_mlayoutExp1=explode('/',$d['search']['m_layout'])?>
 									<?php $dirs = opendir($g['path_layout'])?>
 									<?php while(false !== ($tpl = readdir($dirs))):?>
 									<?php if($tpl=='.' || $tpl == '..' || $tpl == '_blank' || is_file($g['path_layout'].$tpl))continue?>
@@ -403,6 +446,7 @@ $SITEN = db_num_rows($SITES);
 									<?php closedir($dirs1)?>
 								</select>
 							</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
