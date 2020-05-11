@@ -17,10 +17,6 @@ if ($d['market']['url']) {
   $_contentData = explode(':CONTENT]',$_contentData[1]);
   $_contentData = $_contentData[0];
 
-  $_metaData = explode('[META:',$packageData);
-  $_metaData = explode(':META]',$_metaData[1]);
-  $_metaData = $_metaData[0];
-
   $_galleryData = explode('[GALLERY:',$packageData);
   $_galleryData = explode(':GALLERY]',  $_galleryData[1]);
   $_galleryData =  $_galleryData[0];
@@ -33,6 +29,10 @@ if ($d['market']['url']) {
   $_extData = explode(':LIST]',$_extData[1]);
   $_extList = $_extData[0];
 
+  $_demoData = explode('[DEMO:',$packageData);
+  $_demoData = explode(':DEMO]',$_demoData[1]);
+  $_demoData = $_demoData[0];
+
   $_asideData = explode('[ASIDE:',$packageData);
   $_asideData = explode(':ASIDE]',$_asideData[1]);
   $_asideData = $_asideData[0];
@@ -44,10 +44,10 @@ if ($d['market']['url']) {
 }
 
 $result['content'] = $_contentData;
-$result['meta'] = $_metaData;
 $result['gallery'] = $_galleryData;
 $result['list'] = $_extList;
 $result['review'] = $_reviewData;
+$result['demo'] = $_demoData;
 $result['aside'] = $_asideData;
 
 echo json_encode($result);
