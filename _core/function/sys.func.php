@@ -321,6 +321,7 @@ function RW($rewrite)
 		$rewrite = str_replace('&mod=keyword&','/search?',$rewrite);
 		$rewrite = str_replace('&mod=view&cid=','/post/',$rewrite);
 		$rewrite = str_replace('mod=dashboard','dashboard',$rewrite);
+		$rewrite = str_replace('mod=feed','feed',$rewrite);
 		$rewrite = str_replace('mod=settings','settings',$rewrite);
 		$rewrite = str_replace('mod=profile&mbrid=','@',$rewrite);
 		$rewrite = str_replace('mod=','p/',$rewrite);

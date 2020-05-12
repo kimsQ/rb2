@@ -382,7 +382,6 @@ if ($is_regismode){	$CINFO['name']	   = '';
                     <div class="col-md-10 col-lg-9">
                       <input type="file" name="imghead" class="upfile" />
                       <?php if($CINFO['imghead']):?>
-                        <a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $m?>&amp;module=filemanager&amp;front=main&amp;editmode=Y&amp;pwd=./modules/<?php echo $module?>/var/files/&file=<?php echo $CINFO['imghead']?>" target="_blank" title="<?php echo $CINFO['imghead']?>" class="u">파일수정</a>
                         <a href="<?php echo $g['s']?>/?r=<?php echo $r?>&amp;m=<?php echo $module?>&amp;a=category_file_delete&amp;cat=<?php echo $CINFO['uid']?>&amp;dtype=head" target="_action_frame_<?php echo $m?>" class="u" onclick="return confirm('정말로 삭제하시겠습니까?     ');">삭제</a>
                       <?php else:?>
                         <span>(gif/jpg/png/swf 가능)</span>

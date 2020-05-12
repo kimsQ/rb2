@@ -28,13 +28,15 @@ if ($cat && !$vtype) {
 		$fileExt	= $fileExt == 'jpeg' ? 'jpg' : $fileExt;
 		$userimg	= sprintf('%05d',$R['uid']).'_'.$imgset[$i].'.'.$fileExt;
 
-		$saveFile	= $g['dir_module'].'var/files/'.$userimg;
+		$saveFile	= $g['path_file'].$m.'/category/'.$userimg;
 
-		if (is_uploaded_file($tmpname))
-		{
+		if (is_uploaded_file($tmpname)) {
 			if (!strstr('[gif][jpg][png][swf]',$fileExt))
 			{
 				getLink('','','헤더/풋터파일은 gif/jpg/png/swf 파일만 등록할 수 있습니다.','');
+			}
+			if (!is_dir($g['path_file'].$m.'/category/')) {
+				mkdir($g['path_file'].$m.'/category/',0707);
 			}
 			move_uploaded_file($tmpname,$saveFile);
 			@chmod($saveFile,0707);

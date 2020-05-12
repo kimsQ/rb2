@@ -39,6 +39,8 @@ RewriteRule ^(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/s([0-9]+)/?$ ./index.php?m=
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^(dashboard)/?$ ./index.php?mod=dashboard&%1 [L]
 RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(feed)/?$ ./index.php?mod=feed&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^(settings)/?$ ./index.php?mod=settings&%1 [L]
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^(noti)/?$ ./index.php?mod=noti&%1 [L]
@@ -81,6 +83,8 @@ RewriteRule ^([a-zA-Z0-9_\-]+)/(b)/([a-zA-Z0-9_\-]+)/([0-9]+)/([0-9]+)/s([0-9]+)
 
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^([a-zA-Z0-9_\-]+)/(dashboard)/?$ ./index.php?r=$1&mod=dashboard&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(feed)/?$ ./index.php?r=$1&mod=feed&%1 [L]
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^([a-zA-Z0-9_\-]+)/(settings)/?$ ./index.php?r=$1&mod=settings&%1 [L]
 RewriteCond %{QUERY_STRING} ^(.*)$
