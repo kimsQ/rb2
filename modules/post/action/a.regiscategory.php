@@ -48,7 +48,12 @@ if ($cat && !$vtype) {
 	$QVAL.= "layout='$layout',layout_mobile='$layout_mobile',skin='$skin',skin_mobile='$skin_mobile',imghead='$imghead',imgfoot='$imgfoot',puthead='$puthead',putfoot='$putfoot',recnum='$recnum',sosokmenu='$sosokmenu',featured_img='$featured_img'";
 	getDbUpdate($table[$m.'category'],$QVAL,'uid='.$cat);
 
-	$vfile = $g['dir_module'].'var/code/'.sprintf('%05d',$cat);
+	$vfile = $g['path_file'].$m.'/code/'.sprintf('%05d',$cat);
+
+	if (!is_dir($g['path_file'].$m.'/code/')) {
+		mkdir($g['path_file'].$m.'/code/',0707);
+	}
+
 	if (trim($codhead))
 	{
 		$fp = fopen($vfile.'.header.php','w');

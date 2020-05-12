@@ -358,18 +358,18 @@ if ($is_regismode){	$CINFO['name']	   = '';
                   <div class="col-md-10 col-lg-9">
                     <div class="form-check form-check-inline">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" <?php if($CINFO['imghead']||is_file($g['path_page'].'menu/'.sprintf('%05d',$CINFO['uid']).'.header.php')):?> checked="checked"<?php endif?> disabled="disabled">
-                        카테고리헤더
-                        <button class="btn btn-sm btn-light" type="button" data-toggle="collapse" data-target="#menu_header" aria-expanded="false" aria-controls="menu_header">
+                        <input class="form-check-input" type="checkbox" <?php if($CINFO['imghead']||is_file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.header.php')):?> checked="checked"<?php endif?> disabled="disabled">
+                        카테고리 헤더
+                        <button class="btn btn-sm btn-light ml-2" type="button" data-toggle="collapse" data-target="#menu_header" aria-expanded="false" aria-controls="menu_header">
                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" <?php if($CINFO['imgfoot']||is_file($g['path_page'].'menu/'.sprintf('%05d',$CINFO['uid']).'.footer.php')):?> checked="checked"<?php endif?> disabled="disabled">
-                        카테고리풋터
-                        <button class="btn btn-sm btn-light" type="button" data-toggle="collapse" data-target="#menu_footer" aria-expanded="false" aria-controls="menu_footer">
+                        <input class="form-check-input" type="checkbox" <?php if($CINFO['imgfoot']||is_file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.footer.php')):?> checked="checked"<?php endif?> disabled="disabled">
+                        카테고리 풋터
+                        <button class="btn btn-sm btn-light ml-2" type="button" data-toggle="collapse" data-target="#menu_footer" aria-expanded="false" aria-controls="menu_footer">
                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
                       </label>
@@ -391,7 +391,7 @@ if ($is_regismode){	$CINFO['name']	   = '';
                   <div class="form-group form-row">
                     <label class="col-md-2 col-form-label text-center">헤더코드</label>
                     <div class="col-md-10 col-lg-9">
-                      <textarea name="codhead" class="form-control" rows="4" id="codheadArea"><?php if(is_file($g['path_module'].$module.'/var/code/'.sprintf('%05d',$CINFO['uid']).'.header.php')) echo htmlspecialchars(implode('',file($g['path_module'].$module.'/var/code/'.sprintf('%05d',$CINFO['uid']).'.header.php')))?></textarea>
+                      <textarea name="codhead" class="form-control" rows="4" id="codheadArea"><?php if(is_file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.header.php')) echo htmlspecialchars(implode('',file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.header.php')))?></textarea>
                     </div>
                   </div>
                 </div>
@@ -411,7 +411,7 @@ if ($is_regismode){	$CINFO['name']	   = '';
                   <div class="form-group form-row">
                     <label class="col-md-2 col-form-label text-center">풋터코드</label>
                     <div class="col-md-10 col-lg-9">
-                      <textarea name="codfoot" id="codfootArea" class="form-control" rows="4"><?php if(is_file($g['path_module'].$module.'/var/code/'.sprintf('%05d',$CINFO['uid']).'.footer.php')) echo htmlspecialchars(implode('',file($g['path_module'].$module.'/var/code/'.sprintf('%05d',$CINFO['uid']).'.footer.php')))?></textarea>
+                      <textarea name="codfoot" id="codfootArea" class="form-control" rows="4"><?php if(is_file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.footer.php')) echo htmlspecialchars(implode('',file($g['path_file'].$module.'/code/'.sprintf('%05d',$CINFO['uid']).'.footer.php')))?></textarea>
                     </div>
                   </div>
                 </div>

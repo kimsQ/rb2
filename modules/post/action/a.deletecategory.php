@@ -14,11 +14,11 @@ if ($subQue){
     getDbDelete($table[$m.'category'],'uid='.$R['uid']); // 카테고리 삭제
     getDbDelete($table[$m.'category_index'],'category='.$R['uid']); //인덱스삭제
 
-    $_xfile = $g['dir_module'].'var/code/'.sprintf('%05d',$R['uid']);
+    $_xfile = $g['path_file'].$m.'/code/'.sprintf('%05d',$R['uid']);
     @unlink($_xfile.'.header.php');
     @unlink($_xfile.'.footer.php');
-    @unlink($g['dir_module'].'var/files/'.$R['imghead']);
-    @unlink($g['dir_module'].'var/fiels/'.$R['imgfoot']);
+    @unlink($g['path_file'].$m.'/category/'.$R['imghead']);
+    @unlink($g['path_file'].$m.'/category/'.$R['imgfoot']);
   }
 
   if ($parent)	{
