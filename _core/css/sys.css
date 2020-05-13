@@ -29,6 +29,16 @@
   padding-left: 7.5px;
 }
 
+.gutter-small {
+  margin-right: -2px;
+  margin-left: -2px;
+}
+.gutter-small>.col,
+.gutter-half>[class*="col-"] {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
 .alert-media {
   background-color: rgb(241, 242, 240);
   border-color: rgba(149, 149, 149, 0.3);
