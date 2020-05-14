@@ -83,7 +83,7 @@ $mf_json = json_decode($mf_str , true);
 			<span class="dropdown">
 				<a href="#" class="rb-username" data-toggle="dropdown">
 					<img class="rounded-circle" data-role="avatar" src="<?php echo getAvatarSrc($my['uid'],'25') ?>" width="25">
-					<span><?php echo $my[$_HS['nametype']]?></span>
+					<span><?php echo getStrCut($my[$_HS['nametype']],13,'..')?></span>
 					<small id="rb-notification-name"></small>
 				</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

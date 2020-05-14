@@ -73,6 +73,7 @@ body {
   font-weight: normal;
   color: #f4f4f4;
   border-radius: 100%;
+  min-width: 17px;
 }
 
 /**
