@@ -324,6 +324,7 @@ function RW($rewrite)
 		$rewrite = str_replace('mod=feed','feed',$rewrite);
 		$rewrite = str_replace('mod=settings','settings',$rewrite);
 		$rewrite = str_replace('mod=profile&mbrid=','@',$rewrite);
+		$rewrite = str_replace('mod=channel&mbrid=','channel/',$rewrite);
 		$rewrite = str_replace('mod=','p/',$rewrite);
 		$rewrite = str_replace('m=admin','admin',$rewrite);
 		$rewrite = str_replace('m=bbs','b',$rewrite);
@@ -838,6 +839,14 @@ function getProfileLink($mbruid) {
 	return $result;
 }
 
+// 채널 페이지 링크
+function getChannelLink($mbruid) {
+	global $g,$table;
+	$M = getUidData($table['s_mbrid'],$mbruid);
+	$result = RW('mod=channel&mbrid=').$M['id'];
+	return $result;
+}
+
 // 회원정보 추출
 function getProfileInfo($mbruid,$info){
   global $g,$table;
@@ -1065,6 +1074,18 @@ function getListImageSrc($list) {
 	 $src=$img_arr[0]?$img_arr[0]:'/files/noimage.png';
 	}
  return $src;
+}
+
+// 리스트의 재생링크 추출
+function getListPlaylink($arr) {
+  global $table,$s,$my;
+  $m='post';
+  $que='list='.$arr['uid'].' and site='.$s;
+  $LISTX=array();
+  $LIST_ARR=getDbArray($table[$m.'list_index'],$que,'*','gid','asc',1,1);
+  while ($LT=db_fetch_array($LIST_ARR)) $LISTX[]=$LT;
+  $R=getUidData($table[$m.'data'],$LISTX[0]['data']);
+	return RW('m=post&cid='.$R['cid'].'?list='.$arr['id'].($GLOBALS['s']!=$R['site']?'&s='.$R['site']:''));
 }
 
 // 포스트의 조회권한 여부

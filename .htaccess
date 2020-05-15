@@ -118,6 +118,16 @@ RewriteRule ^(@)([a-z-A-Z-0-9_]+)/(list)/([a-z-A-Z-0-9_]+)/?$ ./index.php?m=post
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^([a-zA-Z0-9_\-]+)/(@)([a-z-A-Z-0-9_]+)/?$ ./index.php?r=$1&mod=profile&mbrid=$3&%1 [L]
 
+#채널
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(channel)/([a-z-A-Z-0-9_]+)/?$ ./index.php?mod=channel&mbrid=$2&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(channel)/([a-z-A-Z-0-9_]+)/([a-z-A-Z-0-9_]+)/?$ ./index.php?mod=channel&mbrid=$2&page=$3&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(channel)/([a-z-A-Z-0-9_]+)/?$ ./index.php?r=$1&mod=channel&mbrid=$3&%1 [L]
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^([a-zA-Z0-9_\-]+)/(channel)/([a-z-A-Z-0-9_]+)/([a-z-A-Z-0-9_]+)/?$ ./index.php?r=$1&mod=channel&mbrid=$3&page=$4&%1 [L]
+
 #검색
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^([a-zA-Z0-9_\-]+)/(search)/?$ ./index.php?r=$1&m=search&%1 [L]
