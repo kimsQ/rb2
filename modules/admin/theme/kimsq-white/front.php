@@ -129,7 +129,7 @@
 						<div class="input-group input-group-sm mt-1 ml-2 border border-primary">
 							<div class="input-group-append" style="margin-left: 0;">
 								<a class="input-group-text muted-link" href="<?php echo $g['s']?>/?r=<?php echo $SD['id']?>&amp;m=<?php echo $m?>&amp;pickmodule=site&amp;panel=Y" target="_parent" data-toggle="tooltip" title="사이트관리">
-									<i class="<?php echo $SD['icon']?> fa-lg" aria-hidden="true"></i>
+									<i class="<?php echo $SD['icon']?$SD['icon']:'fa fa-home'?> fa-lg" aria-hidden="true"></i>
 								</a>
 							</div>
 							<select class="form-control custom-select" onchange="goHref_parent('<?php echo $g['s']?>/?m=<?php echo $m?>&pickmodule=<?php echo $module?>&panel=Y&pickfront=<?php echo $front?>&r='+this.value);" style="margin-left: -1px;min-width:100px">
