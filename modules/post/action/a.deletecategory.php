@@ -29,6 +29,6 @@ if ($subQue){
   db_query("OPTIMIZE TABLE ".$table[$m.'category'],$DB_CONNECT);
 }
 
-setrawcookie('result_post_category', rawurlencode('카테고리가 삭제 되었습니다.|danger'));
+setrawcookie('result_post_category', rawurlencode('카테고리가 삭제 되었습니다.|success'));
 getLink($g['s'].'/?r='.$r.'&m=admin&module='.$m.'&front=category&cat='.$parent,'parent.','','');
 ?>
