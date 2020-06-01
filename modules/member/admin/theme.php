@@ -23,7 +23,7 @@
 <div class="row no-gutters">
   <div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar"><!-- 좌측영역 시작 -->
     <div class="card border-0">
-      <div class="card-header">
+      <div class="card-header f12">
         테마 리스트
       </div>
 
@@ -36,7 +36,7 @@
         <?php if($skin=='.' || $skin == '..' || is_file($tdir.$skin))continue?>
         <?php $i++?>
         <a href="<?php echo $g['adm_href']?>&amp;theme=_desktop/<?php echo $skin?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($theme=='_desktop/'.$skin):?> border border-primary<?php endif?>">
-          <span><i class="fa fa-desktop fa-lg fa-fw" aria-hidden="true"></i> <?php echo getFolderName($tdir.$skin)?></span>
+          <span><?php echo getFolderName($tdir.$skin)?></span>
           <span class="badge badge-<?php echo $theme=='_desktop/'.$skin?'primary':'dark' ?> badge-pill"><?php echo $skin?></span>
         </a>
         <?php endwhile?>
@@ -47,7 +47,7 @@
         <?php if($skin=='.' || $skin == '..' || is_file($tdir.$skin))continue?>
         <?php $i++?>
         <a href="<?php echo $g['adm_href']?>&amp;theme=_mobile/<?php echo $skin?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($theme=='_mobile/'.$skin):?> border border-primary<?php endif?>">
-          <span><i class="fa fa-mobile fa-2x fa-fw" aria-hidden="true"></i> <?php echo getFolderName($tdir.$skin)?></span>
+          <span><?php echo getFolderName($tdir.$skin)?></span>
           <span class="badge badge-<?php echo $theme=='_mobile/'.$skin?'primary':'dark' ?> badge-pill"><?php echo $skin?></span>
         </a>
       <?php endwhile?>
@@ -81,7 +81,6 @@
           <li class="breadcrumb-item"><?php echo $_theme[1]?></li>
         </ol>
       </div>
-
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -122,8 +121,6 @@
           </div>
           <?php endif; ?>
 
-
-
         </div>
 
         <div class="tab-pane pr-2<?php if($_COOKIE['moduleBbsThemeTab']=='editor'):?> show active<?php endif?>" id="var" role="tabpanel" aria-labelledby="var-tab">
@@ -136,21 +133,11 @@
 
               <div class="rb-codeview-footer p-2">
                 <div class="form-row mb-2">
-                  <div class="col">
-                    <div class="input-group input-group-sm">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">테마명</span>
-                      </div>
-                      <input type="text" class="form-control" name="name" value="<?php echo getFolderName($g['path_module'].$module.'/themes/'.$theme)?>">
-                    </div>
+                  <div class="col pt-2 text-muted">
+										테마명 : <?php echo getFolderName($g['path_module'].$module.'/themes/'.$theme)?>
                   </div>
                   <div class="col">
-                    <div class="input-group input-group-sm">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">테마 폴더</span>
-                      </div>
-                      <input type="text" class="form-control" name="newLayout" value="<?php echo $theme?>">
-                    </div>
+
                   </div>
                   <div class="col text-right pt-2 text-muted">
                     <small><?php echo count(file($g['path_module'].$module.'/themes/'.$theme.'/_var/var.php')).' lines'?></small></li>

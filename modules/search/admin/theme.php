@@ -4,7 +4,7 @@
 <div class="row no-gutters">
   <div class="col-sm-4 col-md-4 col-xl-3 d-none d-sm-block sidebar"><!-- 좌측영역 시작 -->
     <div class="card">
-      <div class="card-header">
+      <div class="card-header f13">
         테마 리스트
       </div>
 
@@ -17,7 +17,7 @@
         <?php if($skin=='.' || $skin == '..' || is_file($tdir.$skin))continue?>
         <?php $i++?>
         <a href="<?php echo $g['adm_href']?>&amp;theme=_desktop/<?php echo $skin?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($theme=='_desktop/'.$skin):?> border border-primary<?php endif?>">
-          <span><i class="fa fa-desktop fa-lg fa-fw" aria-hidden="true"></i> <?php echo getFolderName($tdir.$skin)?></span>
+          <span><?php echo getFolderName($tdir.$skin)?></span>
           <span class="badge badge-<?php echo $theme=='_desktop/'.$skin?'primary':'dark' ?> badge-pill"><?php echo $skin?></span>
         </a>
         <?php endwhile?>
@@ -28,7 +28,7 @@
         <?php if($skin=='.' || $skin == '..' || is_file($tdir.$skin))continue?>
         <?php $i++?>
         <a href="<?php echo $g['adm_href']?>&amp;theme=_mobile/<?php echo $skin?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<?php if($theme=='_mobile/'.$skin):?> border border-primary<?php endif?>">
-          <span><i class="fa fa-mobile fa-2x fa-fw" aria-hidden="true"></i> <?php echo getFolderName($tdir.$skin)?></span>
+          <span><?php echo getFolderName($tdir.$skin)?></span>
           <span class="badge badge-<?php echo $theme=='_mobile/'.$skin?'primary':'dark' ?> badge-pill"><?php echo $skin?></span>
         </a>
       <?php endwhile?>
@@ -67,13 +67,11 @@
       <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link js-tooltip<?php if(!$_COOKIE['moduleBbsThemeTab']||$_COOKIE['moduleBbsThemeTab']=='readme'):?> active<?php endif?>" href="#readme" data-toggle="tab" onclick="setCookie('moduleBbsThemeTab','readme',1);" title="README.md" data-placement="bottom">
-            <i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>
             안내문서
           </a>
         </li>
         <li class="nav-item editor">
           <a class="nav-link js-tooltip<?php if($_COOKIE['moduleBbsThemeTab']=='editor'):?> active<?php endif?>" href="#var" data-toggle="tab" onclick="setCookie('moduleBbsThemeTab','editor','1');" title="var.php" data-placement="bottom">
-            <i class="fa fa-code fa-fw" aria-hidden="true"></i>
             설정 변수
           </a>
         </li>
