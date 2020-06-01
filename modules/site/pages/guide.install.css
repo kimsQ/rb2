@@ -2,5 +2,9 @@ body,
 .fullscreen {
   width: 100%;
   height: 100vh;
-  padding: 40vh;
+  padding: 30vh;
+}
+
+#qrcode img {
+  margin : 30px auto
 }
