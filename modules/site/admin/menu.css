@@ -1,5 +1,5 @@
 #accordion>.card .card-body {
-  height: calc(100vh - 12.8rem);
+  height: calc(100vh - 13.2rem);
   overflow: auto;
 }
 
