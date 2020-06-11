@@ -224,7 +224,7 @@ if ($package_step == 2) {
 	//메뉴생성
 	if ($ACT_CM) {
 		include $g['path_tmp'].'app/'.$package_folder.'/_settings/var.menu.php';
-		$QKEY = "gid,site,is_child,parent,depth,id,menutype,mobile,hidden,reject,name,target,redirect,joint,perm_g,perm_l,layout,m_layout,imghead,imgfoot,addattr,num,d_last,addinfo,upload";
+		$QKEY = "gid,site,is_child,parent,depth,id,menutype,mobile,hidden,reject,name,target,redirect,joint,perm_g,perm_l,layout,m_layout,imghead,imgfoot,imgicon,addattr,num,d_last,addinfo,upload";
 		foreach($d['package']['menus'] as $R)
 		{
 			$_parent = 0;
@@ -234,7 +234,7 @@ if ($package_step == 2) {
 				$_parent = $_PRTUID['uid'];
 			}
 
-			$QVAL = "'".$R['gid']."','".$S['uid']."','".$R['is_child']."','".$_parent."','".$R['depth']."','".$R['id']."','".$R['menutype']."','".$R['mobile']."','".$R['hidden']."','0','".$R['name']."','".$R['target']."','".$R['redirect']."','".$R['joint']."','','0','".$R['layout']."','".$R['m_layout']."','".$R['imghead']."','".$R['imgfoot']."','".$R['addattr']."','0','','".$R['addinfo']."','".$R['upload']."'";
+			$QVAL = "'".$R['gid']."','".$S['uid']."','".$R['is_child']."','".$_parent."','".$R['depth']."','".$R['id']."','".$R['menutype']."','".$R['mobile']."','".$R['hidden']."','0','".$R['name']."','".$R['target']."','".$R['redirect']."','".$R['joint']."','','0','".$R['layout']."','".$R['m_layout']."','".$R['imghead']."','".$R['imgfoot']."','".$R['imgicon']."','".$R['addattr']."','0','','".$R['addinfo']."','".$R['upload']."'";
 			getDbInsert($table['s_menu'],$QKEY,$QVAL);
 			$lastmenu = getDbCnt($table['s_menu'],'max(uid)','');
 			getDbInsert($table['s_seo'],'rel,parent,title,keywords,description,classification,image_src',"'1','$lastmenu','','','','ALL',''");

@@ -123,7 +123,7 @@ function getMenuPackage($site,$table,$j,$parent,$depth,$uid)
 		$_parent = $C['parent'] ? getDbData($table,($site?'site='.$site.' and ':'').'uid='.$C['parent'],'id') : array();
 		$j++;
 		for ($i = 0; $i < $depth; $i++) $string .= "\t";
-		$string .= "\tarray('name'=>'".$C['name']."','id'=>'".$C['id']."','menutype'=>'".$C['menutype']."','mobile'=>'".$C['mobile']."','hidden'=>'".$C['hidden']."','target'=>'".$C['target']."','redirect'=>'".$C['redirect']."','joint'=>'".$C['joint']."','layout'=>'".$C['layout']."','imghead'=>'".$C['imghead']."','imgfoot'=>'".$C['imgfoot']."','addattr'=>'".$C['addattr']."','depth'=>'".$C['depth']."','parent'=>'".$_parent['id']."','is_child'=>'".$C['is_child']."','gid'=>'".$C['gid']."',),\r\n";
+		$string .= "\tarray('name'=>'".$C['name']."','id'=>'".$C['id']."','menutype'=>'".$C['menutype']."','mobile'=>'".$C['mobile']."','hidden'=>'".$C['hidden']."','target'=>'".$C['target']."','redirect'=>'".$C['redirect']."','joint'=>'".$C['joint']."','layout'=>'".$C['layout']."','imghead'=>'".$C['imghead']."','imgfoot'=>'".$C['imgfoot']."','imgicon'=>'".$C['imgicon']."','addattr'=>'".$C['addattr']."','depth'=>'".$C['depth']."','parent'=>'".$_parent['id']."','is_child'=>'".$C['is_child']."','gid'=>'".$C['gid']."',),\r\n";
 
 		if ($C['is_child'])
 		{
