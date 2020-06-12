@@ -306,7 +306,7 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 			<a href="<?php echo $g['base_href']?>&album=none" class="list-group-item<?php if($album=='none'):?> active<?php endif?>">미분류<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','mbruid='.$my['uid']." and type=2 and name='none'")?></span></a>
 
 			<?php $_TMP_CT = array()?>
-			<?php $_CT_RCD = getDbArray($table['s_uploadcat'],'mbruid='.$my['uid']." and type=2 and name<>'none' and name<>'trash'",'*','gid','asc',0,1)?>
+			<?php $_CT_RCD = getDbArray($table['s_uploadcat'],'site='.$s.' and mbruid='.$my['uid']." and type=2 and name<>'none' and name<>'trash'",'*','gid','asc',0,1)?>
 			<?php while($_CT=db_fetch_array($_CT_RCD)):$_TMP_CT[]=$_CT?>
 			<a href="<?php echo $g['base_href']?>&album=<?php echo $_CT['uid']?>" class="list-group-item<?php if($album==$_CT['uid']):?> active<?php endif?>"><?php echo $_CT['name']?><span class="badge"><?php echo $_CT['r_num']?></span></a></li>
 			<?php endwhile?>
