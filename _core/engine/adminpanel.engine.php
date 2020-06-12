@@ -1586,7 +1586,7 @@ $('#modal-widget-selector').on('hidden.bs.modal', function (event) {
 $('[data-role="widgetConfig"]').on('click','[data-act="save"]',function() {
 	var name = $('[data-role="widgetConfig"]').attr('data-name');
 	var _title = $('[data-role="widgetConfig"] [name="title"]').val();
-	if (title) var title = _title.replace(/(<([^>]+)>)/ig,"");
+	if (_title) var title = _title.replace(/(<([^>]+)>)/ig,"");
 	else var title = '';
 	var path = $('[data-role="widgetConfig"]').attr('data-path');
 	var id = $('[data-role="widgetConfig"]').attr('data-id');
