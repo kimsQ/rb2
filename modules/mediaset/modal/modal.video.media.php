@@ -26,7 +26,7 @@ else {
 	$orderby= $orderby ? $orderby : 'asc';
 	$recnum	= 50;
 
-	$_WHERE = 'mbruid='.$my['uid'].' and (type=0 or type=5) and fileonly=0';
+	$_WHERE = 'site='.$s.' and mbruid='.$my['uid'].' and (type=0 or type=5) and fileonly=0';
 	if ($album)
 	{
 		$_album = $album;
