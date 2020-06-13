@@ -32,11 +32,13 @@ if ($R['uid'])
 
 	getDbDelete($table['s_menu'],'site='.$R['uid']);
 	getDbDelete($table['s_page'],'site='.$R['uid']);
+	getDbDelete($table['s_uploadcat'],'site='.$R['uid']);
 
 	db_query("OPTIMIZE TABLE ".$table['s_site'],$DB_CONNECT);
 	db_query("OPTIMIZE TABLE ".$table['s_menu'],$DB_CONNECT);
 	db_query("OPTIMIZE TABLE ".$table['s_page'],$DB_CONNECT);
 	db_query("OPTIMIZE TABLE ".$table['s_seo'],$DB_CONNECT);
+	db_query("OPTIMIZE TABLE ".$table['s_uploadcat'],$DB_CONNECT);
 
 	unlink($g['path_var'].'sitephp/'.$account.'.php');
 
