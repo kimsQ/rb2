@@ -152,7 +152,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 											$MEDIASETCAT = getDbArray($table['s_uploadcat'],'site='.$s.' and mbruid="'.$my['uid'].'" and hidden=0','*','gid','asc',0,1);
 							        while ($R=db_fetch_array($MEDIASETCAT)) {
 												if ($R['uid']==1 || $R['uid']==2) continue;
-							          $html .= '<option data-name="'.$R['name'].'" value="'.$R['uid'].'" '.($R['uid']==$_wdgvar[$_v[0]]?' selected':'').'>
+							          $html .= '<option data-name="'.$R['name'].'" value="'.$R['name'].'" '.($R['name']==$_wdgvar[$_v[0]]?' selected':'').'>
 							                      ㆍ'.$R['name'].'
 							                    </option>';
 															}
