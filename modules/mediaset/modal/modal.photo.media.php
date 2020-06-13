@@ -296,10 +296,10 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 <div id="photobox">
 	<?php if(!$dfiles):?>
 	<div class="category-box">
-		
+
 		<div class="list-group">
-			<a href="<?php echo $g['base_href']?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if(!$album):?> active<?php endif?>">전체사진<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','mbruid='.$my['uid'].' and type=1')?></span></a>
-			<a href="<?php echo $g['base_href']?>&album=none" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if($album=='none'):?> active<?php endif?>">미카테고리<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','mbruid='.$my['uid']." and type=1 and name='none'")?></span></a>
+			<a href="<?php echo $g['base_href']?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if(!$album):?> active<?php endif?>">전체사진<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','site='.$s.' and mbruid='.$my['uid'].' and type=1')?></span></a>
+			<a href="<?php echo $g['base_href']?>&album=none" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if($album=='none'):?> active<?php endif?>">미카테고리<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','site='.$s.' and mbruid='.$my['uid']." and type=1 and name='none'")?></span></a>
 
 			<?php $_TMP_CT=array()?>
 			<?php $_CT_RCD = getDbArray($table['s_uploadcat'],'site='.$s.' and mbruid='.$my['uid']." and type=1 and name<>'none' and name<>'trash'",'*','gid','asc',0,1)?>
@@ -307,7 +307,7 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 			<a href="<?php echo $g['base_href']?>&album=<?php echo $_CT['uid']?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if($album==$_CT['uid']):?> active<?php endif?>"><?php echo $_CT['name']?><span class="badge"><?php echo $_CT['r_num']?></span></a></li>
 			<?php endwhile?>
 
-			<a href="<?php echo $g['base_href']?>&album=trash" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if($album=='trash'):?> active<?php endif?>">휴지통<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','mbruid='.$my['uid']." and type=1 and name='trash'")?></span></a>
+			<a href="<?php echo $g['base_href']?>&album=trash" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2<?php if($album=='trash'):?> active<?php endif?>">휴지통<span class="badge"><?php echo getDbCnt($table['s_uploadcat'],'sum(r_num)','site='.$s.' and mbruid='.$my['uid']." and type=1 and name='trash'")?></span></a>
 		</div>
 		<div class="my-3">
 			<form action="<?php echo $g['s']?>/" method="post" target="_upload_iframe_" onsubmit="return AddAlbumRcheck(this);">
