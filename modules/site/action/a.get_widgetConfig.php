@@ -28,6 +28,24 @@ function getCategoryShowSelect($table,$j,$parent,$depth,$uid,$hidden,$cat) {
 	return $html;
 }
 
+//메뉴 출력
+function getMenuShowSelectCode($site,$table,$j,$parent,$depth,$uid,$hidden,$id) {
+	global $cat,$_isUid;
+	static $j;
+	$html = '';
+	$CD=getDbSelect($table,($site?'site='.$site.' and ':'').'depth='.($depth+1).' and parent='.$parent.($hidden ? ' and hidden=0':'').' order by gid asc','*');
+	while($C=db_fetch_array($CD)) {
+		$nId = $C[$_isUid.'id'];
+		$j++;
+		$html .=  '<option class="selectcat'.$C['depth'].'" value="'.$nId.'"'.($nId==$id?' selected':'').'>';
+		for($i=1;$i<$C['depth'];$i++) $html .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		if ($C['depth'] > 1) $html .= 'ㄴ';
+		$html .= $C['name'].($C['num']?' ('.$C['num'].')':'').'</option>';
+		if ($C['is_child']) $html .=  getMenuShowSelectCode($site,$table,$j,$C['uid'],$C['depth'],$uid,$hidden,$nId);
+	}
+	return $html;
+}
+
 $widget = $_POST['widget'];
 $wdgvar = $_POST['wdgvar'];
 $area = $_POST['area'];
@@ -159,6 +177,16 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 
 					$html .= '</select>';
 					$html .= '<div class="input-group-append input-group-btn"><button class="btn btn-white btn-light rb-modal-photo" type="button" data-toggle="modal" data-target="#modal_window" title="포토셋 열기">+</button></div>';
+					$html .= '</div>';
+				}
+
+				if ($_v[1]=='menu') {
+					$html .= '<div class="input-group">';
+					$html .= '<select name="'.$_v[0].'" class="form-control custom-select" size="1">
+											<option value="">선택하세요</option>
+											<option value="" disabled>----------------------------------</option>';
+					$html .=    getMenuShowSelectCode($s,$table['s_menu'],0,0,0,0,0,$_wdgvar[$_v[0]]);
+					$html .= '</select>';
 					$html .= '</div>';
 				}
 
