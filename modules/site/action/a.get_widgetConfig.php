@@ -119,7 +119,7 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	        $_sk=explode(',',$_v[3]);
 	        foreach ($_sk as $_sa) {
 	          $_sa1=explode('=',$_sa);
-	          $html .= '<label class="rb-rabel"><input type="radio" name="layout_'.$_key.'_'.$_v[0].'" value="'.$_sa1[1].'"> '.$_sa1[0].'</label>';
+	          $html .= '<label class="rb-rabel"><input type="radio" name="'.$_v[0].'" value="'.$_sa1[1].'"> '.$_sa1[0].'</label>';
 	        }
 	      }
 
@@ -127,12 +127,12 @@ if (file_exists($g['path_widget'].$widget.'/_var.config.php')) {
 	        $_sk=explode(',',$_v[3]);
 	        foreach ($_sk as $_sa) {
 	          $_sa1=explode('=',$_sa);
-	          $html .= '<label class="rb-rabel"><input type="checkbox" name="layout_'.$_key.'_'.$_v[0].'_chk[]" value="'.$_sa1[1].'"> '.$_sa1[0].'</label>';
+	          $html .= '<label class="rb-rabel"><input type="checkbox" name="'.$_v[0].'" value="'.$_sa1[1].'"> '.$_sa1[0].'</label>';
 	        }
 	      }
 
 	      if ($_v[1]=='textarea') {
-	        $html .= '<textarea type="text" rows="'.$_v[3].'" class="form-control" name="layout_'.$_key.'_'.$_v[0].'">'.stripslashes($d['widget'][$_key.'_'.$_v[0]]).'</textarea>';
+	        $html .= '<textarea type="text" rows="'.$_v[3].'" class="form-control" name="'.$_v[0].'">'.stripslashes($_wdgvar[$_v[0]]).'</textarea>';
 	      }
 
 	      if ($_v[1]=='postlist') {
