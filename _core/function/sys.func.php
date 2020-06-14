@@ -346,14 +346,12 @@ function getWidget($widget,$wdgvar)
 {
 	global $DB_CONNECT,$table,$date,$my,$r,$s,$m,$g,$d,$c,$mod,$_HH,$_HD,$_HS,$_HM,$_HP,$_CA;
 	static $wcsswjsc;
-	if (!is_file($g['wdgcod']) && !strpos('_'.$wcsswjsc,'['.$widget.']'))
-	{
-		$wcss = $g['path_widget'].$widget.'/main.css';
-		$wjsc = $g['path_widget'].$widget.'/main.js';
-		if (is_file($wcss)) $g['widget_cssjs'] .= '<link href="'.$g['s'].'/widgets/'.$widget.'/main.css" rel="stylesheet">'."\n";
-		if (is_file($wjsc)) $g['widget_cssjs'] .= '<script src="'.$g['s'].'/widgets/'.$widget.'/main.js"></script>'."\n";
-		$wcsswjsc.='['.$widget.']';
-	}
+	$g['widget_cssjs']='';
+	$wcss = $g['path_widget'].$widget.'/main.css';
+	$wjsc = $g['path_widget'].$widget.'/main.js';
+	if (is_file($wcss)) $g['widget_cssjs'] .= '<link href="'.$g['s'].'/widgets/'.$widget.'/main.css" rel="stylesheet">'."\n";
+	if (is_file($wjsc)) $g['widget_cssjs'] .= '<script src="'.$g['s'].'/widgets/'.$widget.'/main.js"></script>'."\n";
+	echo $g['widget_cssjs'];
 	$wdgvar['widget_id'] = str_replace('/','-',$widget);
 	$wdgvar['widgetlang'] = $_HS['lang']?$_HS['lang']:$d['admin']['syslang'];
 	include getLangFile($g['path_widget'].$widget.'/lang.',$wdgvar['widgetlang'],'.php');
