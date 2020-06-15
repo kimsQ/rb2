@@ -3,7 +3,7 @@
   $_MENUQ2=getDbSelect($table['s_menu'],'site='.$s.' and parent='.$_MENUQ1['uid'].' and hidden=0 order by gid asc','*');
 ?>
 
-<div class="btn-group dropup">
+<div class="btn-group">
   <button type="button" class="btn btn-white btn-sm dropdown-toggle"
     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="min-width: 170px">
     <?php echo $_MENUQ1['name'] ?>
