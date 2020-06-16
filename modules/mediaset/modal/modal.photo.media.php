@@ -518,7 +518,8 @@ $g['base_href'] = $g['s'].'/?r='.$r.'&m='.$m.'&iframe=Y&mdfile='.$mdfile.'&dropf
 					<option value="0"<?php if(!$_R['linkto']):?> selected<?php endif?>>링크없음</option>
 					<option value="1"<?php if($_R['linkto']==1):?> selected<?php endif?>>일반사진</option>
 					<option value="2"<?php if($_R['linkto']==2):?> selected<?php endif?>>라이트박스</option>
-					<option value="3"<?php if($_R['linkto']==3):?> selected<?php endif?>>미디어링크</option>
+					<option value="3"<?php if($_R['linkto']==3):?> selected<?php endif?>>연결링크</option>
+					<option value="4"<?php if($_R['linkto']==4):?> selected<?php endif?>>연결링크(새창)</option>
 					</select>
 				</div>
 				<div class="form-group">
