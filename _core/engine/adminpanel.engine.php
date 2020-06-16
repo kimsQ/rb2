@@ -714,7 +714,7 @@ $mf_json = json_decode($mf_str , true);
 								    <option value="" disabled>--------------------------------</option>
 								    <?php include_once $g['path_core'].'function/menu1.func.php'?>
 								    <?php $cat=$d['layout'][$_key.'_'.$_v[0]]?>
-								    <?php getMenuShowSelectCode($s,$table['s_menu'],0,0,0,0,0,'')?>
+								    <?php getMenuShowSelect($s,$table['s_menu'],0,0,0,0,0,'')?>
 									</select>
 									<?php endif?>
 
