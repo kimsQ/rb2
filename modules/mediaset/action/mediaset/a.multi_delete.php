@@ -9,9 +9,10 @@ function getuFileType($R)
 	if ($R['type'] == 5 || $R['type'] == 0) return 2;
 	return 0;
 }
-
+
 $g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/'.$m.'.var.php';
 include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['dir_module'].'var/var.php';
+include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
 
 $_MEMBERS = array();
 foreach($upfile_members as $val)
@@ -23,21 +24,25 @@ foreach($upfile_members as $val)
 
 		if ($R['type']>0)
 		{
-			if ($R['fserver'] && $R['url'] == $d['mediaset']['ftp_urlpath'])
-			{
-				$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-				$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-				if (!$FTP_CONNECT) continue;
-				if (!$FTP_CRESULT) continue;
-				if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
-
-				ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$R['folder'].'/'.$R['tmpname']);
-				if($R['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$R['folder'].'/'.$R['thumbname']);
-				ftp_close($FTP_CONNECT);
-			}
-			else {
-				unlink($g['path_file'].$R['folder'].'/'.$R['tmpname']);
-				if($R['type']==2) unlink($g['path_file'].$R['folder'].'/'.$R['thumbname']);
+			if ($R['fserver']==2) {
+
+				$s3 = new S3Client([
+					'version'     => 'latest',
+					'region'      => S3_REGION,
+					'credentials' => [
+							'key'    => S3_KEY,
+							'secret' => S3_SEC,
+					],
+				]);
+
+				$s3->deleteObject([
+					'Bucket' => S3_BUCKET,
+					'Key'    => $R['folder'].'/'.$R['tmpname']
+				]);
+
+			}
+			else {
+				unlink('./'.$R['folder'].'/'.$R['tmpname']);
 			}
 		}
 

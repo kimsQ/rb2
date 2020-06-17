@@ -104,7 +104,6 @@ foreach($photomembers as $file_uid)
 					}
 					else {
 						unlink('./'.$R['folder'].'/'.$R['tmpname']);
-						//if($R['type']==2) unlink($g['path_file'].$R['folder'].'/'.$R['thumbname']);
 					}
 				}
 
