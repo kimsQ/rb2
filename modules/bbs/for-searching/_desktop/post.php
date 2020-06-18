@@ -60,14 +60,7 @@ include_once $g['dir_module_skin'].'_widget.php';
 
 			<div class="media">
 				<?php if (getUpImageSrc($_R)): ?>
-				<a class="mr-3"
-					href="#modal-bbs-view" data-toggle="modal"
-					data-bid="<?php echo $B['id'] ?>"
-					data-uid="<?php echo $_R['uid'] ?>"
-					data-url="<?php echo getBbsPostLink($_R)?>"
-					data-cat="<?php echo $_R['category'] ?>"
-					data-title="<?php echo $B['name'] ?>"
-					data-subject="<?php echo $_R['subject']?>">
+				<a class="mr-3" href="<?php echo getBbsPostLink($_R)?>" >
 					<img class="border" src="<?php echo getPreviewResize(getUpImageSrc($_R),'s') ?>" alt=""  width="64" height="64">
 				</a>
 				<?php endif; ?>
@@ -78,17 +71,10 @@ include_once $g['dir_module_skin'].'_widget.php';
             <span class="badge badge-light"><?php echo $_R['category']?></span>
             <?php endif?>
 
-						<a class="muted-link"
-							href="#modal-bbs-view" data-toggle="modal"
-							data-bid="<?php echo $B['id'] ?>"
-							data-uid="<?php echo $_R['uid'] ?>"
-							data-url="<?php echo getBbsPostLink($_R)?>"
-							data-cat="<?php echo $_R['category'] ?>"
-							data-title="<?php echo $B['name'] ?>"
-							data-subject="<?php echo $_R['subject']?>">
+						<a class="muted-link" href="<?php echo getBbsPostLink($_R)?>">
 							<?php echo $_R['subject']?>
 							<?php if($_R['upload']):?>
-							<span class="badge badge-light" data-toggle="tooltip" title="첨부파일">
+							<span class="badge badge-light" title="첨부파일">
 								<i class="fa fa-paperclip fa-lg"></i>
 							</span>
 							<?php endif?>
@@ -131,9 +117,6 @@ include_once $g['dir_module_skin'].'_widget.php';
 			  </div>
 			</div>
 
-			<a href="<?php echo getBbsPostLink($_R)?>" class="btn btn-light btn-sm" target="_blank">
-				새창
-			</a>
 			</li>
 		<?php endwhile?>
 	</ul>
