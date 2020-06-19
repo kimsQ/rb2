@@ -39,6 +39,8 @@ $_ResultArray['num'][$_key] = getDbRows($table['테이블명'],$sqlque); // 검�
 
 <?php
 $sqlque	= 'uid';
+if ($d_start) $sqlque .= ' and d_regis > '.str_replace('/','',$d_start).'000000';
+if ($d_finish) $sqlque .= ' and d_regis < '.str_replace('/','',$d_finish).'240000';
 $sqlque .= getSearchSql('subject|review|tag',$q,'','or'); // 게시물 제목과 내용 검색
 $orderby = $orderby?$orderby:'desc';
 
