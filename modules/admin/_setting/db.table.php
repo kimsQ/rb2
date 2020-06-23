@@ -1,6 +1,6 @@
 <?php
 $table['s_module']	= $DB['head'].'_s_module';
-$table['s_admpage']	= $DB['head'].'_s_adminpage';
+$table['s_admpage']	= $DB['head'].'_s_admpage';
 $table['s_mobile']	= $DB['head'].'_s_mobile';
 $table['s_domain']	= $DB['head'].'_s_domain';
 $table['s_menu']	= $DB['head'].'_s_menu';
