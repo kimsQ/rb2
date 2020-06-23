@@ -9,7 +9,7 @@ $_tmp = ("
 
 CREATE TABLE ".$table['s_module']." (
 gid			INT				DEFAULT '0'		NOT NULL,
-system		TINYINT			DEFAULT '0'		NOT NULL,
+sys		TINYINT			DEFAULT '0'		NOT NULL,
 hidden		TINYINT			DEFAULT '0'		NOT NULL,
 mobile		TINYINT			DEFAULT '0'		NOT NULL,
 name		VARCHAR(200)	DEFAULT ''		NOT NULL,
@@ -19,7 +19,7 @@ icon		VARCHAR(50)		DEFAULT ''		NOT NULL,
 d_regis		VARCHAR(14)		DEFAULT ''		NOT NULL,
 lang		VARCHAR(20)		DEFAULT ''		NOT NULL,
 KEY gid(gid),
-KEY system(system),
+KEY sys(sys),
 KEY hidden(hidden),
 KEY mobile(mobile),
 KEY id(id)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
