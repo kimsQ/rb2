@@ -125,7 +125,7 @@ foreach($mdlarray as $_val)
 	$new_modulename = $g['path_module'].$moduledir[$_val][0].'/name.txt';
 
 	$QUE = "insert into ".$table['s_module']."
-	(gid,system,hidden,mobile,name,id,tblnum,icon,d_regis,lang)
+	(gid,sys,hidden,mobile,name,id,tblnum,icon,d_regis,lang)
 	values
 	('".$gid."','1','".(strstr('[admin][market][site][member][post][bbs][comment][popup][connect][widget]','['.$_val.']')?0:1)."','1','".($sitelang&&is_file($new_modulename)?implode('',file($new_modulename)):getFolderName($g['path_module'].$moduledir[$_val][0]))."','".$moduledir[$_val][0]."','".$moduledir[$_val][1]."','kf-".($_val=='site'?'home':($_val=='mediaset'?'upload':($_val=='notification'?'notify':($_val=='popup'?'popup':$_val))))."','".$date['totime']."','')";
 	db_query($QUE,$DB_CONNECT);
