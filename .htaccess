@@ -1,7 +1,7 @@
 RewriteEngine On
 RewriteBase /
-RewriteCond %{ENV:HTTPS} !=on
-RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+#RewriteCond %{ENV:HTTPS} !=on
+#RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
 
 #기본사이트
 RewriteRule ^(admin)/?$ ./index.php?m=$1&pickmodule=dashboard&panel=Y [L]
