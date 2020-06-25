@@ -21,10 +21,10 @@ if (!$pw1 || !$pw2) {
 // 	getLink('','','현재 패스워드와 변경할 패스워드가 같습니다.','');
 // }
 
-getDbUpdate($table['s_mbrid'],"pw='".getCrypt($pw1,$my['d_regis'])."'",'uid='.$my['uid']);
+getDbUpdate($table['s_mbrid'],"pw='".password_hash($pw1, PASSWORD_DEFAULT)."'",'uid='.$my['uid']);
 getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode=''",'memberuid='.$my['uid']);
 
-$_SESSION['mbr_pw'] =  getCrypt($pw1,$my['d_regis']);
+$_SESSION['mbr_pw'] =  password_hash($pw1, PASSWORD_DEFAULT);
 
 echo '<script type="text/javascript">';
 echo 'parent.$("#page-settings-pw").find("[data-act=changePW]").attr("disabled",false);';

@@ -308,7 +308,7 @@ if ($act=='change_pw') {
 	else $E = getDbData($table['s_mbrphone'],"phone='".$target."'",'mbruid');
 
 	$M = getDbData($table['s_mbrdata'],"memberuid='".$E['mbruid']."'",'d_regis');
-	$new_pw = getCrypt($pw1,$M['d_regis']);
+	$new_pw = password_hash($pw1, PASSWORD_DEFAULT);  
 
 	getDbUpdate($table['s_mbrid'],"pw='".$new_pw."'",'uid='.$E['mbruid']);
 	getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode=''",'memberuid='.$E['mbruid']);

@@ -24,7 +24,7 @@ if(getDbRows($table['s_mbrdata'],"nic='".$nic."'")) {
 }
 
 if ($snsuid) $pw1 = $id;
-getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id','".getCrypt($pw1,$date['totime'])."'");
+getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id','".password_hash($pw1, PASSWORD_DEFAULT)."'");
 $memberuid  = getDbCnt($table['s_mbrid'],'max(uid)','');
 $auth		= $snsuid ? 1 : $d['member']['join_auth'];
 $mygroup		= $d['member']['join_group'];
@@ -194,7 +194,7 @@ if ($auth == 1)
 	putNotice($memberuid,$m,0,$noti_title,$noti_body,$noti_referer,$noti_button,$noti_tag,$noti_skipEmail,$noti_skipPush);
 
 	$_SESSION['mbr_uid'] = $memberuid;
-  $_SESSION['mbr_pw']  = getCrypt($pw1,$d_regis);
+  $_SESSION['mbr_pw']  = password_hash($pw1, PASSWORD_DEFAULT);
 	setrawcookie('site_common_result', rawurlencode($name.'님 로그인 되셨습니다.|default'));
 	getLink($modal?'reload':RW(0),'parent.','축하합니다. 회원가입 승인되었습니다.','');
 }

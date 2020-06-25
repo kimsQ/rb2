@@ -6,7 +6,7 @@ if (!$my['uid']) getLink('','','회원만 접근할 수 있습니다.',''); // �
 $M = getDbData($table['s_mbrid'],"id='".$id."'",'*');
 $M1 = getDbData($table['s_mbrdata'],'memberuid='.$M['uid'],'*');
 
-if ($M['pw'] != getCrypt($pw,$M1['d_regis']))
+if (!password_verify($pw,$M['pw']) )
 {
 	echo '<script type="text/javascript">';
 	echo 'parent.$("#password").addClass("is-invalid").val("").focus();';
@@ -15,7 +15,6 @@ if ($M['pw'] != getCrypt($pw,$M1['d_regis']))
 	echo '</script>';
 	exit();
 }
-
 
 if ($type == 'changeID') {
 	echo '<script type="text/javascript">';

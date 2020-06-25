@@ -9,9 +9,15 @@ if (!$my['uid'] || !$pw1 || !$pw2 || $pw1 != $pw2)
 {
 	getLink('','','정상적인 접근이 아닙니다.','');
 }
-if (getCrypt($pw1,$my['d_regis']) != $my['pw'])
-{
-	getLink('','','패스워드가 일치하지 않습니다.','');
+
+if (strlen($my['pw']) == 60) {
+	if (!password_verify($pw1,$my['pw']) && !password_verify($pw1,$my['tmpcode'])) {
+		getLink('','','패스워드가 일치하지 않습니다.','');
+	}
+} else {
+	if (getCrypt($pw1,$my['d_regis']) != $my['pw'] && $my['tmpcode'] != getCrypt($pw1,$my['d_regis'])){
+		getLink('','','패스워드가 일치하지 않습니다.','');
+	}
 }
 
 if($d['member']['join_out']==1)

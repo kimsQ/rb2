@@ -60,7 +60,7 @@ if ($uid)
 	$_M=getDbData($table['s_mbrdata'],'memberuid='.$uid,'*');
 	if($pw!='')
 	{
-		$newPw = getCrypt($pw,$_M['d_regis']);
+		$newPw = password_hash($pw, PASSWORD_DEFAULT);
 	    getDbUpdate($table['s_mbrid'],"pw='".$newPw."'",'uid='.$uid);
 			getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."'",'memberuid='.$uid);
 
@@ -111,7 +111,7 @@ if ($uid)
 	setrawcookie('result_member_main', rawurlencode('회원정보가 수정 되었습니다.|success'));  // 처리여부 cookie 저장
 }
 else {
-	getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id','".getCrypt($pw,$date['totime'])."'");
+	getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id','".password_hash($pw, PASSWORD_DEFAULT)."'");
 	$memberuid  = getDbCnt($table['s_mbrid'],'max(uid)','');
 
 	$auth		= 1;

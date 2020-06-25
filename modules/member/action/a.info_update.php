@@ -114,9 +114,14 @@ if ($act == 'pw')  // 비밀번호 변경
 		getLink('','','정상적인 접근이 아닙니다.','');
 	}
 
-	if (getCrypt($pw,$my['d_regis']) != $my['pw'] && $my['tmpcode'] != getCrypt($pw,$my['d_regis']))
-	{
-		getLink('reload','parent.','현재 비밀번호가 일치하지 않습니다.','');
+	if (strlen($my['pw']) == 60) {
+		if (!password_verify($pw,$my['pw']) && !password_verify($pw,$my['tmpcode'])) {
+			getLink('reload','parent.','현재 비밀번호가 일치하지 않습니다.','');
+		}
+	} else {
+		if (getCrypt($pw,$my['d_regis']) != $my['pw'] && $my['tmpcode'] != getCrypt($pw,$my['d_regis'])){
+			getLink('reload','parent.','현재 비밀번호가 일치하지 않습니다.','');
+		}
 	}
 
 	if ($pw == $pw1)
@@ -124,10 +129,10 @@ if ($act == 'pw')  // 비밀번호 변경
 		getLink('reload','parent.','현재 비밀번호와 변경할 비밀번호가 같습니다.','');
 	}
 
-	getDbUpdate($table['s_mbrid'],"pw='".getCrypt($pw1,$my['d_regis'])."'",'uid='.$my['uid']);
+	getDbUpdate($table['s_mbrid'],"pw='".password_hash($pw1, PASSWORD_DEFAULT)."'",'uid='.$my['uid']);
 	getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode=''",'memberuid='.$my['uid']);
 
-	$_SESSION['mbr_pw']  = getCrypt($pw1,$my['d_regis']);
+	$_SESSION['mbr_pw']  = password_hash($pw1, PASSWORD_DEFAULT);
 
 	getLink('reload','parent.','비밀번호가 변경되었습니다.','');
 

@@ -61,7 +61,7 @@ if (!$result)
 	getLink('','','죄송합니다. 이메일서버가 응답하지 않아 이메일을 보내드리지 못했습니다.','');
 }
 
-getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode='".getCrypt($auth_pw,$M['d_regis'])."'",'memberuid='.$M['memberuid']);
+getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode='".password_hash($auth_pw,PASSWORD_DEFAULT)."'",'memberuid='.$M['memberuid']);
 
 getLink('','','회원님의 이메일['.$M['email'].']로   \n임시 비밀번호를 발송해 드렸습니다.','');
 ?>

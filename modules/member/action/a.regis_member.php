@@ -20,7 +20,7 @@ $admin =$_POST['admin'];
 
 for($i=0;$i<count($id);$i++)
 {
-	getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id[$i]','".md5($pw[$i])."'");
+	getDbInsert($table['s_mbrid'],'site,id,pw',"'$s','$id[$i]','".password_hash($pw[$i], PASSWORD_DEFAULT)."'");
 	$memberuid  = getDbCnt($table['s_mbrid'],'max(uid)','');
 	$auth		= $d['member']['join_auth'];
 	$sosok		= $sosok?$sosok:$d['member']['join_group'];

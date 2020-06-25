@@ -21,10 +21,10 @@ if ($act == 'pw')  // 비밀번호 변경
 		}
 	}
 
-	getDbUpdate($table['s_mbrid'],"pw='".getCrypt($pw1,$my['d_regis'])."'",'uid='.$my['uid']);
+	getDbUpdate($table['s_mbrid'],"pw='".password_hash($pw1, PASSWORD_DEFAULT)."'",'uid='.$my['uid']);
 	getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode=''",'memberuid='.$my['uid']);
 
-	$_SESSION['mbr_pw']  = getCrypt($pw1,$my['d_regis']);
+	$_SESSION['mbr_pw']  = password_hash($pw1, PASSWORD_DEFAULT);
 
 
 	// 알림전송
