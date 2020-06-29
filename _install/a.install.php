@@ -401,6 +401,11 @@ DirDelete('./_install');
 shell_exec('git init');
 shell_exec('git remote add origin https://github.com/kimsQ/rb2.git');
 
+@chmod($g['path_tmp'],0707);
+@chmod($g['path_page'],0707);
+@chmod($g['path_file'],0707);
+@chmod($g['path_var'],0707);
+
 // putNotice(1,'admin',0,sprintf(_LANG('a012','install'),$name,$name),'','');
 getLink('./index.php?r='.$siteid.'&iframe=Y&system=guide.install','parent.','','');
 ?>
