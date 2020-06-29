@@ -184,7 +184,7 @@ d_regis		VARCHAR(14)		DEFAULT ''		NOT NULL,
 d_last	VARCHAR(14)		DEFAULT ''		NOT NULL,
 upload	TEXT			DEFAULT ''		NOT NULL,
 featured_img    INT   DEFAULT '0'     NOT NULL,
-member		INT				DEFAULT '0'		NOT NULL,
+mbruid		INT				DEFAULT '0'		NOT NULL,
 extra		TEXT			DEFAULT ''		NOT NULL,
 KEY site(site),
 KEY ismain(ismain),
@@ -194,7 +194,7 @@ KEY category(category),
 KEY linkedmenu(linkedmenu),
 KEY d_regis(d_regis),
 KEY d_last(d_last),
-KEY member(member)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
+KEY mbruid(mbruid)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
 db_query($_tmp, $DB_CONNECT);
 db_query("OPTIMIZE TABLE ".$table['s_page'],$DB_CONNECT);
 }

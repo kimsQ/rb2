@@ -99,7 +99,7 @@ else {
 			@chmod($g['path_page'].$r.'-pages/'.$xnid.'.txt',0707);
 		}
 
-		$QKEY = "site,pagetype,ismain,mobile,id,category,name,perm_g,perm_l,layout,m_layout,joint,hit,linkedmenu,d_regis,d_last,upload,member,extra";
+		$QKEY = "site,pagetype,ismain,mobile,id,category,name,perm_g,perm_l,layout,m_layout,joint,hit,linkedmenu,d_regis,d_last,upload,mbruid,extra";
 		$QVAL = "'$s','$pagetype','$ismain','$mobile','$xnid','$category','$xnarr[0]','$perm_g','$perm_l','$layout','$m_layout','$joint','$hit','$linkedmenu','$d_regis','$d_regis','$upload','".$my['uid']."','$extra'";
 		getDbInsert($table['s_page'],$QKEY,$QVAL);
 		$lastpage = getDbCnt($table['s_page'],'max(uid)','');
