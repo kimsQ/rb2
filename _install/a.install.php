@@ -33,10 +33,10 @@ if ($ISRBDB[0])
 	getLink('','',_LANG('a004','install'),'');
 }
 
-@chmod($g['path_tmp'],0707);
-@chmod($g['path_page'],0707);
-@chmod($g['path_file'],0707);
-@chmod($g['path_var'],0707);
+shell_exec('chmod -R 707 '.$g['path_tmp']);
+shell_exec('chmod -R 707 '.$g['path_page']);
+shell_exec('chmod -R 707 '.$g['path_file']);
+shell_exec('chmod -R 707 '.$g['path_var']);
 
 // create empty folder
 DirMake($g['path_page']);
