@@ -234,7 +234,7 @@
 									<div class="form-group">
 										<label>시작모듈</label>
 										<select name="sysmodule" class="form-control custom-select">
-											<?php $MODULESRCD=getDbArray($table['s_module'],"system=0 or id='site'",'*','gid','asc',0,1)?>
+											<?php $MODULESRCD=getDbArray($table['s_module'],"sys=0 or id='site'",'*','gid','asc',0,1)?>
 											<?php while($_MDR=db_fetch_array($MODULESRCD)):?>
 											<option value="<?php echo $_MDR['id']?>"<?php if($d['admin']['sysmodule']==$_MDR['id']):?> selected<?php endif?>><?php echo $_MDR['name']?>(<?php echo $_MDR['id']?>)</option>
 											<?php endwhile?>
