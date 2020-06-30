@@ -9,6 +9,12 @@ $fdset['config'] = array('themepc','pannellink','cache_flag',
 $fdset['ssl'] = array('http_port','ssl_type','ssl_port','ssl_module','ssl_menu','ssl_page');
 $fdset['security'] = array('secu_tags','secu_domain','secu_param');
 
+// system -> sys 필드명 변경
+$_tmp1 = db_query("SHOW COLUMNS FROM ".$table['s_module']." WHERE `Field` = 'sys'",$DB_CONNECT);
+if(!db_num_rows($_tmp1)) {
+	$_tmp1 = ("alter table ".$table['s_module']." CHANGE system sys TINYINT(4) not null");
+	db_query($_tmp1, $DB_CONNECT);
+}
 
 //제거탭 출력 주의 알림
 if (!$d['admin']['uninstall'] && $uninstall)
