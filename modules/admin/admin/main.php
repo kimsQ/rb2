@@ -70,7 +70,14 @@
 							<strong>시스템 기본 메일</strong>
 						</div>
 						<div class="card-body">
-
+							<div class="btn-group btn-group-toggle nav" data-toggle="buttons">
+								<label class="btn btn-light<?php if(!$d['admin']['smtp_use']):?> active<?php endif?>" data-toggle="pill" data-target="#mail-sendmail">
+									<input type="radio" name="smtp_use" value=""<?php if(!$d['admin']['smtp_use']):?> checked<?php endif?>> Sendmail
+								</label>
+								<label class="btn btn-light<?php if($d['admin']['smtp_use']=='1'):?> active<?php endif?> js-tooltip" data-toggle="pill" data-target="#mail-smtp" title="SMTP 계정이 필요합니다.">
+									<input type="radio" name="smtp_use" value="1"<?php if($d['admin']['smtp_use']=='1'):?> checked<?php endif?>> SMTP
+								</label>
+							</div>
 							<div class="tab-content pt-3">
 								<div id="mail-sendmail" class="tab-pane <?php if(!$d['admin']['smtp_use']):?> active<?php endif?>">
 
@@ -88,7 +95,6 @@
 									</div>
 
 								</div>
-
 								<div id="mail-smtp" class="tab-pane<?php if($d['admin']['smtp_use']=='1'):?> active<?php endif?>">
 
 									<div class="form-row">
@@ -101,12 +107,27 @@
 											<input type="text" class="form-control" name="smtp_port" value="<?php echo $d['admin']['smtp_port']?$d['admin']['smtp_port']:465?>" placeholder="">
 										</div>
 										<div class="form-group col-sm-6 pt-5">
-											<label class="mr-3">
-												<input type="checkbox" name="smtp_auth" value="1"<?php if($d['admin']['smtp_auth']):?> checked<?php endif?>><i></i> SMTP 인증 필요
-											</label>
-											<label><input type="radio" name="smtp_ssl" value=""<?php if(!$d['admin']['smtp_ssl']):?> checked<?php endif?>> 일반</label>
-											<label><input type="radio" name="smtp_ssl" value="SSL"<?php if($d['admin']['smtp_ssl']=='SSL'):?> checked<?php endif?>> SSL</label>
-											<label><input type="radio" name="smtp_ssl" value="TLS"<?php if($d['admin']['smtp_ssl']=='TLS'):?> checked<?php endif?>> TLS</label>
+
+											<div class="custom-control custom-checkbox  custom-control-inline mr-3">
+											  <input type="checkbox" class="custom-control-input" id="smtp_auth" name="smtp_auth" value="1"<?php if($d['admin']['smtp_auth']):?> checked<?php endif?>>
+											  <label class="custom-control-label" for="smtp_auth">SMTP 인증 필요</label>
+											</div>
+
+											<div class="custom-control custom-radio custom-control-inline">
+											  <input type="radio" id="smtp_ssl_1" name="smtp_ssl" value=""<?php if(!$d['admin']['smtp_ssl']):?> checked<?php endif?> class="custom-control-input">
+											  <label class="custom-control-label" for="smtp_ssl_1">일반</label>
+											</div>
+
+											<div class="custom-control custom-radio custom-control-inline">
+											  <input type="radio" id="smtp_ssl_2" name="smtp_ssl" value="SSL"<?php if($d['admin']['smtp_ssl']=='SSL'):?> checked<?php endif?> class="custom-control-input">
+											  <label class="custom-control-label" for="smtp_ssl_2">SSL</label>
+											</div>
+
+											<div class="custom-control custom-radio custom-control-inline">
+												<input type="radio" id="smtp_ssl_3" name="smtp_ssl" value="TLS"<?php if($d['admin']['smtp_ssl']=='TLS'):?> checked<?php endif?> class="custom-control-input">
+												<label class="custom-control-label" for="smtp_ssl_3">TLS</label>
+											</div>
+
 										</div>
 									</div><!-- /.form-row -->
 
@@ -122,7 +143,7 @@
 									</div>
 
 									<button type="button" class="btn btn-light" id="smtpbtn" onclick="sendCheck(this.id);"><?php if($d['admin']['smtp']):?><i class="fa fa-info-circle fa-lg fa-fw"></i>정상<?php else:?>SMTP 연결확인<?php endif?></button>
-									<p class="form-control-static"><small class="text-muted">시스템 대표메일로 전송이 되면 메일서버가 정상 작동되는 상태입니다.</small></p>
+									<span class="form-control-static ml-2"><small class="text-muted">시스템 대표메일로 전송이 되면 메일서버가 정상 작동되는 상태입니다.</small></span>
 
 								</div>
 							</div>
