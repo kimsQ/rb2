@@ -42,7 +42,7 @@ $list='';
 
 if (!empty($_RCD)) {
   $i=1;foreach ($_RCD as $R) {
-    if ($dashboard=='Y' && !strpos('_'.$R['member'],'['.$my['uid'].']')) continue;
+    if ($dashboard=='Y' && !strpos('_'.$R['members'],'['.$my['uid'].']')) continue;
     $_markup_file = $markup_file.'-'.$formats[$R['format']];
     $TMPL['link']=getPostLink($R,1);
     $TMPL['edit_link']=RW('m=post&mod=write&cid='.$R['cid']);

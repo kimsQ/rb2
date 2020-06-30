@@ -48,7 +48,7 @@ if ($sort == 'gid' && !$keyword) {
 
 } else {
 
-	$postque .= getSearchSql('member','['.$my['uid'].']',$ikeyword,'or');
+	$postque .= getSearchSql('members','['.$my['uid'].']',$ikeyword,'or');
 
 	if ($where && $keyword) {
 		if (strstr('[name][nic][id][ip]',$where)) $postque .= " and ".$where."='".$keyword."'";

@@ -21,7 +21,7 @@ $result['error'] = false;
 $list='';
 
 $i=1;foreach ($_RCD as $R) {
-  if (!strpos('_'.$R['member'],'['.$my['uid'].']')) continue;
+  if (!strpos('_'.$R['members'],'['.$my['uid'].']')) continue;
   $TMPL['link']=getPostLink($R,1);
   $TMPL['subject']=stripslashes($R['subject']);
   $TMPL['uid']=$R['uid'];

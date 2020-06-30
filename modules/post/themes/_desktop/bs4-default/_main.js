@@ -102,7 +102,7 @@ function savePost(f) {
     for(var i=0;i<postmembers.length;i++) {
       new_members+=postmembers[i];
     }
-    $('input[name="member"]').val(new_members);
+    $('input[name="members"]').val(new_members);
   }
 
   // 첨부상품 uid 를 gooods 값에 추가하기
@@ -122,7 +122,7 @@ function savePost(f) {
   var uid = form.find('[name="uid"]').val();
   var category_members = form.find('[name="category_members"]').val();
   var list_members = form.find('[name="list_members"]').val();
-  var member = form.find('[name="member"]').val();
+  var members = form.find('[name="members"]').val();
   var upload = form.find('[name="upload"]').val();
   var featured_img = form.find('[name="featured_img"]').val();
   var html = form.find('[name="html"]').val();
@@ -146,7 +146,7 @@ function savePost(f) {
         uid : uid,
         category_members : category_members,
         list_members : list_members,
-        member : member,
+        members : members,
         upload : upload,
         featured_img : featured_img,
         html : html,

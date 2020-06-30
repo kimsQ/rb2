@@ -6,7 +6,7 @@
   <input type="hidden" name="category_members" value="">
   <input type="hidden" name="list_members" value="">
   <input type="hidden" name="upload" id="upfilesValue" value="<?php echo $R['upload']?>">
-  <input type="hidden" name="member" value="<?php echo $R['member']?>">
+  <input type="hidden" name="members" value="<?php echo $R['members']?>">
   <input type="hidden" name="goods" value="<?php echo $R['goods']?>">
   <input type="hidden" name="featured_img" value="<?php echo $R['featured_img'] ?>">
   <input type="hidden" name="html" value="HTML">
