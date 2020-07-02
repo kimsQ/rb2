@@ -117,8 +117,6 @@
 $(function () {
 
 	$('#page-loginform').submit(function(e){
-		e.preventDefault();
-		e.stopPropagation();
 		var form = $(this)
 		var formID = form.attr('id')
 		var f = document.getElementById(formID);
