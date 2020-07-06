@@ -3,7 +3,7 @@ if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
 $fdset = array();
-$fdset['config'] = array('themepc','pannellink','cache_flag','mailer','uninstall','dblclick','codeeidt','editor','syslang','sysmail','sysmodule','sms_tel','sms_id','sms_key','fcm_key','fcm_SenderId','fcm_VAPID','site_cutid');
+$fdset['config'] = array('themepc','pannellink','cache_flag','mailer','ses_key','ses_sec','ses_region','uninstall','dblclick','codeeidt','editor','syslang','sysmail','sysmodule','sms_tel','sms_id','sms_key','fcm_key','fcm_SenderId','fcm_VAPID','site_cutid');
 $fdset['security'] = array('secu_tags','secu_domain','secu_param');
 
 // system -> sys 필드명 변경
