@@ -1654,7 +1654,7 @@ $('[data-role="widgetConfig"]').on('click','[data-act="code"]',function() {
 		widget_var += "'"+_name+"'=>'"+_var+"',";
 	});
 
-	var code = "<?php getWidget('"+path+"',array("+widget_var+")) ?>";
+	var code = "&lt;?php getWidget('"+path+"',array("+widget_var+")) ?&gt;";
 
 	$('[data-role="widgetPage"] [data-toggle="tooltip"]').tooltip();
 
