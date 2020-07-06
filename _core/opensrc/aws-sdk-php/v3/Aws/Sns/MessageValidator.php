@@ -57,16 +57,14 @@ class MessageValidator
      *
      * @param callable $certClient Callable used to download the certificate.
      *                             Should have the following function signature:
-     *                             `function (string $certUrl) : string|false $certContent`
+     *                             `function (string $certUrl) : string $certContent`
      * @param string $hostNamePattern
      */
     public function __construct(
         callable $certClient = null,
         $hostNamePattern = ''
     ) {
-        $this->certClient = $certClient ?: function($certUrl) {
-            return @ file_get_contents($certUrl);
-        };
+        $this->certClient = $certClient ?: 'file_get_contents';
         $this->hostPattern = $hostNamePattern ?: self::$defaultHostPattern;
     }
 

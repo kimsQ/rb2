@@ -147,11 +147,11 @@ class StreamWrapper
             return $this->triggerError($errors);
         }
 
-        return $this->boolCall(function() {
+        return $this->boolCall(function() use ($path) {
             switch ($this->mode) {
-                case 'r': return $this->openReadStream();
-                case 'a': return $this->openAppendStream();
-                default: return $this->openWriteStream();
+                case 'r': return $this->openReadStream($path);
+                case 'a': return $this->openAppendStream($path);
+                default: return $this->openWriteStream($path);
             }
         });
     }
@@ -953,6 +953,6 @@ class StreamWrapper
     {
         $size = $this->body->getSize();
 
-        return !empty($size) ? $size : $this->size;
+        return $size !== null ? $size : $this->size;
     }
 }

@@ -51,9 +51,9 @@ class GuzzleHandler
 
     /**
      * @param Psr7Request $request
-     * @param array $options
-     * @return Promise\Promise|Promise\PromiseInterface
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @param array       $options
+     *
+     * @return Promise\Promise
      */
     public function __invoke(Psr7Request $request, array $options = [])
     {

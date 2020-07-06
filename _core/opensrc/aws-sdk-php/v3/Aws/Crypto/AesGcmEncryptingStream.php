@@ -1,8 +1,6 @@
 <?php
 namespace Aws\Crypto;
 
-use Aws\Crypto\Polyfill\AesGcm;
-use Aws\Crypto\Polyfill\Key;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\StreamDecoratorTrait;
 use Psr\Http\Message\StreamInterface;
@@ -11,7 +9,7 @@ use \RuntimeException;
 /**
  * @internal Represents a stream of data to be gcm encrypted.
  */
-class AesGcmEncryptingStream implements AesStreamInterface, AesStreamInterfaceV2
+class AesGcmEncryptingStream implements AesStreamInterface
 {
     use StreamDecoratorTrait;
 
@@ -30,17 +28,6 @@ class AesGcmEncryptingStream implements AesStreamInterface, AesStreamInterfaceV2
     private $tagLength;
 
     /**
-     * Same as non-static 'getAesName' method, allowing calls in a static
-     * context.
-     *
-     * @return string
-     */
-    public static function getStaticAesName()
-    {
-        return 'AES/GCM/NoPadding';
-    }
-
-    /**
      * @param StreamInterface $plaintext
      * @param string $key
      * @param string $initializationVector
@@ -56,6 +43,11 @@ class AesGcmEncryptingStream implements AesStreamInterface, AesStreamInterfaceV2
         $tagLength = 16,
         $keySize = 256
     ) {
+        if (version_compare(PHP_VERSION, '7.1', '<')) {
+            throw new RuntimeException(
+                'AES-GCM decryption is only supported in PHP 7.1 or greater'
+            );
+        }
 
         $this->plaintext = $plaintext;
         $this->key = $key;
@@ -70,14 +62,9 @@ class AesGcmEncryptingStream implements AesStreamInterface, AesStreamInterfaceV2
         return "aes-{$this->keySize}-gcm";
     }
 
-    /**
-     * Same as static method and retained for backwards compatibility
-     *
-     * @return string
-     */
     public function getAesName()
     {
-        return self::getStaticAesName();
+        return 'AES/GCM/NoPadding';
     }
 
     public function getCurrentIv()
@@ -87,27 +74,16 @@ class AesGcmEncryptingStream implements AesStreamInterface, AesStreamInterfaceV2
 
     public function createStream()
     {
-        if (version_compare(PHP_VERSION, '7.1', '<')) {
-            return Psr7\stream_for(AesGcm::encrypt(
-                (string) $this->plaintext,
-                $this->initializationVector,
-                new Key($this->key),
-                $this->aad,
-                $this->tag,
-                $this->keySize
-            ));
-        } else {
-            return Psr7\stream_for(\openssl_encrypt(
-                (string)$this->plaintext,
-                $this->getOpenSslName(),
-                $this->key,
-                OPENSSL_RAW_DATA,
-                $this->initializationVector,
-                $this->tag,
-                $this->aad,
-                $this->tagLength
-            ));
-        }
+        return Psr7\stream_for(openssl_encrypt(
+            (string) $this->plaintext,
+            $this->getOpenSslName(),
+            $this->key,
+            OPENSSL_RAW_DATA,
+            $this->initializationVector,
+            $this->tag,
+            $this->aad,
+            $this->tagLength
+        ));
     }
 
     /**

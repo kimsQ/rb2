@@ -56,13 +56,7 @@ class StandardSessionConnection implements SessionConnectionInterface
         ];
         if ($isChanged) {
             if ($data != '') {
-                $type = $this->getDataAttributeType();
-                if ($type == 'binary') {
-                    $attributes[$this->getDataAttribute()] = ['Value' => ['B' => $data]];
-                } else {
-                    $attributes[$this->getDataAttribute()] = ['Value' => ['S' => $data]];
-                }
-
+                $attributes[$this->getDataAttribute()] = ['Value' => ['S' => $data]];
             } else {
                 $attributes[$this->getDataAttribute()] = ['Action' => 'DELETE'];
             }

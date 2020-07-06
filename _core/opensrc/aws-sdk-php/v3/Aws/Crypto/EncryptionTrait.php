@@ -48,7 +48,7 @@ trait EncryptionTrait
      *
      * @internal
      */
-    public function encrypt(
+    protected function encrypt(
         Stream $plaintext,
         array $cipherOptions,
         MaterialsProvider $provider,
@@ -116,6 +116,8 @@ trait EncryptionTrait
         $envelope[MetadataEnvelope::CONTENT_CRYPTO_SCHEME_HEADER] = $aesName;
         $envelope[MetadataEnvelope::UNENCRYPTED_CONTENT_LENGTH_HEADER] =
             strlen($plaintext);
+        $envelope[MetadataEnvelope::UNENCRYPTED_CONTENT_MD5_HEADER] =
+            base64_encode(md5($plaintext));
         $envelope[MetadataEnvelope::MATERIALS_DESCRIPTION_HEADER] =
             json_encode($materialsDescription);
         if (!empty($cipherOptions['Tag'])) {
