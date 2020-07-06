@@ -102,7 +102,7 @@ if ($act=='send_code') {
 		$content = str_replace('{CODE}',$verify_code,$content); //인증번호
 		$content = str_replace('{TIME}',$d['member']['settings_keyexpire'],$content); //인증제한시간
 
-		$result = getSendMail($target,$email_from.'|'.$_HS['name'], '['.$_HS['name'].'] 비밀번호 재설정 인증번호 - '.$verify_code, $content, 'HTML');
+		$result = getSendMail($target,$email_from.'|'.$_HS['name'],'비밀번호 재설정 인증번호 - '.$verify_code, $content, 'HTML');
 
 		if (!$result) {
 			getLink('reload','parent.','죄송합니다. 이메일서버가 응답하지 않아 이메일을 보내드리지 못했습니다.','');
@@ -308,7 +308,7 @@ if ($act=='change_pw') {
 	else $E = getDbData($table['s_mbrphone'],"phone='".$target."'",'mbruid');
 
 	$M = getDbData($table['s_mbrdata'],"memberuid='".$E['mbruid']."'",'d_regis');
-	$new_pw = password_hash($pw1, PASSWORD_DEFAULT);  
+	$new_pw = password_hash($pw1, PASSWORD_DEFAULT);
 
 	getDbUpdate($table['s_mbrid'],"pw='".$new_pw."'",'uid='.$E['mbruid']);
 	getDbUpdate($table['s_mbrdata'],"last_pw='".$date['today']."',tmpcode=''",'memberuid='.$E['mbruid']);
