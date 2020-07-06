@@ -29,7 +29,9 @@
 					<div class="form-group">
 						<label for="">
 							비밀번호
-							<a href="#modal-pwReset" data-toggle="modal" class="label-link" id="password_reset">비밀번호를 잊으셨나요?</a>
+							<a href="#modal-pwReset" data-toggle="modal" data-backdrop="static" class="label-link" id="password_reset">
+								비밀번호를 잊으셨나요?
+							</a>
 						</label>
 						<input type="password" name="pw" id="password" class="form-control" placeholder="" tabindex="2" required>
 						<div class="invalid-feedback mt-2" data-role="passwordErrorBlock"></div>
@@ -117,6 +119,8 @@
 $(function () {
 
 	$('#page-loginform').submit(function(e){
+		e.preventDefault();
+		e.stopPropagation();
 		var form = $(this)
 		var formID = form.attr('id')
 		var f = document.getElementById(formID);
