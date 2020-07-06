@@ -3,6 +3,9 @@ if(!defined('__KIMS__')) exit;
 
 checkAdmin(0);
 
+$g['systemVarForSite'] = $g['path_var'].'/system.var.php';
+include_once file_exists($g['systemVarForSite']) ? $g['systemVarForSite'] : $g['dir_module'].'var/var.system.php';
+
 if ($type == 'ftpbtn')
 {
 	$FTP_CONNECT = ftp_connect($ftp_host,$ftp_port);
@@ -84,21 +87,9 @@ else
 
 	if ($type == 'sendmailbtn')
 	{
-		$result = getSendMail($chk_email,$my['email'].'|'.$my['name'],'['.$_HS['name'].'] 이메일 전송 테스트입니다.(Using Sendmail)',$content,'HTML');
+		$result = getSendMail($chk_email,$my['email'].'|'.$my['name'],'['.$_HS['name'].'] 이메일 전송 테스트입니다.( Using '.($d['admin']['mailer'] == "ses"?'AWS SES':'Sendmail').' )',$content,'HTML');
 	}
-	if ($type == 'smtpbtn')
-	{
-		$d['admin']['smtp_use'] = true;
-		$d['admin']['smtp'] = true;
-		$d['admin']['smtp_host'] = trim($smtp_host);
-		$d['admin']['smtp_port'] = trim($smtp_port);
-		$d['admin']['smtp_ssl'] = trim($smtp_ssl);
-		$d['admin']['smtp_auth'] = trim($smtp_auth);
-		$d['admin']['smtp_user'] = trim($smtp_user);
-		$d['admin']['smtp_pass'] = trim($smtp_pass);
 
-		$result = getSendMail($chk_email,$my['email'].'|'.$my['name'],'['.$_HS['name'].'] 이메일 전송 테스트입니다.(Using SMTP)',$content,'HTML');
-	}
 	if ($result):
 	?>
 	<script>

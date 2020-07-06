@@ -67,85 +67,57 @@
 
 					<div class="card border-left-0 rounded-0 border-bottom-0">
 						<div class="card-header">
-							<strong>시스템 기본 메일</strong>
+							<strong>시스템 메일</strong>
 						</div>
 						<div class="card-body">
-							<div class="btn-group btn-group-toggle nav" data-toggle="buttons">
-								<label class="btn btn-light<?php if(!$d['admin']['smtp_use']):?> active<?php endif?>" data-toggle="pill" data-target="#mail-sendmail">
-									<input type="radio" name="smtp_use" value=""<?php if(!$d['admin']['smtp_use']):?> checked<?php endif?>> Sendmail
-								</label>
-								<label class="btn btn-light<?php if($d['admin']['smtp_use']=='1'):?> active<?php endif?> js-tooltip" data-toggle="pill" data-target="#mail-smtp" title="SMTP 계정이 필요합니다.">
-									<input type="radio" name="smtp_use" value="1"<?php if($d['admin']['smtp_use']=='1'):?> checked<?php endif?>> SMTP
-								</label>
+
+							<div class="form-group">
+								<label>메일 발송방식</label>
+								<select name="mailer" class="form-control custom-select">
+								  <option value=""<?php if(!$d['admin']['mailer']):?> selected<?php endif?>>Sendmail</option>
+								  <option value="ses" <?php if($d['admin']['mailer']=='ses'):?> selected<?php endif?>>Amazon Simple Email Service (SES)</option>
+								</select>
+								<small class="form-text text-muted"></small>
 							</div>
-							<div class="tab-content pt-3">
-								<div id="mail-sendmail" class="tab-pane <?php if(!$d['admin']['smtp_use']):?> active<?php endif?>">
 
-									<div class="form-group mb-0">
-										<label class="sr-only">시스템 기본 메일</label>
-										<div class="input-group">
-											<input type="email" name="sysmail" value="<?php echo $d['admin']['sysmail']?$d['admin']['sysmail']:$my['email']?>" class="form-control">
-											<span class="input-group-append">
-												<button class="btn btn-light" type="button" id="sendmailbtn" onclick="sendCheck(this.id);">
-													<?php if($d['admin']['email']):?>발송 테스트<?php else:?>이메일 전송확인<?php endif?>
-												</button>
-											</span>
-										</div>
-										<small class="form-text text-muted">입력한 이메일 주소로 전송이 되면 메일서버가 정상작동되는 상태입니다.</small>
-									</div>
+							<div class="mt-3<?php echo $d['admin']['mailer']=='ses'?'':' d-none' ?>" data-role="mailer-ses">
 
+								<div class="form-group row">
+								  <label class="col-sm-2 col-form-label text-sm-right">액세스 키 ID</label>
+								  <div class="col-sm-8">
+								    <input type="text" name="ses_key" value="<?php echo $d['admin']['ses_key'] ?>" class="form-control">
+								  </div>
 								</div>
-								<div id="mail-smtp" class="tab-pane<?php if($d['admin']['smtp_use']=='1'):?> active<?php endif?>">
-
-									<div class="form-row">
-										<div class="form-group col-sm-4">
-											<label>SMTP Server</label>
-											<input class="form-control" type="text" name="smtp_host" value="<?php echo $d['admin']['smtp_host']?>" placeholder="예) smtp.mail.com">
-										</div>
-										<div class="form-group col-sm-2">
-											<label>SMTP Port</label>
-											<input type="text" class="form-control" name="smtp_port" value="<?php echo $d['admin']['smtp_port']?$d['admin']['smtp_port']:465?>" placeholder="">
-										</div>
-										<div class="form-group col-sm-6 pt-5">
-
-											<div class="custom-control custom-checkbox  custom-control-inline mr-3">
-											  <input type="checkbox" class="custom-control-input" id="smtp_auth" name="smtp_auth" value="1"<?php if($d['admin']['smtp_auth']):?> checked<?php endif?>>
-											  <label class="custom-control-label" for="smtp_auth">SMTP 인증 필요</label>
-											</div>
-
-											<div class="custom-control custom-radio custom-control-inline">
-											  <input type="radio" id="smtp_ssl_1" name="smtp_ssl" value=""<?php if(!$d['admin']['smtp_ssl']):?> checked<?php endif?> class="custom-control-input">
-											  <label class="custom-control-label" for="smtp_ssl_1">일반</label>
-											</div>
-
-											<div class="custom-control custom-radio custom-control-inline">
-											  <input type="radio" id="smtp_ssl_2" name="smtp_ssl" value="SSL"<?php if($d['admin']['smtp_ssl']=='SSL'):?> checked<?php endif?> class="custom-control-input">
-											  <label class="custom-control-label" for="smtp_ssl_2">SSL</label>
-											</div>
-
-											<div class="custom-control custom-radio custom-control-inline">
-												<input type="radio" id="smtp_ssl_3" name="smtp_ssl" value="TLS"<?php if($d['admin']['smtp_ssl']=='TLS'):?> checked<?php endif?> class="custom-control-input">
-												<label class="custom-control-label" for="smtp_ssl_3">TLS</label>
-											</div>
-
-										</div>
-									</div><!-- /.form-row -->
-
-									<div class="form-row">
-										<div class="form-group col-sm-6">
-											<label>인증 아이디</label>
-											<input type="text" class="form-control" name="smtp_user" value="<?php echo $d['admin']['smtp_user']?>" placeholder="인증 아이디">
-										</div>
-										<div class="form-group col-sm-6">
-											<label>인증 암호</label>
-											<input type="password" class="form-control" name="smtp_pass" value="<?php echo $d['admin']['smtp_pass']?>" placeholder="인증 암호">
-										</div>
-									</div>
-
-									<button type="button" class="btn btn-light" id="smtpbtn" onclick="sendCheck(this.id);"><?php if($d['admin']['smtp']):?><i class="fa fa-info-circle fa-lg fa-fw"></i>정상<?php else:?>SMTP 연결확인<?php endif?></button>
-									<span class="form-control-static ml-2"><small class="text-muted">시스템 대표메일로 전송이 되면 메일서버가 정상 작동되는 상태입니다.</small></span>
-
+								<div class="form-group row">
+								  <label class="col-sm-2 col-form-label text-sm-right">비밀 액세스 키</label>
+								  <div class="col-sm-8">
+								    <input type="text" name="ses_sec" value="<?php echo $d['admin']['ses_sec'] ?>" class="form-control">
+								  </div>
 								</div>
+								<div class="form-group row">
+								  <label class="col-sm-2 col-form-label text-sm-right">리전</label>
+								  <div class="col-sm-8">
+								    <input type="text" name="ses_region" value="<?php echo $d['admin']['ses_region'] ?>" class="form-control">
+
+										<small class="form-text text-muted mt-3">
+											<a href="https://aws.amazon.com/ko/ses/"  target="_blank">Amazon Simple Email Service(SES)</a>는 디지털 마케터 및 애플리케이션 개발자가 마케팅, 알림 및 트랜잭션 이메일을 발송하는 데 도움이 되도록 설계된 클라우드 기반 이메일 발송 서비스입니다. 고객과의 소통에 이메일 사용하는 모든 규모의 비즈니스를 위한 안정적이고 비용 효율적인 서비스입니다.
+										</small>
+								  </div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label>기본 메일</label>
+								<div class="input-group">
+									<input type="email" name="sysmail" value="<?php echo $d['admin']['sysmail']?$d['admin']['sysmail']:$my['email']?>" class="form-control">
+									<span class="input-group-append">
+										<button class="btn btn-light" type="button" id="sendmailbtn" onclick="sendCheck(this.id);">
+											<?php if($d['admin']['email']):?>발송 테스트<?php else:?>이메일 전송확인<?php endif?>
+										</button>
+									</span>
+								</div>
+								<small class="form-text text-muted">입력한 이메일 주소로 전송이 되면 메일서버가 정상작동되는 상태입니다.</small>
 							</div>
 
 						</div><!-- /.card-body -->
@@ -390,87 +362,6 @@
 						</div>
 					</div><!-- /.card -->
 
-					<div class="card border-left-0 rounded-0 mt-3">
-						<div class="card-header">
-							<strong>FTP</strong>
-						</div>
-						<div class="card-body">
-
-							<div class="btn-group btn-group-toggle nav" data-toggle="buttons">
-								<label class="btn btn-light<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-nobody">
-									<input type="radio" name="ftp_use" value=""<?php if(!$d['admin']['ftp_use']):?> checked<?php endif?>> Nobody
-								</label>
-								<label class="btn btn-light<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>" data-toggle="pill" data-target="#ftp-user">
-									<input type="radio" name="ftp_use" value="1"<?php if($d['admin']['ftp_use']=='1'):?> checked<?php endif?>> User
-								</label>
-							</div>
-
-							<div class="tab-content mt-3">
-								<div id="ftp-nobody" class="tab-pane clearfix<?php if(!$d['admin']['ftp_use']):?> active<?php endif?>">
-
-									<p>일부기능에 제한이 있거나 보안에 취약할 수 있습니다.</p>
-
-								</div>
-								<div id="ftp-user" class="tab-pane clearfix<?php if($d['admin']['ftp_use']=='1'):?> active<?php endif?>">
-
-									<div class="form-group">
-										<label>FTP Type</label>
-										<select name="ftp_type" class="form-control" onchange="ftp_select(this);">
-											<option value=""<?php if(!$d['admin']['ftp_type']):?> selected<?php endif?>>FTP</option>
-											<option value="sftp"<?php if($d['admin']['ftp_type']=='sftp'):?> selected<?php endif?>>SFTP</option>
-										</select>
-									</div>
-
-									<div class="form-group">
-										<label>FTP Server</label>
-										<input type="text" class="form-control" name="ftp_host" value="<?php echo $d['admin']['ftp_host']?>" placeholder="예) example.kimsq.com  또는 IP adress 입력">
-									</div>
-
-									<div class="form-group">
-										<label>FTP Port</label>
-										<input type="text" class="form-control" name="ftp_port" value="<?php echo $d['admin']['ftp_port']?$d['admin']['ftp_port']:'21'?>" placeholder="">
-									</div>
-
-									<div class="form-group">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="ftp_pasv" value="1"<?php if($d['admin']['ftp_pasv']):?> checked<?php endif?>> <i></i>Passive Mode
-											</label>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label>FTP ID</label>
-										<input type="text" class="form-control" name="ftp_user" value="<?php echo $d['admin']['ftp_user']?>" placeholder="FTP ID">
-									</div>
-
-									<div class="form-group">
-										<label>Password</label>
-										<input type="password" class="form-control" name="ftp_pass" value="<?php echo $d['admin']['ftp_pass']?>" placeholder="Password">
-									</div>
-
-									<div class="form-group">
-										<label>Rb 경로</label>
-										<input type="text" class="form-control" name="ftp_rb" value="<?php echo $d['admin']['ftp_rb']?>" placeholder="">
-										<p class="form-control-static">
-											<small class="text-muted">
-												FTP로 접속했을때 처음 접속된 경로부터 킴스큐Rb가 설치된 경로를 입력해 주세요.
-												경로의 처음과 마지막은 반드시 슬래쉬(/)로 끝나야 합니다. <br>
-												보기)<code>/rb/</code> 또는 <code>/www/rb/</code> 또는 <code>/public_html/rb/</code><br>
-											</small>
-										</p>
-									</div>
-
-									<button type="button" class="btn btn-light" id="ftpbtn" onclick="sendCheck(this.id);">
-										<?php if($d['admin']['ftp']):?><i class="fa fa-info-circle fa-lg fa-fw"></i>정상<?php else:?>FTP 연결확인<?php endif?>
-									</button>
-
-								</div>
-							</div>
-
-						</div>
-					</div><!-- /.card -->
-
 					<div class="px-3">
 						<button class="mt-3 btn btn-primary btn-block btn-lg" type="submit">설정 저장하기</button>
 					</div>
@@ -679,6 +570,11 @@ var editor_html = CodeMirror.fromTextArea(getId('code_footer'), {
   lineNumbers: true,
   matchBrackets: false,
   indentWithTabs: true,
+});
+
+$('[name="mailer"]').change(function(){
+	if ($(this).val()=='ses') $('[data-role="mailer-ses"]').removeClass('d-none')
+	else $('[data-role="mailer-ses"]').addClass('d-none')
 });
 
 </script>
