@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 3.145.0 - 2020-07-02
+
+* `Aws\Api` - Fixed bug with marshalling empty strings from dynamodb
+* `Aws\Build` - Updated packager code to work with Guzzle 7.
+* `Aws\Connect` - Documentation updates for Amazon Connect.
+* `Aws\ElastiCache` - Documentation updates for elasticache
+* `Aws\S3` - Adds a V2 implementation for the S3 encryption client, which has an updated encryption workflow and should be used over the original encryption client when possible.
+
+## 3.144.2 - 2020-07-01
+
+* `Aws\AppSync` - AWS AppSync supports new 12xlarge instance for server-side API caching
+* `Aws\Chime` - This release supports third party emergency call routing configuration for Amazon Chime Voice Connectors.
+* `Aws\CodeBuild` - Support build status config in project source
+* `Aws\RDS` - This release adds the exceptions KMSKeyNotAccessibleFault and InvalidDBClusterStateFault to the Amazon RDS ModifyDBInstance API.
+* `Aws\SecurityHub` - This release adds additional details for findings. There are now finding details for auto scaling groups, EC2 volumes, and EC2 VPCs. You can identify detected vulnerabilities and provide related network paths.
+* `Aws\imagebuilder` - EC2 Image Builder adds support for encrypted AMI distribution.
+
+## 3.144.1 - 2020-06-30
+
+* `Aws\CodeGuruReviewer` - Release GitHub Enterprise Server source provider integration
+* `Aws\ComprehendMedical` - This release adds the relationships between MedicalCondition and Anatomy in DetectEntitiesV2 API.
+* `Aws\EC2` - Added support for tag-on-create for CreateVpc, CreateEgressOnlyInternetGateway, CreateSecurityGroup, CreateSubnet, CreateNetworkInterface, CreateNetworkAcl, CreateDhcpOptions and CreateInternetGateway. You can now specify tags when creating any of these resources. For more information about tagging, see AWS Tagging Strategies.
+* `Aws\ECR` - Add a new parameter (ImageDigest) and a new exception (ImageDigestDoesNotMatchException) to PutImage API to support pushing image by digest.
+* `Aws\RDS` - Documentation updates for rds
+
 ## 3.144.0 - 2020-06-29
 
 * `Aws\Api` - Added defensive parsing of timestamps so it can take epoch or ISO8601 without knowing the type.
