@@ -40,6 +40,7 @@ $table['s_uploadcat']	= $DB['head'].'_s_uploadcat';
 $table['s_comment']	= $DB['head'].'_s_comment';
 $table['s_oneline']	= $DB['head'].'_s_oneline';
 $table['s_opinion'] = $DB['head'].'_s_opinion';
+$table['s_rating'] = $DB['head'].'_s_rating';
 $table['s_numinfo']	= $DB['head'].'_s_numinfo';
 $table['s_tag']		= $DB['head'].'_s_tag';
 $table['s_seo']		= $DB['head'].'_s_seo';

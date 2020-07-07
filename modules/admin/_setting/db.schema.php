@@ -617,6 +617,7 @@ ip			VARCHAR(25)	 	DEFAULT ''		NOT NULL,
 agent	 	VARCHAR(150)	DEFAULT ''		NOT NULL,
 sync		VARCHAR(250)	DEFAULT ''		NOT NULL,
 sns			VARCHAR(100)	DEFAULT ''		NOT NULL,
+rating		INT				DEFAULT '0'		NOT NULL,
 adddata		TEXT			NOT NULL,
 KEY site(site),
 KEY parent(parent),
@@ -684,6 +685,26 @@ KEY entry(entry),
 KEY d_regis(d_regis)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
 db_query($_tmp, $DB_CONNECT);
 db_query("OPTIMIZE TABLE ".$table['s_opinion'],$DB_CONNECT);
+}
+
+//별점데이터
+$_tmp = db_query( "select count(*) from ".$table['s_rating'], $DB_CONNECT );
+if ( !$_tmp ) {
+$_tmp = ("
+
+CREATE TABLE ".$table['s_rating']." (
+uid			INT				PRIMARY KEY		NOT NULL AUTO_INCREMENT,
+mbruid	INT				DEFAULT '0'		NOT NULL,
+module	VARCHAR(30)		DEFAULT ''		NOT NULL,
+entry		VARCHAR(14)		DEFAULT ''		NOT NULL,
+rating	INT				DEFAULT '0'		NOT NULL,
+d_regis	VARCHAR(14)		DEFAULT ''		NOT NULL,
+KEY mbruid(mbruid),
+KEY rating(rating),
+KEY entry(entry),
+KEY d_regis(d_regis)) ENGINE=".$DB['type']." CHARSET=UTF8MB4");
+db_query($_tmp, $DB_CONNECT);
+db_query("OPTIMIZE TABLE ".$table['s_rating'],$DB_CONNECT);
 }
 
 //일별수량
