@@ -156,7 +156,7 @@
                     self.userGroup = result.userGroup; // 접속자 group
                     self.perm_write = result.perm_write; // 글쓰기 권한
                     self.emoticonPath = result.theme_path+'/images/emoticon/';
-                    $(container).append(result.comment_box);
+                    $(container).html(result.comment_box);
                     self.AfterInitCommentBox();
                 }
             );
