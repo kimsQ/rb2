@@ -33,7 +33,6 @@
 1. <code>git init</code>
 1. <code>git remote add origin https://github.com/kimsQ/rb2.git</code>
 1. <code>git pull origin master</code>
-1. <code>chmod 707  _var</code>
 1. 브라우저를 통해 index.php 를 호출합니다.
 
 ### 인스톨러를 통한 설치
