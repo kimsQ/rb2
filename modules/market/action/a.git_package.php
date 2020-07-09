@@ -33,8 +33,8 @@ if ($package_step == 1) {
 		$_extData = explode(':LIST]',$_extData[1]);
 		$_extData = $_extData[0];
 		$_extarr = getArrayString($_extData);
-		$_extnum = $_extarr[count];
-		$_extper = (100/$_extnum)/100;
+		//$_extnum = $_extarr[count];
+		//$_extper = (100/$_extnum)/100;
 
 		$list;
 		// $_i=0;
@@ -48,7 +48,7 @@ if ($package_step == 1) {
 				$owner   = $extData[3];
 				$token   = $extData[4];
 				$_i++;
-				$process = $_extper*$_i;
+				//$process = $_extper*$_i;
 
 				if(is_dir($path.'/'.$folder)) continue;
 
