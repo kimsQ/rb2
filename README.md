@@ -23,8 +23,6 @@
 
 ### PHP 설정
 - allow_url_fopen : 허용안함
-- register_globals : 허용안함
-- magic_quotes_gpc : 허용
 
 
 ## 설치하기
