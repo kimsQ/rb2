@@ -89,7 +89,7 @@ if ($path=='modules') {
 
 	$maxgid = getDbCnt($_tmptable2['s_module'],'max(gid)','');
 
-	$QKEY = "gid,system,hidden,mobile,name,id,tblnum,icon,d_regis";
+	$QKEY = "gid,sys,hidden,mobile,name,id,tblnum,icon,d_regis";
 	$QVAL = "'".($maxgid+1)."','0','0','1','".getFolderName($g['path_module'].$module)."','$module','".count($table)."','kf-module','".$date['totime']."'";
 
 	getDbInsert($_tmptable2['s_module'],$QKEY,$QVAL);
