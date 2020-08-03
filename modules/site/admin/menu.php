@@ -345,7 +345,7 @@ $menuType = array('','모듈연결','코드편집','메뉴연결','문서편집'
 						<div class="form-group form-row" id="editBox4"<?php if($CINFO['menutype']!=4):?> hidden<?php endif?>>
 							<div class="col-lg-10 col-xl-9 offset-lg-2">
 								<fieldset<?php if($CINFO['menutype']!=4):?> disabled<?php endif?>>
-									<div class="btn-group btn-group-justified" data-toggle="buttons">
+									<div class="btn-group btn-group-justified">
 										<button type="button" class="btn btn-light rb-modal-wysiwyg">기본</button>
 										<button type="button" class="btn btn-light rb-modal-wysiwyg-mobile">모바일 전용</button>
 
@@ -1054,9 +1054,7 @@ $(document).ready(function() {
 	})
 
 });
-</script>
 
-<script>
 
 putCookieAlert('result_menu') // 실행결과 알림 메시지 출력
 
