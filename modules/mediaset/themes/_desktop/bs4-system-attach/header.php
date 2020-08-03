@@ -15,7 +15,7 @@ require_once $g['dir_attach_theme'].'/_var.php'; // 테마변수 인클루드
 require_once $g['path_module'].'mediaset/var/var.php'; //모듈 공통변수 인클루드
 ?>
 <!-- 클립보드 : clipboard.js  : https://github.com/zenorocha/clipboard.js-->
-<?php getImport('clipboard','clipboard.min','1.5.5','js') ?>
+<?php getImport('clipboard','clipboard.min','2.0.4','js') ?>
 
 <script src="<?php echo $g['url_attach_theme']?>/js/fileuploader.js"></script>
 <script src="<?php echo $g['url_attach_theme']?>/main.js"></script>
