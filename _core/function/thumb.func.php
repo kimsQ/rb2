@@ -203,7 +203,7 @@ function overlay($backpic,$overpic,$x,$y,$w,$h)
 // 이미지 가로/세로 교정
 function exifRotate($picture)
 {
-	$exifData = exif_read_data($picture);
+	$exifData = @exif_read_data($picture);
 	if($exifData['Orientation'] == 6) {
 		$degree = 270; // 시계방향으로 90도 돌려줘야 정상인데 270도 돌려야 정상적으로 출력됨
 	}
