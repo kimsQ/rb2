@@ -32,7 +32,7 @@ class rbUploadAdapter {
 	_initListeners( resolve, reject, file ) {
 		const xhr = this.xhr;
 		const loader = this.loader;
-		const genericErrorText = `업로드 에러.: ${ file.name }.`;
+		const genericErrorText = `업로드 에러 : ${ file.name }.`;
 
 		xhr.addEventListener( 'error', () => reject( genericErrorText ) );
 		xhr.addEventListener( 'abort', () => reject() );

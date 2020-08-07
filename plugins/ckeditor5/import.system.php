@@ -2,6 +2,67 @@
 if(!defined('__KIMS__')) exit;
 ?>
 
+<style>
+
+:root {
+  --ck-color-toolbar-background: #fff;
+  --ck-color-toolbar-border: rgba(0, 0, 0, 0.085);
+  --ck-border-radius :0
+}
+
+.document-editor__toolbar {
+  position: fixed;
+  top: 117px;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.document-editor__toolbar .ck.ck-toolbar {
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+.document-editor {
+  position: absolute;
+  top: 157px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-transition-property: left, right, top, bottom, width, margin;
+  transition-property: left, right, top, bottom, width, margin;
+  -webkit-transition-duration: .2s;
+  transition-duration: .2s;
+  font-family: 'NotoSans', 'Malgun Gothic', '맑은 고딕','Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+
+.document-editor__editable-container {
+  overflow-x: hidden;
+  padding: calc(2*var(--ck-spacing-large));
+  background: var(--ck-color-base-foreground);
+}
+
+.document-editor__editable-container .document-editor__editable {
+  width: 20.8cm;
+  min-height: 21cm;
+  padding: 1cm 2cm 2cm;
+  border: 1px solid #d3d3d3;
+  border-radius: var(--ck-border-radius);
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  margin: 0 auto;
+  border-radius: 0
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  border: 1px solid #d3d3d3;
+  outline: 0
+}
+
+</style>
+
 <?php if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9'): ?>
 <div class="" >
 	<div data-role="loader">
@@ -10,8 +71,9 @@ if(!defined('__KIMS__')) exit;
 		</div>
 	</div>
 
-	<div data-role="editor" class="d-none">
-		<div class="document-editor__toolbar border"></div>
+	<div data-role="editor" data-editor='DecoupledDocumentEditor' class="d-none">
+
+    <div class="document-editor__toolbar"></div>
 		<div class="document-editor border-top-0">
 		    <div class="document-editor__toolbar"></div>
 		    <div class="document-editor__editable-container">
@@ -23,7 +85,7 @@ if(!defined('__KIMS__')) exit;
 
     <div class="opener">
     	<button type="button" class="btn btn-secondary js-openSidebar shadow" data-toggle="tooltip" title="첨부패널 열기">
-    		<i class="fa fa-upload fa-2x" aria-hidden="true"></i>
+    		<i class="fa fa-upload fa-lg" aria-hidden="true"></i>
     	</button>
     </div>
 
@@ -32,8 +94,7 @@ if(!defined('__KIMS__')) exit;
 </div>
 
 <?php
-getImport('ckeditor5','decoupled-document/build/ckeditor','16.0.0','js');
-getImport('ckeditor5','decoupled-document/build/translations/ko','16.0.0','js');
+getImport('ckeditor5','decoupled-document/build/ckeditor','21.0.0','js');
 ?>
 <script src="<?php echo $g['s']?>/_core/js/ckeditor5.js"></script>
 <script>
@@ -43,67 +104,78 @@ getImport('ckeditor5','decoupled-document/build/translations/ko','16.0.0','js');
 
 <script>
 
-
 let editor;
 
-DecoupledEditor
+DecoupledDocumentEditor
 	.create( document.querySelector( '.document-editor__editable' ),{
-		language: 'ko',
-    extraPlugins: [rbUploadAdapterPlugin],
-    mediaEmbed: {
-        extraProviders: [
-            {
-                name: 'other',
-                url: /^([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)/
-            },
-						{
-								name: 'another',
-								url: /^([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)/
-						}
-        ]
-    },
-		link: {
-				decorators: {
-						addTargetToLinks: {
-								mode: 'manual',
-								label: '새탭에서 열기',
-								attributes: {
-										target: '_blank',
-										rel: 'noopener noreferrer'
-								}
-						}
-				}
+		toolbar: {
+			items: [
+				'heading',
+				'|',
+				'fontSize',
+				'fontColor',
+				'|',
+				'bold',
+				'italic',
+				'underline',
+				'strikethrough',
+				'highlight',
+				'|',
+				'alignment',
+				'|',
+				'numberedList',
+				'bulletedList',
+				'|',
+				'indent',
+				'outdent',
+				'|',
+				'todoList',
+				'link',
+				'blockQuote',
+				'horizontalLine',
+				'imageUpload',
+				'insertTable',
+				'mediaEmbed',
+				'code',
+				'codeBlock',
+				'exportPdf',
+				'removeFormat',
+				'|',
+				'undo',
+				'redo'
+			]
 		},
-    typing: {
-        transformations: {
-            include: [
-                // Use only the 'quotes' and 'typography' groups.
-                'quotes',
-                'typography',
-
-                // Plus, some custom transformation.
-                { from: '->', to: '→' },
-                { from: ':)', to: '🙂' },
-                { from: ':+1:', to: '👍' },
-                { from: ':tada:', to: '🎉' },
-            ],
+		language: 'ko',
+		extraPlugins: [rbUploadAdapterPlugin],
+		image: {
+			toolbar: [
+				'imageTextAlternative',
+				'imageStyle:full',
+				'imageStyle:side'
+			]
+		},
+    link: {
+      decorators: {
+        addTargetToLinks: {
+          mode: 'manual',
+          label: '새탭에서 열기',
+          attributes: {
+            target: '_blank',
+            rel: 'noopener noreferrer'
+          }
         }
+      }
     },
-    image: {
-        // You need to configure the image toolbar, too, so it uses the new style buttons.
-        toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
-
-        styles: [
-            // This option is equal to a situation where no style is applied.
-            'full',
-
-            // This represents an image aligned to the left.
-            'alignLeft',
-
-            // This represents an image aligned to the right.
-            'alignRight'
-        ]
-    }
+		table: {
+			contentToolbar: [
+				'tableColumn',
+				'tableRow',
+				'mergeTableCells',
+				'tableCellProperties',
+				'tableProperties'
+			]
+		},
+		licenseKey: '',
 	} )
   .then( newEditor => {
 		editor = newEditor;
@@ -111,8 +183,7 @@ DecoupledEditor
 		$('[data-role="editor"]').removeClass('d-none')
 		const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
 		toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-
-    $('.document-editor__editable-container').on('scroll', function(){
+    $('.document-editor').on('scroll', function(){
       var height = $(this).scrollTop();
       if(height > 50) {
         $('.document-editor__toolbar').addClass('shadow-sm')

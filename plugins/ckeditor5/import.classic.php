@@ -17,11 +17,7 @@ if(!defined('__KIMS__')) exit;
 	</div>
 </div>
 
-
-<?php
-getImport('ckeditor5','classic/build/ckeditor',false,'js');
-getImport('ckeditor5','classic/build/translations/ko',false,'js');
-?>
+<?php getImport('ckeditor5','classic/build/ckeditor',false,'js'); ?>
 
 <script>
 
@@ -29,50 +25,74 @@ let editor;
 
 ClassicEditor
 	.create( document.querySelector( '#ckeditor_textarea' ),{
-		language: 'ko',
+		toolbar: {
+			items: [
+				'heading',
+				'|',
+				'fontColor',
+				'fontSize',
+				'|',
+				'bold',
+				'italic',
+				'link',
+				'highlight',
+				'|',
+				'bulletedList',
+				'numberedList',
+				'|',
+				'indent',
+				'outdent',
+				'|',
+				'imageUpload',
+				'blockQuote',
+				'insertTable',
+				'mediaEmbed',
+				'|',
+				'undo',
+				'redo'
+			]
+		},
     extraPlugins: [rbUploadAdapterPlugin],
+		language: 'ko',
+		image: {
+			toolbar: [
+				'imageTextAlternative',
+				'imageStyle:full',
+				'imageStyle:side'
+			]
+		},
+		table: {
+			contentToolbar: [
+				'tableColumn',
+				'tableRow',
+				'mergeTableCells'
+			]
+		},
 		mediaEmbed: {
-				extraProviders: [
-						{
-								name: 'other',
-								url: /^([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)/
-						},
+        extraProviders: [
+            {
+                name: 'other',
+                url: /^([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)/
+            },
 						{
 								name: 'another',
 								url: /^([a-zA-Z0-9_\-]+)\.([a-zA-Z0-9_\-]+)/
 						}
-				]
-		},
-		typing: {
-				transformations: {
-						include: [
-								// Use only the 'quotes' and 'typography' groups.
-								'quotes',
-								'typography',
-
-								// Plus, some custom transformation.
-								{ from: '->', to: '→' },
-								{ from: ':)', to: '🙂' },
-								{ from: ':+1:', to: '👍' },
-								{ from: ':tada:', to: '🎉' },
-						],
+        ]
+    },
+		link: {
+				decorators: {
+						addTargetToLinks: {
+								mode: 'manual',
+								label: '새탭에서 열기',
+								attributes: {
+										target: '_blank',
+										rel: 'noopener noreferrer'
+								}
+						}
 				}
 		},
-		image: {
-				// You need to configure the image toolbar, too, so it uses the new style buttons.
-				toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
 
-				styles: [
-						// This option is equal to a situation where no style is applied.
-						'full',
-
-						// This represents an image aligned to the left.
-						'alignLeft',
-
-						// This represents an image aligned to the right.
-						'alignRight'
-				]
-		}
 	} )
 	.then( newEditor => {
 		editor = newEditor;
