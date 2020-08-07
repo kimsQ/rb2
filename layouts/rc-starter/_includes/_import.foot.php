@@ -29,9 +29,10 @@
 <?php getImport('markjs','jquery.mark.min','8.11.1','js')?>
 
 <!-- 댓글출력시 필요 -->
-<?php if ($mod!='write' && $my['uid']): ?>
-<?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');  ?>
-<?php getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');  ?>
+<?php if ($mod!='write'): ?>
+<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/decoupled-document/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/decoupled-document/translations/ko.js"></script>
+
 <?php endif; ?>
 <script src="<?php echo $g['url_root']?>/modules/comment/lib/Rb.comment.js<?php echo $g['wcache']?>"></script>
 
