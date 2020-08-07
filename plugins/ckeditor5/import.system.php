@@ -93,9 +93,7 @@ if(!defined('__KIMS__')) exit;
 
 </div>
 
-<?php
-getImport('ckeditor5','decoupled-document/build/ckeditor','21.0.0','js');
-?>
+<?php getImport('ckeditor5','decoupled-document/build/ckeditor','21.0.0','js'); ?>
 <script src="<?php echo $g['s']?>/_core/js/ckeditor5.js"></script>
 <script>
   var attach_file_saveDir = '<?php echo $g['path_file']?>site/';// 파일 업로드 폴더

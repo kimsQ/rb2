@@ -2,6 +2,45 @@
 if(!defined('__KIMS__')) exit;
 ?>
 
+<style>
+
+:root {
+  --ck-color-toolbar-background: #fff;
+  --ck-color-toolbar-border: rgba(0, 0, 0, 0.085);
+  --ck-border-radius :0
+}
+
+.document-editor__toolbar .ck.ck-toolbar {
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+.document-editor__editable-container {
+  overflow-x: hidden;
+  padding: calc(2*var(--ck-spacing-large));
+  background: var(--ck-color-base-foreground);
+}
+
+.document-editor__editable-container .document-editor__editable {
+  width: 20.8cm;
+  min-height: 21cm;
+  padding: 1cm 2cm 2cm;
+  border: 1px solid #d3d3d3;
+  border-radius: var(--ck-border-radius);
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  margin: 0 auto;
+  border-radius: 0
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  border: 1px solid #d3d3d3;
+  outline: 0
+}
+
+</style>
+
 <?php if ($g['broswer']!='MSIE 11' && $g['broswer']!='MSIE 10' && $g['broswer']!='MSIE 9'): ?>
 <div class="" >
 	<div data-role="loader">
@@ -12,8 +51,8 @@ if(!defined('__KIMS__')) exit;
 
 	<div data-role="editor" class="d-none">
 		<input type="hidden" name="content" value="">
-		<div class="document-editor__toolbar border-top border-right px-3"></div>
-		<div class="document-editor">
+		<div class="document-editor__toolbar border-right"></div>
+		<div class="document-editor border-top-0">
 		    <div class="document-editor__toolbar"></div>
 		    <div class="document-editor__editable-container">
 		        <div class="document-editor__editable">
@@ -26,10 +65,7 @@ if(!defined('__KIMS__')) exit;
 
 </div>
 
-<?php
-getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js');
-getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');
-?>
+<?php getImport('ckeditor5','decoupled-document/build/ckeditor',false,'js'); ?>
 
 <script>
   var attach_file_saveDir = '<?php echo $g['path_file']?>site/';// 파일 업로드 폴더
@@ -41,7 +77,7 @@ getImport('ckeditor5','decoupled-document/build/translations/ko',false,'js');
 
 let editor;
 
-DecoupledEditor
+DecoupledDocumentEditor
 	.create( document.querySelector( '.document-editor__editable' ),{
 		language: 'ko',
 		toolbar: [
@@ -56,7 +92,6 @@ DecoupledEditor
 			'italic',
 			'underline',
 			'strikethrough',
-			'code',
 			'|',
 			'alignment:left',
 			'alignment:right',
@@ -73,7 +108,10 @@ DecoupledEditor
 			'blockquote',
 			'imageUpload',
 			'insertTable',
-			'mediaEmbed'
+			'code',
+			'codeBlock',
+			'exportPdf',
+			'removeFormat'
 			],
     extraPlugins: [rbUploadAdapterPlugin],
     mediaEmbed: {
@@ -96,36 +134,13 @@ DecoupledEditor
 						}
 				}
 		},
-    typing: {
-        transformations: {
-            include: [
-                // Use only the 'quotes' and 'typography' groups.
-                'quotes',
-                'typography',
-
-                // Plus, some custom transformation.
-                { from: '->', to: '→' },
-                { from: ':)', to: '🙂' },
-                { from: ':+1:', to: '👍' },
-                { from: ':tada:', to: '🎉' },
-            ],
-        }
-    },
-    image: {
-        // You need to configure the image toolbar, too, so it uses the new style buttons.
-        toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
-
-        styles: [
-            // This option is equal to a situation where no style is applied.
-            'full',
-
-            // This represents an image aligned to the left.
-            'alignLeft',
-
-            // This represents an image aligned to the right.
-            'alignRight'
-        ]
-    }
+		image: {
+			toolbar: [
+				'imageTextAlternative',
+				'imageStyle:full',
+				'imageStyle:side'
+			]
+		}
 	} )
   .then( newEditor => {
 		editor = newEditor;
