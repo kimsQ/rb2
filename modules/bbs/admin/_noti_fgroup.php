@@ -1,14 +1,4 @@
 <div class="form-group row">
-  <label class="col-lg-2 col-form-label text-lg-right">공지 등록</label>
-  <div class="col-lg-10 col-xl-9 pt-1">
-    <div class="custom-control custom-checkbox">
-     <input type="checkbox" class="custom-control-input" id="noti_notice" name="noti_notice" value="1" <?php if($d['bbs']['noti_notice']):?> checked<?php endif?>>
-     <label class="custom-control-label small text-muted" for="noti_notice">공지글 등록시, 전체회원에게 알림발송</label>
-   </div>
-  </div>
-</div>
-
-<div class="form-group row">
    <label class="col-lg-2 col-form-label text-lg-right">게시물 등록</label>
    <div class="col-lg-10 col-xl-9 pt-1">
      <div class="custom-control custom-checkbox">

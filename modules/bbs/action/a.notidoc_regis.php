@@ -4,7 +4,9 @@ if(!defined('__KIMS__')) exit;
 checkAdmin(0);
 
 $fdset = array('noti_title','noti_body','noti_button');
-$vfile = $g['dir_module'].'var/noti/'.$type.'.php';
+$vfile = $g['path_var'].$m.'/noti/'.$type.'.php';
+
+if (!is_dir($g['path_var'].$m.'/noti')) mkdir($g['path_var'].$m.'/noti');
 
 $fp = fopen($vfile,'w');
 fwrite($fp, "<?php\n");

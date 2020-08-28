@@ -155,7 +155,7 @@ $fdset = array('layout','m_layout','skin','m_skin','editor','m_editor','a_skin',
 	'admin','hitcount','recnum','sbjcut','newtime','rss','sosokmenu','point1','point2','point3','display','hidelist','snsconnect',
 	'noti_notice','noti_newpost','noti_opinion','noti_mention','noti_report');
 
-if (!is_dir($g['path_var'].'bbs')) DirMake($g['path_var'].'bbs');
+if (!is_dir($g['path_var'].'bbs')) mkdir($g['path_var'].'bbs');
 $gfile= $g['path_var'].'bbs/var.'.$id.'.php';
 $fp = fopen($gfile,'w');
 fwrite($fp, "<?php\n");

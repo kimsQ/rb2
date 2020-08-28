@@ -213,7 +213,15 @@ else $msg = '등록';
 
 //알림 전송 (게시물 등록: 신규 게시물 등록시, 게시판 관리자에게 알림발송)
 if ($d['bbs']['noti_newpost'] && !$my['admin']){
-	include $g['dir_module'].'var/noti/_new.post.php';  // 알림메시지 양식
+
+  $cfile = $g['path_var'].$m.'/noti/_new.post.php';
+  $gfile = $g['dir_module'].'var/noti/_new.post.php';
+  if (is_file($cfile)) {
+    include $cfile;
+  } else {
+    include $gfile;
+  }
+
 	$sendAdmins_array = explode(',',trim($d['bbs']['admin']));
 	if (is_array($sendAdmins_array)) {
 		foreach($sendAdmins_array as $val) {

@@ -10,7 +10,6 @@ $typeset = array
 	'_opinion'=>'좋아요/싫어요',
 	'_mention'=>'회원언급',
 	'_new.post'=>'새글 등록',
-	'_new.notice'=>'공지글 등록',
 	'_report'=>'게시물 신고'
 );
 $type = $type ? $type : '_opinion';
@@ -54,8 +53,15 @@ $type = $type ? $type : '_opinion';
 				<span><?php echo getMDname($type)?> <span class="badge badge-primary badge-pill">양식수정</span></span>
 			</div>
 			<div class="card-body">
-
-				<?php include_once $g['path_module'].$module.'/var/noti/'.$type.'.php'; ?>
+				<?php
+				$cfile = $g['path_var'].$module.'/noti/'.$type.'.php';
+				$gfile = $g['path_module'].$module.'/var/noti/'.$type.'.php';
+				if (is_file($cfile)) {
+					include_once $cfile;
+				} else {
+					include_once $gfile;
+				}
+				?>
 				<div class="card">
 					<div class="card-header">
 						<i class="fa fa-bell-o mr-1" aria-hidden="true"></i> 알림 메시지 편집
