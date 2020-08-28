@@ -11,7 +11,6 @@ if (!$subject) getLink('reload','parent.','제목이 입력되지 않았습니�
 
 $g['bbsVarForSite'] = $g['path_var'].'site/'.$r.'/bbs.var.php';
 include_once file_exists($g['bbsVarForSite']) ? $g['bbsVarForSite'] : $g['dir_module'].'var/var.php';
-
 include_once $g['path_var'].'bbs/var.'.$B['id'].'.php';
 
 if ($g['mobile']&&$_SESSION['pcmode']!='Y') {
@@ -221,19 +220,17 @@ if ($d['bbs']['noti_newpost'] && !$my['admin']){
 			$_M = getDbData($table['s_mbrid'],'id="'.$val.'"','uid');
 			$__M = getDbData($table['s_mbrdata'],'memberuid='.$_M['uid'],'memberuid,email,name,nic');
 			if (!$_M['uid']) continue;
-
 			$noti_title = $d['bbs']['noti_title'];
-			$noti_title = str_replace('{BBS}',$name,$noti_title);
+			$noti_title = str_replace('{BBS}',$B['name'],$noti_title);
 			$noti_body = $d['bbs']['noti_body'];
 			$noti_body = str_replace('{MEMBER}',$my[$_HS['nametype']],$noti_body);
-			$noti_body = str_replace('{SUBJECT}',$R['subject'],$noti_body);
-			$noti_referer = $g['url_http'].'/?r='.$r.'&mod=settings&page=noti';
-			$noti_button = '게시물 확인';
+			$noti_body = str_replace('{SUBJECT}',$subject,$noti_body);
+			$noti_referer = $g['url_host'].RW('m='.$m.'&bid='.$bbsid);
+			$noti_button = $d['bbs']['noti_button'];
 			$noti_tag = '';
 			$noti_skipEmail = 0;
 			$noti_skipPush = 0;
-
-			putNotice($_M['uid'],$m,$my['uid'],$my[$_HS['nametype']].'님이 ['.$B['name'].'] 에 등록한 게시물('.$subject.')이 등록되었습니다..',$g['s'].'/?r='.$r.'&amp;m='.$m.'&amp;project='.$_PROJECT['uid'].'&amp;task='.$taskUid,'');
+			putNotice($_M['uid'],$m,$my['uid'],$noti_title,$noti_body,$noti_referer,$noti_button,$noti_tag,$noti_skipEmail,$noti_skipPush);
 		}
 	}
 }
