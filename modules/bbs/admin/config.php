@@ -413,6 +413,8 @@
 
 putCookieAlert('bbs_config_result') // 실행결과 알림 메시지 출력
 
+$('[data-role="siteSelector"]').removeClass('d-none')  //사이트 셀렉터 출력
+
 function saveCheck(f)
 {
 	if (f.skin_main.value == '')
