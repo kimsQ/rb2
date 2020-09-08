@@ -7,7 +7,7 @@
             <tbody>
               <tr>
                 <td style="padding:30px;background:#4A5960;font-size: 23px;line-height: 22px;font-family: Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing: -1px;color: #fff;">
-                  {SITE} 계정
+                  {SITE}
                 </td>
               </tr>
               <tr>
