@@ -56,8 +56,8 @@ foreach ($post_members as $val)
 
 		while($_C=db_fetch_array($CCD))
 		{
-			$comment_cync = '['.$m.']['.$R['uid'].'][uid,comment,oneline,d_comment]['.$table[$m.'data'].']['.$_C['parentmbr'].'][m:'.$m.',bid:'.$B['id'].',uid:'.$R['uid'].']';
-			getDbUpdate($table['s_comment'],"cync='$comment_cync'",'uid='.$_C['uid']);
+			$comment_sync = '['.$m.']['.$R['uid'].'][uid,comment,oneline,d_comment]['.$table[$m.'data'].']['.$_C['parentmbr'].'][m:'.$m.',bid:'.$B['id'].',uid:'.$R['uid'].']';
+			getDbUpdate($table['s_comment'],"sync='$comment_sync'",'uid='.$_C['uid']);
 
 
 			if ($_C['upload'])
@@ -68,7 +68,7 @@ foreach ($post_members as $val)
 					$U = getUidData($table['s_upload'],$_val);
 					if ($U['uid'])
 					{
-						getDbUpdate($table['s_upload'],"cync=''",'uid='.$U['uid']);
+						getDbUpdate($table['s_upload'],"sync=''",'uid='.$U['uid']);
 					}
 				}
 			}
@@ -85,7 +85,7 @@ foreach ($post_members as $val)
 			$U = getUidData($table['s_upload'],$_val);
 			if ($U['uid'])
 			{
-				getDbUpdate($table['s_upload'],"cync=''",'uid='.$U['uid']);
+				getDbUpdate($table['s_upload'],"sync=''",'uid='.$U['uid']);
 			}
 		}
 	}
