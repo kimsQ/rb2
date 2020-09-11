@@ -1,35 +1,13 @@
 <?php
 if(!defined('__KIMS__')) exit;
 
+
 checkAdmin(0);
 
-$g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/mediaset.var.php';
-include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['path_module'].'mediaset/var/var.php';
-
-include $g['path_core'].'function/rss.func.php';
-
-include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
-
-use Aws\S3\S3Client;
-
-define('S3_KEY', $d['mediaset']['S3_KEY']); //발급받은 키.
-define('S3_SEC', $d['mediaset']['S3_SEC'] ); //발급받은 비밀번호.
-define('S3_REGION', $d['mediaset']['S3_REGION']);  //S3 버킷의 리전.
-define('S3_BUCKET', $d['mediaset']['S3_BUCKET']); //버킷의 이름.
-
-$s3 = new S3Client([
-	'version'     => 'latest',
-	'region'      => S3_REGION,
-	'credentials' => [
-			'key'    => S3_KEY,
-			'secret' => S3_SEC,
-	],
-]);
-
+include_once $g['path_module'].'mediaset/var/var.php';
 $str_month = '';
 $str_today = '';
 $B = getUidData($table[$m.'list'],$bid);
-$fserver  = $d['mediaset']['use_fileserver'];
 sort($post_members);
 reset($post_members);
 
@@ -101,6 +79,7 @@ foreach ($post_members as $val)
 			$comment_uid = $comment_minuid ? $comment_minuid-1 : 100000000;
 			$comment_sync = '['.$m.']['.$NOWUID.'][uid,comment,oneline,d_comment]['.$table[$m.'data'].']['.$_C['parentmbr'].'][m:'.$m.',bid:'.$B['id'].',uid:'.$NOWUID.']';
 
+
 			$QKEY = "uid,site,parent,parentmbr,display,hidden,notice,name,nic,mbruid,id,pw,subject,content,html,";
 			$QKEY.= "hit,down,oneline,likes,dislikes,report,d_regis,d_modify,d_oneline,upload,ip,agent,sync,sns,adddata";
 			$QVAL = "'$comment_uid','".$_C['site']."','".$m.$NOWUID."','".$_C['parentmbr']."','".$_C['display']."','".$_C['hidden']."','".$_C['notice']."','".addslashes($_C['name'])."','".addslashes($_C['nic'])."',";
@@ -109,6 +88,7 @@ foreach ($post_members as $val)
 			$QVAL.= "'".$_C['upload']."','".$_C['ip']."','".$_C['agent']."','$comment_sync','".$_C['sns']."','".addslashes($_C['adddata'])."'";
 			getDbInsert($table['s_comment'],$QKEY,$QVAL);
 			getDbUpdate($table['s_numinfo'],'comment=comment+1',"date='".substr($_C['d_regis'],0,8)."' and site=".$_C['site']);
+
 
 			if ($_C['oneline'])
 			{
@@ -141,45 +121,28 @@ foreach ($post_members as $val)
 					{
 						$_tmpname = md5($U['tmpname']).'.'.getExt($U['tmpname']);
 
-						if ($fserver==2)
+						if ($U['host']==$d['upload']['ftp_urlpath'])
 						{
+							$FTP_CONNECT = ftp_connect($d['upload']['ftp_host'],$d['upload']['ftp_port']);
+							$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['upload']['ftp_user'],$d['upload']['ftp_pass']);
+							if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.','');
+							if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
 
-							$_downfile = getUrlData($U['src'],10);
-							$saveFile = $g['path_tmp'].'session/'.$U['tmpname'];
-							$fp = fopen($saveFile,'w');
-							fwrite($fp,$_downfile);
-							fclose($fp);
-							@chmod($saveFile,0707);
-
-							$upload_host= 'https://'.S3_BUCKET.'.s3.'.S3_REGION.'.amazonaws.com';
-			        $upload_src = $upload_host.'/'.$U['folder'].'/'.$_tmpname;
-
-			        try {
-			          $s3->putObject(Array(
-			              'ACL'=>'public-read',
-			              'SourceFile'=>$saveFile,
-			              'Bucket'=>S3_BUCKET,
-			              'Key'=>$U['folder'].'/'.$_tmpname,
-			          ));
-								@unlink($saveFile);
-			        } catch (Aws\S3\Exception\S3Exception $e) {
-			          $result['error'] = 'AwS S3에 파일을 업로드하는 중 오류가 발생했습니다.';
-			        }
-
-
-
+							ftp_get($FTP_CONNECT,$g['path_tmp'].'session/'.$U['tmpname'],$d['upload']['ftp_folder'].$U['folder'].'/'.$U['tmpname'],FTP_BINARY);
+							ftp_put($FTP_CONNECT,$d['upload']['ftp_folder'].$U['folder'].'/'.$_tmpname,$g['path_tmp'].'session/'.$U['tmpname'], FTP_BINARY);
+							@unlink($g['path_tmp'].'session/'.$U['tmpname']);
+							ftp_close($FTP_CONNECT);
 						}
 						else {
-							copy('./'.$U['folder'].'/'.$U['tmpname'],'./'.$U['folder'].'/'.$_tmpname);
-							$upload_src = '/'.$U['folder'].'/'.$_tmpname;
+							copy($U['host'].$U['folder'].'/'.$U['tmpname'],$U['host'].$U['folder'].'/'.$_tmpname);
 						}
 
 						$upload_mingid = getDbCnt($table['s_upload'],'min(gid)','');
 						$upload_gid = $upload_mingid ? $upload_mingid - 1 : 100000000;
 
-						$QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,src,size,width,heigth,caption,down,d_regis,d_update,sync";
+						$QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,url,folder,name,tmpname,thumbname,size,width,heigth,caption,down,d_regis,d_update,sync";
 						$QVAL = "'".$upload_gid."','".$U['hidden']."','','".$U['site']."','".$U['mbruid']."','".$U['type']."','".$U['ext']."','".$U['fserver']."','".$U['host']."','".$U['folder']."',";
-						$QVAL.= "'".addslashes($U['name'])."','".$_tmpname."','".$upload_src."','".$U['size']."','".$U['width']."','".$U['height']."','".addslashes($U['caption'])."',";
+						$QVAL.= "'".addslashes($U['name'])."','".$_tmpname."','".$_thumbna."','".$U['size']."','".$U['width']."','".$U['height']."','".addslashes($U['caption'])."',";
 						$QVAL.= "'".$U['down']."','".$U['d_regis']."','".$U['d_update']."',''";
 						getDbInsert($table['s_upload'],$QKEY,$QVAL);
 						getDbUpdate($table['s_numinfo'],'upload=upload+1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
@@ -209,44 +172,29 @@ foreach ($post_members as $val)
 			{
 				$_tmpname = md5($U['tmpname']).'.'.getExt($U['tmpname']);
 
-				if ($fserver==2)
+				if ($U['host']==$d['upload']['ftp_urlpath'])
 				{
+					$FTP_CONNECT = ftp_connect($d['upload']['ftp_host'],$d['upload']['ftp_port']);
+					$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['upload']['ftp_user'],$d['upload']['ftp_pass']);
+					if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.','');
+					if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
 
-					$_downfile = getUrlData($U['src'],10);
-					$saveFile = $g['path_tmp'].'session/'.$U['tmpname'];
-					$fp = fopen($saveFile,'w');
-					fwrite($fp,$_downfile);
-					fclose($fp);
-					@chmod($saveFile,0707);
-
-	        $upload_host= 'https://'.S3_BUCKET.'.s3.'.S3_REGION.'.amazonaws.com';
-	        $upload_src = $upload_host.'/'.$U['folder'].'/'.$_tmpname;
-
-	        try {
-	          $s3->putObject(Array(
-	              'ACL'=>'public-read',
-	              'SourceFile'=>$saveFile,
-	              'Bucket'=>S3_BUCKET,
-	              'Key'=>$U['folder'].'/'.$_tmpname,
-	          ));
-						@unlink($saveFile);
-	        } catch (Aws\S3\Exception\S3Exception $e) {
-	          $result['error'] = 'AwS S3에 파일을 업로드하는 중 오류가 발생했습니다.';
-	        }
-
+					ftp_get($FTP_CONNECT,$g['path_tmp'].'session/'.$U['tmpname'],$d['upload']['ftp_folder'].$U['folder'].'/'.$U['tmpname'],FTP_BINARY);
+					ftp_put($FTP_CONNECT,$d['upload']['ftp_folder'].$U['folder'].'/'.$_tmpname,$g['path_tmp'].'session/'.$U['tmpname'],FTP_BINARY);
+					@unlink($g['path_tmp'].'session/'.$U['tmpname']);
+					ftp_close($FTP_CONNECT);
 				}
 				else {
-					copy('./'.$U['folder'].'/'.$U['tmpname'],'./'.$U['folder'].'/'.$_tmpname);
-					$upload_src = '/'.$U['folder'].'/'.$_tmpname;
+					copy('.'.$U['host'].$U['folder'].'/'.$U['tmpname'],'.'.$U['host'].$U['folder'].'/'.$_tmpname);
 				}
 
 				$upload_mingid = getDbCnt($table['s_upload'],'min(gid)','');
 				$upload_gid = $upload_mingid ? $upload_mingid - 1 : 100000000;
 
-				$QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,host,folder,name,tmpname,size,width,height,caption,down,src,d_regis,d_update,sync";
+				$QKEY = "gid,hidden,tmpcode,site,mbruid,type,ext,fserver,url,folder,name,tmpname,thumbname,size,width,height,caption,down,d_regis,d_update,sync";
 				$QVAL = "'$upload_gid','".$U['hidden']."','','".$U['site']."','".$U['mbruid']."','".$U['type']."','".$U['ext']."','".$U['fserver']."','".$U['host']."',";
-				$QVAL.= "'".$U['folder']."','".addslashes($U['name'])."','".$_tmpname."','".$U['size']."','".$U['width']."','".$U['height']."',";
-				$QVAL.= "'".addslashes($U['caption'])."','".$U['down']."','".$upload_src."','".$U['d_regis']."','".$U['d_update']."',''";
+				$QVAL.= "'".$U['folder']."','".addslashes($U['name'])."','".$_tmpname."','".$_thumbna."','".$U['size']."','".$U['width']."','".$U['height']."',";
+				$QVAL.= "'".addslashes($U['caption'])."','".$U['down']."','".$U['d_regis']."','".$U['d_update']."',''";
 				getDbInsert($table['s_upload'],$QKEY,$QVAL);
 				getDbUpdate($table['s_numinfo'],'upload=upload+1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
 
@@ -254,7 +202,6 @@ foreach ($post_members as $val)
 				$_content1 = str_replace($U['tmpname'],$_tmpname,$_content1);
 			}
 		}
-
 		getDbUpdate($table[$m.'data'],"content='".addslashes($_content1)."',upload='".$tmpupload."'",'uid='.$NOWUID);
 	}
 
