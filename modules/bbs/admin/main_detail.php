@@ -794,5 +794,11 @@ function saveCheck(f)
 	getIframeForAction(f);
 	f.submit();
 }
-//]]>
+
+$(document).ready(function(){
+	<?php if (!$uid): ?>
+	$('[name="name"]').focus()
+	<?php endif; ?>
+});
+
 </script>
