@@ -19,6 +19,15 @@ define('S3_SEC', $d['mediaset']['S3_SEC'] ); //발급받은 비밀번호.
 define('S3_REGION', $d['mediaset']['S3_REGION']);  //S3 버킷의 리전.
 define('S3_BUCKET', $d['mediaset']['S3_BUCKET']); //버킷의 이름.
 
+$s3 = new S3Client([
+	'version'     => 'latest',
+	'region'      => S3_REGION,
+	'credentials' => [
+			'key'    => S3_KEY,
+			'secret' => S3_SEC,
+	],
+]);
+
 $backUrl = getLinkFilter($g['s'].'/?'.($_HS['usescode']?'r='.$r.'&amp;':'').($c?'c='.$c:'m='.$m),array('bid','skin','iframe','cat','p','sort','orderby','recnum','type','where','keyword'));
 
 if ($my['uid'] != $R['mbruid'] && !$my['admin'] && !strstr(','.($d['bbs']['admin']?$d['bbs']['admin']:'.').',',','.$my['id'].','))
@@ -70,22 +79,14 @@ if ($R['comment'])
 					getDbUpdate($table['s_numinfo'],'upload=upload-1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
 					getDbDelete($table['s_upload'],'uid='.$U['uid']);
 
-					if ($U['host']==$d['mediaset']['ftp_urlpath'])
-					{
-						$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-						$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-						if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.','');
-						if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
-						if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
+					if ($U['fserver']==2) {
 
-						ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['tmpname']);
-						if($U['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['thumbname']);
-						ftp_close($FTP_CONNECT);
-
-					} elseif ($U['fserver']==2) {
+						$host_array = explode('//', $U['host']);
+						$_host_array = explode('.', $host_array[1]);
+						$S3_BUCKET = $_host_array[0];
 
 		        $s3->deleteObject([
-		          'Bucket' => S3_BUCKET,
+		          'Bucket' => $S3_BUCKET,
 		          'Key'    => $U['folder'].'/'.$U['tmpname']
 		        ]);
 
@@ -132,31 +133,14 @@ if ($R['upload'])
 			getDbUpdate($table['s_numinfo'],'upload=upload-1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
 			getDbDelete($table['s_upload'],'uid='.$U['uid']);
 
-			if ($d['mediaset']['ftp_urlpath'] && ($U['host']==$d['mediaset']['ftp_urlpath']))
-			{
-				$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-				$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-				if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.1','');
-				if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
-				if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
+			if ($U['fserver']==2) {
 
-				ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['tmpname']);
-				if($U['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['thumbname']);
-				ftp_close($FTP_CONNECT);
-
-			} elseif ($U['fserver']==2) {
-
-        $s3 = new S3Client([
-          'version'     => 'latest',
-          'region'      => S3_REGION,
-          'credentials' => [
-              'key'    => S3_KEY,
-              'secret' => S3_SEC,
-          ],
-        ]);
+				$host_array = explode('//', $U['host']);
+				$_host_array = explode('.', $host_array[1]);
+				$S3_BUCKET = $_host_array[0];
 
 				$s3->deleteObject([
-					'Bucket' => S3_BUCKET,
+					'Bucket' => $S3_BUCKET,
 					'Key'    => $U['folder'].'/'.$U['tmpname']
 				]);
 

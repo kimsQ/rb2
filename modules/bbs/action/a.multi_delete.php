@@ -2,8 +2,28 @@
 if(!defined('__KIMS__')) exit;
 checkAdmin(0);
 
-//include_once $g['path_module'].'mediaset/var/var.php'; ----------> 자체 upload 폴더 사용함으로 필요 없음 2014.12.31 by 케르
+$g['mediasetVarForSite'] = $g['path_var'].'site/'.$r.'/mediaset.var.php';
+include_once file_exists($g['mediasetVarForSite']) ? $g['mediasetVarForSite'] : $g['path_module'].'mediaset/var/var.php';
 
+include $g['path_core'].'function/rss.func.php';
+
+include_once $g['path_core'].'opensrc/aws-sdk-php/v3/aws-autoloader.php';
+
+use Aws\S3\S3Client;
+
+define('S3_KEY', $d['mediaset']['S3_KEY']); //발급받은 키.
+define('S3_SEC', $d['mediaset']['S3_SEC'] ); //발급받은 비밀번호.
+define('S3_REGION', $d['mediaset']['S3_REGION']);  //S3 버킷의 리전.
+define('S3_BUCKET', $d['mediaset']['S3_BUCKET']); //버킷의 이름.
+
+$s3 = new S3Client([
+	'version'     => 'latest',
+	'region'      => S3_REGION,
+	'credentials' => [
+			'key'    => S3_KEY,
+			'secret' => S3_SEC,
+	],
+]);
 
 foreach ($post_members as $val)
 {
@@ -25,28 +45,25 @@ foreach ($post_members as $val)
 
 				foreach($UPFILES['data'] as $_val)
 				{
-					$U = getUidData($table[$m.'upload'],$_val);
+					$U = getUidData($table['s_upload'],$_val);
 					if ($U['uid'])
 					{
 						getDbUpdate($table['s_numinfo'],'upload=upload-1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
-						getDbDelete($table[$m.'upload'],'uid='.$U['uid']);
+						getDbDelete($table['s_upload'],'uid='.$U['uid']);
 
-						if ($U['host']==$d['mediaset']['ftp_urlpath'])
+						if ($U['fserver']==2)
 						{
-							$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-							$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-							if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.','');
-							if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
-							if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
+							$host_array = explode('//', $U['host']);
+							$_host_array = explode('.', $host_array[1]);
+							$S3_BUCKET = $_host_array[0];
 
-							ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['tmpname']);
-							if($U['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['thumbname']);
-							ftp_close($FTP_CONNECT);
+							$s3->deleteObject([
+								'Bucket' => $S3_BUCKET,
+								'Key'    => $U['folder'].'/'.$U['tmpname']
+							]);
 						}
 						else {
-
-							unlink('./modules/bbs/upload/'.$U['folder'].'/'.$U['tmpname']);
-							if($U['type']==2) unlink('./modules/bbs/upload/'.$U['folder'].'/'.$U['thumbname']);
+							unlink($U['folder'].'/'.$U['tmpname']);
 						}
 					}
 				}
@@ -75,6 +92,7 @@ foreach ($post_members as $val)
 			}
 		}
 	}
+
 	//첨부파일삭제
 	if ($R['upload'])
 	{
@@ -82,31 +100,31 @@ foreach ($post_members as $val)
 
 		foreach($UPFILES['data'] as $_val)
 		{
-			$U = getUidData($table[$m.'upload'],$_val);
+			$U = getUidData($table['s_upload'],$_val);
+
 			if ($U['uid'])
 			{
 				getDbUpdate($table['s_numinfo'],'upload=upload-1',"date='".substr($U['d_regis'],0,8)."' and site=".$U['site']);
-				getDbDelete($table[$m.'upload'],'uid='.$U['uid']);
-				if ($U['host']==$d['mediaset']['ftp_urlpath'])
-				{
-					$FTP_CONNECT = ftp_connect($d['mediaset']['ftp_host'],$d['mediaset']['ftp_port']);
-					$FTP_CRESULT = ftp_login($FTP_CONNECT,$d['mediaset']['ftp_user'],$d['mediaset']['ftp_pass']);
-					if (!$FTP_CONNECT) getLink('','','FTP서버 연결에 문제가 발생했습니다.','');
-					if (!$FTP_CRESULT) getLink('','','FTP서버 아이디나 패스워드가 일치하지 않습니다.','');
-					if($d['mediaset']['ftp_pasv']) ftp_pasv($FTP_CONNECT, true);
+				getDbDelete($table['s_upload'],'uid='.$U['uid']);
 
-					ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['tmpname']);
-					if($U['type']==2) ftp_delete($FTP_CONNECT,$d['mediaset']['ftp_folder'].$U['folder'].'/'.$U['thumbname']);
-					ftp_close($FTP_CONNECT);
+				if ($U['fserver']==2)
+				{
+					$host_array = explode('//', $U['host']);
+					$_host_array = explode('.', $host_array[1]);
+					$S3_BUCKET = $_host_array[0];
+
+					$s3->deleteObject([
+						'Bucket' => $S3_BUCKET,
+						'Key'    => $U['folder'].'/'.$U['tmpname']
+					]);
 				}
 				else {
-					//getLink('','','./modules/bbs/upload/'.$U['folder'].'/'.$U['tmpname'],'');
-			    	unlink('./modules/bbs/upload/'.$U['folder'].'/'.$U['tmpname']);
-					if($U['type']==2) unlink('./modules/bbs/upload/'.$U['folder'].'/'.$U['thumbname']);
+					unlink($U['folder'].'/'.$U['tmpname']);
 				}
 			}
 		}
 	}
+
 	//태그삭제
 	if ($R['tag'])
 	{
