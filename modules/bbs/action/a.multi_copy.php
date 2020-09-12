@@ -57,12 +57,12 @@ foreach ($post_members as $val)
 
 	//게시물복사
 	$QKEY = "site,gid,bbs,bbsid,depth,parentmbr,display,hidden,notice,name,nic,mbruid,id,pw,category,subject,content,html,tag,";
-	$QKEY.= "hit,down,comment,oneline,trackback,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,d_trackback,upload,ip,agent,sns,location,pin,adddata";
+	$QKEY.= "hit,down,comment,oneline,likes,dislikes,report,point1,point2,point3,point4,d_regis,d_modify,d_comment,upload,ip,agent,sns,location,pin,adddata";
 	$QVAL = "'".$R['site']."','$gid','".$B['uid']."','".$B['id']."','".$R['depth']."','".$R['parentmbr']."','".$R['display']."','".$R['hidden']."','".$R['notice']."',";
 	$QVAL.= "'".addslashes($R['name'])."','".addslashes($R['nic'])."','".$R['mbruid']."','".$R['id']."','".$R['pw']."','".addslashes($R['category'])."','".addslashes($R['subject'])."',";
 	$QVAL.= "'".addslashes($R['content'])."','".$R['html']."','".addslashes($R['tag'])."',";
-	$QVAL.= "'".$R['hit']."','".$R['down']."','".$R['comment']."','".$R['oneline']."','0','".$R['likes']."','".$R['dislikes']."','".$R['report']."','0','".$R['point2']."','".$R['point3']."','".$R['point4']."',";
-	$QVAL.= "'".$R['d_regis']."','".$R['d_modify']."','".$R['d_comment']."','".$R['d_trackback']."','".$R['upload']."','".$R['ip']."','".$R['agent']."','".$R['sns']."','".$R['location']."','".$R['pin']."','".addslashes($R['adddata'])."'";
+	$QVAL.= "'".$R['hit']."','".$R['down']."','".$R['comment']."','".$R['oneline']."','".$R['likes']."','".$R['dislikes']."','".$R['report']."','0','".$R['point2']."','".$R['point3']."','".$R['point4']."',";
+	$QVAL.= "'".$R['d_regis']."','".$R['d_modify']."','".$R['d_comment']."','".$R['upload']."','".$R['ip']."','".$R['agent']."','".$R['sns']."','".$R['location']."','".$R['pin']."','".addslashes($R['adddata'])."'";
 	getDbInsert($table[$m.'data'],$QKEY,$QVAL);
 	getDbInsert($table[$m.'idx'],'site,notice,bbs,gid',"'".$R['site']."','".$R['notice']."','".$B['uid']."','$gid'");
 	getDbUpdate($table[$m.'list'],"num_r=num_r+1",'uid='.$B['uid']);
