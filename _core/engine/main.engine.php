@@ -20,7 +20,7 @@ if ($_SESSION['mbr_uid'])
 		$_SESSION['mbr_pw']  = '';
 		$_SESSION['mbr_logout'] = '1';
 		setAccessToken($my['uid'],'logout');
-		setrawcookie('site_login_result', rawurlencode('로그아웃 되었습니다.|danger'),time() + (60 * 30), '/');
+		setrawcookie('site_common_result', rawurlencode('로그아웃 되었습니다.|danger'),time() + (60 * 30), '/');
 		getLink('reload','','','');
 	}
 }
@@ -329,7 +329,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 
 			// 개인정보관리 > 연결계정 > 추가 연결
 			if ($mbr_sns['mbruid'] && ($mbr_sns['mbruid'] != $my['uid'])) {
-				setrawcookie('site_login_result', rawurlencode($sns_name_ko.' 계정이 이미 다른계정에 연결되어 있습니다.|danger'),time() + (60 * 30), '/');
+				setrawcookie('site_common_result', rawurlencode($sns_name_ko.' 계정이 이미 다른계정에 연결되어 있습니다.|danger'),time() + (60 * 30), '/');
 				$_SESSION['SL'] = '';  // 세션비우기
 				getLink('reload','','','');
 			}
@@ -342,7 +342,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 			}
 
 			getDbUpdate($table['s_mbrdata'],"last_log='".$date['totime']."'",'memberuid='.$my['uid']);
-			setrawcookie('site_login_result', rawurlencode($sns_name_ko.$msg.'|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+			setrawcookie('site_common_result', rawurlencode($sns_name_ko.$msg.'|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 			$_SESSION['SL'] = '';  // 세션비우기
 			getLink('reload','','','');
 
@@ -351,7 +351,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 				//결과값 못 받은 경우
 				if (!$name) {
 					$_SESSION['SL'] = '';
-					setrawcookie('site_login_result',rawurlencode($sns_name_ko.' 에서 정보를 수신하지 못했습니다.|danger'),time() + (60 * 30), '/');
+					setrawcookie('site_common_result',rawurlencode($sns_name_ko.' 에서 정보를 수신하지 못했습니다.|danger'),time() + (60 * 30), '/');
 					getLink('reload','','','');
 				}
 
@@ -364,7 +364,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 
 					setAccessToken($mbr_sns['mbruid'],'login');  //로그인 유지 기본적용
 
-					setrawcookie('site_login_result',rawurlencode($sns_name_ko.' 계정으로 로그인 되었습니다.|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+					setrawcookie('site_common_result',rawurlencode($sns_name_ko.' 계정으로 로그인 되었습니다.|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 					$_SESSION['SL'] = ''; //세션 비우기
 					getLink('reload','','','');
 				}
@@ -381,7 +381,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 
 						$_SESSION['mbr_uid'] = $M['uid'];
 						$_SESSION['mbr_pw']  = $M['pw'];
-						setrawcookie('site_login_result', rawurlencode($sns_name_ko.' 계정으로 로그인 되었습니다.|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+						setrawcookie('site_common_result', rawurlencode($sns_name_ko.' 계정으로 로그인 되었습니다.|default'),time() + (60 * 30), '/');  // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 						$_SESSION['SL'] = ''; //세션 비우기
 						getLink('reload','','','');
 
@@ -397,7 +397,7 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 						if ($is_sns['sns']=='facebook') $has_sns_ko = '페이스북';
 						if ($is_sns['sns']=='instagram') $has_sns_ko = '인스타그램';
 
-						setrawcookie('site_login_result', rawurlencode($sns_name_ko.' 사용자 인증 되었습니다. 계정을 연결해 주세요.|default'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+						setrawcookie('site_common_result', rawurlencode($sns_name_ko.' 사용자 인증 되었습니다. 계정을 연결해 주세요.|default'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 						if ($m!='member' || $front!="login") {
 							$call_modal_combine=1;  // 계정통합 모달 호출
 						}
@@ -406,14 +406,14 @@ if ($d['member']['login_social'] || $d['member']['join_bySocial']) {
 				} else {
 
 					if ($d['member']['join_enable']) { // 회원가입 작동 중지
-						setrawcookie('site_login_result', rawurlencode($sns_name_ko.' 사용자 인증 되었습니다.|default'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+						setrawcookie('site_common_result', rawurlencode($sns_name_ko.' 사용자 인증 되었습니다.|default'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 						if ($m!='member' || $front!="join") {
 							$call_modal_join_social=1;  // 소셜로그인 인증후,가입 모달 호출
 						}
 					} else {
 						$call_modal_join_social=0;
 						$_SESSION['SL'] = ''; //세션 비우기
-						setrawcookie('site_login_result', rawurlencode(' 죄송합니다. 지금은 회원가입을 하실 수 없습니다.|danger'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
+						setrawcookie('site_common_result', rawurlencode(' 죄송합니다. 지금은 회원가입을 하실 수 없습니다.|danger'),time() + (60 * 30), '/'); // 알림레이어 출력를 위한 로그인 상태 cookie 저장
 					}
 
 				}
