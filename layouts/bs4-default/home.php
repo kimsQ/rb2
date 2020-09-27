@@ -9,7 +9,7 @@
 
 	<?php include $g['dir_layout'].'/_includes/header.'.$d['layout']['header_type'].'.php' ?>
 
-	<main role="main" class="px-0">
+	<main role="main" class="<?php echo $d['layout']['home_container'] ?>">
 		<?php include __KIMS_CONTENT__ ?>
 	</main><!-- /.container -->
 

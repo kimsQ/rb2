@@ -1,3 +1,5 @@
+
+
 <div id="rb-search-body" class="mb-4">
 
 	<header class="header">
@@ -157,8 +159,8 @@
 							<small class="text-muted"><?php echo date("m/d", strtotime("-1 month")).'~'. date("m/d", strtotime("now"))?></small>
 						</header>
 
-						<div class="container mt-2">
-							<div class="row">
+						<div class="mt-2">
+							<div class="row mx-0">
 								<?php $j=0;while($G=db_fetch_array($RCD)):$j++?>
 
 								<div class="col-6 bg-light py-1 mb-1">
@@ -168,7 +170,6 @@
 										<small class="text-muted"><?php echo $G['hit']?>건</small>
 									</a>
 								</div>
-
 
 								<?php endwhile?>
 								<?php if(!$j):?>
