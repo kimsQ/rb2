@@ -61,7 +61,7 @@ include_once $g['dir_module_skin'].'_widget.php';
 		<li class="list-group-item d-flex justify-content-between align-items-center" id="item-<?php echo $_R['uid'] ?>">
 
 			<div class="media">
-				<?php if (getUpImageSrc($_R)): ?>
+				<?php if ($_R['featured_img']): ?>
 				<a class="mr-3" href="<?php echo getBbsPostLink($_R)?>" >
 					<img class="border" src="<?php echo getPreviewResize(getUpImageSrc($_R),'s') ?>" alt=""  width="64" height="64">
 				</a>
