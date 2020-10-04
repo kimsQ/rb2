@@ -12,7 +12,7 @@ include_once $_tmpdfile;
 				<div class="card-header p-0 d-flex justify-content-between">
 
 					<a class="muted-link d-block w-100" role="button" aria-expanded="true" aria-controls="collapseOne">
-							소셜 로그인 목록
+							외부 서비스 목록
 					</a>
 
 				</div>
@@ -298,6 +298,13 @@ include_once $_tmpdfile;
 							<label class="col-lg-2 col-form-label text-lg-right pt-3">보안 비밀</label>
 							<div class="col-lg-10 col-xl-9">
 								<input class="form-control form-control-lg" type="text" name="secret_g" value="<?php echo $d[$module]['secret_g']?>">
+							</div>
+						</div><!-- /.form-group -->
+
+						<div class="form-group row">
+							<label class="col-lg-2 col-form-label text-lg-right pt-3">API key</label>
+							<div class="col-lg-10 col-xl-9">
+								<input class="form-control form-control-lg" type="text" name="apikey_g" value="<?php echo $d[$module]['apikey_g']?>">
 							</div>
 						</div><!-- /.form-group -->
 

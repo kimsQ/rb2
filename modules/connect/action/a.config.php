@@ -18,6 +18,7 @@ foreach ($snsSet as $val)
 }
 
 fwrite($fp, "\$d['connect']['jskey_k'] = \"".${'jskey_k'}."\";\n");  // 카카오 JavaScript 키
+fwrite($fp, "\$d['connect']['apikey_g'] = \"".${'apikey_g'}."\";\n");  // 구글 API 키
 
 fwrite($fp, "?>");
 fclose($fp);
