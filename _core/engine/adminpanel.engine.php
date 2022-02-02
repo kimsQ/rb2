@@ -310,7 +310,7 @@ $mf_json = json_decode($mf_str , true);
 										$_manifestIcon_jpg = $g['path_var'].'site/'.$r.'/homescreen.jpg';
 										$_manifestIcon_gif = $g['path_var'].'site/'.$r.'/homescreen.gif';
 										if (file_exists($_manifestIcon_png) || file_exists($_manifestIcon_jpg) || file_exists($_manifestIcon_gif)) {
-											$is_manifestIcon = ture;
+											$is_manifestIcon = true;
 										}
 										?>
 
